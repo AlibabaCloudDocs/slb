@@ -1,6 +1,6 @@
-# CreateRules {#doc_api_977742 .reference}
+# CreateRules {#doc_api_1065223 .reference}
 
-使用CreateRules为指定的HTTP或HTTPS监听添加转发规则。
+调用CreateRules为指定的HTTP或HTTPS监听添加转发规则。
 
 ## 调试 {#apiExplorer .section}
 
@@ -30,7 +30,7 @@
  |
 |RuleList|String|是|\[\{"RuleName":"Rule2","Domain":"test.com","VServerGroupId":"rsp-bp114nimo4kl9"\}\]|要添加的转发规则。一次请求中，最多可添加10条转发规则。每条转发规则包含以下参数：
 
- -   **RuleName**（必选）：String类型。转发规则名称，长度限制为1~80，只能使用字母、数字和-/.\_这些字符。同一个监听内不同规则的名称必须唯一。
+ -   **RuleName**（必选）：String类型。转发规则名称，长度限制为1~40，只能使用字母、数字和-/.\_这些字符。同一个监听内不同规则的名称必须唯一。
 -   **Domain**（可选）： String类型。转发规则关联的请求域名。
 -   **Url**（可选）：String类型，可选，访问路径，长度限制为1~80，只能使用字母、数字和-/.%?\#&这些字符。
 -   **VServerGroupId**（必选）：String类型。该转发规则的目标虚拟服务器组ID。
