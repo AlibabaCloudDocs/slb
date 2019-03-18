@@ -118,7 +118,7 @@ Normal response examples
   <RegionIdAlias>cn-hangzhou</RegionIdAlias>
   <ResourceGroupId>rg-acfmxazb4ph6aiy</ResourceGroupId>
   <Fingerprint>68:08:1a:f8:2c:97:69:a3:a1:e6:16:41:4b:ca:4f:5d:ee:a5:ef:0d</Fingerprint>
-  <ServerCertificateId>1231579085529123_166f8204689_1714763408_709981430</ServerCertificateId>
+  <ServerCertificateId>123157908552****_166f8204689_1714763408_709981430</ServerCertificateId>
   <ExpireTimeStamp>1558161264000</ExpireTimeStamp>
   <AliCloudCertificateId>1501739</AliCloudCertificateId>
   <ExpireTime>2019-05-18T06:34:24Z</ExpireTime>
@@ -139,7 +139,7 @@ Normal response examples
 	"RegionIdAlias":"cn-hangzhou",
 	"ResourceGroupId":"rg-acfmxazb4ph6aiy",
 	"Fingerprint":"68:08:1a:f8:2c:97:69:a3:a1:e6:16:41:4b:ca:4f:5d:ee:a5:ef:0d",
-	"ServerCertificateId":"1231579085529123_166f8204689_1714763408_709981430",
+	"ServerCertificateId":"123157908552****_166f8204689_1714763408_709981430",
 	"ExpireTimeStamp":1558161264000,
 	"AliCloudCertificateId":"1501739",
 	"ExpireTime":"2019-05-18T06:34:24Z",
