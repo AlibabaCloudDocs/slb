@@ -258,7 +258,7 @@ Normal response examples
   <RequestId>11F52428-64ED-40F7-98C2-DBB6D0BB0AD7</RequestId>
   <HealthCheckHttpCode>http_2xx,http_3xx</HealthCheckHttpCode>
   <HealthCheckTimeout>5</HealthCheckTimeout>
-  <ServerCertificateId>1231579085529123_15dbf6ff26f_1991415478_2054196746</ServerCertificateId>
+  <ServerCertificateId>123157908552****ssss_15dbf6ff26f_1991415478_2054196746</ServerCertificateId>
   <XForwardedFor_SLBID>off</XForwardedFor_SLBID>
   <Gzip>on</Gzip>
   <HealthyThreshold>3</HealthyThreshold>
@@ -291,7 +291,7 @@ Normal response examples
 	"HealthCheckTimeout":5,
 	"HealthCheck":"on",
 	"ListenerPort":443,
-	"ServerCertificateId":"1231579085529123_15dbf6ff26f_1991415478_2054196746",
+	"ServerCertificateId":"123157908552****_15dbf6ff26f_1991415478_2054196746",
 	"Status":"running",
 	"XForwardedFor_SLBID":"off",
 	"Gzip":"on",
