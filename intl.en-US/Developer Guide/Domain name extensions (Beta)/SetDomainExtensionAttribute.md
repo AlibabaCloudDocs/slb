@@ -19,7 +19,7 @@ Click [here](https://api.aliyun.com/#product=Slb&api=SetDomainExtensionAttribute
 |RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs
 
  |
-|ServerCertificateId|String|Yes|1231579085529123\_166f8204689\_1714763408\_709981430|The ID of the new certificate
+|ServerCertificateId|String|Yes|123157908552\*\*\*\*\_166f8204689\_1714763408\_709981430|The ID of the new certificate
 
  |
 
