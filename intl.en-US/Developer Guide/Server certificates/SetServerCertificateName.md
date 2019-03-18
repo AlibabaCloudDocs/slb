@@ -44,7 +44,7 @@ Request example
 https://slb.aliyuncs.com/
 &Action=SetServerCertificateName
 &RegionId=cn-hangzhou
-&ServerCertificateId=1231579085529123_166f8204689_1714763408_709981430
+&ServerCertificateId=123157908552****_166f8204689_1714763408_709981430
 &ServerCertificateName=.example1.com
 &<CommonParameters>
 
