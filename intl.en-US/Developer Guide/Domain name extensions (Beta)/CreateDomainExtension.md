@@ -25,7 +25,7 @@ Click [here](https://api.aliyun.com/#product=Slb&api=CreateDomainExtension) to p
 |RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs
 
  |
-|ServerCertificateId|String|Yes|1231579085529123\_166f8204689\_1714763408\_709981430|The ID of the certificate used by the domain name
+|ServerCertificateId|String|Yes|123157908552\*\*\*\*\_166f8204689\_1714763408\_709981430|The ID of the certificate used by the domain name
 
  |
 
@@ -53,7 +53,7 @@ Request example
 &ListenerPort=443
 &LoadBalancerId=lb-bp1o94dp5i6earr9g6d1l
 &RegionId=cn-hangzhou
-&ServerCertificateId=1231579085529123_166f8204689_1714763408_709981430
+&ServerCertificateId=123157908552****_166f8204689_1714763408_709981430
 &Action=CreateDomainExtension
 &Tags={"tagKey":"Key1","tagValue":"Value1"}
 &<CommonParameters>
