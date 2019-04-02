@@ -1,4 +1,4 @@
-# CreateLoadBalancerUDPListener {#doc_api_946025 .reference}
+# CreateLoadBalancerUDPListener {#doc_api_Slb_CreateLoadBalancerUDPListener .reference}
 
 使用CreateLoadBalancerUDPListener创建UDP监听。
 
@@ -8,7 +8,7 @@
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancerUDPListener)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancerUDPListener)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -17,7 +17,7 @@
 |Action|String|是|CreateLoadBalancerUDPListener|要执行的操作。取值：**CreateLoadBalancerUDPListener**
 
  |
-|Bandwidth|Integer|是|34|监听的带宽峰值。取值：**-1|1-5000**
+|Bandwidth|Integer|是|34|监听的带宽峰值。取值：**-1|1-5120**
 
  -   **-1**：对于按流量计费的公网负载均衡实例，可以将带宽峰值设置为**-1**，即不限制带宽峰值。
 
@@ -45,7 +45,7 @@
 
  -   **white**：仅转发来自所选访问控制策略组中设置的IP地址或地址段的请求，白名单适用于应用只允许特定IP访问的场景。
 
-设置白名单存在一定业务风险。
+ 设置白名单存在一定业务风险。
 
  一旦设置白名单，就只有白名单中的IP可以访问负载均衡监听。
 
@@ -54,6 +54,7 @@
  -   **black**：来自所选访问控制策略组中设置的IP地址或地址段的所有请求都不会转发，黑名单适用于应用只限制某些特定IP访问的场景。
 
 如果开启了黑名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
+
 
  当**AclStatus**参数的值为**on**时，该参数必选。
 
@@ -120,9 +121,7 @@
 |VServerGroupId|String|否|rsp-cige6j5e7p|服务器组ID。
 
  |
-|healthCheckExp|String|否|12|健康检查使用的端口。取值：**1-65535**
-
- 不设置此参数时，表示使用后端服务端口（**BackendServerPort**）。
+|healthCheckExp|String|否|ok|UDP监听健康检查的响应串，只允许包含字母、数字字符，最大长度限制为500字符。
 
  |
 |healthCheckInterval|Integer|否|3|健康检查的时间间隔。
