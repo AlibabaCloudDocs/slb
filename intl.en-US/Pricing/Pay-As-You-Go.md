@@ -1,12 +1,12 @@
 # Pay-As-You-Go {#concept_dph_vfs_wdb .concept}
 
-SLB is billed based on traffic usage.
+SLB instances are billed based on your actual traffic usage.
 
 ## Billing items {#section_e22_ggs_wdb .section}
 
-The cost of an SLB instance is the sum of the following billing items. The billing items vary by the network type and instance type as shown in the following table.
+The following table details the items that are billed. Billing items vary by network type and instance type, as shown in the following table.
 
-**Note:** “-” means that the corresponding item is not billed and “✔” means that the corresponding item is billed.
+**Note:** “-” means that the corresponding item is not billed, and “✔” means that the corresponding item is billed.
 
 |Network type|Instance type|Instance fee|Traffic fee|Specification fee|
 |:-----------|:------------|:-----------|:----------|:----------------|
@@ -17,27 +17,23 @@ The cost of an SLB instance is the sum of the following billing items. The billi
 
 ## Instance fee {#section_a1f_lgs_wdb .section}
 
-The instance fee is the public IP reservation fee of Internet SLB instances.
+SLB instances that communicate through the Internet incur fees for public IP address reservations. SLB instances that communicate through the intranet do not incur such charges. Instance fees for SLB instances that use the Internet are calculated as follows:
 
-**Note:** Intranet SLB instances are free of instance fee.
+-   Instance fee = unit price \* instance reservation time
 
-Instance fees of Internet SLB instances are billed as follows:
+    The reservation time is the period from the time at which the instance is created to the time at which the instance is released.
 
--   Instance fee = unit instance price x instance reservation time
-
-    The reservation time is the period from the time the instance is created to the time the instance is released.
-
--   Instance fees are billed on an hourly basis. In a billing cycle, partial hours are billed as full hours.
+-   Instance fees are billed on an hourly basis. If your period of usage is less than one hour, then the bill is rounded up to one hour.
 
 
-If the price on the purchase page is different from the price listed in the table, take the price on the purchase page as the standard.
+If the price on the purchase page of the console is different from the price listed in the following table, take the price on the purchase page as the standard.
 
 |Region|Instance fee \(USD/hour\)|
 |:-----|:------------------------|
-|China \(Hangzhou\)/China \(Beijing\)/China \(Shenzhen\)/ China \(Shanghai\)/China \(Zhangjiakou\)|0.003|
+|China \(Hangzhou\), China \(Beijing\), China \(Shenzhen\), China \(Shanghai\), China \(Zhangjiakou\)|0.003|
 |China \(Qingdao\)|0.003|
 |Hong Kong|0.009|
-|US \(Virginia\) /US \(Silicon Valley\)|0.005|
+|US \(Virginia\), US \(Silicon Valley\)|0.005|
 |Singapore|0.006|
 |Japan \(Tokyo\)|0.009|
 |Germany \(Frankfurt\)|0.006|
@@ -46,36 +42,32 @@ If the price on the purchase page is different from the price listed in the tabl
 
 ## Traffic fee {#section_c1f_lgs_wdb .section}
 
-Traffic fees are charged based on the traffic usage of Internet SLB instances.
+SLB instances that communicate through the Internet incur traffic fees based on your usage. However, SLB instances that communicate through the intranet can be used free of charge. Traffic fees for SLB instances that use the Internet are calculated as follows:
 
-**Note:** Intranet instances are free of traffic fee.
+-   Internet traffic fee = unit traffic price \* time
 
-Traffic fees of Internet SLB instances are billed as follows:
+    Internet traffic is the outbound \(downstream\) traffic. Inbound \(upstream\) traffic is not charged.
 
--   Internet traffic fee = unit traffic price x usage time
+-   Traffic fees are billed on an hourly basis. If your period of usage is less than one hour, then the bill is rounded up to one hour.
 
-    Internet traffic is the outbound \(downstream\) traffic. Inbound \(upstream\) traffic is not included in the cost.
+    If the price on the purchase page of the console is different from the price listed in the following table, take the price on the purchase page as the standard.
 
--   Traffic fees are billed on an hourly basis. In a billing cycle, partial hours are billed as full hours.
-
-    If the price on the purchase page is different from the price listed in the table, take the price on the purchase page as the standard.
-
-    |Region|Traffic fee \(USD/Gbps\)|
-    |:-----|:-----------------------|
-    |China \(Hangzhou\)/China \(Beijing\)/China \(Shenzhen\)/China \(Shanghai\)/ China \(Zhangjiakou\)|0.125|
+    |Region|Traffic fee \(USD/Gbit/s\)|
+    |:-----|:-------------------------|
+    |China \(Hangzhou\)/China \(Beijing\)/China \(Shenzhen\)/China \(Shanghai\)/China \(Zhangjiakou\)|0.125|
     |China \(Qingdao\)|0.113|
-    |China \(Hong Kong\)|0.156|
-    |US \(Virginia\) /US \(Silicon Valley\)|0.078|
+    |Hong Kong|0.156|
+    |US \(Virginia\)/US \(Silicon Valley\)|0.078|
     |Singapore|0.117|
     |Japan \(Tokyo\)|0.120|
     |Germany \(Frankfurt\)|0.070|
     |UAE \(Dubai\)|0.447|
-    |Australia \(Sydney\)|0.096|
+    |Australia \(Sydney\)|0.130|
 
 
 ## Capacity fee {#section_r13_y1h_j2b .section}
 
-The following are three key performance metrics for guaranteed-performance instances. The limits of these metrics are different for instances of different capacities. For more information, see [Guaranteed-performance instances](../intl.en-US/User Guide/Server Load Balancer instance/Guaranteed-performance instances.md#).
+The following are three key performance metrics for guaranteed-performance instances. The limits of these metrics are different for instances of different capacities. For more information, see [../DNslb1864977/../DNslb1866251/EN-US\_TP\_15642.md\#](../intl.en-US/FAQ/Guaranteed-performance instances.md#).
 
 -   Max Connection
 
@@ -109,7 +101,7 @@ For example, the capacity slb.s3.large \(1,000,000; CPS 500,000; QPS 50,000\) is
 
 The following figure is an example showing how the specification fee is billed for an SLB instance:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13418/15518765233113_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13418/15553126823113_en-US.png)
 
 The billing of the guaranteed-performance instances is flexible.  The capacity you select when purchasing an instance is the performance limitation of the instance. For example, if slb.s3.medium is selected, the new connections are dropped when the HTTP requests in one second reach 30,000.
 
