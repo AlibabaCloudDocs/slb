@@ -1,18 +1,18 @@
 # Monitoring data and billing data {#concept_dzd_4hs_wdb .concept}
 
-Server Load Balancer provides a function that monitors the inbound and outbound traffic, number of connections, and more. You can view real-time monitoring data on the console. You are charged for the network traffic consumed by the Server Load Balancer instance. However, monitoring data is different from billing data, which is caused by factors as described in the following table.
+Server Load Balancer \(SLB\) provides a monitoring function that monitors such metrics as the inbound and outbound traffic and the number of connections. You can view real-time monitoring data in the console. Besides monitoring data, billing data is also collected, but it is collected for the calculation of fees to be charged. Monitoring data and billing data differ given the factors described as follows.
 
 |Factor|Monitoring Data|Billing data|
 |:-----|:--------------|:-----------|
-|Calculation method| Monitoring data is collected every one minute by the Server Load Balancer system, and reported to the cloud monitoring system. Then, the cloud monitoring system calculates the average value of all collected data in each 15 minutes.
+|Calculation method| The SLB system collects monitoring data every minute, and reports the data to CloudMonitor. After every 15 minutes, CloudMonitor calculates the average value of data collected in that time period.
 
- The displayed network traffic data is the calculated average value.
+ The network traffic data displayed in the console is the average value calculated.
 
- | Billing data is collected at the same granularity and the Server Load Balancer system reports the accumulated value in each hour to the billing system.
+ | Billing data is collected every minute, and the SLB system reports the accumulated value once each hour to the billing system.
 
- The monitoring data is the calculated average value, but the billing data is the accumulation value. These two data sets are incomparable because they are calculated and generated differently.
+ Monitoring data is the calculated average for a 15-minute time period, but the billing data is the accumulated value in a billing cycle.
 
  |
-|Latency|Server Load Balancer provides real-time monitoring data. However, a short delay may inevitably occur in the data collection, calculation, and display process. Although this delay is almost insignificant, it can create a certain degree of discrepancy between the monitoring and billing data.|Billing data tolerates a maximum delay of three hours. For example, billing data generated between 01:00-02:00 is normally reported to the billing system at 03:00, but is allowed to be reported to the billing system at 05:00. As a result, there are differences between billing data and monitoring data.|
-|Purpose|The purpose of monitoring is to help users observe if the instance is in abnormal conditions. If so, users can take specific measures to solve the problem as soon as possible.|The purpose of billing is to generate bills. Monitoring data cannot be used as the billing data.|
+|Latency|SLB provides real-time monitoring data. However, a short delay may inevitably occur during the process of data collection, calculation, and display. Although this delay is nearly immeasurable, it can create a certain degree of discrepancy between the monitoring and billing data.|Billing data can allow up to a three-hour delay. For example, billing data generated between 01:00-02:00 is normally reported to the billing system before 03:00. However, data may be reported up to three hours later, with the last reporting time being 05:00. As a result, there may be a discrepancy between billing data and monitoring data.|
+|Purpose|The purpose of monitoring is to help you observe if instances are running normally. If not, you can take measures to solve problems in a timely manner.|The purpose of billing is to generate bills. Monitoring data cannot be used as billing data.|
 
