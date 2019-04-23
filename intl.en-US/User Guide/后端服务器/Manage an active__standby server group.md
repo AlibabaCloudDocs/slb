@@ -10,8 +10,8 @@ An active/standby server group only contains two ECS instances. One acts as the 
 
 Before creating an active/standby server group, make sure the following conditions are met:
 
--   You have [created an SLB instance](intl.en-US/Archives/User Guide (Old Console)/SLB instances/Create an instance.md#).
--   You have created ECS instances and deploy applications to process distributed requests. 
+-   You have [created an SLB instance](reseller.en-US/Archives/User Guide (Old Console)/SLB instances/Create an instance.md#).
+-   You have created ECS instances and deploy applications to process distributed requests.
 
 To add ECS instances, complete these steps:
 
@@ -34,7 +34,7 @@ To add ECS instances, complete these steps:
             The back-end ports in a Server Load Balancer instance can be the same.
 
         -   **Server**: Select a server to act as the active server.
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15671/15560196617370_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15671/15560200757370_en-US.png)
 
 
 ## Delete an active/standby server group {#section_upw_1np_42b .section}
@@ -47,7 +47,7 @@ To delete an active/standby server group, complete these steps:
 4.  Click the Active/Standby Server Groups tab.
 5.  Click **Delete** next to the target active/standby server group.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15671/15560196637475_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15671/15560200757475_en-US.png)
 
 6.  In the displayed dialog box, click **OK**.
 
