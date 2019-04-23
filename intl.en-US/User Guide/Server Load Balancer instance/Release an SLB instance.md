@@ -1,17 +1,17 @@
 # Release an SLB instance {#task_xcl_b1n_42b .task}
 
-You can release an SLB instance immediately or on schedule.
+This topic describes how to release a Server Load Balancer \(SLB\) instance. You can release an SLB instance immediately or at a specified time.
 
 1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb). 
-2.  Find the target instance and then click **More** \> **Release**. 
+2.  Find the target instance and click **More** \> **Release**. 
 
-    You can select multiple SLB instances at a time and click **Release** in the lower part of the page to release SLB instance in batches.
+    You can select multiple SLB instances at a time and click **Release** at the bottom of the page to release SLB instances in batches.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16162/15421806867450_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16162/15560048867450_en-US.png)
 
-3.  On the Release page, select to release now or release on schedule. 
+3.  On the Release page, select **Release Now** or **Release on Schedule**. 
 
-    **Note:** The system executes the release operation every one hour or every 30 minutes, but will stop billing at the release time you set.
+    **Note:** While the system executes the release operation every half hour or one hour cycle, the billing of the instance is stopped immediately at the release time you set.
 
 4.  Click **Next**. 
 5.  Confirm the displayed information and click **OK** to release the instance. 
