@@ -1,37 +1,35 @@
 # Network traffic flow {#concept_ev3_wsm_vdb .concept}
 
-As a traffic forwarding service, SLB forwards requests from clients to backend servers through the SLB cluster and then the backend servers return the responses to SLB through the intranet.
+As a traffic forwarding service, SLB forwards requests from clients to backend servers through SLB clusters. Then, the backend servers return responses to SLB through the intranet.
 
-## Inbound network traffic {#section_fxh_xgn_vdb .section}
+## Inbound network traffic flow {#section_fxh_xgn_vdb .section}
 
-SLB distributes incoming traffic according to forwarding rules configured on the console or API. The inbound network traffic flow is shown as [Figure 1](#fig_og4_jfp_h2b).
+SLB distributes incoming traffic according to the forwarding rules configured on the console or by using APIs. The following figure shows the inbound network traffic flow.
 
-![](../DNSLB11827830/images/2333_en-US.png "Inbound network traffic")
+![](../DNSLB11827830/images/2333_en-US.png "Inbound network traffic flow")
 
-1.  For TCP/UDP protocol and HTTP/HTTPS protocol, the incoming traffic must be forwarded through the LVS cluster first.
-2.  Numerous inbound traffic is distributed evenly among all node servers in the LVS cluster, and the node servers synchronizes session to guarantee high availability.
+1.  For TCP/UDP protocols and HTTP/HTTPS protocols, the incoming traffic must be forwarded through the LVS cluster first.
+2.  A massive number of access requests are evenly distributed among all servers in the LVS cluster. Servers synchronize sessions to guarantee high availability.
     -   For Layer-4 listeners \(the frontend protocol is UDP or TCP\), the node servers in the LVS cluster distribute requests directly to backend ECS instances according to the configured forwarding rules.
     -   For Layer-7 listeners \(the frontend protocol is HTTP\), the node servers in the LVS cluster first distribute requests to the Tengine cluster. Then, the node servers in the Tengine cluster distribute the requests to backend ECS instances according to the configured forwarding rules.
-    -   For Layer-7 listeners \(the frontend protocol is HTTPS\), the request distribution is similar to the HTTP protocol. However, before distributing the requests to backend ECS instances, the system will call the Key Server to validate certificates and decrypt data packets.
+    -   For Layer-7 listeners \(the frontend protocol is HTTPS\), the request distribution is similar to the HTTP protocol. However, before distributing requests to backend ECS instances, the system will call the Key Server to validate certificates and decrypt data packets.
 
 ## Outbound network traffic {#section_jcv_ghn_vdb .section}
 
 SLB communicates with backend ECS instances through the intranet.
 
--   If the backend ECS instances only need to handle the traffic distributed from SLB, no public bandwidth \(EIP, NAT Gateway and public IP\) is required.
+-   If backend ECS instances only need to handle the traffic distributed from SLB, no public bandwidth \(EIP, NAT Gateway, and public IP\) is required, and you do not need to purchase any public bandwidth.
 
-    If the ECS instance already has a public IP, but only processes requests from SLB, no fee is generated.
+    **Note:** ECS instances of the previous generation are directly allocated with public IP addresses. You can view the public IP addresses by using the ifconfig command. If these ECS instances process requests only through SLB, no traffic fee is incurred for traffic sent through the Internet even traffic statistics are read at the public network interface \(NIC\).
 
--   However, if you want to provide external services from a backend ECS instance, or the backend ECS instance needs to access the Internet, you must configure a public IP, an EIP or a NAT Gateway.
+-   If you want to provide external services through backend ECS instances, or backend ECS instances need to access the Internet, you must configure at least one of the following: a public IP address, an EIP, or a NAT Gateway.
 
-The outbound network traffic flow is shown as [Figure 2](#fig_s3w_zmt_h2b).
+The following figure shows the outbound network traffic flow.
 
-![](../DNSLB11827830/images/2335_en-US.png "Outbound network traffic")
+![](../DNSLB11827830/images/2335_en-US.png "Outbound network traffic flow")
 
-In general, the traffic goes out from where it comes in:
-
-1.  For the traffic coming from SLB, billing and speed limitation are done on SLB. You are charged by the outbound traffic and not the inbound traffic \(the rule may change in the future\). SLB communicates with the backend ECS instances through the intranet and no traffic fee is charged for the internal communication.
-2.  For the traffic coming from the EIP or NAT Gateway, billing and speed limitation are done on EIP or NAT Gateway. If the ECS instance has configured a public IP when it is created, the billing and speed limitation are done on the ECS instance.
-3.  SLB only provides the function of being accessed from the Internet. That is, a backend ECS instance can only access the Internet when it responds to the request forwarded by SLB. If you want to actively access the Internet from a backend ECS instance, you must configure a public IP \(configure EIP or NAT gateway\) for the ECS instance.
-4.  A public IP \(configured when you create an ECS instance\), EIP, and NAT gateway can all achieve mutual Internet access \(access or accessed\), but they cannot forward traffic or balance traffic loads.
+-   For outbound traffic from SLB instances \(that is, traffic transferred through the Internet\), traffic is sent at speeds dependent on the current network capacity, and is charged. However, you are not charged for intranet communications, such as traffic transferred between SLB instances and backend ECS instances.
+-   For outbound traffic from an EIP or from NAT Gateway \(that is, traffic transferred through the Internet\), traffic is sent at speeds dependent on the current network capacity, and is charged. Additionally, if an ECS instance is configured with a public IP address when it is created, the outbound traffic from this instance is also charged.
+-   SLB supports dynamic access to the Internet. Specifically, if a backend ECS instance needs to access the Internet, you must first configure a public IP address for it \(by using an EIP or using NAT Gateway\) and add it to the instance.
+-   A public IP address \(configured when you create an ECS instance\), EIP, and NAT gateway all allow mutual Internet access. That is, ECS instances can access the Internet or be accessed from the Internet through any of these. Note, however, that they cannot forward traffic or balance traffic loads.
 
