@@ -36,11 +36,11 @@ SLB IPv6 instances have the following features:
 
     **Note:** Currently, only Zone E and Zone F in the China \(Hangzhou\) region, Zone F and Zone G in the China \(Beijing\) region, and Zone E \(primary zone\) and Zone D \(secondary zone\) in the China \(Shanghai\) region support creating IPv6 instances and the instances must be guaranteed-performance instances.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15560895177308_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15560900697308_en-US.png)
 
 5.  Go back to the **Server Load Balancer** page to view the created IPv6 instance.
 
 After the IPv6 instance is created, the system allocates an IPv6 address to it.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15560895177309_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15560900697309_en-US.png)
 
