@@ -19,7 +19,7 @@ Where:
 -   Version: The version of the API to call. The SLB API version is 2014-05-15.
 -   Parameters: Request parameters. Use “&” to separate multiple parameters.
 
-    Request parameters consist of common parameters and API specific parameters. Common parameters include API version, credentials and so on. For more information, see [Common parameters](reseller.en-US/Developer Guide/Common parameters.md).
+    Request parameters consist of common parameters and API specific parameters. Common parameters include API version, credentials, and so on. For more information, see [Common parameters](reseller.en-US/Developer Guide/Common parameters.md).
 
 
 The following is an example using the DescribeLoadBalancers API to query the created SLB instances:
@@ -51,7 +51,7 @@ To ensure the security of your API, you must sign the API request. Alibaba Cloud
 
 For more information, see [RPC API signature](https://www.alibabacloud.com/help/doc-detail/66384.htm).
 
-SLB uses AccessKey ID and AccessKey Secret for symmetrical encryption to verify the identity of the requester. AccessKey is an identity credential issued to Alibaba Cloud accounts and the RAM users \(similar to the login password\). The AccessKey ID is used to verify the identity of the user, and the AccessKey Secret is used to encrypt the signature string and is also the key used by the server to verify the signature string. The AccessKey Secret must be kept strictly confidential.
+SLB uses AccessKey ID and AccessKey Secret for symmetrical encryption to verify the identity of the requester. AccessKey is an identity credential issued to Alibaba Cloud accounts and the RAM users \(similar to the logon password\). The AccessKey ID is used to verify the identity of the user, and the AccessKey Secret is used to encrypt the signature string and is also the key used by the server to verify the signature string. The AccessKey Secret must be kept strictly confidential.
 
 Add the signature to the API request in the following format:
 
@@ -77,7 +77,7 @@ Follow these steps to calculate the signature:
 1.  Use the request parameters to create a canonicalized query string to sign.
 
     ```
-    GET&%2F&AccessKeyId%3Dtestid&Action%3DDescribeLoadBalancers&Format%3DXML&SignatureMethod%3DHMAC-SHA1&SignatureNonce%3D3ee8c1b8-83d3-44af-a94f-4e0ad82fd6cf&SignatureVersion%3D1.0&TimeStamp%3D2016-02-23T12%253A46%253A24Z&Version%3D2014-05-15
+    GET&%2F&AccessKeyId%3Dtestid%26Action%3DDescribeRegions%26Format%3DXML%26SignatureMethod%3DHMAC-SHA1%26SignatureNonce%3D3ee8c1b8-83d3-44af-a94f-4e0ad82fd6cf%26SignatureVersion%3D1.0%26TimeStamp%3D2016-02-23T12%253A46%253A24Z%26Version%3D2014-05-26
     ```
 
 2.  Calculate the HMAC value of the string to sign.
