@@ -5,10 +5,10 @@ This topic describes how to use CloudMonitor to view the monitoring data of SLB 
 1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb). 
 2.  In the left-side navigation pane, choose **Instances** \> **Server Load Balancer**. 
 3.  Select the region to which the target SLB instance belongs. 
-4.  Find the target instance, and click the monitoring icon ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15691/15561621227338_en-US.png) next to the instance. 
+4.  Find the target instance, and click the monitoring icon ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15691/15561744417338_en-US.png) next to the instance. 
 5.  Select the metric that you want to view. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15691/15561621227337_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15691/15561744417337_en-US.png)
 
     The following metrics are monitored for SLB instances.
 
