@@ -1,23 +1,23 @@
 # Traffic forwarding based on domain name or URL {#concept_sh5_nj5_vdb .concept}
 
-SLB supports configuring domain name based or URL based forwarding rules. You can forward requests with different domain names or URLs to different backend servers by adding forwarding rules so as to well allocate server resources.
+SLB supports configuring domain name-based or URL-based forwarding rules. You can forward requests with different domain names or URLs to different backend servers by adding forwarding rules so as to well allocate server resources.
 
 **Note:** Only Layer-7 listeners \(HTTPS/HTTP protocol\) support configuring forwarding rules.
 
-## Introduction to domain name based or URL based forwarding rules {#section_hll_n31_wdb .section}
+## Introduction to domain name-based or URL-based forwarding rules {#section_hll_n31_wdb .section}
 
-Layer-7 listeners support configuring domain name based or URL based forwarding rules to distribute requests with different domain names or URLs to different ECS instances.
+Layer-7 listeners support configuring domain name-based or URL-based forwarding rules to distribute requests with different domain names or URLs to different ECS instances.
 
-URL based forwarding rules support string matching and adopt sequential matching, such as /admin, /bbs, and /test.
+URL-based forwarding rules support string matching and the rule with the longest matched prefix is applied. For example, if the two forwarding rules /abc and /abcd are created and a request with the prefix of /abcde is received, the rule /abcd is applied.
 
-Domain name based forwarding rules support exact match and wildcard match:
+Domain name-based forwarding rules support exact match and wildcard match:
 
 -   Exact domain name: www.aliyun.com
 -   Wildcard domain name \(generic domain name\): \*.aliyun.com, \*.market.aliyun.com
 
     When a request matches multiple forwarding rules, exact match takes precedence over small-scale wildcard match and small-scale wildcard match takes precedence over large-scale wildcard match, as shown in the following table.
 
-    |Type|Request URL|Domain name based forwarding rule|
+    |Type|Request URL|Domain name-based forwarding rule|
 |www.aliyun.com|\*.aliyun.com|\*.market.aliyun.com|
     |:---|:----------|:--------------------------------|
     |:-------------|:------------|:-------------------|
@@ -32,18 +32,18 @@ After forwarding rules are configured, the sequence of request forwarding is as 
 
 -   If the requests match a forwarding rule, the requests are distributed to the VServer group associated with the rule.
 -   If not, but the listener is associated with a VServer group, the requests are distributed to the VServer group configured in the listener.
--   If none of the above conditions are met, the requests are forwarded to ECS instances in the default server group.
+-   If none of the preceding conditions are met, the requests are forwarded to ECS instances in the default server group.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4135/15421820492798_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4135/15562639502798_en-US.png)
 
 ## Add a domain-name based or URL-based forwarding rule {#section_z1n_t1b_wdb .section}
 
 Before adding the forwarding rule, make sure that the following conditions are met:
 
--   [Add an HTTP listener](../reseller.en-US/User Guide/Listeners/Add an HTTP listener.md#)or [Add an HTTPS listener](../reseller.en-US/User Guide/Listeners/Add an HTTPS listener.md#).
+-   [Add an HTTP listener](../reseller.en-US/User Guide/Listeners/Add an HTTP listener.md#) or [Add an HTTPS listener](../reseller.en-US/User Guide/Listeners/Add an HTTPS listener.md#).
 -   [Manage a VServer group](../reseller.en-US/User Guide/后端服务器/Manage a VServer group.md#).
 
-To add a domain name based or URL based forwarding rule, complete these steps:
+To add a domain name-based or URL-based forwarding rule, complete these steps:
 
 1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  Select a region and all SLB instances in this region are displayed.
@@ -51,7 +51,7 @@ To add a domain name based or URL based forwarding rule, complete these steps:
 4.  Click the Listeners tab.
 5.  Find the target HTTP/HTTPS listener and then click the **Add Forwarding Rules** option.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15421820497453_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15562639507453_en-US.png)
 
 6.  On the Add Forwarding Rules page, click **Add Forwarding Rules**.
 7.  On the Add Forwarding Rules page, configure the forwarding rule according to the following information:
@@ -59,14 +59,14 @@ To add a domain name based or URL based forwarding rule, complete these steps:
     1.  **Domain Name**: Enter the domain name of the request. It can only contain letters, numbers, dashes, or dots.
     2.  **URL**: Enter the path of the request. The URL must start with a slash \(/\), and can only contain letters, numbers, and the following special characters \(-. /%? \#&\).
 
-        **Note:** If you only want to configure a domain name based forwarding rule, leave the URL option empty.
+        **Note:** If you only want to configure a domain name-based forwarding rule, leave the URL option empty.
 
     3.  **VServer Group**: Select the associated VServer group.
     4.  **Description \(optional\)**: Enter the description.
     5.  Click **OK**.
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15421820497463_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15562639517463_en-US.png)
 
-8.  Click **Add Domain** or **Add Rule** to add another domain name based or URL based forwarding rule.
+8.  Click **Add Domain** or **Add Rule** to add another domain name-based or URL-based forwarding rule.
 
     For more information, see [Limits](../reseller.en-US/Limits/Limits.md#).
 
@@ -84,7 +84,7 @@ To edit a forwarding rule, complete these steps:
 5.  Find the target Layer-7 listener and then click the **Add Forwarding Rules** option.
 6.  In the **Forwarding Rules** area, find the target forwarding rule and then click the **Edit** option.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15421820497464_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15562639517464_en-US.png)
 
 7.  Edit the forwarding rule. Customize the scheduling algorithm, session persistence, health check and more of the forwarding rule according to the following information.
 
@@ -116,7 +116,7 @@ SLB adds a cookie to the first response from the backend server \(insert SERVERI
 
     -   **Rewrite cookie**: You can set the cookie to insert to the HTTP/HTTPS response according to your needs. You must maintain the timeout period and lifecycle of the cookie on the backend server.
 
-SLB will overwrite the original cookie when it discovers that a new cookie is set. The next time the client carries the new cookie to access SLB, the listener will distribute the request to the recorded backend server. For more information, see [Session persistence](../reseller.en-US/Miscellaneous/Best practices/Configure cookie in the backend server.md#).
+SLB will overwrite the original cookie when it discovers that a new cookie is set. The next time the client carries the new cookie to access SLB, the listener will distribute the request to the recorded backend server. For more information, see [Session persistence](../reseller.en-US/FAQ/Best practices/Configure cookie in the backend server.md#).
 
  |
     |**Enable Health Check**|     -   **Health Check Port**: The port used by health check to access backend servers.
@@ -144,7 +144,7 @@ Valid value: 2-10. The default value is 3.
 
  |
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/154218204911504_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/155626395111504_en-US.png)
 
 8.  Click **OK**.
 
@@ -159,6 +159,6 @@ To delete a forwarding rule, complete these steps:
 5.  Find the target Layer-7 listener, and then click the **Add Forwarding Rules** option.
 6.  In the **Forwarding Rules** area, find the target forwarding rule and then click the **Delete** option.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15421820497465_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15562639517465_en-US.png)
 
 
