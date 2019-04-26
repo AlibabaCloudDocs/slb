@@ -16,7 +16,7 @@ Before configuring the HTTPS listener \(one-way authentication\), you must buy a
     -   Certificate Type: Select **Server Certificate**.
     -   Certificate Content and Private Key: Copy the content and private key of the server certificate. Click **Import Sample** to view the valid certificate format. The certificate to be uploaded must be in the PEM format. For more information, see [Certificate formats](reseller.en-US/Archives/User Guide (Old Console)/Certificate management/Certificate requirements.md#).
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15562489407324_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15562492697324_en-US.png)
 
 4.  Click **OK**.
 
@@ -36,11 +36,11 @@ Before configuring the HTTPS listener \(one-way authentication\), you must buy a
     -   **Select Listener Protocol**: HTTPS
     -   **Listening Port**: 443
     -   **Scheduling Algorithm**: Round Robin \(RR\)
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15562489407325_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15562492707325_en-US.png)
 
 8.  Click **Next**. Under the SSL Certificates tab, select the uploaded server certificate.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15562489427326_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15562492717326_en-US.png)
 
 9.  Click **Next**. On the displayed page, click Default Server Group and then click **Add**. Add ECS instances and set the backend port to 80.
 10. In the left-side navigation pane, click **Servers** \> **Backend Servers**, and then click **Add Backend Servers** to add ECS instances.
@@ -53,8 +53,8 @@ Before configuring the HTTPS listener \(one-way authentication\), you must buy a
 
 2.  Enter the public IP of the Server Load Balancer instance in the web browser.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15562489427447_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15562492717447_en-US.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15562489437448_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15562492717448_en-US.png)
 
 
