@@ -1,4 +1,4 @@
-# CreateLoadBalancer {#doc_api_944742 .reference}
+# CreateLoadBalancer {#doc_api_Slb_CreateLoadBalancer .reference}
 
 调用CreateLoadBalancer创建负载均衡实例。
 
@@ -9,7 +9,7 @@
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancer)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancer)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -58,7 +58,8 @@
  |
 |InternetChargeType|String|否|paybytraffic|公网类型实例的付费方式。取值：
 
- -   paybytraffic：按流量计费（默认值）
+ -   paybybandwidth：按带宽计费
+-   paybytraffic：按流量计费（默认值）
 
  |
 |LoadBalancerName|String|否|abc|负载均衡实例的名称。
@@ -77,7 +78,7 @@
 -   slb.s3.medium
 -   slb.s3.large
 
-每个地域支持的规格不同。
+ 每个地域支持的规格不同。
 
  目前支持性能保障型实例的地域有：华北 1（青岛）、华北 2（北京）、华东 1（杭州）、华东 2（上海）、华南 1（深圳）、华北 3（张家口）、华北 5 （呼和浩特）、亚太东南 1（新加坡）、英国（伦敦）、欧洲中部 1（法兰克福）、亚太东南 2（悉尼）、亚太东南 3（吉隆坡）、中东东部 1（迪拜）、亚太东南 5（雅加达）、美西 1（硅谷）、亚太南部 1（孟买）、亚太东北 1（东京）、香港和美东 1（弗吉尼亚）。关于每种规格的说明，参见[性能保障型实例](~~27657~~)。
 
@@ -92,6 +93,7 @@
 |PayType|String|否|PayOnDemand|实例的计费类型，取值：
 
  -   **PayOnDemand**：按量付费
+-   **PrePay**：预付费
 
  |
 |PricingCycle|String|否|month|预付费公网实例的计费周期，取值：**month|year**
