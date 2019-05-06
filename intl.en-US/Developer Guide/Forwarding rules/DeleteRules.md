@@ -1,53 +1,81 @@
-# DeleteRules {#reference_xgj_xf2_ndb .reference}
+# DeleteRules {#doc_api_875532 .reference}
 
-Delete forwarding rules.
+You can call the DeleteRules API to delete forwarding rules.
 
-## Request parameters {#section_v5w_nds_cz .section}
+## Debug {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action|String|Yes|The action to perform. Valid value:DeleteRules
+Click [here](https://api.aliyun.com/#product=Slb&api=DeleteRules) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
 
-|
-|RegionId|String|Yes|The ID of the region where the SLB instance is located.You can obtain the region ID by calling the DescribeRegions API.
+## Request parameters {#parameters .section}
 
-|
-|RuleIds|List|Yes|The forwarding rules to delete.|
+|Name|Type|Required?|Example value|Description|
+|----|----|---------|-------------|-----------|
+|Action|String|Yes|DeleteRules|The action to perform. Valid value: **DeleteRules**
 
-## Response parameters {#section_ssd_pds_cz .section}
+ |
+|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs.
 
-|Parameter|Type|Description|
-|:--------|:---|:----------|
-|RequestId|String|The ID of the request.|
+ You can call the [DescribeRegions](~~27584~~) API to query the region ID.
 
-## Examples {#section_oxr_pds_cz .section}
+ |
+|RuleIds|String|Yes|\["rule-bp1z9cee47oip","rule-bp1tucxr06qu4"\]|A list of the forwarding rules to be deleted
 
-**Request example**
+ |
 
-``` {#public}
-https://slb.aliyuncs.com/?Action=DeleteRules
-&RegionId=cn-hangzhou 
-&RuleIds=[rule-tybqi6qkp8,rule-3ejhktkaeu]
-&CommonParameters
+## Response parameters {#resultMapping .section}
+
+|Name|Type|Example value|Description|
+|----|----|-------------|-----------|
+|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|The ID of the request
+
+ |
+
+## Examples {#demo .section}
+
+Request example
+
+``` {#request_demo}
+
+http(s)://[Endpoint]/? Action=DeleteRules
+&RegionId=cn-hangzhou
+&RuleIds=["rule-bp1z9cee47oip","rule-bp1tucxr06qu4"]
+&<CommonParameters>
+
 ```
 
-**Response example**
+Normal response examples
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version="1.0" encoding="utf-8"? >
-    <DeleteRulesResponse>
-    	<RequestId>9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C</RequestId>
-    </DeleteRulesResponse>
-    ```
+``` {#xml_return_success_demo}
+<DeleteRulesResponse>
+  <RequestId>9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C</RequestId>
+</DeleteRulesResponse>
 
--   JSON format
+```
 
-    ```
-    {
-      "RequestId": "9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C"
-    }
-    ```
+`JSON` format
 
+``` {#json_return_success_demo}
+{
+	"RequestId":"9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C"
+}
+```
+
+Abnormal response example
+
+`JSON` format
+
+``` {#json_return_failed_demo}
+{
+	"Message":"The specified parameter is not valid.",
+	"RequestId":"0669D684-69D8-408E-A4FA-B9011E0F4E66",
+	"HostId":"slb-pop.aliyuncs.com",
+	"Code":"InvalidParameter"
+}
+```
+
+## Error codes { .section}
+
+[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
 
