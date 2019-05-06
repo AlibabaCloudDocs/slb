@@ -1,59 +1,76 @@
-# RemoveAccessControlListEntry {#reference_n2r_h4v_tdb .reference}
+# RemoveAccessControlListEntry {#doc_api_859285 .reference}
 
-删除访问控制策略组中的IP条目。
+使用RemoveAccessControlListEntry删除访问控制策略组中的IP条目。
 
-## 请求参数 {#section_n4h_pyx_5db .section}
+## 调试 {#apiExplorer .section}
 
-|参数|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|要执行的操作，取值：RemoveAccessControlListEntry
+单击[这里](https://api.aliyun.com/#product=Slb&api=RemoveAccessControlListEntry)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
 
-|
-|RegionId|String|是|访问控制策略组的地域ID。|
-|AclId|String|是|访问控制策略组ID。|
-|AclEntrys|List|否| 访问控制策略组中要添加的IP条目，可以指定IP地址或IP地址段（CIDR block），多个IP地址/地址段之间用逗号隔开。比如：
+## 请求参数 {#parameters .section}
 
- \[\{“entry”:”10.0.0.1”,”comment”:”条目1”\},\{“entry”:”192.168.0.0/16”,”comment”:”条目2”\}\]
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|RemoveAccessControlListEntry|要执行的操作，取值：**RemoveAccessControlListEntry**。
 
- **说明：** 如果访问控制策略组关联了监听，不允许删除组内的所有IP条目。
+ |
+|AclId|String|是|acl-bp1l0kk4gxce43kzet04s|访问控制策略组ID。
+
+ |
+|RegionId|String|是|cn-hangzhou|访问控制策略组的地域ID。
+
+ 您可以通过调用[DescribeRegions](~~27584~~)接口查询地域ID。
+
+ |
+|AclEntrys|String|否|\[\{"entry":"10.0.0.0/24","comment":"privaterule1"\}\]|访问控制策略组中要添加的IP条目，可以指定IP地址或IP地址段（CIDR block），多个IP地址/地址段之间用逗号隔开。
+
+ **注意**：如果访问控制策略组关联了监听，不允许删除组内的所有IP条目。
 
  |
 
-## 返回参数 {#section_ehc_jzx_5db .section}
+## 返回参数 {#resultMapping .section}
 
-|名称|类型|描述|
-|:-|:-|:-|
-|RequestId|String|请求ID。|
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|988CB45E-1643-48C0-87B4-928DDF77EA49|请求ID。
 
-## 示例 {#section_oxr_pds_cz .section}
+ |
 
-**请求示例**
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
+/?Action=RemoveAccessControlListEntry
+&AclId=acl-bp1l0kk4gxce43kzet04s
+&RegionId=cn-hangzhou
+&AclEntrys=[{"entry":"10.0.0.0/24","comment":"privaterule1"}]
+&<公共请求参数>
 
 ```
-https://slb.aliyuncs.com/?Action=RemoveAccessControlListEntry
-&RegionId=us-west-1
-&AclId=acl-rj9xpxzcwxrukois65yw3
-&AclEntrys=[{"entry":"10.0.0.1","comment":"条目1"}]
-&公共请求参数
+
+正常返回示例
+
+`XML` 格式
+
+``` {#xml_return_success_demo}
+<RemoveAccessControlListEntryResponse>
+  <RequestId>988CB45E-1643-48C0-87B4-928DDF77EA49</RequestId>
+</RemoveAccessControlListEntryResponse>
+
 ```
 
-**返回示例**
+`JSON` 格式
 
--   XML格式
+``` {#json_return_success_demo}
+{
+	"RequestId":"988CB45E-1643-48C0-87B4-928DDF77EA49"
+}
+```
 
-    ```
-    <?xml version="1.0" encoding="utf-8"?>
-    <RemoveAccessControlListEntryResponse>
-      <RequestId>988CB45E-1643-48C0-87B4-928DDF77EA49</RequestId>
-    </RemoveAccessControlListEntryResponse>
-    ```
+异常返回示例
 
--   JSON格式
+## 错误码 { .section}
 
-    ```
-    {
-        "RequestId": "988CB45E-1643-48C0-87B4-928DDF77EA49"
-    }
-    ```
-
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
 
