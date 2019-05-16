@@ -69,7 +69,7 @@
 
     运行结果如下图所示。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580094872750_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580098572750_zh-CN.png)
 
 4.  运行以下命令并按命令后的示例提供需要输入的信息，然后回车，生成证书请求csr文件。
 
@@ -79,7 +79,7 @@
 
     **说明：** Common Name请输入您的负载均衡服务的域名。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580094872753_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580098572753_zh-CN.png)
 
 5.  运行以下命令生成凭证crt文件。
 
@@ -138,7 +138,7 @@
 
     **说明：** `A challenge password`是客户端证书口令（请注意将它和`client.key`的口令区分开，本教程设置密码为test），可以与服务器端证书或者根证书口令一致。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580094872757_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580098572757_zh-CN.png)
 
 4.  运行以下命令使用步骤二中的CA Key为刚才的客户端key签名。
 
@@ -148,7 +148,7 @@
 
     当出现确认是否签名的提示时，两次都输入y。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580094872758_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580098572758_zh-CN.png)
 
 5.  运行以下命令将证书转换为大多数浏览器都能识别的PKCS12文件。
 
@@ -160,7 +160,7 @@
 
     再输入用于导出证书的密码。这个是客户端证书的保护密码，在安装客户端证书时需要输入这个密码。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580094872759_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580098572759_zh-CN.png)
 
 6.  运行以下命令查看生成的客户端证书。
 
@@ -169,7 +169,7 @@
      ls
     ```
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580094872760_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580098572760_zh-CN.png)
 
 
 ## 步骤四 上传服务器证书和CA证书 {#section_mdg_411_wdb .section}
@@ -221,7 +221,7 @@
     1.  打开IE浏览器，单击**设置** \> **Internet选项**。
     2.  单击内容页签，然后单击**证书**，导入下载的客户端证书。在导入证书时需要输入在步骤三时生成PKCS12文件的密码。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580094872781_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580098572781_zh-CN.png)
 
 
 ## 步骤六 配置HTTPS双向认证监听 {#section_p5w_zd1_wdb .section}
@@ -234,13 +234,13 @@
     -   **选择负载均衡协议**：HTTPS
     -   **监听端口**：443
     -   **调度算法**：轮询（RR）
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155800948710035_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155800985710035_zh-CN.png)
 
 5.  单击**下一步**，在SSL证书页签下，配置SSL证书信息，启用双向认证。
 
     -   **服务器证书**：选择已上传的服务器证书。
     -   **CA证书**： 选择已上传的CA证书。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15659/15580094877331_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15659/15580098577331_zh-CN.png)
 
 6.  单击**下一步**，选择默认服务器组页签，单击**添加**，添加ECS服务器，并将后端协议端口设置为80。
 7.  单击**下一步**，开启健康检查。
@@ -253,12 +253,12 @@
 1.  在实例管理页面，查看健康检查状态。当状态为**正常**时，表示后端服务器可以正常接收处理负载均衡监听转发的请求。
 2.  在浏览器中，输入负载均衡的公网服务地址，当提示是否信任客户端证书时，选择信任。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580094872786_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4133/15580098572786_zh-CN.png)
 
 3.  刷新浏览器，您可以观察到请求在两台ECS服务器之间转换。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15659/155800948713780_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15659/155800985713780_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15659/155800948813781_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15659/155800985713781_zh-CN.png)
 
 
