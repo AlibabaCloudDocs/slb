@@ -14,7 +14,7 @@ The node servers in the cluster independently perform health checks in parallel,
 
 The IP address range used to perform the health check is 100.64.0.0/10. The backend servers cannot block this CIDR block. You do not need to additionally configure a security group rule to allow access from this CIDR block. However, if you have configured security rules such as iptables, allow access from this CIDR block \(100.64.0.0/10 is reserved by Alibaba Cloud, and other users cannot use any IP address in this CIDR block, so there is no security risk\).
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15421810132542_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15580089702542_en-US.png)
 
 ## Health check of HTTP/HTTPS listeners {#section_e1x_125_vdb .section}
 
@@ -22,27 +22,27 @@ For Layer-7 \(HTTP or HTTPS\) listeners, SLB detects the status of backend serve
 
 For HTTPS listeners, certificates are managed in SLB. Data exchange \(including health check data and service interaction data\) between SLB and backend ECS instances is not transmitted over HTTPS to improve the system performance.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15421810132543_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15580089702543_en-US.png)
 
 The health check process of a Layer-7 listener is as follows:
 
-1.  The Tengine node server sends an HTTP HEAD request to the intranet IP +【Health Check Port】+【Health Check Path】of the ECS instance according to the health check settings.
+1.  The Tengine node server sends an HTTP HEAD request to the intranet IP +Health Check Port+Health Check Path of the ECS instance according to the health check settings.
 2.  After receiving the request, the backend server returns an HTTP status code based on the running status.
-3.  If the Tengine node server does not receive the response from the backend server within the【Response Timeout】period, the ECS instance is declared unhealthy.
-4.  If the Tengine node server receives the response from the backend ECS instance within the【Response Timeout】period, it compares the returned status code with the status code specified in the listener configuration. If the status code is the same, the backend server is declared healthy. Otherwise, the backend server is declared unhealthy.
+3.  If the Tengine node server does not receive the response from the backend server within the Response Timeout period, the ECS instance is declared unhealthy.
+4.  If the Tengine node server receives the response from the backend ECS instance within the Response Timeout period, it compares the returned status code with the status code specified in the listener configuration. If the status code is the same, the backend server is declared healthy. Otherwise, the backend server is declared unhealthy.
 
 ## Health check of TCP listeners {#section_oc3_ngw_vdb .section}
 
 For TCP listeners, SLB detects the status of backend servers by sending TCP detections, as the following figure shows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15421810132549_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15580089702549_en-US.png)
 
 The health check process of a TCP listener is as follows:
 
-1.  The LVS node server sends a TCP SYN packet to the intranet IP + 【Health Check Port】of the backend ECS instance.
+1.  The LVS node server sends a TCP SYN packet to the intranet IP + Health Check Port of the backend ECS instance.
 2.  After receiving the request, the backend server returns a TCP SYN and ACK packet if the corresponding port is listening normally.
-3.  If the LVS node server does not receive the required data packet from the backend server within the【Response Timeout】period, the ECS instance is declared unhealthy. Then, the LVS node server sends an RST data packet to the backend server to terminate the TCP connection.
-4.  If the LVS node server receives the data packet from the backend ECS instance within the【Response Timeout】period, the ECS instance is declared healthy. Then, the LVS node server sends an RST data packet to the backend server to terminate the TCP connection.
+3.  If the LVS node server does not receive the required data packet from the backend server within the Response Timeout period, the ECS instance is declared unhealthy. Then, the LVS node server sends an RST data packet to the backend server to terminate the TCP connection.
+4.  If the LVS node server receives the data packet from the backend ECS instance within the Response Timeout period, the ECS instance is declared healthy. Then, the LVS node server sends an RST data packet to the backend server to terminate the TCP connection.
 
 **Note:** In general, TCP three-way handshakes are conducted to establish a TCP connection. After the LVS node server receives an SYN + ACK data packet from the backend ECS instance, the LVS node server sends an ACK data packet, and then immediately sends an RST data packet to terminate the TCP connection.
 
@@ -57,14 +57,14 @@ Resolution:
 
 For UDP listeners, Server Load Balancer detects the status of the backend servers through UDP packet detection, as shown in the following figure.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15421810132566_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15580089702566_en-US.png)
 
 The health check process of a UDP listener is as follows:
 
-1.  The LVS node server sends a UDP packet to the intranet IP +【Health Check Port】of the ECS instance according to health check configurations.
+1.  The LVS node server sends a UDP packet to the intranet IP + Health Check Port of the ECS instance according to health check configurations.
 2.  If the corresponding port of the ECS instance is not listening normally, the system will return an ICMP error message, such as `port XX unreachable`. Otherwise, no message is sent.
-3.  If the LVS node server receives the ICMP error message within the【Response Timeout】period, the ECS instance is declared unhealthy.
-4.  If the LVS node server does not receive any messages within the【Response Timeout】period, the ECS instance is declared healthy.
+3.  If the LVS node server receives the ICMP error message within the Response Timeout period, the ECS instance is declared unhealthy.
+4.  If the LVS node server does not receive any messages within the Response Timeout period, the ECS instance is declared healthy.
 
 **Note:** For UDP health checks, the real status of the backend server and the health check result may not be the same in the following situation:
 
@@ -86,13 +86,13 @@ The health check time window is calculated as follows:
 
 -   Health check failure time window = Response Timeout x Unhealthy Threshold + Health Check Interval X \(Unhealthy Threshold\) -1\)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15421810132568_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15580089702568_en-US.png)
 
 -   Health check success time window = \(Response Time of a Successful Health Check X Healthy Threshold\) + Health Check Interval X \(Healthy Threshold-1\)
 
     **Note:** The success response time of a health check is the duration from the time when the health check request is sent to the time when the response is received. For TCP health check, the time is very short and almost negligible because TCP health check only detects whether the port is alive. For HTTP health check, the time depends on the performance and load of the application server and is generally within seconds.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15421810132570_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15580089702570_en-US.png)
 
 
 The health check result has the following impact on the requests forwarding:
@@ -101,5 +101,5 @@ The health check result has the following impact on the requests forwarding:
 -   If the health check of the target ECS instance succeeds, new requests will be distributed to it. The client access is normal.
 -   If a request arrives during a health check failure window, the request is still sent to the ECS instance because the ECS instance is being checked and has not been declared unhealthy. As a result, the client access fails.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15421810142571_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15580089702571_en-US.png)
 
