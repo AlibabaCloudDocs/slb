@@ -1,113 +1,110 @@
 # Achieve cross-region load balancing through Global Traffic Manager {#concept_hqf_4k5_vdb .concept}
 
+By using Global Traffic Manager, you can apply global traffic balancing management on a higher plane than the level of local traffic balancing to achieve cross-region disaster tolerance, accelerate access across different regions, and achieve intelligent DNS resolution.
+
 ## Global traffic management {#section_nyz_jlc_wdb .section}
 
-Load balancing is divided into local load balancing and global load balancing according to the geographical structure of its application. Local load balancing balances loads of server groups in the same region. Global load balancing balances server groups that are in different regions and have different network structures.
+Server Load Balancer \(SLB\) provides local load balancing and global load balancing functions according to the geographical positioning of its application. Specifically, the local load balancing function balances a number of server groups in the same region, whereas the global load balancing function balances server groups that are in different regions and have different network requirements.
 
-By using Global Traffic Manager, you can deploy global traffic management above the local traffic balancing to achieve cross-region disaster tolerance, accelerate access from different regions and achieve intelligent resolution.
+-   Multi-line intelligent resolution
 
--   Multi-line intelligent resolution service
-
-    Using DNS intelligent resolution and health check on the running status of the application, global traffic management directs user accesses to the most appropriate IP addresses so that the users can obtain the fastest and smoothest experience.
+    Global Traffic Manager \(GTM\) uses DNS intelligent resolution to resolve domain names and health checks to check the running status of application servers so that it can direct access requests to the most appropriate IP addresses, helping users experience the fastest and smoothest access.
 
 -   Cross-region disaster tolerance
 
-    Global traffic management supports adding IP addresses of different regions to different address pools and configuring health check. In access policy configurations, set the **address pool A** as the default IP address pool and **address pool B** as the failover IP address pool. Then active-standby IP disaster tolerance of the application service can be achieved.
+    With GTM, you can add IP addresses of different regions to different address pools and perform health checks. In access policy configurations, by setting the **address pool A** as the default IP address pool and **address pool B** as the failover IP address pool, you can realize disaster tolerance of IP addresses.
 
--   Accelerate accesses from different regions
+-   Accelerate access across different regions
 
-    By using Global Traffic Manager, you can direct user accesses from different regions to different IP address pools, thus achieving grouped user management and grouped access and helping the application improve user experience.
+    By using GTM, you can direct user access requests from different regions to different IP address pools, thus achieving grouped user and access management, and improving user experience.
 
 
-## Deploy Global Traffic Manager {#section_zkj_hmc_wdb .section}
+## Deploy global traffic management {#section_zkj_hmc_wdb .section}
 
-This tutorial takes aliyuntest.club as an example \(most users of the website are in Singapore and China\) to show how to achieve global load balancing through global traffic management and load balancing.
+This topic takes the website aliyuntest.club as an example \(most users of the website are from Singapore and China\) to show you how to achieve global load balancing through GTM and SLB.
 
 ## Step 1 Purchase and configure ECS instances {#section_kcf_wcv_y2b .section}
 
 Purchase and configure at least two ECS instances in each region where the users of the application service are located.
 
-In this tutorial, two ECS instances are purchased in Beijing, Shenzhen and Singapore separately, and a simple static web page is built on each ECS instance.
+In this example, two ECS instances are purchased in Beijing, Shenzhen, and Singapore separately, and a simple static web page is built on each ECS instance.
 
-## Step 2 Purchase and configure Server Load Balancing instances {#section_u35_ypc_wdb .section}
+## Step 2 Purchase and configure SLB instances {#section_u35_ypc_wdb .section}
 
-1.  See [Create an SLB instance](reseller.en-US/User Guide/Server Load Balancer instance/Create an SLB instance.md#) to create three Internet Server Load Balancing instances in Beijing, Shenzhen and Singapore separately.
-2.  See [Configure an SLB instance](../../../../../reseller.en-US/Quick Start (New Console)/Configure an SLB instance.md#) to add listeners and add configured ECS instances to backend server pools.
+1.  Create one Internet SLB instance in each of the region Beijing, Shenzhen, and Singapore. For more information about how to create an Internet SLB instance, see [Create an SLB instance](intl.en-US/User Guide/Server Load Balancer instance/Create an SLB instance.md#).
+2.  Add listeners for the created SLB instances, and add the configured ECS instances to backend server groups. For more information, see [Configure an SLB instance](../../../../intl.en-US/Quick Start (New Console)/Configure an SLB instance.md#).
 
--   Example of the SLB instance in the Beijing region
--   Example of the SLB instance in the Shenzhen region
--   Example of the SLB instance in the Singapore region
+## Step 3 Configure GTM {#section_fkw_drc_wdb .section}
 
-## Step 3 Configure Global Traffic Manager {#section_fkw_drc_wdb .section}
-
-1.  Purchase a Global Traffic Manager instance.
-    1.  Log on to the [Alibaba Cloud DNS console](https://partners-intl.console.aliyun.com/#/dns).
+1.  Purchase a GTM instance.
+    1.  Log on to the [Alibaba Cloud DNS console](https://dns.console.aliyun.com/#/dns/domainList).
     2.  In the left-side navigation pane, click **Global Traffic Manager**.
     3.  On the Global Traffic Manager page, click **Create Instance**.
-    4.  Select the version, quantity and service time.
+    4.  Select the **Version**, **Quantity**, and **Service Time**.
     5.  Click **Buy Now**.
 
-        After the instance is successfully purchased, the system automatically allocates a CNAME access domain name.
+        After the instance is successfully purchased, the system automatically allocates a CNAME record.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15689/154796537310621_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15689/155806041710621_en-US.png)
 
-2.  Configure the Global Traffic Manager instance.
-    1.  On the Global Traffic Manager page, click the ID of the Global Traffic Manager instance or click **Configure** in the **Actions** column.
+2.  Configure the GTM instance.
+    1.  On the Global Traffic Manager page, click the target GTM instance ID or click **Configure** in the **Actions** column.
     2.  In the left-side navigation pane, click **Configurations**.
-    3.  In the Global Settings tab, click **Edit** to configure the parameters of the Global Traffic Manager instance.
+    3.  On the Global Settings tab page, click **Edit** to set the parameters of the GTM instance.
 
-        Configure the following parameters and use the default values for the remaining options.
+        Configure the following parameters and use the default values for the remaining parameters.
 
-        -   Instance Name: Used for identifying the instance used for a certain application and can be customized.
-        -   Primary Domain: The primary domain name is used by you to access the application. In this tutorial, enter aliyuntest.club.
-        -   Alert Group: Select a contact group you configured in CloudMonitor. When an error occurs, the contact group is notified.
+        -   **Instance Name**: It is used to help you identify which application this instance is created for. Enter a customized name.
+        -   **Primary Domain**: It is the domain name you use to access the application. In this example, enter aliyuntest.club.
+        -   **Alert Group**: Select an alarm contact group you configured in CloudMonitor. When an exception occurs, the contact group is notified.
     4.  Click **Confirm**.
-3.  Configure the IP address pool.
-    1.  In the Address Pool Configurations tab, click **Create Address Pool**.
-    2.  On the Create Address Pool page, configure the IP address pool.
+3.  Configure address pool.
+    1.  On the Address Pool Configurations tab page, click **Create Address Pool**.
+    2.  On the Create Address Pool page, configure the address pool.
 
-        In this tutorial, three IP address pools are to be added and each IP address pool accommodates one of the three SLB addresses in different regions.
+        In this example, create three address pools and each address pool accommodates the addresses of one of the three SLB instances.
 
-        -   Address Pool Name: Custom. For example, China North\_Beijing, China East\_Hangzhou, Singapore.
-        -   Address: The SLB public IP address to be added to this region.
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15689/154796537310664_en-US.png)
+        -   **Address Pool Name**: Enter a name, for example, China North\_Beijing, China East\_Shenzhen, and Singapore.
+        -   **Address**: Enter the public IP address of the Internet SLB instance that belongs to the region in the address pool name.
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15689/155806041710664_en-US.png)
 
     3.  Click **Confirm**.
 4.  Configure health check.
 
-    In this operation, you need to configure health check for the three address pools separately.
+    In this example, configure health checks for the three address pools separately.
 
-    1.  In the Address Pool tab, click **Add** next to health check.
-    2.  Configure health check parameters.
+    1.  On the Address Pool tab page, click the target address pool.
+    2.  In the **Settings** area, click **Add** next to **Health Check**.
+    3.  Set health check parameters.
 
         **Monitoring Node** shows the locations of monitoring nodes. Select the monitoring node according to the region of the address pool.
 
-5.  Configure the access policy.
+5.  Configure access policy.
 
-    In this tutorial, add different access policies for the three different regions.
+    In this example, add different access policies for the three different regions.
 
-    1.  In the Access Policy tab, click **Add Access Policy**.
-    2.  On the Add Access Policy tab, configure the access policy.
-        -   Configure the corresponding default address pools for different access regions, and set an address pool of another region as the failover address pool.
+    1.  On the Access Policy tab page, click **Add Access Policy**.
+    2.  On the Add Access Policy page, configure the access policy.
+        -   Configure corresponding default address pools for different access regions, and set an address pool of another region as the failover address pool.
         -   Select the access region. When users in this region access the application, the address pool configured in the access policy is matched.
 
-            There must be an access policy with **Global** selected. Otherwise some areas cannot access the application.
+            There must be an access policy with **Global** selected as the access region. Otherwise some regions cannot access the application.
 
 6.  Configure CNAME access.
     1.  Log on to the Alibaba Cloud DNS console.
     2.  Find the domain name aliyuntest.club and click **Configure** in the **Actions** column.
     3.  On the DNS Settings page, click **Add Record**.
-    4.  On the Add Record page, direct the domain name aliyuntest.club accessed by end users to the alias record of the Global Traffic Manager instance in the form of CNAME.
+    4.  On the Add Record page, direct the domain name that is accessed by end users, aliyuntest.club in this example, to the CNAME record of the GTM instance.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15689/154796537310688_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15689/155806041710688_en-US.png)
 
-    5.  Click **Confirm**.
+    5.  Click **OK**.
 
 ## Step 4 Test {#section_sxj_ntc_wdb .section}
 
-Remove the ECS instances of the SLB instance in the Beijing region so as that the SLB service is unavailable.
+Remove the ECS instances of the SLB instance in Beijing so that the SLB service becomes unavailable.
 
 Visit the website to see if the access is normal.
 
-**Note:** It takes one to two minutes for Global Traffic Manager to make judgment after it detects that your IP is down. If you set the monitoring frequency to 1 minute, it takes two to three minutes for the link switching caused by exceptions to take effect.
+**Note:** It takes one to two minutes for GTM to make judgment after it detects that your IP address is down. If you set the monitoring frequency to 1 minute, it takes two to three minutes for the failover to take effect.
 
