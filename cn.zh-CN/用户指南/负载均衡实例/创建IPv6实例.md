@@ -35,15 +35,15 @@ IPv6是Internet Protocol Version 6的缩写，其中Internet Protocol译为互�
 1.  登录[负载均衡管理控制台](https://slb.console.aliyun.com/slb/cn-hangzhou)。
 2.  选择 **实例** \> **实例管理**。
 3.  在实例管理页面，单击左上角的**创建负载均衡**。
-4.  配置负载均衡实例，IP版本选择**IPv6**。 其他配置和普通实例配置相同，参考[SLB实例配置说明](cn.zh-CN/历史文档/用户指南（旧版控制台）/负载均衡实例/创建实例.md#table_ivr_hjn_vdb)。
+4.  配置负载均衡实例，IP版本选择**IPv6**。 其他配置和普通实例配置相同，参考[SLB实例配置说明](intl.zh-CN/历史文档/用户指南（旧版控制台）/负载均衡实例/创建实例.md#table_ivr_hjn_vdb)。
 
     **说明：** 目前，仅有华东1地域的E、F两个可用区、华北2地域的F、G两个可用区和华东2地域的可用区E（主）、可用区D（备）支持创建IPv6实例且实例类型必须为性能保障型实例。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15579093827308_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15580588807308_zh-CN.png)
 
 5.  返回实例列表页面，查看已创建的IPv6实例。
 
 创建后，系统会为该实例分配一个IPv6地址。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15579093827309_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15580588807309_zh-CN.png)
 
