@@ -4,23 +4,23 @@ This topic describes how to add a TCP listener. TCP listeners apply to scenarios
 
 ## Prerequisites {#section_brc_4p5_vdb .section}
 
-At least one Server Load Balancer \(SLB\) instance is created. For more information, see [Create an SLB instance](reseller.en-US/User Guide/Server Load Balancer instance/Create an SLB instance.md#).
+At least one Server Load Balancer \(SLB\) instance is created. For more information, see [Create an SLB instance](intl.en-US/User Guide/Server Load Balancer instance/Create an SLB instance.md#).
 
 ## Step 1 Open the listener configuration wizard {#section_p32_zln_42b .section}
 
 To open the listener configuration wizard, complete these steps:
 
-1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
+1.  Log on to the [SLB console](https://slb.console.aliyun.com).
 2.  In the left-side navigation pane, choose **Instances** \> **Server Load Balancer**.
 3.  Select the region of the target instance.
 4.  Select one of the following methods to open the listener configuration wizard:
     -   On the Server Load Balancer page, find the target instance and then click **Configure Listener**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155600570810004_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805995410004_en-US.png)
 
     -   On the Server Load Balancer page, click the ID of the target SLB instance. On the Listeners tab page, click **Add Listener**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15560057087399_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15580599547399_en-US.png)
 
 
 ## Step 2 Configure a TCP listener {#section_mhj_lmn_42b .section}
@@ -78,7 +78,7 @@ Enabling a whitelist poses some business risks. After a whitelist is configured,
 If you enable a blacklist without adding any IP entry in the corresponding access control list, all requests are forwarded.
 
  |
-    |**Access Control List**|Select an access control list as the whitelist or the blacklist. **Note:** An IPv6 instance can only bind IPv6 access control lists and an IPv4 instance can only bind IPv4 access control lists. For more information, see [Configure an access control list](reseller.en-US/Archives/User Guide (Old Console)/Access control/Configure an access control list.md#).
+    |**Access Control List**|Select an access control list as the whitelist or the blacklist. **Note:** An IPv6 instance can only bind IPv6 access control lists and an IPv4 instance can only bind IPv4 access control lists. For more information, see [Configure an access control list](intl.en-US/Archives/User Guide (Old Console)/Access control/Configure an access control list.md#).
 
  |
     |**Enable Peak Bandwidth Limit**| Select whether to configure the listening bandwidth.
@@ -97,22 +97,22 @@ If you enable a blacklist without adding any IP entry in the corresponding acces
 
 2.  Click **Next**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15560057087421_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15580599547421_en-US.png)
 
 
 ## Step 3 Add backend servers {#section_vqk_zmn_42b .section}
 
-You need to add backend servers to process requests. You can use the default server group configured for the instance, or configure a VServer group or an active/standby server group for the listener. For more information, see [Backend server overview](reseller.en-US/User Guide/后端服务器/Backend server overview.md#).
+You need to add backend servers to process requests. You can use the default server group configured for the instance, or configure a VServer group or an active/standby server group for the listener. For more information, see [Backend server overview](intl.en-US/User Guide/Backend servers/Backend server overview.md#).
 
 In this topic, select **Default Server Group**.
 
 1.  Select **Default Server Group** and then click **Add**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155600570810030_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805995510030_en-US.png)
 
 2.  Select the ECS instances to add and then click **Add to Selected Server List**. Click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15560057087499_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15580599557499_en-US.png)
 
 3.  Configure the ports and weights of the added backend servers.
     -   Port
@@ -125,15 +125,15 @@ In this topic, select **Default Server Group**.
 
         **Note:** If the weight is set to 0, no requests will be sent to the ECS instance.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15560057097504_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15580599557504_en-US.png)
 
 4.  Click **Next**.
 
 ## Step 4 Configure health checks {#section_oj3_mnn_42b .section}
 
-SLB checks the service availability of backend servers \(ECS instances\) by performing health checks. The health check function improves the overall availability of your services and avoids the impact of backend server failures. Click **Modify** to change health check configurations. For more information, see [Configure health check](reseller.en-US/User Guide/Health check/Configure health check.md#).
+SLB checks the service availability of backend servers \(ECS instances\) by performing health checks. The health check function improves the overall availability of your services and avoids the impact of backend server failures. Click **Modify** to change health check configurations. For more information, see [Configure health checks](intl.en-US/User Guide/Health check/Configure health checks.md#).
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155600570910032_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805995510032_en-US.png)
 
 ## Step 5 Submit the configurations {#section_hwm_qnn_42b .section}
 
@@ -143,18 +143,18 @@ To confirm the listener configurations, complete these steps:
 2.  Click **Submit**.
 3.  On the Submit page, click **OK** after the configurations are successful.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155600570910033_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805995510033_en-US.png)
 
 
 After the configurations are successful, you can view the created listener on the **Listeners** page.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155600570910034_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805995510034_en-US.png)
 
 ## What to do next {#section_or1_14n_42b .section}
 
--   [Configure health check](reseller.en-US/User Guide/Health check/Configure health check.md#).
--   [Manage a default server group](reseller.en-US/User Guide/后端服务器/Manage a default server group.md#).
--   [Manage a VServer group](reseller.en-US/User Guide/后端服务器/Manage a VServer group.md#).
--   [Manage an active/standby server group](reseller.en-US/User Guide/后端服务器/Manage an active__standby server group.md#).
--   [Configure access control](reseller.en-US/User Guide/Access control/Configure access control.md#).
+-   [Configure health checks](intl.en-US/User Guide/Health check/Configure health checks.md#).
+-   [Manage a default server group](intl.en-US/User Guide/Backend servers/Manage a default server group.md#).
+-   [Manage a VServer group](intl.en-US/User Guide/Backend servers/Manage a VServer group.md#).
+-   [Manage an active/standby server group](intl.en-US/User Guide/Backend servers/Manage an active__standby server group.md#).
+-   [Configure access control](intl.en-US/User Guide/Access control/Configure access control.md#).
 
