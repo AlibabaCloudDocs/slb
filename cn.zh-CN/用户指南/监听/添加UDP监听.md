@@ -31,11 +31,11 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
 4.  选择以下一种方法，打开监听配置向导：
     -   在实例管理页面，找到目标实例，然后单击**添加配置向导**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805997110004_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155892049610004_zh-CN.png)
 
     -   在实例管理页面，单击目标实例ID。在监听页面，单击**添加监听**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15580599717399_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15589204967399_zh-CN.png)
 
 
 ## 步骤二 配置协议监听 {#section_ly4_2pn_42b .section}
@@ -46,16 +46,16 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
 
     |监听配置|说明|
     |:---|:-|
-    |**监听协议**|选择监听的协议类型。本操作，选择**UDP**。
+    |**监听协议**|选择监听的协议类型。 本操作，选择**UDP**。
 
-|
-    |**监听端口**|用来接收请求并向后端服务器进行请求转发的监听端口。端口范围为1-65535。
+ |
+    |**监听端口**|用来接收请求并向后端服务器进行请求转发的监听端口。 端口范围为1-65535。
 
-**说明：** 在同一个负载均衡实例内，监听端口不可重复。
+ **说明：** 在同一个负载均衡实例内，目前仅澳大利亚（悉尼）、阿联酋（迪拜）和英国（伦敦）地域支持UDP和TCP监听端口重复。其他情况下，监听端口不可重复。
 
-|
+ |
     |**高级配置**|
-    |**调度算法**|负载均衡支持轮询、加权轮询（WRR）、加权最小连接数（WLC）和一致性哈希（CH）四种调度算法。    -   **加权轮询**：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
+    |**调度算法**|负载均衡支持轮询、加权轮询（WRR）、加权最小连接数（WLC）和一致性哈希（CH）四种调度算法。     -   **加权轮询**：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
     -   **轮询**：按照访问顺序依次将外部请求依序分发到后端服务器。
     -   **加权最小连接数**：除了根据每台后端服务器设定的权重值来进行轮询，同时还考虑后端服务器的实际负载（即连接数）。当权重值相同时，当前连接数越小的后端服务器被轮询到的次数（概率）也越高。
     -   **一致性哈希（CH）**：
@@ -79,7 +79,7 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
         -   美国（弗吉利亚）
         -   阿联酋（迪拜）
         -   华北5（呼和浩特）
-|
+ |
     |**启用访问控制**|选择是否启用访问控制。|
     |**访问控制方式**| 开启访问控制后，选择一种访问控制方式：
 
@@ -92,9 +92,9 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
 如果开启了黑名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
 
  |
-    |**选择访问控制策略组**|选择访问控制策略组，作为该监听的白名单或黑名单。**说明：** IPv6实例只能绑定IPv6访问控制策略组，IPv4实例只能绑定IPv4访问控制策略组。详情参见[访问控制策略组](intl.zh-CN/历史文档/用户指南（旧版控制台）/访问控制/配置访问控制策略组.md#)。
+    |**选择访问控制策略组**|选择访问控制策略组，作为该监听的白名单或黑名单。 **说明：** IPv6实例只能绑定IPv6访问控制策略组，IPv4实例只能绑定IPv4访问控制策略组。详情参见[访问控制策略组](intl.zh-CN/历史文档/用户指南（旧版控制台）/访问控制/配置访问控制策略组.md#)。
 
-|
+ |
     |**开启带宽峰值**| 选择是否配置监听带宽。
 
  对于按带宽计费的负载均衡实例，您可以针对不同监听设定不同的带宽峰值来限定监听的流量。实例下所有监听的带宽峰值总和不能超过该实例的带宽。
@@ -104,14 +104,14 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
  **说明：** 使用流量计费方式的实例默认不限制带宽峰值。
 
  |
-    |**获取真实IP**|UDP协议监听的后端服务器可直接获取客户端的真实IP。**说明：** 经典网络实例的UDP协议暂不支持查看源地址。
+    |**获取真实IP**|UDP协议监听的后端服务器可直接获取客户端的真实IP。 **说明：** 经典网络实例的UDP协议暂不支持查看源地址。
 
-|
+ |
     |**创建完毕自动启动监听**|是否在监听配置完成后启动负载均衡监听，默认开启。|
 
 2.  单击**下一步**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15580599727426_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15589204967426_zh-CN.png)
 
 
 ## 步骤三 添加后端服务器 {#section_ylm_3qn_42b .section}
@@ -122,11 +122,11 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
 
 1.  选择**默认服务器组**，单击**添加**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805997210030_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155892049610030_zh-CN.png)
 
 2.  选择要添加的ECS实例，然后单击**加入待添加篮**。单击**确定**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15580599727499_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15589204967499_zh-CN.png)
 
 3.  配置添加的后端服务器的端口和权重。
     -   端口
@@ -139,7 +139,7 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
 
         **说明：** 权重设置为0，该服务器不会再接受新请求。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15580599727504_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15589204967504_zh-CN.png)
 
 4.  单击**下一步**。
 
@@ -147,7 +147,7 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
 
 负载均衡通过健康检查来判断后端服务器（ECS实例）的业务可用性。健康检查机制提高了前端业务整体可用性，避免了后端ECS异常对总体服务的影响。单击**修改**更改健康检查配置，详情参见[配置健康检查](intl.zh-CN/用户指南/健康检查/配置健康检查.md#)。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805997210032_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155892049610032_zh-CN.png)
 
 ## 步骤五 提交配置 {#section_ey5_lqn_42b .section}
 
@@ -157,12 +157,12 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
 2.  确认无误后，单击**提交**。
 3.  在配置审核页面，配置成功后，单击**确定**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805997210033_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155892049710033_zh-CN.png)
 
 
 配置成功后，您可以在监听页面查看已创建的监听。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805997210034_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155892049710034_zh-CN.png)
 
 ## 相关操作 {#section_pz4_2pn_42b .section}
 
