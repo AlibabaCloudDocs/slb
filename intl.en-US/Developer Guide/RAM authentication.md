@@ -1,6 +1,6 @@
 # RAM authentication {#concept_slb_rjf_cz .concept}
 
-Before calling SLB APIs using a RAM user, the primary account must grant the RAM user the corresponding permission by creating an authentication policy. An Alibaba Cloud Resource Name \(ARN\) is used as a unique description of a resource in the authorization rule. The following table lists the ARNs of Smart Access Gateway APIs.
+Before you call SLB APIs using a RAM user, the account must grant the RAM user the corresponding permission by creating an authentication policy. An Alibaba Cloud Resource Name \(ARN\) is used as a unique description of a resource in the authorization rule. The following table lists the ARNs of SLB APIs.
 
 ## SLB resources {#section_vj2_fyf_cz .section}
 
