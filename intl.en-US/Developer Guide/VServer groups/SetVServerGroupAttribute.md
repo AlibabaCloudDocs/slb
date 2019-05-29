@@ -1,56 +1,56 @@
 # SetVServerGroupAttribute {#doc_api_879380 .reference}
 
-You can call the SetVServerGroupAttribute API to modify the configurations of a VServer group.
+Modifies the configurations of a VServer group.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=SetVServerGroupAttribute) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+We recommend that you use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) to call APIs, generate SDK code examples, perform debug operations, and search for APIs.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|SetVServerGroupAttribute|The action to perform. Valid value: **SetVServerGroupAttribute**.
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|SetVServerGroupAttribute|The name of this action. Value: **SetVServerGroupAttribute**
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs
+|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs.
 
  |
-|VServerGroupId|String|Yes|rsp-cige6j5e7p|The ID of the VServer group
+|VServerGroupId|String|Yes|rsp-cige6j5e7p|The ID of the VServer group.
 
  |
 |BackendServers|String|No|\[\{'ServerId':'vm-233','Port':'80','Weight':'100'\},\{'ServerId':'vm-232','Port':'90','Weight':'100'\},\{'ServerId':'vm-231','Port':'70','Weight':'100'\}\]|The list of the backend servers in the VServer group.
 
- A VServer group can contain up to 20 backend servers.
+ Up to 20 backend servers can be added through one API call.
 
  |
-|VServerGroupName|String|No|Group1|The name of the VServer group. Here, you can edit the name of the VServer group as needed.
+|VServerGroupName|String|No|Group1|The name of the VServer group. You can modify the name of the VServer group as needed.
 
  |
 
 ## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
-|VServerGroupId|String|rsp-cige6j5e7p|The ID of the VServer group
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|VServerGroupId|String|rsp-cige6j5e7p|The ID of the VServer group.
 
  |
-|VServerGroupName|String|Group1|The name of the VServer group
+|VServerGroupName|String|Group1|The name of the VServer group.
 
  |
-|BackendServers| | |A list of backend servers
+|BackendServers|N/A|N/A|A list of backend servers.
 
  |
-|└ServerId|String|vm-231|The ECS instance ID or ENI ID
+|└ServerId|String|vm-231|The ECS instance ID or ENI ID.
 
  |
-|└Port|Integer|70|The port used by the backend server
+|└Port|Integer|70|The port used by the backend server.
 
  |
-|└Weight|Integer|100|The weight of the backend server
+|└Weight|Integer|100|The weight of the backend server.
 
  |
-|└Description|String|A description of the VServer group|A description of the VServer group
+|└Description|String|A description of the VServer group|The description of the VServer group.
 
  |
 |└Type|String|ecs|The backend server type. Valid values:
@@ -59,7 +59,7 @@ Click [here](https://api.aliyun.com/#product=Slb&api=SetVServerGroupAttribute) t
 -   **eni**: Elastic Network Interface \(ENI\)
 
  |
-|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|The ID of the request
+|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|The ID of the request.
 
  |
 
@@ -76,7 +76,7 @@ http(s)://[Endpoint]/? Action=SetVServerGroupAttribute
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
@@ -137,9 +137,5 @@ Normal response examples
 
 ## Error codes { .section}
 
-|HttpCode|Error code|Error message|Description|
-|--------|----------|-------------|-----------|
-|400|MissingParameter|The VServerGroupName or BackendServers is required at lease one.|The parameter HealthCheckTimeout is a required parameter.|
-
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
 

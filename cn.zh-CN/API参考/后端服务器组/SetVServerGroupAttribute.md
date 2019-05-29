@@ -1,4 +1,4 @@
-# SetVServerGroupAttribute {#doc_api_961760 .reference}
+# SetVServerGroupAttribute {#doc_api_Slb_SetVServerGroupAttribute .reference}
 
 调用SetVServerGroupAttribute修改虚拟服务器组的配置。
 
@@ -82,26 +82,17 @@ http(s)://[Endpoint]/?Action=SetVServerGroupAttribute
 
 ``` {#xml_return_success_demo}
 <SetVServerGroupAttribute>
-  <RequestId>9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C</RequestId>
-  <VServerGroupId>rsp-cige6j5e7p</VServerGroupId>
-  <VServerGroupName>Group1</VServerGroupName>
   <BackendServers>
     <BackendServer>
-      <ServerId>vm-233</ServerId>
+      <ServerId>i-bp1ek6yd7jvkxk5y1*****</ServerId>
       <Port>80</Port>
       <Weight>100</Weight>
-    </BackendServer>
-    <BackendServer>
-      <ServerId>vm-232</ServerId>
-      <Port>90</Port>
-      <Weight>100</Weight>
-    </BackendServer>
-    <BackendServer>
-      <ServerId>vm-231</ServerId>
-      <Port>70</Port>
-      <Weight>100</Weight>
+      <Type>ecs</Type>
     </BackendServer>
   </BackendServers>
+  <RequestId>A4FDF333-F904-4540-88FC-ED6F87AEFFCB</RequestId>
+  <VServerGroupId>rsp-bp1d2e3qel****</VServerGroupId>
+  <VServerGroupName>test1</VServerGroupName>
 </SetVServerGroupAttribute>
 
 ```
@@ -110,28 +101,19 @@ http(s)://[Endpoint]/?Action=SetVServerGroupAttribute
 
 ``` {#json_return_success_demo}
 {
+	"RequestId":"A4FDF333-F904-4540-88FC-ED6F87AEFFCB",
 	"BackendServers":{
 		"BackendServer":[
 			{
-				"ServerId":"vm-233",
-				"Port":"80",
-				"Weight":"100"
-			},
-			{
-				"ServerId":"vm-232",
-				"Port":"90",
-				"Weight":"100"
-			},
-			{
-				"ServerId":"vm-231",
-				"Port":"70",
-				"Weight":"100"
+				"ServerId":"i-bp1ek6yd7jvkx*****",
+				"Port":80,
+				"Weight":100,
+				"Type":"ecs"
 			}
 		]
 	},
-	"RequestId":"9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C",
-	"VServerGroupId":"rsp-cige6j5e7p",
-	"VServerGroupName":"Group1"
+	"VServerGroupId":"rsp-bp1d2e3*****",
+	"VServerGroupName":"test1"
 }
 ```
 
