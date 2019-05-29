@@ -69,7 +69,7 @@ SLB instances that communicate through the Internet incur traffic fees based on 
 
 ## Capacity fee {#section_r13_y1h_j2b .section}
 
-The following are three key performance metrics for guaranteed-performance instances. The limits of these metrics are different for instances of different capacities. For more information, see [../DNslb1864977/../DNslb1866251/EN-US\_TP\_15642.md\#](../intl.en-US/FAQ/Guaranteed-performance instances.md#).
+The following are three key performance metrics for guaranteed-performance instances. The limits of these metrics are different for instances of different capacities. For more information, see [../DNslb1864977/../DNslb1866251/EN-US\_TP\_15642.md\#](../reseller.en-US/FAQ/Guaranteed-performance instance FAQs.md#).
 
 -   Max Connection
 
@@ -103,7 +103,7 @@ For example, the capacity slb.s3.large \(1,000,000; CPS 500,000; QPS 50,000\) is
 
 The following figure is an example showing how the specification fee is billed for an SLB instance:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13418/15580091323113_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/13418/15591163783113_en-US.png)
 
 The billing of the guaranteed-performance instances is flexible.  The capacity you select when purchasing an instance is the performance limitation of the instance. For example, if slb.s3.medium is selected, the new connections are dropped when the HTTP requests in one second reach 30,000.
 
