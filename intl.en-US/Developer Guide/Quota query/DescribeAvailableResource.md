@@ -1,81 +1,81 @@
 # DescribeAvailableResource {#doc_api_Slb_DescribeAvailableResource .reference}
 
-调用DescribeAvailableResource查询某个地域的可用区支持的资源售卖情况。
+Queries available resources in a specified region. Resource limits do not apply to users in the whitelist.
 
-**说明：** 只返回支持售卖的可用区及资源类型。
+**Note:** Only available resources and corresponding zones are returned.
 
-## 调试 {#apiExplorer .section}
+## Debug {#apiExplorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeAvailableResource)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) to perform debug operations and generate code examples.
 
-## 请求参数 {#parameters .section}
+## Request parameters {#parameters .section}
 
-|名称|类型|是否必选|示例值|描述|
-|--|--|----|---|--|
-|Action|String|是|DescribeAvailableResource|要执行的操作。
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|DescribeAvailableResource| The name of this action.
 
- 取值：**DescribeAvailableResource**
-
- |
-|RegionId|String|是|cn-hangzhou|地域ID。
+ Value: **DescribeAvailableResource**
 
  |
-|AddressIPVersion|String|否|ipv4|IP地址类型。
-
- 取值：**ipv4|ipv6**
+|RegionId|String|Yes|cn-hangzhou| The ID of the region you want to query.
 
  |
-|AddressType|String|否|vpc|网络类型。
+|AddressIPVersion|String|No|ipv4| Optional. The IP version of the resources to be queried.
 
- 取值：**vpc|classic-internet|classic-intranet**
-
- |
-
-## 返回参数 {#resultMapping .section}
-
-|名称|类型|示例值|描述|
-|--|--|---|--|
-|AvailableResources| | |可用区及支持的资源列表。
+ Valid values: **ipv4 | ipv6**
 
  |
-|└MasterZoneId|String|cn-shanghai-a|主可用区。
+|AddressType|String|No|vpc| Optional. The network type of the resources to be queried.
 
- |
-|└SlaveZoneId|String|cn-shanghai-b|备可用区。
-
- |
-|└SupportResources| | |支持的资源。
-
- |
-|└AddressIPVersion|String|ipv4|IP地址类型。
-
- 取值：**ipv4|ipv6**
-
- |
-|└AddressType|String|classic\_internet|网络类型。
-
- 取值：**vpc|classic-internet|classic-intranet**
-
- |
-|RequestId|String|173B0EEA-22ED-4EE2-91F9-3A1CDDFFBBBA|请求ID。
+ Valid values: **vpc | classic-internet | classic-intranet**
 
  |
 
-## 示例 {#demo .section}
+## Response parameters {#resultMapping .section}
 
-请求示例
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|AvailableResources| | | A list of available resources and corresponding zones.
+
+ |
+|└MasterZoneId|String|cn-shanghai-a| The primary zone ID.
+
+ |
+|└SlaveZoneId|String|cn-shanghai-b| The secondary zone ID.
+
+ |
+|└SupportResources| | | The resources available in the corresponding zone.
+
+ |
+|└AddressIPVersion|String|ipv4| The IP version of the resources.
+
+ Valid values: **ipv4 | ipv6**
+
+ |
+|└AddressType|String|classic\_internet| The network type of the resources.
+
+ Valid values: **vpc | classic-internet | classic-intranet**
+
+ |
+|RequestId|String|173B0EEA-22ED-4EE2-91F9-3A1CDDFFBBBA| The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Request example
 
 ``` {#request_demo}
 
 http(s)://[Endpoint]/?Action=DescribeAvailableResource
 &RegionId=cn-hangzhou
-&<公共请求参数>
+&<CommonParameters>
 
 ```
 
-正常返回示例
+Response examples
 
-`XML` 格式
+`XML` format
 
 ``` {#xml_return_success_demo}
 <DescribeAvailableResource>
@@ -270,7 +270,7 @@ http(s)://[Endpoint]/?Action=DescribeAvailableResource
 
 ```
 
-`JSON` 格式
+`JSON` format
 
 ``` {#json_return_success_demo}
 {
@@ -486,7 +486,7 @@ http(s)://[Endpoint]/?Action=DescribeAvailableResource
 }
 ```
 
-## 错误码 { .section}
+## Error codes { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+For a list of error codes, visit the [API Error Center](https://error-center.aliyun.com/status/product/Slb).
 
