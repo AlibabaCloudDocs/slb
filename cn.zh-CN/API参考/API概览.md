@@ -1,119 +1,253 @@
-# API概览 {#concept_qyw_x1d_cz .concept}
+# API概览 {#doc_api_overview .concept}
 
-## 实例API {#section_rpm_m2w_pdb .section}
+负载均衡提供以下相关API接口。
 
-|API|描述|
-|:--|:-|
-|[CreateLoadBalancer](intl.zh-CN/API参考/负载均衡实例/CreateLoadBalancer.md#)|创建负载均衡实例。|
-|[DeleteLoadBalancer](intl.zh-CN/API参考/负载均衡实例/DeleteLoadBalancer.md#)|删除负载均衡实例。|
-|[SetLoadBalancerStatus](intl.zh-CN/API参考/负载均衡实例/SetLoadBalancerStatus.md#)|设置负载均衡实例的状态。|
-|[SetLoadBalancerName](intl.zh-CN/API参考/负载均衡实例/SetLoadBalancerName.md#)|修改负载均衡实例的名称。|
-|[DescribeLoadBalancers](intl.zh-CN/API参考/负载均衡实例/DescribeLoadBalancers.md#)|查询已创建的负载均衡实例。|
-|[DescribeLoadBalancerAttribute](intl.zh-CN/API参考/负载均衡实例/DescribeLoadBalancerAttribute.md#)|查询指定负载均衡实例的详细信息。|
-|[ModifyLoadBalancerInstanceSpec](intl.zh-CN/API参考/负载均衡实例/ModifyLoadBalancerInstanceSpec.md#)|修改负载均衡实例的规格。|
-|[DescribeRegions](intl.zh-CN/API参考/负载均衡实例/DescribeRegions.md#)|查询可用地域。|
-|[DescribeZones](intl.zh-CN/API参考/负载均衡实例/DescribeZones.md#)|查询指定地域的可用区信息。|
-
-## 监听API {#section_dc5_gfw_pdb .section}
-
-|API|描述|
-|:--|:-|
-|**TCP监听**|
-|[CreateLoadBalancerTCPListener](intl.zh-CN/API参考/TCP监听/CreateLoadBalancerTCPListener.md#)|创建TCP监听。|
-|[SetLoadBalancerTCPListenerAttribute](intl.zh-CN/API参考/TCP监听/SetLoadBalancerTCPListenerAttribute.md#)|修改TCP监听的配置。|
-|[DescribeLoadBalancerTCPListenerAttribute](intl.zh-CN/API参考/TCP监听/DescribeLoadBalancerTCPListenerAttribute.md#)|查询TCP监听配置。|
-|**UDP监听**|
-|[CreateLoadBalancerUDPListener](intl.zh-CN/API参考/UDP监听/CreateLoadBalancerUDPListener.md#)|创建UDP监听。|
-|[SetLoadBalancerUDPListenerAttribute](intl.zh-CN/API参考/UDP监听/SetLoadBalancerUDPListenerAttribute.md#)|修改UDP监听的配置。|
-|[DescribeLoadBalancerUDPListenerAttribute](intl.zh-CN/API参考/UDP监听/DescribeLoadBalancerUDPListenerAttribute.md#)|查询UDP监听配置。|
-|**HTTP监听**|
-|[CreateLoadBalancerHTTPListener](intl.zh-CN/API参考/HTTP监听/CreateLoadBalancerHTTPListener.md#)|创建HTTP监听。|
-|[SetLoadBalancerHTTPListenerAttribute](intl.zh-CN/API参考/HTTP监听/SetLoadBalancerHTTPListenerAttribute.md#)|修改HTTP监听的配置。|
-|[DescribeLoadBalancerHTTPListenerAttribute](intl.zh-CN/API参考/HTTP监听/DescribeLoadBalancerHTTPListenerAttribute.md#)|查询HTTP监听配置。|
-|**HTTPS监听**|
-|[CreateLoadBalancerHTTPSListener](intl.zh-CN/API参考/HTTPS监听/CreateLoadBalancerHTTPSListener.md#)|创建HTTPS监听。|
-|[SetLoadBalancerHTTPSListenerAttribute](intl.zh-CN/API参考/HTTPS监听/SetLoadBalancerHTTPSListenerAttribute.md#)|修改HTTPS监听的配置。|
-|[DescribeLoadBalancerHTTPSListenerAttribute](intl.zh-CN/API参考/HTTPS监听/DescribeLoadBalancerHTTPSListenerAttribute.md#)|查询HTTPS监听配置。|
-|[StartLoadBalancerListener](intl.zh-CN/API参考/监听/StartLoadBalancerListener.md#)|启动监听。|
-|[DeleteLoadBalancerListener](intl.zh-CN/API参考/监听/DeleteLoadBalancerListener.md#)|删除监听。|
-|[StopLoadBalancerListener](intl.zh-CN/API参考/监听/StopLoadBalancerListener.md#)|停止监听。|
-|**访问控制**|
-|[SetListenerAccessControlStatus](intl.zh-CN/API参考/访问控制（旧版）/SetListenerAccessControlStatus.md#)|为指定监听开启或关闭访问控制功能。|
-|[DescribeListenerAccessControlAttribute](intl.zh-CN/API参考/访问控制（旧版）/DescribeListenerAccessControlAttribute.md#)|查询监听的访问控制配置。|
-|[AddListenerWhiteListItem](intl.zh-CN/API参考/访问控制（旧版）/AddListenerWhiteListItem.md#)|添加监听访问控制白名单。|
-|[RemoveListenerWhiteListItem](intl.zh-CN/API参考/访问控制（旧版）/RemoveListenerWhiteListItem.md#)|删除监听白名单中的IP地址。|
-|**转发策略**|
-|[CreateRules](intl.zh-CN/API参考/转发规则/CreateRules.md#)|为指定的HTTP/HTTPS监听添加转发规则。|
-|[DeleteRules](intl.zh-CN/API参考/转发规则/DeleteRules.md#)|删除转发规则。|
-|[SetRule](intl.zh-CN/API参考/转发规则/SetRule.md#)|更改转发规则的目标服务器组。|
-|[DescribeRules](intl.zh-CN/API参考/转发规则/DescribeRules.md#)|查询指定监听已配置的转发规则。|
-|[DescribeRuleAttribute](intl.zh-CN/API参考/转发规则/DescribeRuleAttribute.md#)|查询指定转发规则的配置详情。|
-|**域名扩展（Beta）**|
-|[CreateDomainExtension](intl.zh-CN/API参考/域名扩展（Beta）/CreateDomainExtension.md#)|创建扩展域名。|
-|[SetDomainExtensionAttribute](intl.zh-CN/API参考/域名扩展（Beta）/SetDomainExtensionAttribute.md#)|设置已添加的扩展域名。|
-|[DescribeDomainExtensions](intl.zh-CN/API参考/域名扩展（Beta）/DescribeDomainExtensions.md#)|查询已添加的扩展域名。|
-|[DeleteDomainExtension](intl.zh-CN/API参考/域名扩展（Beta）/DeleteDomainExtension.md#)|删除已添加的扩展域名。|
-
-## 后端服务器API {#section_vpc_kff_cz .section}
-
-|API|描述|
-|:--|:-|
-|**默认服务器组**|
-|[AddBackendServers](intl.zh-CN/API参考/后端服务器/AddBackendServers.md#)|添加默认服务器。|
-|[RemoveBackendServers](intl.zh-CN/API参考/后端服务器/RemoveBackendServers.md#)|移除默认服务器。|
-|[SetBackendServers](intl.zh-CN/API参考/后端服务器/SetBackendServers.md#)|设置默认服务器权重。|
-|[DescribeHealthStatus](intl.zh-CN/API参考/后端服务器/DescribeHealthStatus.md#)|负载均衡实例的默认服务器进行健康检查，返回默认服务器的健康状况。|
-|**虚拟服务器组**|
-|[CreateVServerGroup](intl.zh-CN/API参考/后端服务器组/CreateVServerGroup.md#)|创建虚拟服务器组，并添加后端服务器。|
-|[SetVServerGroupAttribute](intl.zh-CN/API参考/后端服务器组/SetVServerGroupAttribute.md#)|修改虚拟服务器组的配置。|
-|[AddVServerGroupBackendServers](intl.zh-CN/API参考/后端服务器组/AddVServerGroupBackendServers.md#)|为指定的后端服务器组添加后端服务器。|
-|[RemoveVServerGroupBackendServers](intl.zh-CN/API参考/后端服务器组/RemoveVServerGroupBackendServers.md#)|从指定的后端服务器组中移除后端服务器。|
-|[ModifyVServerGroupBackendServers](intl.zh-CN/API参考/后端服务器组/ModifyVServerGroupBackendServers.md#)|替换服务器组中的后端服务器。|
-|[DeleteVServerGroup](intl.zh-CN/API参考/后端服务器组/DeleteVServerGroup.md#)|删除服务器组。|
-|[DescribeVServerGroups](intl.zh-CN/API参考/后端服务器组/DescribeVServerGroups.md#)|查询已创建的服务器组。|
-|[DescribeVServerGroupAttribute](intl.zh-CN/API参考/后端服务器组/DescribeVServerGroupAttribute.md#)|查询服务器组的详细信息。|
-|**主备服务器组**|
-|[CreateMasterSlaveServerGroup](intl.zh-CN/API参考/主备服务器组/CreateMasterSlaveServerGroup.md#)|创建主备服务器组。|
-|[DeleteMasterSlaveServerGroup](intl.zh-CN/API参考/主备服务器组/DeleteMasterSlaveServerGroup.md#)|删除主备服务器组。|
-|[DescribeMasterSlaveServerGroupAttribute](intl.zh-CN/API参考/主备服务器组/DescribeMasterSlaveServerGroupAttribute.md#)|查询指定主备服务器组的详细信息。|
-|[DescribeMasterSlaveServerGroups](intl.zh-CN/API参考/主备服务器组/DescribeMasterSlaveServerGroups.md#)|查询已创建的主备服务器组。|
-
-## 访问控制API {#section_evr_pcy_5db .section}
-
-|API|描述|
-|:--|:-|
-|[CreateAccessControlList](intl.zh-CN/API参考/访问控制/CreateAccessControlList.md#)|创建访问控制策略组。|
-|[DeleteAccessControlList](intl.zh-CN/API参考/访问控制/DeleteAccessControlList.md#)|删除访问控制策略组。|
-|[DescribeAccessControlLists](intl.zh-CN/API参考/访问控制/DescribeAccessControlLists.md#)|查询已创建的访问控制策略组。|
-|[DescribeAccessControlListAttribute](intl.zh-CN/API参考/访问控制/DescribeAccessControlListAttribute.md#)|查询访问控制策略组的配置。|
-|[SetAccessControlListAttribute](intl.zh-CN/API参考/访问控制/SetAccessControlListAttribute.md#)|修改访问控制策略组的名称。|
-|[AddAccessControlListEntry](intl.zh-CN/API参考/访问控制/AddAccessControlListEntry.md#)|在访问控制策略组中添加IP条目。|
-|[RemoveAccessControlListEntry](intl.zh-CN/API参考/访问控制/RemoveAccessControlListEntry.md#)|删除访问控制策略组中的IP条目。|
-
-## 标签API {#section_w4z_lff_cz .section}
-
-|API|描述|
-|:--|:-|
-|[AddTags](intl.zh-CN/API参考/标签/AddTags.md#)|为指定的负载均衡实例添加标签。|
-|[DescribeTags](intl.zh-CN/API参考/标签/DescribeTags.md#)|查询已创建的标签。|
-|[RemoveTags](intl.zh-CN/API参考/标签/RemoveTags.md#)|解绑负载均衡实例的标签。|
-
-## 服务器证书API {#section_wpm_bvp_y2b .section}
+## 负载均衡实例 { .section}
 
 |API|描述|
 |---|--|
-|[UploadServerCertificate](intl.zh-CN/API参考/服务器证书/UploadServerCertificate.md#)|上传服务器证书。|
-|[DeleteServerCertificate](intl.zh-CN/API参考/服务器证书/DeleteServerCertificate.md#)|删除服务器证书。|
-|[DescribeServerCertificates](intl.zh-CN/API参考/服务器证书/DescribeServerCertificates.md#)|查询已上传的服务器证书。|
-|[SetServerCertificateName](intl.zh-CN/API参考/服务器证书/SetServerCertificateName.md#)|设置服务器证书名称。|
-|[UploadCACertificate](intl.zh-CN/API参考/服务器证书/UploadCACertificate.md#)|上传CA证书。|
-|[DeleteCACertificate](intl.zh-CN/API参考/服务器证书/DeleteCACertificate.md#)|删除CA证书。|
-|[DescribeCACertificates](intl.zh-CN/API参考/服务器证书/DescribeCACertificates.md#)|查询已上传的CA证书。|
-|[SetCACertificateName](intl.zh-CN/API参考/服务器证书/SetCACertificateName.md#)|设置CA证书名称。|
+| [CreateLoadBalancer](~~4182#Slb_CreateLoadBalancer~~)
 
-## 查询资源约束API {#section_vws_rvp_y2b .section}
+ |调用CreateLoadBalancer创建负载均衡实例。|
+| [DeleteLoadBalancer](~~4184#Slb_DeleteLoadBalancer~~)
+
+ |使用DeleteLoadBalancer删除后付费的负载均衡实例。|
+| [DescribeLoadBalancerAttribute](~~4188#Slb_DescribeLoadBalancerAttribute~~)
+
+ |使用DescribeLoadBalancerAttribute查询指定负载均衡实例的详细信息。|
+| [DescribeLoadBalancers](~~4187#Slb_DescribeLoadBalancers~~)
+
+ |调用DescribeLoadBalancers查询已创建的负载均衡实例。|
+| [DescribeRegions](~~4189#Slb_DescribeRegions~~)
+
+ |使用DescribeRegions查询可用地域。|
+| [DescribeZones](~~4190#Slb_DescribeZones~~)
+
+ |使用DescribeZones查询指定地域的可用区信息。|
+| [ModifyLoadBalancerInstanceSpec](~~4191#Slb_ModifyLoadBalancerInstanceSpec~~)
+
+ |使用ModifyLoadBalancerInstanceSpec修改负载均衡的实例规格。|
+| [ModifyLoadBalancerInternetSpec](~~4183#Slb_ModifyLoadBalancerInternetSpec~~)
+
+ |使用ModifyLoadBalancerInternetSpec修改公网负载均衡实例的计费方式。|
+| [ModifyLoadBalancerPayType](~~4192#Slb_ModifyLoadBalancerPayType~~)
+
+ |使用ModifyLoadBalancerPayType将后付费实例转换为预付费实例。|
+| [SetLoadBalancerName](~~4186#Slb_SetLoadBalancerName~~)
+
+ |使用SetLoadBalancerName修改负载均衡实例的名称。|
+| [SetLoadBalancerStatus](~~4185#Slb_SetLoadBalancerStatus~~)
+
+ |使用SetLoadBalancerStatus设置负载均衡实例的状态。|
+
+## UDP监听 { .section}
 
 |API|描述|
 |---|--|
-|[DescribeSlbQuotas](intl.zh-CN/API参考/查询配额/DescribeSlbQuotas.md#)|查询负载均衡实例的资源约束。|
+| [CreateLoadBalancerUDPListener](~~4206#Slb_CreateLoadBalancerUDPListener~~)
+
+ |使用CreateLoadBalancerUDPListener创建UDP监听。|
+| [DescribeLoadBalancerUDPListenerAttribute](~~4220#Slb_DescribeLoadBalancerUDPListenerAttribute~~)
+
+ |调用DescribeLoadBalancerUDPListenerAttribute查询UDP监听的配置。|
+| [SetLoadBalancerUDPListenerAttribute](~~4216#Slb_SetLoadBalancerUDPListenerAttribute~~)
+
+ |使用SetLoadBalancerUDPListenerAttribute修改UDP协议监听的配置。|
+
+## HTTPS监听 { .section}
+
+|API|描述|
+|---|--|
+| [DescribeLoadBalancerHTTPSListenerAttribute](~~4218#Slb_DescribeLoadBalancerHTTPSListenerAttribute~~)
+
+ |使用DescribeLoadBalancerHTTPSListenerAttribute查询HTTPS监听配置。|
+| [SetLoadBalancerHTTPSListenerAttribute](~~4214#Slb_SetLoadBalancerHTTPSListenerAttribute~~)
+
+ |使用SetLoadBalancerHTTPSListenerAttribute修改HTTPS监听的配置。|
+| [CreateLoadBalancerHTTPSListener](~~4204#Slb_CreateLoadBalancerHTTPSListener~~)
+
+ |使用CreateLoadBalancerHTTPSListener创建HTTPS监听。|
+
+## 后端服务器组 { .section}
+
+|API|描述|
+|---|--|
+| [AddVServerGroupBackendServers](~~4235#Slb_AddVServerGroupBackendServers~~)
+
+ |调用AddVServerGroupBackendServers向指定的后端服务器组中添加后端服务器。|
+| [CreateVServerGroup](~~4233#Slb_CreateVServerGroup~~)
+
+ |使用CreateVServerGroup向指定的后端服务器组中添加后端服务器。|
+| [SetVServerGroupAttribute](~~4234#Slb_SetVServerGroupAttribute~~)
+
+ |调用SetVServerGroupAttribute修改虚拟服务器组的配置。|
+| [RemoveVServerGroupBackendServers](~~4236#Slb_RemoveVServerGroupBackendServers~~)
+
+ |调用RemoveVServerGroupBackendServers从指定的后端服务器组中移除后端服务器。|
+| [ModifyVServerGroupBackendServers](~~4237#Slb_ModifyVServerGroupBackendServers~~)
+
+ |使用ModifyVServerGroupBackendServers替换服务器组中的后端服务器。|
+| [DeleteVServerGroup](~~4238#Slb_DeleteVServerGroup~~)
+
+ |调用DeleteVServerGroup删除服务器组。|
+| [DescribeVServerGroups](~~4239#Slb_DescribeVServerGroups~~)
+
+ |调用DescribeVServerGroups查询服务器组列表。|
+| [DescribeVServerGroupAttribute](~~4240#Slb_DescribeVServerGroupAttribute~~)
+
+ |使用DescribeVServerGroupAttribute查询服务器组的详细信息。|
+
+## 监听 { .section}
+
+|API|描述|
+|---|--|
+| [StartLoadBalancerListener](~~4208#Slb_StartLoadBalancerListener~~)
+
+ |使用StartLoadBalancerListener启动监听。|
+| [StopLoadBalancerListener](~~4209#Slb_StopLoadBalancerListener~~)
+
+ |使用StopLoadBalancerListener停止监听。|
+| [DeleteLoadBalancerListener](~~4207#Slb_DeleteLoadBalancerListener~~)
+
+ |使用DeleteLoadBalancerListener删除监听。|
+
+## 标签 { .section}
+
+|API|描述|
+|---|--|
+| [AddTags](~~22728#Slb_AddTags~~)
+
+ |使用AddTags为指定的负载均衡实例添加标签。|
+| [DescribeTags](~~4257#Slb_DescribeTags~~)
+
+ |使用DescribeTags查询标签列表。|
+| [RemoveTags](~~4258#Slb_RemoveTags~~)
+
+ |使用RemoveTags解绑指定负载均衡实例下的标签。|
+
+## 域名扩展（Beta） { .section}
+
+|API|描述|
+|---|--|
+| [CreateDomainExtension](~~15373#Slb_CreateDomainExtension~~)
+
+ |使用CreateDomainExtension创建扩展域名。|
+| [SetDomainExtensionAttribute](~~16112#Slb_SetDomainExtensionAttribute~~)
+
+ |使用SetDomainExtensionAttribute修改扩展域名的证书。|
+| [DescribeDomainExtensions](~~16113#Slb_DescribeDomainExtensions~~)
+
+ |使用DescribeDomainExtensions查询已添加的扩展域名。|
+| [DeleteDomainExtension](~~16129#Slb_DeleteDomainExtension~~)
+
+ |使用DeleteDomainExtension删除扩展域名。|
+
+## 主备服务器组 { .section}
+
+|API|描述|
+|---|--|
+| [CreateMasterSlaveServerGroup](~~4228#Slb_CreateMasterSlaveServerGroup~~)
+
+ |使用CreateMasterSlaveServerGroup创建主备服务器组。一组主备服务器组只能包含两个ECS实例，一个为主服务器，另一个为备服务器。|
+| [DeleteMasterSlaveServerGroup](~~4229#Slb_DeleteMasterSlaveServerGroup~~)
+
+ |使用DeleteMasterSlaveServerGroup删除指定的主备服务器组。|
+| [DescribeMasterSlaveServerGroupAttribute](~~4230#Slb_DescribeMasterSlaveServerGroupAttribute~~)
+
+ |使用DescribeMasterSlaveServerGroupAttribute查询指定主备服务器组的详细信息。|
+| [DescribeMasterSlaveServerGroups](~~4231#Slb_DescribeMasterSlaveServerGroups~~)
+
+ |使用DescribeMasterSlaveServerGroups查询主备服务器组列表。|
+
+## 转发规则 { .section}
+
+|API|描述|
+|---|--|
+| [CreateRules](~~4250#Slb_CreateRules~~)
+
+ |调用CreateRules为指定的HTTP或HTTPS监听添加转发规则。|
+| [DeleteRules](~~4251#Slb_DeleteRules~~)
+
+ |删除转发规则。|
+| [SetRule](~~4252#Slb_SetRule~~)
+
+ |调用SetRule更改转发规则的目标虚拟服务器组。|
+| [DescribeRuleAttribute](~~4253#Slb_DescribeRuleAttribute~~)
+
+ |使用DescribeRuleAttribute查询指定转发规则的配置详情。|
+| [DescribeRules](~~4254#Slb_DescribeRules~~)
+
+ |使用DescribeRules查询指定监听已配置的转发规则。|
+
+## 访问控制 { .section}
+
+|API|描述|
+|---|--|
+| [AddAccessControlListEntry](~~4247#Slb_AddAccessControlListEntry~~)
+
+ |使用AddAccessControlListEntry在访问控制策略组中添加IP条目。|
+| [CreateAccessControlList](~~4242#Slb_CreateAccessControlList~~)
+
+ |使用CreateAccessControlList创建访问控制策略组。|
+| [DeleteAccessControlList](~~4243#Slb_DeleteAccessControlList~~)
+
+ |使用DeleteAccessControlList删除访问控制策略组。|
+| [DescribeAccessControlListAttribute](~~4245#Slb_DescribeAccessControlListAttribute~~)
+
+ |使用DescribeAccessControlListAttribute查询访问控制策略组的配置。|
+| [DescribeAccessControlLists](~~4244#Slb_DescribeAccessControlLists~~)
+
+ |使用DescribeAccessControlLists查询已创建的访问控制策略组。|
+| [RemoveAccessControlListEntry](~~4248#Slb_RemoveAccessControlListEntry~~)
+
+ |使用RemoveAccessControlListEntry删除访问控制策略组中的IP条目。|
+| [SetAccessControlListAttribute](~~4246#Slb_SetAccessControlListAttribute~~)
+
+ |使用SetAccessControlListAttribute修改访问控制策略组的名称。|
+
+## 访问控制（旧版） { .section}
+
+|API|描述|
+|---|--|
+| [AddListenerWhiteListItem](~~21218#Slb_AddListenerWhiteListItem~~)
+
+ |调用AddListenerWhiteListItem添加监听访问控制白名单。|
+| [DescribeListenerAccessControlAttribute](~~4221#Slb_DescribeListenerAccessControlAttribute~~)
+
+ |使用DescribeListenerAccessControlAttribute查询监听的白名单配置。|
+| [SetListenerAccessControlStatus](~~4210#Slb_SetListenerAccessControlStatus~~)
+
+ |使用SetListenerAccessControlStatus是否开启指定监听的白名单访问控制。|
+| [RemoveListenerWhiteListItem](~~4212#Slb_RemoveListenerWhiteListItem~~)
+
+ |使用RemoveListenerWhiteListItem删除监听白名单中的IP。|
+
+## 服务器证书 { .section}
+
+|API|描述|
+|---|--|
+| [UploadServerCertificate](~~4194#Slb_UploadServerCertificate~~)
+
+ |使用UploadServerCertificate上传服务器证书。|
+| [DeleteServerCertificate](~~4195#Slb_DeleteServerCertificate~~)
+
+ |删除服务器证书。|
+| [DescribeServerCertificates](~~4196#Slb_DescribeServerCertificates~~)
+
+ |使用DescribeServerCertificates查询指定地域的服务器证书列表。|
+| [SetServerCertificateName](~~4197#Slb_SetServerCertificateName~~)
+
+ |使用SetServerCertificateName设置服务器证书名称。|
+| [UploadCACertificate](~~4198#Slb_UploadCACertificate~~)
+
+ |使用UploadCACertificate上传CA证书。|
+| [DeleteCACertificate](~~4199#Slb_DeleteCACertificate~~)
+
+ |使用DeleteCACertificate删除CA证书。|
+| [DescribeCACertificates](~~4200#Slb_DescribeCACertificates~~)
+
+ |使用DescribeCACertificates查询CA证书列表。|
+| [SetCACertificateName](~~4201#Slb_SetCACertificateName~~)
+
+ |使用SetCACertificateName设置CA证书名称。|
 

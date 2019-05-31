@@ -159,14 +159,6 @@
 
  |使用DescribeMasterSlaveServerGroups查询主备服务器组列表。|
 
-## 查询资源 { .section}
-
-|API|描述|
-|---|--|
-| [DescribeSlbQuotas](~~17319#Slb_DescribeSlbQuotas~~)
-
- |使用DescribeSlbQuotas查询负载均衡的资源约束。|
-
 ## 转发规则 { .section}
 
 |API|描述|
