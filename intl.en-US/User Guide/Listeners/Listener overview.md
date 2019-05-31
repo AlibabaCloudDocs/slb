@@ -43,5 +43,5 @@ Alibaba Cloud provides Layer-4 \(TCP and UDP protocols\) and Layer-7 \(HTTP and 
 
  |
 
-**Note:** HTTP/2 and WSS/WS protocols are supported by all regions now. For more information, see [HTTP/2 support FAQ](https://help.aliyun.com/document_detail/63420.html?spm=a2c4g.11186623.2.11.52075742IHhZ3p#concept-oyq-hh5-vdb) and [WS and WSS support FAQs](../../../../intl.en-US/FAQ/WS and WSS support FAQs.md#).
+**Note:** HTTP/2 and WSS/WS protocols are supported by all regions now. For more information, see [HTTP/2 support FAQ](../../../../intl.en-US/FAQ/FAQ/HTTP__2 support FAQ.md#) and [WS and WSS support FAQs](../../../../intl.en-US/FAQ/WS and WSS support FAQs.md#).
 
