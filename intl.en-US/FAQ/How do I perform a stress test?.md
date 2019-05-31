@@ -17,7 +17,7 @@ We also recommend the following listener configurations:
 
 ## Alibaba Cloud PTS tool {#section_xnj_cfd_xdb .section}
 
-We recommend that you use [Alibaba Cloud PTS](https://pts.aliyun.com/) as the test tool. We do not recommend Apache Bench \(ab\) because SLB returns inconsistent content lengths when multiple backend servers are tested, and Apache ab uses the content length to determine whether requests are successful. This will result in inaccurate stress test results.
+We recommend that you use Alibaba Cloud [PTS](https://www.alibabacloud.com/en?spm=5176.7946858.1280361.9.f6fc572dDmyxFF) as the test tool. We do not recommend Apache Bench \(ab\) because SLB returns inconsistent content lengths when multiple backend servers are tested, and Apache ab uses the content length to determine whether requests are successful. This will result in inaccurate stress test results.
 
 ## Example stress test using Alibaba Cloud PTS {#section_ynj_cfd_xdb .section}
 
@@ -47,11 +47,9 @@ In this example, an SLB instance has been created and added with two ECS instanc
     curl localhost
     ```
 
-5.  Create a test script in PTS and confirm the following parameters are set as recommended in Preparations. Then, start the stress test.
-    -   Set the timeout period to five seconds: PTS.HttpUtilities.setTimeout\(5000\)
-    -   Disable persistent connections: PTS.HttpUtilities.setKeepAlive\(False\)
+5.  [Create a test script](https://help.aliyun.com/document_detail/70290.html) in PTS and start the stress test.
 
-## Why is my Layer-7 listener performing poorly during a stress test? {#section_rnj_cfd_xdb .section}
+## Why is my Layer-7 listener performing poorly during a stress test? {#section_ha4_wpf_b3d .section}
 
 Layer-4 Server Load Balancer \(SLB\) uses LVS \(Linux Virtual Server\) and Keepalived to provide the load balancing service, whereas Layer-7 SLB uses Tengine. In a Layer-4 listener, requests are directly sent to backend servers after being passed through LVS. However, in a Layer-7 listener, requests are sent to Tengine before they are sent to backend servers. Due to this additional step, the performance of a Layer-7 listener is inadequate when compared with a Layer-4 listener.
 
