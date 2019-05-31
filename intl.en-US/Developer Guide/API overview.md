@@ -1,120 +1,253 @@
-# API overview {#concept_qyw_x1d_cz .concept}
+# API overview {#doc_api_overview .concept}
 
-## SLB instance {#section_rpm_m2w_pdb .section}
+This topic lists available Server Load Balancer \(SLB\) APIs.
 
-|API|Description|
-|:--|:----------|
-|[CreateLoadBalancer](intl.en-US/Developer Guide/Server Load Balancer instance/CreateLoadBalancer.md#)|Creates an SLB instance.|
-|[ModifyLoadBalancerInternetSpec](intl.en-US/Developer Guide/Server Load Balancer instance/ModifyLoadBalancerInternetSpec.md#)|Modify the billing method or specification of an SLB instance.|
-|[DeleteLoadBalancer](intl.en-US/Developer Guide/Server Load Balancer instance/DeleteLoadBalancer.md#)|Delete an SLB instance.|
-|[SetLoadBalancerStatus](intl.en-US/Developer Guide/Server Load Balancer instance/SetLoadBalancerStatus.md#)|Set the status of an SLB instance.|
-|[SetLoadBalancerName](intl.en-US/Developer Guide/Server Load Balancer instance/SetLoadBalancerName.md#)|Configure the name of an SLB instance.|
-|[DescribeLoadBalancers](intl.en-US/Developer Guide/Server Load Balancer instance/DescribeLoadBalancers.md#)|Query created SLB instances.|
-|[DescribeLoadBalancerAttribute](intl.en-US/Developer Guide/Server Load Balancer instance/DescribeLoadBalancerAttribute.md#)|Query the detailed information of an SLB instance.|
-|[ModifyLoadBalancerInstanceSpec](intl.en-US/Developer Guide/Server Load Balancer instance/ModifyLoadBalancerInstanceSpec.md#)|Modify the specification of an SLB instance.|
-|[Describeregions](intl.en-US/Developer Guide/Server Load Balancer instance/Describeregions.md#)|Query regions.|
-|[DescribeZones](intl.en-US/Developer Guide/Server Load Balancer instance/DescribeZones.md#)|Query zones in a region.|
-
-## Listener {#section_dc5_gfw_pdb .section}
-
-|API|Description|
-|:--|:----------|
-|**TCP listener**|
-|[CreateLoadBalancerTCPListener](intl.en-US/Developer Guide/TCP listener/CreateLoadBalancerTCPListener.md#)|Create a TCP listener.|
-|[SetLoadBalancerTCPListenerAttribute](intl.en-US/Developer Guide/TCP listener/SetLoadBalancerTCPListenerAttribute.md#)|Modify the configurations of a TCP listener.|
-|[DescribeLoadBalancerTCPListenerAttribute](intl.en-US/Developer Guide/TCP listener/DescribeLoadBalancerTCPListenerAttribute.md#)|Query the configurations of a TCP listener.|
-|**UDP listener**|
-|[CreateLoadBalancerUDPListener](intl.en-US/Developer Guide/UDP监听/CreateLoadBalancerUDPListener.md#)|Create a UDP listener.|
-|[SetLoadBalancerUDPListenerAttribute](intl.en-US/Developer Guide/UDP监听/SetLoadBalancerUDPListenerAttribute.md#)|Modify the configurations of a UDP listener.|
-|[DescribeLoadBalancerUDPListenerAttribute](intl.en-US/Developer Guide/UDP监听/DescribeLoadBalancerUDPListenerAttribute.md#)|Query the configurations of a UDP listener.|
-|**HTTP listener**|
-|[CreateLoadBalancerHTTPListener](intl.en-US/Developer Guide/HTTP listener/CreateLoadBalancerHTTPListener.md#)|Create an HTTP listener.|
-|[SetLoadBalancerHTTPListenerAttribute](intl.en-US/Developer Guide/HTTP listener/SetLoadBalancerHTTPListenerAttribute.md#)|Modify the configurations of an HTTP listener.|
-|[DescribeLoadBalancerHTTPListenerAttribute](intl.en-US/Developer Guide/HTTP listener/DescribeLoadBalancerHTTPListenerAttribute.md#)|Query the configurations of an HTTP listener.|
-|**HTTPS listener**|
-|[CreateLoadBalancerHTTPSListener](intl.en-US/Developer Guide/HTTPS listener/CreateLoadBalancerHTTPSListener.md#)|Create an HTTPS listener.|
-|[SetLoadBalancerHTTPSListenerAttribute](intl.en-US/Developer Guide/HTTPS listener/SetLoadBalancerHTTPSListenerAttribute.md#)|Modify the configurations of an HTTPS listener.|
-|[DescribeLoadBalancerHTTPSListenerAttribute](intl.en-US/Developer Guide/HTTPS listener/DescribeLoadBalancerHTTPSListenerAttribute.md#)|Query the configurations of an HTTPS listener.|
-|[StartLoadBalancerListener](intl.en-US/Developer Guide/Listeners/StartLoadBalancerListener.md#)|Start a listener.|
-|[Deleteloadbalancerlistener](intl.en-US/Developer Guide/Listeners/Deleteloadbalancerlistener.md#)|Delete a listener.|
-|[StopLoadBalancerListener](intl.en-US/Developer Guide/Listeners/StopLoadBalancerListener.md#)|Stop a listener.|
-|**Access control**|
-|[SetListenerAccessControlStatus](intl.en-US/Developer Guide/Access control/SetListenerAccessControlStatus.md#)|Enable or disable the access control function of a listener.|
-|[DescribeListenerAccessControlAttribute](intl.en-US/Developer Guide/Access control/DescribeListenerAccessControlAttribute.md#)|Query the access control configurations of a listener.|
-|[AddListenerWhiteListItem](intl.en-US/Developer Guide/Access control/AddListenerWhiteListItem.md#)|Add a whitelist to a listener.|
-|[RemoveListenerWhiteListItem](intl.en-US/Developer Guide/Access control/RemoveListenerWhiteListItem.md#)|Delete an IP address from the whitelist of a listener.|
-|**Forwarding rule**|
-|[CreateRules](intl.en-US/Developer Guide/Forwarding rules/CreateRules.md#)|Add forwarding rules to an HTTP/HTTPS listener.|
-|[DeleteRules](intl.en-US/Developer Guide/Forwarding rules/DeleteRules.md#)|Delete forwarding rules.|
-|[SetRule](intl.en-US/Developer Guide/Forwarding rules/SetRule.md#)|Change the target VServer group of a forwarding rule.|
-|[DescribeRules](intl.en-US/Developer Guide/Forwarding rules/DescribeRules.md#)|Query the forwarding rules associated with a listener.|
-|[DescribeRuleAttribute](intl.en-US/Developer Guide/Forwarding rules/DescribeRuleAttribute.md#)|Query the detailed configurations of a forwarding rule.|
-|**Domain name extension \(Beta\)**|
-|[CreateDomainExtension](intl.en-US/Developer Guide/Domain name extension (Beta)/CreateDomainExtension.md#)|Create a domain name extension.|
-|[SetDomainExtensionAttribute](intl.en-US/Developer Guide/Domain name extension (Beta)/SetDomainExtensionAttribute.md#)|Configure an added domain name extension.|
-|[DescribeDomainExtensions](intl.en-US/Developer Guide/Domain name extension (Beta)/DescribeDomainExtensions.md#)|Query added domain name extensions.|
-|[DeleteDomainExtension](intl.en-US/Developer Guide/Domain name extension (Beta)/DeleteDomainExtension.md#)|Delete an added domain name extension.|
-
-## Backend server {#section_vpc_kff_cz .section}
-
-|API|Description|
-|:--|:----------|
-|**Default server group**|
-|[AddBackendServers](intl.en-US/Developer Guide/Backend server/AddBackendServers.md#)|Add default servers.|
-|[RemoveBackendServers](intl.en-US/Developer Guide/Backend server/RemoveBackendServers.md#)|Remove default servers.|
-|[SetBackendServers](intl.en-US/Developer Guide/Backend server/SetBackendServers.md#)|Configure the weights of default servers.|
-|[DescribeHealthStatus](intl.en-US/Developer Guide/Backend server/DescribeHealthStatus.md#)|Perform health check on the default servers of an SLB instance, and the health status of the default servers is returned.|
-|**VServer group**|
-|[CreateVServerGroup](intl.en-US/Developer Guide/VServer groups/CreateVServerGroup.md#)|Create a VServer group and add backend servers to the VServer group.|
-|[SetVServerGroupAttribute](intl.en-US/Developer Guide/VServer groups/SetVServerGroupAttribute.md#)|Modify the configurations of a VServer group.|
-|[AddVServerGroupBackendServers](intl.en-US/Developer Guide/VServer groups/AddVServerGroupBackendServers.md#)|Add backend servers to a VServer group.|
-|[RemoveVServerGroupBackendServers](intl.en-US/Developer Guide/VServer groups/RemoveVServerGroupBackendServers.md#)|Remove backend servers from a VServer group.|
-|[ModifyVServerGroupBackendServers](intl.en-US/Developer Guide/VServer groups/ModifyVServerGroupBackendServers.md#)|Replace backend servers in a VServer group.|
-|[DeleteVServerGroup](intl.en-US/Developer Guide/VServer groups/DeleteVServerGroup.md#)|Delete a VServer group.|
-|[DescribeVServerGroups](intl.en-US/Developer Guide/VServer groups/DescribeVServerGroups.md#)|Query created VServer groups.|
-|[DescribeVServerGroupAttribute](intl.en-US/Developer Guide/VServer groups/DescribeVServerGroupAttribute.md#)|Query the detailed information of a VServer group.|
-|**Active/standby server group**|
-|[CreateMasterSlaveServerGroup](intl.en-US/Developer Guide/Master-slave server group/CreateMasterSlaveServerGroup.md#)|Create an active/standby server group.|
-|[DeleteMasterSlaveServerGroup](intl.en-US/Developer Guide/Master-slave server group/DeleteMasterSlaveServerGroup.md#)|Delete an active/standby server group.|
-|[DescribeMasterSlaveServerGroupAttribute](intl.en-US/Developer Guide/Master-slave server group/DescribeMasterSlaveServerGroupAttribute.md#)|Query the detailed information of an active/standby server group.|
-|[DescribeMasterSlaveServerGroups](intl.en-US/Developer Guide/Master-slave server group/DescribeMasterSlaveServerGroups.md#)|Query created active/standby server groups.|
-
-## Access control {#section_evr_pcy_5db .section}
-
-|API|Description|
-|:--|:----------|
-|[CreateAccessControlList](intl.en-US/Developer Guide/Access control/CreateAccessControlList.md#)|Create an access control list.|
-|[DeleteAccessControlList](intl.en-US/Developer Guide/Access control/DeleteAccessControlList.md#)|Delete an access control list.|
-|[DescribeAccessControlLists](intl.en-US/Developer Guide/Access control/DescribeAccessControlLists.md#)|Query created access control lists.|
-|[DescribeAccessControlListAttribute](intl.en-US/Developer Guide/Access control/DescribeAccessControlListAttribute.md#)|Query the configurations of an access control list.|
-|[SetAccessControlListAttribute](intl.en-US/Developer Guide/Access control/SetAccessControlListAttribute.md#)|Modify the name of an access control list.|
-|[AddAccessControlListEntry](intl.en-US/Developer Guide/Access control/AddAccessControlListEntry.md#)|Add an IP entry to the access control list.|
-|[RemoveAccessControlListEntry](intl.en-US/Developer Guide/Access control/RemoveAccessControlListEntry.md#)|Delete an IP entry from the access control list.|
-
-## Tag {#section_w4z_lff_cz .section}
-
-|API|Description|
-|:--|:----------|
-|[AddTags](intl.en-US/Developer Guide/Tag/AddTags.md#)|Add tags to an SLB instance.|
-|[DescribeTags](intl.en-US/Developer Guide/Tag/DescribeTags.md#)|Query created tags.|
-|[RemoveTags](intl.en-US/Developer Guide/Tag/RemoveTags.md#)|Unbind tags from an SLB instance.|
-
-## Server certificate {#section_wpm_bvp_y2b .section}
+## SLB instance { .section}
 
 |API|Description|
 |---|-----------|
-|[UploadServerCertificate](intl.en-US/Developer Guide/Server certificate/UploadServerCertificate.md#)|Upload a server certificate.|
-|[DeleteServerCertificate](intl.en-US/Developer Guide/Server certificate/DeleteServerCertificate.md#)|Delete a server certificate.|
-|[DescribeServerCertificates](intl.en-US/Developer Guide/Server certificate/DescribeServerCertificates.md#)|Query uploaded server certificates in a region.|
-|[SetServerCertificateName](intl.en-US/Developer Guide/Server certificate/SetServerCertificateName.md#)|Configure a name for a server certificate.|
-|[UploadCACertificate](intl.en-US/Developer Guide/Server certificate/UploadCACertificate.md#)|Upload the CA certificate.|
-|[DeleteCACertificate](intl.en-US/Developer Guide/Server certificate/DeleteCACertificate.md#)|Delete a CA certificate.|
-|[DescribeCACertificates](intl.en-US/Developer Guide/Server certificate/DescribeCACertificates.md#)|Query the uploaded CA certificates.|
-|[SetCACertificateName](intl.en-US/Developer Guide/Server certificate/SetCACertificateName.md#)|Configure a name for a CA certificate.|
+| [CreateLoadBalancer](~~4182#Slb_CreateLoadBalancer~~)
 
-## Query resource limits {#section_vws_rvp_y2b .section}
+ |Creates an SLB instance.|
+| [DeleteLoadBalancer](~~4184#Slb_DeleteLoadBalancer~~)
+
+ |Deletes a Pay-As-You-Go-billed SLB instance.|
+| [DescribeLoadBalancerAttribute](~~4188#Slb_DescribeLoadBalancerAttribute~~)
+
+ |Queries the details of an SLB instance.|
+| [DescribeLoadBalancers](~~4187#Slb_DescribeLoadBalancers~~)
+
+ |Queries created SLB instances.|
+| [DescribeRegions](~~4189#Slb_DescribeRegions~~)
+
+ |Queries available regions.|
+| [DescribeZones](~~4190#Slb_DescribeZones~~)
+
+ |Queries the zones in a region.|
+| [ModifyLoadBalancerInstanceSpec](~~4191#Slb_ModifyLoadBalancerInstanceSpec~~)
+
+ |Modifies the specification of an SLB instance.|
+| [ModifyLoadBalancerInternetSpec](~~4183#Slb_ModifyLoadBalancerInternetSpec~~)
+
+ |Modifies the billing method of an Internet SLB instance.|
+| [ModifyLoadBalancerPayType](~~4192#Slb_ModifyLoadBalancerPayType~~)
+
+ |Converts a Pay-As-You-Go-billed SLB instance to a Subscription-billed SLB instance.|
+| [SetLoadBalancerName](~~4186#Slb_SetLoadBalancerName~~)
+
+ |Modifies the name of an SLB instance.|
+| [SetLoadBalancerStatus](~~4185#Slb_SetLoadBalancerStatus~~)
+
+ |Sets the status of an SLB instance.|
+
+## UDP listener { .section}
 
 |API|Description|
 |---|-----------|
-|[Query Quota-DescribeSlbQuotas](intl.en-US//DescribeSlbQuotas.md#)|Query the resource limits of Server Load Balancer.|
+| [CreateLoadBalancerUDPListener](~~4206#Slb_CreateLoadBalancerUDPListener~~)
+
+ |Creates a UDP listener.|
+| [DescribeLoadBalancerUDPListenerAttribute](~~4220#Slb_DescribeLoadBalancerUDPListenerAttribute~~)
+
+ |Queries the configurations of a UDP listener.|
+| [SetLoadBalancerUDPListenerAttribute](~~4216#Slb_SetLoadBalancerUDPListenerAttribute~~)
+
+ |Modifies the configurations of a UDP listener.|
+
+## HTTPS listener { .section}
+
+|API|Description|
+|---|-----------|
+| [DescribeLoadBalancerHTTPSListenerAttribute](~~4218#Slb_DescribeLoadBalancerHTTPSListenerAttribute~~)
+
+ |Queries the configurations of an HTTPS listener.|
+| [SetLoadBalancerHTTPSListenerAttribute](~~4214#Slb_SetLoadBalancerHTTPSListenerAttribute~~)
+
+ |Modifies the configurations of an HTTPS listener.|
+| [CreateLoadBalancerHTTPSListener](~~4204#Slb_CreateLoadBalancerHTTPSListener~~)
+
+ |Creates an HTTPS listener.|
+
+## VServer group { .section}
+
+|API|Description|
+|---|-----------|
+| [AddVServerGroupBackendServers](~~4235#Slb_AddVServerGroupBackendServers~~)
+
+ |Adds backend servers to a specified VServer group.|
+| [CreateVServerGroup](~~4233#Slb_CreateVServerGroup~~)
+
+ |Creates a VServer group.|
+| [SetVServerGroupAttribute](~~4234#Slb_SetVServerGroupAttribute~~)
+
+ |Modifies the configurations of a VServer group.|
+| [RemoveVServerGroupBackendServers](~~4236#Slb_RemoveVServerGroupBackendServers~~)
+
+ |Removes backend servers from a specified VServer group.|
+| [ModifyVServerGroupBackendServers](~~4237#Slb_ModifyVServerGroupBackendServers~~)
+
+ |Replaces backend servers in a VServer group.|
+| [DeleteVServerGroup](~~4238#Slb_DeleteVServerGroup~~)
+
+ |Deletes a VServer group.|
+| [DescribeVServerGroups](~~4239#Slb_DescribeVServerGroups~~)
+
+ |Queries the list of VServer groups.|
+| [DescribeVServerGroupAttribute](~~4240#Slb_DescribeVServerGroupAttribute~~)
+
+ |Queries the details of a VServer group.|
+
+## Listener { .section}
+
+|API|Description|
+|---|-----------|
+| [StartLoadBalancerListener](~~4208#Slb_StartLoadBalancerListener~~)
+
+ |Starts a listener.|
+| [StopLoadBalancerListener](~~4209#Slb_StopLoadBalancerListener~~)
+
+ |Stops a listener.|
+| [DeleteLoadBalancerListener](~~4207#Slb_DeleteLoadBalancerListener~~)
+
+ |Deletes a listener.|
+
+## Tag { .section}
+
+|API|Description|
+|---|-----------|
+| [AddTags](~~22728#Slb_AddTags~~)
+
+ |Adds tags to a specified SLB instance.|
+| [DescribeTags](~~4257#Slb_DescribeTags~~)
+
+ |Queries details of specified tags.|
+| [RemoveTags](~~4258#Slb_RemoveTags~~)
+
+ |Remove tags that are associated with an SLB instance.|
+
+## Domain name extension \(Beta\) { .section}
+
+|API|Description|
+|---|-----------|
+| [CreateDomainExtension](~~15373#Slb_CreateDomainExtension~~)
+
+ |Creates a domain name extension.|
+| [SetDomainExtensionAttribute](~~16112#Slb_SetDomainExtensionAttribute~~)
+
+ |Modifies the certificate of a domain name extension.|
+| [DescribeDomainExtensions](~~16113#Slb_DescribeDomainExtensions~~)
+
+ |Queries the added domain name extensions.|
+| [DeleteDomainExtension](~~16129#Slb_DeleteDomainExtension~~)
+
+ |Deletes a domain name extension.|
+
+## Active/standby server group { .section}
+
+|API|Description|
+|---|-----------|
+| [CreateMasterSlaveServerGroup](~~4228#Slb_CreateMasterSlaveServerGroup~~)
+
+ |Creates an active/standby server group. An active/standby server group can only contain two ECS instances. One is the active backend server and the other one is the standby backend server.|
+| [DeleteMasterSlaveServerGroup](~~4229#Slb_DeleteMasterSlaveServerGroup~~)
+
+ |Deletes an active/standby server group.|
+| [DescribeMasterSlaveServerGroupAttribute](~~4230#Slb_DescribeMasterSlaveServerGroupAttribute~~)
+
+ |Queries the details of a specified active/standby server group.|
+| [DescribeMasterSlaveServerGroups](~~4231#Slb_DescribeMasterSlaveServerGroups~~)
+
+ |Queries the created active/standby server groups.|
+
+## Forwarding rule { .section}
+
+|API|Description|
+|---|-----------|
+| [CreateRules](~~4250#Slb_CreateRules~~)
+
+ |Adds forwarding rules for a specified HTTP or HTTPS listener.|
+| [DeleteRules](~~4251#Slb_DeleteRules~~)
+
+ |Deletes forwarding rules.|
+| [SetRule](~~4252#Slb_SetRule~~)
+
+ |Changes the destination VServer group of a forwarding rule.|
+| [DescribeRuleAttribute](~~4253#Slb_DescribeRuleAttribute~~)
+
+ |Queries the settings of a specified forwarding rule.|
+| [DescribeRules](~~4254#Slb_DescribeRules~~)
+
+ |Queries the forwarding rules that have been configured for a specified listener.|
+
+## Access control { .section}
+
+|API|Description|
+|---|-----------|
+| [AddAccessControlListEntry](~~4247#Slb_AddAccessControlListEntry~~)
+
+ |Adds IP addresses to an access control list.|
+| [CreateAccessControlList](~~4242#Slb_CreateAccessControlList~~)
+
+ |Creates an access control list.|
+| [DeleteAccessControlList](~~4243#Slb_DeleteAccessControlList~~)
+
+ |Deletes an access control list.|
+| [DescribeAccessControlListAttribute](~~4245#Slb_DescribeAccessControlListAttribute~~)
+
+ |Queries the settings of a specified access control list.|
+| [DescribeAccessControlLists](~~4244#Slb_DescribeAccessControlLists~~)
+
+ |Queries created access control lists.|
+| [RemoveAccessControlListEntry](~~4248#Slb_RemoveAccessControlListEntry~~)
+
+ |Deletes IP addresses from an access control list.|
+| [SetAccessControlListAttribute](~~4246#Slb_SetAccessControlListAttribute~~)
+
+ |Modifies the name of an access control list.|
+
+## Access control \(earlier version\) { .section}
+
+|API|Description|
+|---|-----------|
+| [AddListenerWhiteListItem](~~21218#Slb_AddListenerWhiteListItem~~)
+
+ |Adds IP addresses to a listener whitelist.|
+| [DescribeListenerAccessControlAttribute](~~4221#Slb_DescribeListenerAccessControlAttribute~~)
+
+ |Queries the whitelist settings of a specified listener.|
+| [SetListenerAccessControlStatus](~~4210#Slb_SetListenerAccessControlStatus~~)
+
+ |Enables or disables the access control whitelist function for a specified listener.|
+| [RemoveListenerWhiteListItem](~~4212#Slb_RemoveListenerWhiteListItem~~)
+
+ |Deletes IP addresses from a listener whitelist.|
+
+## Server certificate { .section}
+
+|API|Description|
+|---|-----------|
+| [UploadServerCertificate](~~4194#Slb_UploadServerCertificate~~)
+
+ |Uploads a server certificate.|
+| [DeleteServerCertificate](~~4195#Slb_DeleteServerCertificate~~)
+
+ |Deletes a server certificate.|
+| [DescribeServerCertificates](~~4196#Slb_DescribeServerCertificates~~)
+
+ |Queries the server certificates of a specified region.|
+| [SetServerCertificateName](~~4197#Slb_SetServerCertificateName~~)
+
+ |Sets the name of a server certificate.|
+| [UploadCACertificate](~~4198#Slb_UploadCACertificate~~)
+
+ |Uploads a CA certificate.|
+| [DeleteCACertificate](~~4199#Slb_DeleteCACertificate~~)
+
+ |Deletes a CA certificate.|
+| [DescribeCACertificates](~~4200#Slb_DescribeCACertificates~~)
+
+ |Queries the list of CA certificates.|
+| [SetCACertificateName](~~4201#Slb_SetCACertificateName~~)
+
+ |Sets the name of a CA Certificate.|
 
