@@ -23,7 +23,7 @@
 
 更多详细信息，参考[负载均衡健康检查原理](../intl.zh-CN/历史文档/用户指南（旧版控制台）/监听/健康检查/健康检查介绍.md#)。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15516797263226_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15595487833226_zh-CN.png)
 
 ## 2. 推荐的健康检查配置是什么？ {#section_jhf_jqx_wdb .section}
 
@@ -111,7 +111,7 @@ ECS实例内配置了两个网站，www.test.com是静态网站，app.test.com�
 
 负载均衡后端配置TCP服务端口后，后端业务日志中频繁出现类似如下网络连接异常错误信息。经进抓包分析，发现相关请求来自负载均衡服务器，同时负载均衡主动向服务器发送了RST数据包。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15516797263231_zh-CN.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15595487833231_zh-CN.jpg)
 
 问题原因：
 
@@ -152,5 +152,5 @@ Tengine/Nginx配置会发现curl没有问题，但是echo测试会匹配到默�
 -   修改主配置文件，将默认站点注释掉。
 -   在健康检查配置中添加检查域名。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15516797263234_zh-CN.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15595487833234_zh-CN.jpg)
 
