@@ -14,13 +14,13 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 2.  在左侧导航栏，选择**实例** \> **实例管理**。
 3.  选择实例的地域。
 4.  选择以下一种方法，打开监听配置向导：
-    -   在实例管理页面，找到目标实例，然后单击**添加配置向导**。
+    -   在实例管理页面，找到目标实例，单击**监听配置向导**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805999610004_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155953997410004_zh-CN.png)
 
     -   在实例管理页面，单击目标实例ID。在监听页面，单击**添加监听**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15580599967399_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15595399747399_zh-CN.png)
 
 
 ## 步骤二 配置协议监听 {#section_ly4_2pn_42b .section}
@@ -31,22 +31,22 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
     |监听配置|说明|
     |:---|:-|
-    |**监听协议**|选择监听的协议类型。本操作，选择**HTTP**。
+    |**监听协议**|选择监听的协议类型。 本操作，选择**HTTP**。
 
-|
-    |**监听端口**|用来接收请求并向后端服务器进行请求转发的监听端口。端口范围为1-65535。
+ |
+    |**监听端口**|用来接收请求并向后端服务器进行请求转发的监听端口。 端口范围为1-65535。
 
-**说明：** 在同一个负载均衡实例内，监听端口不可重复。
+ **说明：** 在同一个负载均衡实例内，监听端口不可重复。
 
-|
+ |
     |**高级配置**|
-    |**调度算法**|负载均衡支持轮询、加权轮询（WRR）、加权最小连接数（WLC）三种调度算法。    -   **加权轮询**：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
+    |**调度算法**|负载均衡支持轮询、加权轮询（WRR）、加权最小连接数（WLC）三种调度算法。     -   **加权轮询**：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
     -   **轮询**：按照访问顺序依次将外部请求依序分发到后端服务器。
     -   **加权最小连接数**：除了根据每台后端服务器设定的权重值来进行轮询，同时还考虑后端服务器的实际负载（即连接数）。当权重值相同时，当前连接数越小的后端服务器被轮询到的次数（概率）也越高。
-|
-    |**监听转发**|选择是否将HTTP监听的流量转发到HTTPS监听。**说明：** 如果开启监听转发，确保您已经创建了HTTPS监听。
+ |
+    |**监听转发**|选择是否将HTTP监听的流量转发到HTTPS监听。 **说明：** 如果开启监听转发，确保您已经创建了HTTPS监听。
 
-|
+ |
     |**会话保持**| 选择是否开启会话保持。
 
  开启会话保持功能后，负载均衡会把来自同一客户端的访问请求分发到同一台后端服务器上进行处理。
@@ -74,9 +74,9 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 如果开启了黑名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
 
  |
-    |**选择访问控制策略组**|选择访问控制策略组，作为该监听的白名单或黑名单。**说明：** IPv6实例只能绑定IPv6访问控制策略组，IPv4实例只能绑定IPv4访问控制策略组。详情参见[访问控制策略组](intl.zh-CN/历史文档/用户指南（旧版控制台）/访问控制/配置访问控制策略组.md#)。
+    |**选择访问控制策略组**|选择访问控制策略组，作为该监听的白名单或黑名单。 **说明：** IPv6实例只能绑定IPv6访问控制策略组，IPv4实例只能绑定IPv4访问控制策略组。详情参见[访问控制策略组](intl.zh-CN/历史文档/用户指南（旧版控制台）/访问控制/配置访问控制策略组.md#)。
 
-|
+ |
     |**开启带宽峰值**| 选择是否配置监听带宽。
 
  对于按带宽计费的负载均衡实例，您可以针对不同监听设定不同的带宽峰值来限定监听的流量。实例下所有监听的带宽峰值总和不能超过该实例的带宽。
@@ -86,30 +86,30 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
  **说明：** 使用流量计费方式的实例默认不限制带宽峰值。
 
  |
-    |**连接空闲超时时间**|指定连接空闲超时时间，取值范围为1-60秒。在超时时间内一直没有访问请求，负载均衡会暂时中断当前连接，直到一下次请求来临时重新建立新的连接。
+    |**连接空闲超时时间**|指定连接空闲超时时间，取值范围为1-60秒。 在超时时间内一直没有访问请求，负载均衡会暂时中断当前连接，直到一下次请求来临时重新建立新的连接。
 
-该功能已经在全部地域开放。
+ 该功能已经在全部地域开放。
 
-|
-    |**请求超时时间**|指定请求超时时间，取值范围为1-180秒。在超时时间内后端服务器一直没有响应，负载均衡将放弃等待，给客户端返回HTTP 504错误码。
+ |
+    |**请求超时时间**|指定请求超时时间，取值范围为1-180秒。 在超时时间内后端服务器一直没有响应，负载均衡将放弃等待，给客户端返回HTTP 504错误码。
 
-该功能已经在全部地域开放。
+ 该功能已经在全部地域开放。
 
-|
-    |**Gzip数据压缩**|开启该配置对特定文件类型进行压缩。目前Gzip支持压缩的类型包括：text/xml、text/plain、text/css、application/javascript、application/x-javascript application/rss+xml、application/atom+xml、application/xml。
+ |
+    |**Gzip数据压缩**|开启该配置对特定文件类型进行压缩。 目前Gzip支持压缩的类型包括：text/xml、text/plain、text/css、application/javascript、application/x-javascript application/rss+xml、application/atom+xml、application/xml。
 
-|
-    |**附加HTTP头字段**|选择您要添加的自定义HTTP header字段：    -   添加`X-Forwarded-For`字段获取客户端的IP地址。
+ |
+    |**附加HTTP头字段**|选择您要添加的自定义HTTP header字段：     -   添加`X-Forwarded-For`字段获取客户端的IP地址。
     -   添加`X-Forwarded-Proto`字段获取实例的监听协议。
     -   添加`SLB-IP`字段获取负载均衡实例的公网IP。
     -   添加`SLB-ID`字段获取负载均衡实例的ID。
-|
+ |
     |**获取真实IP**|HTTP监听通过 X-Forwarded-For获取客户端真实IP。|
     |**创建完毕自动启动监听**|是否在监听配置完成后启动负载均衡监听，默认开启。|
 
 2.  单击**下一步**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15580599967434_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15595399747434_zh-CN.png)
 
 
 ## 步骤三 添加后端服务器 {#section_ylm_3qn_42b .section}
@@ -118,13 +118,13 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
 本操作中，以默认后端服务器组为例：
 
-1.  选择**默认服务器组**，单击**添加**。
+1.  选择**默认服务器组**，单击**继续添加**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805999610030_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155953997410030_zh-CN.png)
 
-2.  选择要添加的ECS实例，然后单击**加入待添加篮**。单击**确定**。
+2.  选择要添加的ECS实例，然后单击**下一步：配置权重和端口号**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15580599967499_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15595399747499_zh-CN.png)
 
 3.  配置添加的后端服务器的端口和权重。
     -   端口
@@ -137,7 +137,7 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
         **说明：** 权重设置为0，该服务器不会再接受新请求。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15580599967504_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15595399747504_zh-CN.png)
 
 4.  单击**下一步**。
 
@@ -145,7 +145,7 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
 负载均衡通过健康检查来判断后端服务器（ECS实例）的业务可用性。健康检查机制提高了前端业务整体可用性，避免了后端ECS异常对总体服务的影响。单击**修改**更改健康检查配置，详情参见[配置健康检查](intl.zh-CN/用户指南/健康检查/配置健康检查.md#)。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805999610032_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155953997410032_zh-CN.png)
 
 ## 步骤五 提交配置 {#section_ey5_lqn_42b .section}
 
@@ -155,12 +155,12 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 2.  确认无误后，单击**提交**。
 3.  在配置审核页面，配置成功后，单击**确定**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805999610033_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155953997410033_zh-CN.png)
 
 
 配置成功后，您可以在监听页面查看已创建的监听。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155805999610034_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155953997410034_zh-CN.png)
 
 ## 相关操作 {#section_pz4_2pn_42b .section}
 
