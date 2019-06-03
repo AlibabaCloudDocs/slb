@@ -14,7 +14,7 @@
         -   **健康检查端口**：80
         -   **健康检查域名**：`www.slb-test.com`
         -   **健康检查路径**：`/test.html`
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65042/154901204133076_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65042/155954649633076_zh-CN.png)
 
     2.  以Linux系统为例，执行nc或curl命令对后端服务器上的HTTP服务进行探测，健康检查路径、健康检查端口和健康检查域名配置必须与后端服务器上配置保持一致，否则会产生健康检查异常。 此处使用nc命令为例，请根据实际情况配置健康检查路径、域名、内网地址和健康检查端口：
 
@@ -24,10 +24,10 @@
 
         -   正常情况下，返回`200`或其他`2xx/3xx`返回码，如下图所示。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65042/154901204133084_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65042/155954649633084_zh-CN.png)
 
         -   异常示例：假设负载均衡上的监听配置保持不变，但是删除后端服务器上/test.html页面，执行nc命令后，得到404错误码，该错误码与负载均衡SLB监听中设置的2xx或者3xx错误码不符，此时会出现健康检查异常结果，如下图所示。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65042/154901204133092_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65042/155954649733092_zh-CN.png)
 
 
