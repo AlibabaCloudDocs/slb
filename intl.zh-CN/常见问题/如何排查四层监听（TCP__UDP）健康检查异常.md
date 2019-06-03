@@ -11,7 +11,7 @@
 
         其中，**健康检查端口**默认使用后端服务器端口进行健康检查，也可以手动设置端口。此处示例使用后端服务器端口，端口号为80。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65040/155860648133070_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65040/155954618033070_zh-CN.png)
 
     2.  执行如下命令，尝试连接健康检查端口，负载均衡上配置的健康检查端口要与后端服务器上的监听的端口保持一致。 
 
@@ -21,11 +21,11 @@
 
         -   正常情况下，会返回类似`Connected to xxx.xxx.xxx.xxx`信息，表示后端服务器上指定端口处于正常工作（监听）状态，此时健康检查是正常的，如下图所示。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65040/155860648133071_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65040/155954618033071_zh-CN.png)
 
         -   异常示例：假设负载均衡上的监听配置保持不变，但是停止后端服务器上的80端口监听进程，执行telnet命令后，系统提示无法连接到该主机，连接被拒绝，表示80端口监听的进程不再工作，此时健康检查会出现异常，如下图所示。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65040/155860648133072_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65040/155954618033072_zh-CN.png)
 
 3.  四层监听支持HTTP方式健康检查，如果使用HTTP方式健康检查，请参考[七层监听（HTTP/HTTPS）健康检查异常排查](intl.zh-CN/常见问题/如何排查七层监听（HTTP__HTTPS）健康检查异常.md#)，排查方式与七层监听一致。 
 
