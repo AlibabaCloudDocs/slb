@@ -4,23 +4,23 @@ This topic describes how to add an HTTP listener to a Server Load Balancer \(SLB
 
 ## Prerequisites {#section_tx3_vqn_42b .section}
 
-At least one Server Load Balancer \(SLB\) instance is created. For more information, see [Create an SLB instance](intl.en-US/User Guide/Server Load Balancer instance/Create an SLB instance.md#).
+[Create an SLB instance](intl.en-US/User Guide/Server Load Balancer instance/Create an SLB instance.md#).
 
 ## Step 1 Open the listener configuration wizard {#section_wx3_5qn_42b .section}
 
-To open the listener configuration wizard, complete these steps:
+To open the listener configuration wizard, follow these steps:
 
 1.  Log on to the [SLB console](https://slb.console.aliyun.com).
-2.  In the left-side navigation pane, choose **Instances** \> **Server Load Balancer**.
-3.  Select the region of the target instance.
+2.  In the left-side navigation pane, select **Instances** \> **Server Load Balancer**.
+3.  Select the region of the target SLB instance.
 4.  Select one of the following methods to open the listener configuration wizard:
-    -   On the Server Load Balancer page, find the target instance and then click **Configure Listener**.
+    -   On the Server Load Balancer page, find the target SLB instance and then click **Configure Listener**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155868973310004_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155954000810004_en-US.png)
 
-    -   On the Server Load Balancer page, click the ID of the target SLB instance. On the Listeners tab page, click **Add Listener**.
+    -   On the Server Load Balancer page, click the ID of the target SLB instance. On the Listeners page, click **Add Listener**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15586897337399_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15595400097399_en-US.png)
 
 
 ## Step 2 Configure an HTTPS listener {#section_ly4_2pn_42b .section}
@@ -110,11 +110,11 @@ If you enable a blacklist without adding any IP entry in the corresponding acces
     |**Get Client Source IP Address**|HTTP listeners use X-Forwarded-For to obtain real IP addresses of clients.|
     |**Automatically Enable Listener After Creation**|Choose whether to start the listener after the listener is configured. This function is enabled by default.|
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155868973311858_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155954000911858_en-US.png)
 
 2.  Click **Next**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155868973310035_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155954000910035_en-US.png)
 
 
 ## Step 3 Configure the SSL certificate {#section_m52_pxn_42b .section}
@@ -158,7 +158,7 @@ To configure the SSL certificate, follow these steps:
 
 2.  If you want to enable HTTPS mutual authentication, click **Modify** and enable mutual authentication.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/15586897339566_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/15595400099566_en-US.png)
 
 3.  Select an uploaded CA certificate, or click **Create CA Certificate** to upload a CA certificate.
 
@@ -173,11 +173,11 @@ In this topic, use the default server group.
 
 1.  Select **Default Server Group** and then click **Add**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155868973410036_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155954000910036_en-US.png)
 
 2.  Select the ECS instances to add and then click **Add to Selected Server List**. Click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15586897347499_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15595400097499_en-US.png)
 
 3.  Configure the ports and weights of the added backend servers.
     -   Port
@@ -190,7 +190,7 @@ In this topic, use the default server group.
 
         **Note:** If the weight is set to 0, no requests will be sent to the ECS instance.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15586897347504_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15595400097504_en-US.png)
 
 4.  Click **Next**.
 
@@ -198,7 +198,7 @@ In this topic, use the default server group.
 
 SLB checks the service availability of backend servers \(ECS instances\) by performing health checks. The health check function improves the overall availability of your services and avoids the impact of backend server failures. Click **Modify** to change health check configurations. For more information, see [Configure health checks](intl.en-US/User Guide/Health check/Configure health checks.md#).
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155868973410037_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155954000910037_en-US.png)
 
 ## Step 6 Submit the configurations {#section_hwm_qnn_42b .section}
 
@@ -207,12 +207,12 @@ To confirm the listener configurations, follow these steps:
 1.  On the Submit page, check the listener configurations. You can click **Modify** to change the configurations. Click **Submit**.
 2.  On the Submit page, click **OK** after the configurations are successful.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155868973410038_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155954000910038_en-US.png)
 
 
 After the configurations are submitted, you can view the created listener on the listeners page.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155868973410039_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155954000910039_en-US.png)
 
 ## Related operations {#section_pz4_2pn_42b .section}
 
@@ -223,6 +223,6 @@ After the configurations are submitted, you can view the created listener on the
 -   [Generate a CA certificate](intl.en-US/User Guide/证书管理/Generate a CA certificate.md#)
 -   [Create a certificate](intl.en-US/User Guide/证书管理/Create a certificate.md#)
 -   [Configure access control](intl.en-US/User Guide/Access control/Configure access control.md#)
--   [Add domain-name based or URL-based forwarding rules](intl.en-US/Tutorials/Traffic forwarding based on domain name or URL.md#)
+-   [Add domain-name based or URL-based forwarding rules](intl.en-US/Tutorials/Traffic forwarding based on domain names or URLs.md#)
 -   [Manage a domain name extension](intl.en-US/User Guide/Listeners/Manage a domain name extension.md#)
 
