@@ -1,4 +1,4 @@
-# DescribeLoadBalancerUDPListenerAttribute {#doc_api_993680 .reference}
+# DescribeLoadBalancerUDPListenerAttribute {#doc_api_Slb_DescribeLoadBalancerUDPListenerAttribute .reference}
 
 调用DescribeLoadBalancerUDPListenerAttribute查询UDP监听的配置。
 
@@ -90,7 +90,7 @@
 
 仅转发来自所选访问控制策略组中设置的IP地址或地址段的请求，白名单适用于应用只允许特定IP访问的场景。
 
-设置白名单存在一定业务风险。一旦设置白名单，就只有白名单中的IP可以访问负载均衡监听。如果开启了白名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
+设置白名单存在一定业务风险。一旦设置白名单，就只有白名单中的IP可以访问负载均衡监听。如果开启了白名单访问，但访问策略组中没有添加任何IP，则负载均衡监听不会转发全部请求。
 
 -   black：
 
