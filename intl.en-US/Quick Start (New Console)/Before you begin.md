@@ -38,7 +38,7 @@ SLB supports Layer-4 \(TCP and UDP\) and Layer-7 \(HTTP and HTTPS\) load balanci
 
     Layer-7 listeners involve one more procedure than Layer-4 listeners for forwarding incoming requests, which can lead to longer performance times. Moreover, scenarios involving insufficient client ports or excessive connections to the backend servers also affect the performance of Layer-7 listeners. Therefore, if you require high performance, we recommend that you use Layer-4 listeners.
 
-    For more information, see [Protocols](../../../../../intl.en-US/User Guide/Listeners/Listener overview.md#table_spy_pp5_vdb).
+    For more information, see [Protocols](../../../../intl.en-US/User Guide/Listeners/Listener overview.md#table_spy_pp5_vdb).
 
 
 ## Backend servers {#section_f5v_54l_vdb .section}
@@ -49,11 +49,11 @@ Note the following when you create and configure an ECS instance:
 
 -   The region and zone of the ECS instance
 
-    Make sure that the region of the ECS instance is the same as that of the SLB instance. Additionally, we recommend that you deploy each ECS instance in different zones to improve availability. For more information, see [Create an instance by using the wizard](../../../../../intl.en-US/Instances/Create an instance/Create an instance by using the wizard.md#).
+    Make sure that the region of the ECS instance is the same as that of the SLB instance. Additionally, we recommend that you deploy each ECS instance in different zones to improve availability. For more information, see [Create an instance by using the wizard](../../../../intl.en-US/Instances/Create an instance/Create an instance by using the wizard.md#).
 
     In this example, two ECS instances are created in the **China \(Hangzhou\)** region. They are named as ECS01 and ECS02 as shown in the following figure.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15696/155530972033206_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15696/155979943333206_en-US.png)
 
 -   Application configuration
 
@@ -61,11 +61,11 @@ Note the following when you create and configure an ECS instance:
 
     -   Enter the EIP address attached to ECS01 in the browser:
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15696/155530972038840_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15696/155979943338840_en-US.png)
 
     -   Enter the EIP address attached to ECS02 in the browser:
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15696/155530972038841_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15696/155979943338841_en-US.png)
 
     No additional configuration is required after you deploy applications on the ECS instances. However, if you want to use Layer-4 listeners, and the ECS instances use a Linux operating system, make sure that the values of the following parameters in the net.ipv4.conf file in /etc/sysctl.conf are set to `0`:
 
