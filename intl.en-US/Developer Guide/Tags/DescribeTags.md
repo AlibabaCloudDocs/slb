@@ -1,6 +1,6 @@
 # DescribeTags {#doc_api_879798 .reference}
 
-You can call the DescribeTags API to query the details of added tags.
+Call the DescribeTags API to query the details of added tags.
 
 Before you call this API, note the following:
 
@@ -12,33 +12,33 @@ Before you call this API, note the following:
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=DescribeTags) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+Perform a [debug](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) in OpenAPI Explorer. We recommend that you use OpenAPI Explorer. By using OpenAPI Explorer, you can call APIs, generate SDK code examples automatically, and search APIs, allowing you to quickly and easily get started with using APIs on the cloud.
 
 ## Request parameters {#parameters .section}
 
 |Name|Type|Required?|Example value|Description|
 |----|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeTags|DescribeTags
+|Action|String|Yes|DescribeTags| The action to perform. Valid value: DescribeTags.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs
+|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs.
 
  |
 |DistinctKey|Boolean|No|false|Whether it is DistinctKey.
 
- Valid values: **true | false**
+ Valid values: **true | false**.
 
  |
-|LoadBalancerId|String|No|139a00604ad-cn-east-hangzhou-01|The ID of the SLB instance
+|LoadBalancerId|String|No|139a00604ad-cn-east-hangzhou-01|The ID of the SLB instance.
 
  |
-|PageNumber|Integer|No|1|The page number of the SLB instance list. Initial value: 1. Default value: 1.
+|PageNumber|Integer|No|1| The page number of the SLB instance list. Initial value: 1. Default value: 1.
 
  |
-|PageSize|Integer|No|50|The number of results per page. Default value: 50. Maximum value: 100.
+|PageSize|Integer|No|50| The number of results per page. Default value: 50. Maximum value: 100.
 
  |
-|Tags|String|No|\[\{"TagKey":"Key1","TagValue":"Value1"\}\{"TagKey":"Key2","TagValue":"Value2"\}\]|A list of tags to query
+|Tags|String|No|\[\{"TagKey":"Key1","TagValue":"Value1"\}\{"TagKey":"Key2","TagValue":"Value2"\}\]|A list of tags to query.
 
  |
 
@@ -46,28 +46,28 @@ Click [here](https://api.aliyun.com/#product=Slb&api=DescribeTags) to perform a 
 
 |Name|Type|Example value|Description|
 |----|----|-------------|-----------|
-|TagSets| | |The list of tags
+|TagSets| | |The list of tags.
 
  |
-|└TagKey|String|test|The tag key
+|└TagKey|String|test|The tag key.
 
  |
-|└TagValue|String|api|The tag value
+|└TagValue|String|api|The tag value.
 
  |
 |└InstanceCount|Integer|10|The total number of SLB instances where the tag is attached.
 
  |
-|PageSize|Integer|50|Default value: 50. Maximum value: 100.
+|PageSize|Integer|50| Default value: 50. Maximum value: 100.
 
  |
-|PageNumber|Integer|1|The page number of the SLB instance list. Initial value: 1. Default value: 1.
+|PageNumber|Integer|1| The page number of the SLB instance list. Initial value: 1. Default value: 1.
 
  |
-|TotalCount|Integer|1|The total number of instances that meet your search conditions
+|TotalCount|Integer|1|The total number of instances that meet your search conditions.
 
  |
-|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|The ID of the request
+|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|The ID of the request.
 
  |
 
@@ -81,10 +81,10 @@ https://slb.aliyuncs.com/
 &Action=DescribeTags
 &RegionId=cn-hangzhou
 &LoadBalancerID=139a00604ad-cn-east-hangzhou-01
-&<Common request parameters>
+&<CommonParameters>
 ? Action=DescribeTags
 &RegionId=cn-hangzhou
-&<Common request parameters>
+&<CommonParameters>
 
 ```
 
