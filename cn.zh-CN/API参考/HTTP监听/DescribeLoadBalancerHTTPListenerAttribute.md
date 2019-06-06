@@ -1,10 +1,10 @@
-# DescribeLoadBalancerHTTPListenerAttribute {#doc_api_874444 .reference}
+# DescribeLoadBalancerHTTPListenerAttribute {#doc_api_Slb_DescribeLoadBalancerHTTPListenerAttribute .reference}
 
 使用DescribeLoadBalancerHTTPListenerAttribute查询HTTP监听配置。
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalancerHTTPListenerAttribute)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalancerHTTPListenerAttribute)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -124,9 +124,10 @@
 
 设置白名单存在一定业务风险。一旦设置白名单，就只有白名单中的IP可以访问负载均衡监听。如果开启了白名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
 
- -   **black**： 来自所选访问控制策略组中设置的IP地址或地址段的所有请求都不会转发，黑名单适用于应用只限制某些特定IP访问的场景。
+-   **black**： 来自所选访问控制策略组中设置的IP地址或地址段的所有请求都不会转发，黑名单适用于应用只限制某些特定IP访问的场景。
 
 如果开启了黑名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
+
 
  当**AclStatus**参数的值为**on**时，该参数必选。
 
@@ -229,19 +230,6 @@ http(s)://[Endpoint]/?Action=DescribeLoadBalancerHTTPListenerAttribute
 	"ForwardPort":443,
 	"ListenerForward":"on",
 	"ListenerPort":80
-}
-```
-
-异常返回示例
-
-`JSON` 格式
-
-``` {#json_return_failed_demo}
-{
-	"Message":"The specified parameter is not valid.",
-	"RequestId":"0669D684-69D8-408E-A4FA-B9011E0F4E66",
-	"HostId":"slb-pop.aliyuncs.com",
-	"Code":"InvalidParameter"
 }
 ```
 
