@@ -1,10 +1,10 @@
-# DescribeLoadBalancers {#doc_api_937150 .reference}
+# DescribeLoadBalancers {#doc_api_Slb_DescribeLoadBalancers .reference}
 
 调用DescribeLoadBalancers查询已创建的负载均衡实例。
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalancers)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalancers)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -23,7 +23,9 @@
  |
 |AddressIPVersion|String|否|ipv4|IP版本，可以设置为ipv4或者ipv6。
 
- **说明：** 目前，仅有华东1地域的E、F可用区和华北2地域的G、F可用区支持创建ipv6实例且实例类型必须为性能保障型实例。
+ **说明：** 目前支持创建IPv6实例且实例类型必须为性能保障型实例的可用区如下：
+
+ 华东1地域的E、F两个可用区、华北2地域的F、G两个可用区、华东2地域的所有可用区和华南1地域的D、E两个可用区。
 
  |
 |AddressType|String|否|intranet|负载均衡实例的网络类型，取值：**intranet**或**internet**
@@ -83,7 +85,7 @@
  目前对金融云用户暂时不支持多可用区功能。
 
  |
-|Tags|String|否|\{"tagKey":"Key1","tagValue":"Value1"\}|负载均衡实例绑定的Tag列表，其结构是一个Json List，包含TagKey和TagValue。
+|Tags|String|否|\{"tagKey":"Key1","tagValue":"Value1"\}|负载均衡实例绑定的Tag列表，其结构是一个json dictionary，包含TagKey和TagValue。
 
  一次请求中，List中的元素最多有10个。
 
