@@ -1,95 +1,118 @@
-# RemoveVServerGroupBackendServers {#reference_hg2_4sd_ndb .reference}
+# RemoveVServerGroupBackendServers {#doc_api_879383 .reference}
 
-Remove backend servers from a VServer group.
+Removes a backend server from a specified VServer group.
 
-**Note:** If the backend server specified in the BackendServers parameter does not exist in the specified VServer group, it is ignored and no error is returned.
+**Note:** If a backend server specified in the **BackendServers** parameter does not exist in the specified VServer group, it is ignored and no error is returned.
 
-## Request parameters {#section_v5w_nds_cz .section}
+## Debug {#apiExplorer .section}
 
-|Name|Type|Required|Description|
-|:---|:---|:-------|:----------|
-|Action |String| Yes|The action to perform. Valid value:RemoveVServerGroupBackendServers
+We recommend that you use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) to call APIs, generate SDK code examples, perform debug operations, and search for APIs.
 
-|
-|RegionId|String| Yes|The ID of the region where the Server Load Balancer instance is located.You can obtain the region ID by calling the DescribeRegions API.
+## Request parameters {#parameters .section}
 
-|
-|VServerGroupId|String| Yes|The ID of the VServer group.|
-|Backendservers|StringList
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|RemoveVServerGroupBackendServers|The name of this action. Value: **RemoveVServerGroupBackendServers**
 
-|Yes|The list of backend servers.A VServer group can contain 20 backend servers at most.
+ |
+|BackendServers|String|Yes|\[\{'ServerId':'vm-233','Port':'80'\},\{'ServerId':'vm-232','Port':'90'\}\]|The list of backend servers in the VServer group.
 
-|
+ In one call, a VServer group can contain up to 20 backend servers.
 
-|Name|Type|Required| Description|
-|:---|:---|:-------|:-----------|
-|ServerId|String| Yes|The ID of the ECS instance.|
-|Port|Integer|Yes|The port used by the backend server.Valid value: 1-65535
+ |
+|RegionId|String|Yes|cn-hangzhou|The region ID of the SLB instance.
 
-|
-|Type|String| Yes|The type of the backend server. Valid value:-   ecs: ECS instance \(Default\)
--   eni: Elastic Network Interface \(ENI\)
+ |
+|VServerGroupId|String|Yes|rsp-cige6j5e7p|The ID of the VServer group.
 
-|
+ |
 
-## Response parameters {#section_ssd_pds_cz .section}
+## Response parameters {#resultMapping .section}
 
-|Name|Type|Description|
-|:---|:---|:----------|
-|RequestId|String|The ID of the request.|
-|VServerGroupId|String|The ID of the VServer group.|
-|Backendservers|List|The list of backend servers.|
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|VServerGroupId|String|rsp-cige6j5e7p|The ID of the VServer group.
 
-## Examples {#section_oxr_pds_cz .section}
+ |
+|BackendServers|N/A|N/A|A list of backend servers.
 
-**Request example**
+ |
+|└ServerId|String|vm-230|The ECS instance ID or ENI ID.
 
-``` {#public}
-https://slb.aliyuncs.com/?Action=RemoveVServerGroupBackendServers
+ |
+|└Port|Integer|80|The port used by the backend server.
+
+ |
+|└Weight|Integer|100|The weight of the backend server.
+
+ |
+|└Description|String|A description of the VServer group|A description of the VServer group.
+
+ |
+|└Type|String|ecs|The backend server type. Valid values:
+
+ -   **ecs**: ECS instance \(default\)
+-   **eni**: Elastic Network Interface \(ENI\)
+
+ |
+|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|The ID of the request.
+
+ |
+
+## Examples {#demo .section}
+
+Request example
+
+``` {#request_demo}
+
+http(s)://[Endpoint]/? Action=RemoveVServerGroupBackendServers
+&BackendServers=[{'ServerId':'vm-233','Port':'80'},{'ServerId':'vm-232','Port':'90'}]
 &RegionId=cn-hangzhou
-&LoadBalancerId=lb-t4nj5vuz8ish9emfk1f20
-&VServerGroupName=Group1
-&BackendServers=[
-    {"ServerId":"vm-233","Port":"80","Weight":"100","Type":"ecs},
-    {"ServerId":"vm-232","Port":"90","Weight":"100","Type":"ecs},
-]
-&CommonParameters
+&VServerGroupId=rsp-cige6j5e7p
+&<CommonParameters>
+
 ```
 
-**Response example**
+Response examples
 
--   XML format
+`XML` format
 
-    ```
-    <? xml version="1.0" encoding="utf-8"? >
-    <RemoveVServerGroupBackendServersResponse>
-    	<RequestId>9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C</RequestId>
-    	<VServerGroupId>rsp-cige6j5e7p</VServerGroupId>
-    	<BackendServers>
-    		<BackendServer>
-    			<ServerId>vm-231</ServerId>
-    			<Port>70</Port>
-    			<Weight>100</Weight>
-                            <Type>ecs</Type>
-    		</BackendServer>
-    	</BackendServers>
-    </RemoveVServerGroupBackendServersResponse>
-    ```
+``` {#xml_return_success_demo}
+<RemoveVServerGroupBackendServersResponse>
+  <RequestId>9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C</RequestId>
+  <VServerGroupId>rsp-cige6j5e7p</VServerGroupId>
+  <BackendServers>
+    <BackendServer>
+      <ServerId>vm-231</ServerId>
+      <Port>70</Port>
+      <Weight>100</Weight>
+      <Type>ecs</Type>
+    </BackendServer>
+  </BackendServers>
+</RemoveVServerGroupBackendServersResponse>
 
--   JSON format
+```
 
-    ```
-    {
-      "RequestId":"9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C",
-      "VServerGroupId":"rsp-cige6j5e7p",
-      "BackendServers":{
-      "BackendServer":[
-        {"ServerId":"vm-233","Port":"80","Weight":"100","Type":"ecs},
-        {"ServerId":"vm-232","Port":"90","Weight":"100","Type":"ecs},
-        {"ServerId":"vm-231","Port":"70","Weight":"100","Type":"ecs}
-        ]
-      }
-    }
-    ```
+`JSON` format
 
+``` {#json_return_success_demo}
+{
+	"RemoveVServerGroupBackendServersResponse":{
+		"BackendServers":{
+			"BackendServer":{
+				"ServerId":"vm-231",
+				"Port":"70",
+				"Weight":"100",
+				"Type":"ecs"
+			}
+		},
+		"RequestId":"9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C",
+		"VServerGroupId":"rsp-cige6j5e7p"
+	}
+}
+```
+
+## Error codes { .section}
+
+[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
 
