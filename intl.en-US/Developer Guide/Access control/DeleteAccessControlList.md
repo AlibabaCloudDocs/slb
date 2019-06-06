@@ -1,34 +1,34 @@
-# DeleteAccessControlList {#doc_api_881525 .reference}
+# DeleteAccessControlList {#doc_api_Slb_DeleteAccessControlList .reference}
 
-You can call the DeleteAccessControlList API to delete access control policy groups.
+Deletes an access control list.
 
-**Note:** An access control policy group can be deleted only after it is detached from a listener.
+**Note:** An access control list can be deleted only after it is disassociated from a listener.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=DeleteAccessControlList) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DeleteAccessControlList) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|DeleteAccessControlList|The action to perform. Valid value: **DeleteAccessControlList**.
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|DeleteAccessControlList|The name of this action. Value: **DeleteAccessControlList**
 
  |
-|AclId|String|Yes|acl-bp1l0kk4gxce43kzet04s|The ID of an access control policy group
+|AclId|String|Yes|acl-bp1l0kk4gxce43kzet04s|The ID of the access control list to be deleted.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the access control policy group belongs.
+|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the access control list belongs.
 
- You can call the [DescribeRegions](~~27584~~) API to query this parameter.
+ To query the region ID, call [DescribeRegions](~~27584~~).
 
  |
 
 ## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
-|RequestId|String|988CB45E-1643-48C0-87B4-928DDF77EA49|The ID of the request
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|RequestId|String|988CB45E-1643-48C0-87B4-928DDF77EA49|The ID of the request.
 
  |
 
@@ -39,20 +39,20 @@ Request example
 ``` {#request_demo}
 
 /? Action=DeleteAccessControlList
-&AclId=acl-bp1l0kk4gxce43kzet04s
-&RegionId=cn-hangzhou
+&AclId=acl-bp1l0kk4gxce43kzet04s 
+&RegionId=cn-hangzhou 
 &<CommonParameters>
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
 ``` {#xml_return_success_demo}
-<DeleteAccessControlListResponse>
-  <RequestId>988CB45E-1643-48C0-87B4-928DDF77EA49</RequestId>
-</DeleteAccessControlListResponse>
+<DeleteAccessControlListResponse> 
+  <RequestId>988CB45E-1643-48C0-87B4-928DDF77EA49</RequestId> 
+</DeleteAccessControlListResponse> 
 
 ```
 
@@ -64,9 +64,7 @@ Normal response examples
 }
 ```
 
-Error response examples
-
 ## Error codes { .section}
 
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
 

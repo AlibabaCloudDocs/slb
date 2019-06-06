@@ -1,12 +1,12 @@
-# DeleteAccessControlList {#doc_api_881525 .reference}
+# DeleteAccessControlList {#doc_api_Slb_DeleteAccessControlList .reference}
 
-使用DeleteAccessControlList删除访问控制策略组。
+调用DeleteAccessControlList删除访问控制策略组。
 
 **说明：** 只有当要删除的访问控制策略组没有绑定任何监听时，才可以删除。
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=DeleteAccessControlList)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DeleteAccessControlList)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -63,8 +63,6 @@
 	"RequestId":"988CB45E-1643-48C0-87B4-928DDF77EA49"
 }
 ```
-
-异常返回示例
 
 ## 错误码 { .section}
 
