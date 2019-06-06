@@ -1,66 +1,83 @@
-# RemoveTags {#reference_zdx_mff_ndb .reference}
+# RemoveTags {#doc_api_834936 .reference}
 
-解绑负载均衡实例的标签。
+使用RemoveTags解绑指定负载均衡实例下的标签。
 
-## 请求参数 {#section_v5w_nds_cz .section}
+## 调试 {#apiExplorer .section}
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|要执行的操作，取值：RemoveTags
+单击[这里](https://api.aliyun.com/#product=Slb&api=RemoveTags)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
 
-|
-|RegionId|String|是|负载均衡地域。您可以通过调用 DescribeRegions接口获取地域ID。
+## 请求参数 {#parameters .section}
 
-|
-|LoadBalancerID|String|是|负载均衡实例ID。|
-|Tags|List|否|需要解绑的Tag列表。|
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|RemoveTags|要执行的操作。取值：**RemoveTags**
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|TagKey|String|是|标签的键值。最多支持64个字，不能以aliyun开头，不允许为空。
+ |
+|LoadBalancerId|String|是|139a00604ad-cn-east-hangzhou-01|负载均衡实例ID。
 
-|
-|TagValue|String|否|标签的值。最多支持128个字符， 不能以aliyun开头。
+ |
+|RegionId|String|是|cn-hangzhou|负载均衡实例的地域ID。
 
-|
+ |
+|Tags|String|是|\[\{"TagKey":"Key1","TagValue":"Value1"\}\{"TagKey":"Key2","TagValue":"Value2"\}\]|需要解绑的Tag列表。
 
-## 返回参数 {#section_ssd_pds_cz .section}
+ |
 
-|名称|类型|说明|
-|:-|:-|:-|
-|RequestId|String|请求ID。|
+## 返回参数 {#resultMapping .section}
 
-## 示例 {#section_oxr_pds_cz .section}
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|请求ID。
 
-**请求示例**
+ |
 
-``` {#public}
-https://slb.aliyuncs.com/?Action=RemoveTags
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
+/?Action=RemoveTags
+&LoadBalancerId=139a00604ad-cn-east-hangzhou-01
 &RegionId=cn-hangzhou
-&LoadBalancerId=lb-t4nj5vuz8ish9emfk1f20
-&Tags=[
-    {"TagKey":"Key1","TagValue":"Value1"}    
-    {"TagKey":"Key2","TagValue":"Value2"}]
-&公共请求参数
+&Tags=[{"TagKey":"Key1","TagValue":"Value1"}{"TagKey":"Key2","TagValue":"Value2"}]
+&<公共请求参数>
+
 ```
 
-**返回示例**
+正常返回示例
 
--   XML格式
+`XML` 格式
 
-    ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <RemoveTagsResponse>
-    	<RequestId>365F4154-92F6-4AE4-92F8-7FF34B540710</RequestId>
-    </RemoveTagsResponse>
-    ```
+``` {#xml_return_success_demo}
+<RemoveTagsResponse>
+  <RequestId>365F4154-92F6-4AE4-92F8-7FF34B540710</RequestId>
+</RemoveTagsResponse>
 
--   JSON格式
+```
 
-    ```
-     {
-      "RequestId":"365F4154-92F6-4AE4-92F8-7FF34B540710",
-    }
-    ```
+`JSON` 格式
 
+``` {#json_return_success_demo}
+{
+	"RequestId":"365F4154-92F6-4AE4-92F8-7FF34B540710"
+}
+```
+
+异常返回示例
+
+`JSON` 格式
+
+``` {#json_return_failed_demo}
+{
+	"Message":"The specified parameter is not valid.",
+	"RequestId":"0669D684-69D8-408E-A4FA-B9011E0F4E66",
+	"HostId":"slb-pop.aliyuncs.com",
+	"Code":"InvalidParameter"
+}
+```
+
+## 错误码 { .section}
+
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
 
