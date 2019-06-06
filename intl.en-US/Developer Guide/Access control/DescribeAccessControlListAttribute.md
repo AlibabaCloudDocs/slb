@@ -1,71 +1,74 @@
-# DescribeAccessControlListAttribute {#doc_api_859274 .reference}
+# DescribeAccessControlListAttribute {#doc_api_Slb_DescribeAccessControlListAttribute .reference}
 
-You can call the DescribeAccessControlListAttribute API to query the settings of a specified access control policy group.
+Queries the settings of an access control list.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=DescribeAccessControlListAttribute) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeAccessControlListAttribute) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeAccessControlListAttribute|The action to perform. Valid value: **DescribeAccessControlListAttribute**.
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|DescribeAccessControlListAttribute|The name of this action. Value: **DescribeAccessControlListAttribute**
 
  |
-|AclId|String|Yes|acl-bp1l0kk4gxce43kzet04s|The ID of the access control policy group to be queried
+|AclId|String|Yes|acl-bp1l0kk4gxce43kzet04s|The ID of the access control list to be queried.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the access control policy group belongs.
+|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the access control list belongs.
 
- You can call the [DescribeRegions](~~27584~~) API to query this parameter.
+ To query the region ID, call [DescribeRegions](~~27584~~).
 
  |
-|AclEntryComment|String|No|test|A comment on an item in the access control policy group
+|AclEntryComment|String|No|test|A note to an IP entry in the access control list.
 
  |
 
 ## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
-|AclEntrys| | |A list of information about the access control policy group
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|AclEntrys| | |A list of IP entries in the access control list.
 
  |
-|└AclEntryComment|String|Access control items|A comment on the access control item
+|└AclEntryComment|String|IP entry|A note to an IP entry in the access control list.
 
  |
-|└AclEntryIP|String|192.168.0.1|The IP address of the access control item
+|└AclEntryIP|String|192.168.0.1|An IP entry in the access control list.
 
  |
-|AclId|String|acl-bp1l0kk4gxce43kzet04s|The ID of the access control policy group
+|AclId|String|acl-bp1l0kk4gxce43kzet04s|The ID of the access control list.
 
  |
-|AclName|String|doctest|The name of the access control policy group
+|AclName|String|doctest|The name of the access control list.
 
  |
-|AddressIPVersion|String|ipv4|The IP address type of the associated SLB instance
+|AddressIPVersion|String|ipv4|The IP address type of the associated SLB instance.
 
  |
-|RelatedListeners| | |A list of listeners that are attached to the access control policy group
+|RelatedListeners| | |A list of listeners that are associated with the access control list.
 
  |
-|└AclType|String|white|Access control type:
+|└AclType|String|white|The access control type:
 
- -   **black**: blacklist
--   **white**: whitelist
-
- |
-|└ListenerPort|Integer|443|The frontend port of the listener that is attached to the access control policy group
+ -   **black**: Indicates a blacklist.
+-   **white**: Indicates a whitelist.
 
  |
-|└LoadBalancerId|String|lb-bp13jaf5qli5xmgl1miup|The ID of the SLB instance
+|└ListenerPort|Integer|443|The frontend port of the listener that is associated with the access control list.
 
  |
-|└Protocol|String|https|The protocol type of the listener that is attached to the access control policy group
+|└LoadBalancerId|String|lb-bp13jaf5qli5xmgl1miup|The ID of the SLB instance.
 
  |
-|RequestId|String|C9906A1D-86F7-4C9C-A369-54DA42EF206A|The ID of the request
+|└Protocol|String|https|The protocol type of the listener that is associated with the access control list.
+
+ |
+|RequestId|String|C9906A1D-86F7-4C9C-A369-54DA42EF206A|The ID of the request.
+
+ |
+|ResourceGroupId|String|rg-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*|The ID of the enterprise resource group.
 
  |
 
@@ -76,31 +79,31 @@ Request example
 ``` {#request_demo}
 
 /? Action=DescribeAccessControlListAttribute
-&AclId=acl-bp1l0kk4gxce43kzet04s
-&RegionId=cn-hangzhou
+&AclId=acl-bp1l0kk4gxce43kzet04s 
+&RegionId=cn-hangzhou 
 &<CommonParameters>
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
 ``` {#xml_return_success_demo}
-<DescribeAccessControlListAttributeResponse>
-  <AclId>acl-bp1l0kk4gxce43kzet04s</AclId>
-  <RelatedListeners>
-    <RelatedListener>
-      <AclType>white</AclType>
+<DescribeAccessControlListAttributeResponse> 
+  <AclId>acl-bp1l0kk4gxce43kzet04s</AclId> 
+  <RelatedListeners> 
+    <RelatedListener> 
+      <AclType>white</AclType> 
       <LoadBalancerId>lb-bp13jaf5qli5xmgl1miup</LoadBalancerId>
-      <Protocol>https</Protocol>
-      <ListenerPort>443</ListenerPort>
-    </RelatedListener>
-  </RelatedListeners>
-  <AclName>doctest</AclName>
-  <RequestId>C9906A1D-86F7-4C9C-A369-54DA42EF206A</RequestId>
-  <AddressIPVersion>ipv4</AddressIPVersion>
-</DescribeAccessControlListAttributeResponse>
+      <Protocol>https</Protocol> 
+      <ListenerPort>443</ListenerPort> 
+    </RelatedListener> 
+  </RelatedListeners> 
+  <AclName>doctest</AclName> 
+  <RequestId>C9906A1D-86F7-4C9C-A369-54DA42EF206A</RequestId> 
+  <AddressIPVersion>ipv4</AddressIPVersion> 
+</DescribeAccessControlListAttributeResponse> 
 
 ```
 
@@ -125,9 +128,7 @@ Normal response examples
 }
 ```
 
-Error response example
-
 ## Error codes { .section}
 
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
 
