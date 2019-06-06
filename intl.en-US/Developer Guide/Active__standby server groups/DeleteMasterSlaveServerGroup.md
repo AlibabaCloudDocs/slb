@@ -1,34 +1,32 @@
-# DeleteMasterSlaveServerGroup {#doc_api_834970 .reference}
+# DeleteMasterSlaveServerGroup {#doc_api_1025812 .reference}
 
-You can call the DeleteMasterSlaveServerGroup API to delete a specified active/standby server group.
+Deletes an active/standby server group.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=DeleteMasterSlaveServerGroup) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+We recommend that you use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) to call APIs, generate SDK code examples, perform debug operations, and search for APIs.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|DeleteMasterSlaveServerGroup|The action to perform. Valid value: **DeleteMasterSlaveServerGroup**
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|DeleteMasterSlaveServerGroup| The name of this action. Value: **DeleteMasterSlaveServerGroup**
 
  |
-|MasterSlaveServerGroupId|String|Yes|rsp-cige6j5e7p|The ID of the active/standby server group.
+|MasterSlaveServerGroupId|String|Yes|rsp-cige6j5e7p| The ID of the active/standby server group to be deleted.
 
- **Attention**:
-
- An active/standby server group in use cannot be deleted.
+ **说明：** An active/standby server group in use cannot be deleted.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the SLB instance belongs.
 
  |
 
-## Response parameters {#resultMapping .section}
+## Response elements {#resultMapping .section}
 
 |Name|Type|Example value|Description|
 |----|----|-------------|-----------|
-|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|The ID of the request
+|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C| The ID of the request.
 
  |
 
@@ -46,7 +44,7 @@ Request example
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
@@ -65,20 +63,7 @@ Normal response examples
 }
 ```
 
-Error response example
+## Errors {#section_vy2_jcc_ygb .section}
 
-`JSON` format
-
-``` {#json_return_failed_demo}
-{
-	"Message":"The specified parameter is not valid.",
-	"RequestId":"0669D684-69D8-408E-A4FA-B9011E0F4E66",
-	"HostId":"slb-pop.aliyuncs.com",
-	"Code":"InvalidParameter"
-}
-```
-
-## Error codes { .section}
-
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common errors.](https://error-center.aliyun.com/status/product/Slb)
 
