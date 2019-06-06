@@ -1,4 +1,4 @@
-# DescribeServerCertificates {#doc_api_1088686 .reference}
+# DescribeServerCertificates {#doc_api_1093781 .reference}
 
 使用DescribeServerCertificates查询指定地域的服务器证书列表。
 
@@ -123,7 +123,7 @@ http(s)://[Endpoint]/?Action=DescribeServerCertificates
       <RegionIdAlias>cn-hangzhou</RegionIdAlias>
       <ResourceGroupId>rg-acfmxazb4ph6aiy</ResourceGroupId>
       <Fingerprint>cd:90:1b:7b:49:4d:1d:90:f6:01:de:9a:81:7d:31:a7:38:1d:84:8d</Fingerprint>
-      <ServerCertificateId>1231579085529123_158f79de306</ServerCertificateId>
+      <ServerCertificateId>1231579085xxxx_158f79de306</ServerCertificateId>
       <ExpireTimeStamp>1732169065000</ExpireTimeStamp>
       <AliCloudCertificateId>0</AliCloudCertificateId>
       <ExpireTime>2024-11-21T06:04:25Z</ExpireTime>
