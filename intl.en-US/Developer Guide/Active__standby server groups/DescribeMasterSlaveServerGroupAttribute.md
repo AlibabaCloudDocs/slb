@@ -1,60 +1,60 @@
 # DescribeMasterSlaveServerGroupAttribute {#doc_api_879497 .reference}
 
-You can call the DescribeMasterSlaveServerGroupAttribute API to query the details of a specified active/standby server group.
+Queries the information of an active/standby server group.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=DescribeMasterSlaveServerGroupAttribute) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+We recommend that you use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) to call APIs, generate SDK code examples, perform debug operations, and search for APIs.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeMasterSlaveServerGroupAttribute|The action to perform. Valid value: **DescribeMasterSlaveVServerGroupAttribute**
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|DescribeMasterSlaveServerGroupAttribute| The name of this action. Value: **DescribeMasterSlaveServerGroupAttribute**
 
  |
-|MasterSlaveServerGroupId|String|Yes|rsp-cige6j5e7p|The ID of the active/standby server group
+|MasterSlaveServerGroupId|String|Yes|rsp-cige6j5e7p| The ID of the active/standby server group.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the SLB instance belongs.
 
  |
 
-## Response parameters {#resultMapping .section}
+## Response elements {#resultMapping .section}
 
 |Name|Type|Example value|Description|
 |----|----|-------------|-----------|
-|MasterSlaveServerGroupId|String|rsp-cige6j5e7p|The ID of the active/standby server group
+|MasterSlaveServerGroupId|String|rsp-cige6j5e7p| The ID of the active/standby server group.
 
  |
-|MasterSlaveServerGroupName|String|Group1|The name of the active/standby server group
+|MasterSlaveServerGroupName|String|Group1| The name of the active/standby server group.
 
  |
-|MasterSlaveBackendServers| | |A list of the backend servers in the active/standby server group
+|MasterSlaveBackendServers| | | A list of the backend servers in the active/standby server group.
 
  |
-|└ServerId|String|vm-233|The ECS instance ID or ENI ID
+|└ServerId|String|vm-233| The ECS instance ID or ENI ID.
 
  |
-|└Port|Integer|90|The port used by the backend server
+|└Port|Integer|90| The port used by the backend server.
 
  |
-|└Weight|Integer|100|The weight of the backend server
+|└Weight|Integer|100| The weight of the backend server.
 
  |
-|└ServerType|String|Slave|The backend server type. Valid values: **Master \(default\) | Slave**
+|└ServerType|String|Slave| The backend server type. Valid values: **Master \(default\) | Slave**
 
  |
-|└Description|String|A description of the active/standby server group|A description of the active/standby server group
+|└Description|String|A description of the active/standby server group| A description of the active/standby server group.
 
  |
-|└Type|String|ecs|The backend server type. Valid values:
+|└Type|String|ecs| The backend server type. Valid values:
 
  -   **ecs**: ECS instance \(default\)
 -   **eni**: Elastic Network Interface \(ENI\)
 
  |
-|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|The ID of the request
+|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C| The ID of the request.
 
  |
 
@@ -71,7 +71,7 @@ http(s)://[Endpoint]/? Action=DescribeMasterSlaveServerGroupAttribute
 
 ```
 
-Normal response example
+Response example
 
 `XML` format
 
@@ -97,7 +97,7 @@ Normal response example
 
 ```
 
-## Error codes { .section}
+## Errors { .section}
 
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common errors.](https://error-center.aliyun.com/status/product/Slb)
 
