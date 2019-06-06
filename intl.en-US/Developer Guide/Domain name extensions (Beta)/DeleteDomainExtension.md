@@ -1,30 +1,30 @@
-# DeleteDomainExtension {#doc_api_880890 .reference}
+# DeleteDomainExtension {#doc_api_Slb_DeleteDomainExtension .reference}
 
-You can call the DeleteDomainExtension API to delete a domain name extension.
+Deletes a domain name extension.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=DeleteDomainExtension) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DeleteDomainExtension) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|DeleteDomainExtension|The action to perform. Valid value: **DeleteDomainExtension**
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|DeleteDomainExtension|The action to perform. Value: **DeleteDomainExtension**
 
  |
-|DomainExtensionId|String|Yes|de-bp1rp7ta191dv|The ID of the domain name extension to be deleted
+|DomainExtensionId|String|Yes|de-bp1rp7ta191dv|The ID of the domain name extension to be deleted.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs
+|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs.
 
  |
 
 ## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
-|RequestId|String|149A2470-F010-4437-BF68-343D5099C19D|The ID of the request
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|RequestId|String|149A2470-F010-4437-BF68-343D5099C19D|The ID of the request.
 
  |
 
@@ -34,22 +34,21 @@ Request example
 
 ``` {#request_demo}
 
-/? DomainExtensionId=de-bp1rp7ta191dv
-&RegionId=cn-hangzhou
-&Action=DeleteDomainExtension
-&Tags={"tagKey":"Key1","tagValue":"Value1"}
+http(s)://[Endpoint]/? Action=DeleteDomainExtension
+&DomainExtensionId=de-bp1rp7ta191dv 
+&RegionId=cn-hangzhou 
 &<CommonParameters>
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
 ``` {#xml_return_success_demo}
-<DeleteDomainExtensionResponse>
-  <RequestId>149A2470-F010-4437-BF68-343D5099C19D</RequestId>
-</DeleteDomainExtensionResponse>
+<DeleteDomainExtensionResponse> 
+  <RequestId>149A2470-F010-4437-BF68-343D5099C19D</RequestId> 
+</DeleteDomainExtensionResponse> 
 
 ```
 
@@ -61,9 +60,7 @@ Normal response examples
 }
 ```
 
-Error response example
-
 ## Error codes { .section}
 
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
 

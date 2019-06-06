@@ -1,10 +1,10 @@
-# DeleteDomainExtension {#doc_api_880890 .reference}
+# DeleteDomainExtension {#doc_api_Slb_DeleteDomainExtension .reference}
 
-使用DeleteDomainExtension删除扩展域名。
+调用DeleteDomainExtension删除扩展域名。
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=DeleteDomainExtension)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DeleteDomainExtension)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -34,10 +34,9 @@
 
 ``` {#request_demo}
 
-/?DomainExtensionId=de-bp1rp7ta191dv
+http(s)://[Endpoint]/?Action=DeleteDomainExtension
+&DomainExtensionId=de-bp1rp7ta191dv
 &RegionId=cn-hangzhou
-&Action=DeleteDomainExtension
-&Tags={"tagKey":"Key1","tagValue":"Value1"}
 &<公共请求参数>
 
 ```
@@ -60,8 +59,6 @@
 	"RequestId":"5B45BED9-4D41-47B0-ADD6-47A5624516C7"
 }
 ```
-
-异常返回示例
 
 ## 错误码 { .section}
 
