@@ -1,10 +1,10 @@
-# DescribeAccessControlLists {#doc_api_859273 .reference}
+# DescribeAccessControlLists {#doc_api_Slb_DescribeAccessControlLists .reference}
 
-使用DescribeAccessControlLists查询已创建的访问控制策略组。
+调用DescribeAccessControlLists查询已创建的访问控制策略组。
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=DescribeAccessControlLists)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeAccessControlLists)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -31,6 +31,9 @@
 
  |
 |PageSize|Integer|否|10|分页查询时每页的行数，最大值为50，默认值为10。
+
+ |
+|ResourceGroupId|String|否|rg-atstuj3rtoptyui|企业资源组ID。
 
  |
 
@@ -110,8 +113,6 @@
 	}
 }
 ```
-
-异常返回示例
 
 ## 错误码 { .section}
 
