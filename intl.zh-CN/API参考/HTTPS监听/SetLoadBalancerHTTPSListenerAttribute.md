@@ -218,40 +218,6 @@
 
  |
 
-## 补充说明 {#requestParamsSupplement .section}
-
-哈哈哈
-
-|Tables
-
-|Are
-
-|Cool
-
-|
-|--------|-----|------|
-|col 3 is
-
-|aligned
-
-|$1600
-
-|
-|col 2 is
-
-|centered
-
-|$12
-
-|
-|zebra stripes
-
-|are neat
-
-|$1
-
-|
-
 ## 返回参数 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
@@ -291,40 +257,6 @@ http(s)://[Endpoint]/?Action=SetLoadBalancerHTTPSListenerAttribute
 	"RequestId":" CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
 }
 ```
-
-## 补充说明 {#responseParamsSupplement .section}
-
-哈哈哈
-
-|Tables
-
-|Are
-
-|Cool
-
-|
-|--------|-----|------|
-|col 3 is
-
-|aligned
-
-|$1600
-
-|
-|col 2 is
-
-|centered
-
-|$12
-
-|
-|zebra stripes
-
-|are neat
-
-|$1
-
-|
 
 ## 错误码 { .section}
 
