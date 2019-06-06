@@ -1,4 +1,4 @@
-# SetServerCertificateName {#doc_api_1088678 .reference}
+# SetServerCertificateName {#doc_api_1093838 .reference}
 
 使用SetServerCertificateName设置服务器证书名称。
 
@@ -44,7 +44,7 @@
 https://slb.aliyuncs.com/
 &Action=SetServerCertificateName
 &RegionId=cn-hangzhou
-&ServerCertificateId=1231579085529123_166f8204689_1714763408_709981430
+&ServerCertificateId=1231579085529****_166f8204689_1714763408_709981430
 &ServerCertificateName=.example1.com
 &<公共请求参数>
 
