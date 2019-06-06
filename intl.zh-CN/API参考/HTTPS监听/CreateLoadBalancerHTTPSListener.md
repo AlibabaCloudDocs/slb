@@ -1,4 +1,4 @@
-# CreateLoadBalancerHTTPSListener {#doc_api_926265 .reference}
+# CreateLoadBalancerHTTPSListener {#doc_api_Slb_CreateLoadBalancerHTTPSListener .reference}
 
 使用CreateLoadBalancerHTTPSListener创建HTTPS监听。
 
@@ -6,7 +6,7 @@
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancerHTTPSListener)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancerHTTPSListener)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -15,10 +15,10 @@
 |Action|String|是|CreateLoadBalancerHTTPSListener|要执行的操作。取值：**CreateLoadBalancerHTTPSListener**
 
  |
-|Bandwidth|Integer|是|-1|监听的带宽峰值。取值：**-1 | 1-5000**
+|Bandwidth|Integer|是|-1|监听的带宽峰值。取值：**-1 | 1-5120**
 
  -   **-1**：对于按流量计费的公网负载均衡实例，可以将带宽峰值设置为**-1**，即不限制带宽峰值。
--   **1-5000**\(Mbps\)： 对于按带宽计费的公网负载均衡实例，可以设置每个监听的带宽峰值，但所有监听的带宽峰值之和不能超过实例的带宽峰值。详情参见[共享实例带宽](~~57846~~)。
+-   **1-5120**\(Mbps\)： 对于按带宽计费的公网负载均衡实例，可以设置每个监听的带宽峰值，但所有监听的带宽峰值之和不能超过实例的带宽峰值。详情参见[共享实例带宽](~~57846~~)。
 
  |
 |HealthCheck|String|是|on|是否开启健康检查。取值：**on | off**。
@@ -59,13 +59,13 @@
 
 设置白名单存在一定业务风险。
 
- 一旦设置白名单，就只有白名单中的IP可以访问负载均衡监听。
+一旦设置白名单，就只有白名单中的IP可以访问负载均衡监听。
 
- 如果开启了白名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
+如果开启了白名单访问，但访问策略组中没有添加任何IP，则负载均衡监听不会转发请求。
 
- -   **black**： 来自所选访问控制策略组中设置的IP地址或地址段的所有请求都不会转发，黑名单适用于应用只限制某些特定IP访问的场景。
+-   **black**： 来自所选访问控制策略组中设置的IP地址或地址段的所有请求都不会转发，黑名单适用于应用只限制某些特定IP访问的场景。
 
-如果开启了黑名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
+ 如果开启了黑名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
 
  当**AclStatus**参数的值为**on**时，该参数必选。
 
@@ -173,9 +173,10 @@
 
 客户端第一次访问时，负载均衡会在返回请求中植入Cookie（即在HTTP/HTTPS响应报文中插入SERVERID），下次客户端携带此Cookie访问，负载均衡服务会将请求定向转发给之前记录到的后端服务器上。
 
- -   **server**：重写Cookie。
+-   **server**：重写Cookie。
 
 负载均衡发现用户自定义了Cookie，将会对原来的Cookie进行重写，下次客户端携带新的Cookie访问，负载均衡服务会将请求定向转发给之前记录到的后端服务器。
+
 
  |
 |TLSCipherPolicy|String|否|tls\_cipher\_policy\_1\_1|只有性能保障型实例才可以指定TLSCipherPolicy参数，每种policy定义了一种安全策略，安全策略包含HTTPS可选的TLS协议版本和配套的加密算法套件。
@@ -183,28 +184,17 @@
  目前支持以下四种安全策略，详细区别请参见TLS安全策略差异说明，请根据实际情况选择对应的policy。
 
  -   **tls\_cipher\_policy\_1\_0**：
-
-支持TLS版本： TLSv1.0、TLSv1.1和TLSv1.2。
-
- 支持加密算法套件：ECDHE-RSA-AES128-GCM-SHA256、ECDHE-RSA-AES256-GCM-SHA384、ECDHE-RSA-AES128-SHA256、ECDHE-RSA-AES256-SHA384、AES128-GCM-SHA256、AES256-GCM-SHA384、AES128-SHA256、AES256-SHA256、ECDHE-RSA-AES128-SHA、ECDHE-RSA-AES256-SHA、AES128-SHA、AES256-SHA和DES-CBC3-SHA。
-
- -   **tls\_cipher\_policy\_1\_1**：
-
-支持TLS版本： TLSv1.1和TLSv1.2。
-
- 支持加密算法套件：ECDHE-RSA-AES128-GCM-SHA256、ECDHE-RSA-AES256-GCM-SHA384、ECDHE-RSA-AES128-SHA256、ECDHE-RSA-AES256-SHA384、AES128-GCM-SHA256、AES256-GCM-SHA384、AES128-SHA256、AES256-SHA256、ECDHE-RSA-AES128-SHA、ECDHE-RSA-AES256-SHA、AES128-SHA、AES256-SHA和DES-CBC3-SHA。
-
- -   **tls\_cipher\_policy\_1\_2**
-
-支持TLS版本：TLSv1.2。
-
- 支持加密算法套件：ECDHE-RSA-AES128-GCM-SHA256、ECDHE-RSA-AES256-GCM-SHA384、ECDHE-RSA-AES128-SHA256、ECDHE-RSA-AES256-SHA384、AES128-GCM-SHA256、AES256-GCM-SHA384、AES128-SHA256、AES256-SHA256、ECDHE-RSA-AES128-SHA、ECDHE-RSA-AES256-SHA、AES128-SHA、AES256-SHA和DES-CBC3-SHA。
-
- -   **tls\_cipher\_policy\_1\_2\_strict**
-
-支持TLS版本：TLSv1.2。
-
- 支持加密算法套件：ECDHE-RSA-AES128-GCM-SHA256、ECDHE-RSA-AES256-GCM-SHA384、ECDHE-RSA-AES128-SHA256、ECDHE-RSA-AES256-SHA384、ECDHE-RSA-AES128-SHA和ECDHE-RSA-AES256-SHA。
+    -   支持TLS版本： TLSv1.0、TLSv1.1和TLSv1.2。
+    -   支持加密算法套件：ECDHE-RSA-AES128-GCM-SHA256、ECDHE-RSA-AES256-GCM-SHA384、ECDHE-RSA-AES128-SHA256、ECDHE-RSA-AES256-SHA384、AES128-GCM-SHA256、AES256-GCM-SHA384、AES128-SHA256、AES256-SHA256、ECDHE-RSA-AES128-SHA、ECDHE-RSA-AES256-SHA、AES128-SHA、AES256-SHA和DES-CBC3-SHA。
+-   **tls\_cipher\_policy\_1\_1**：
+    -   支持TLS版本： TLSv1.1和TLSv1.2。
+    -   支持加密算法套件：ECDHE-RSA-AES128-GCM-SHA256、ECDHE-RSA-AES256-GCM-SHA384、ECDHE-RSA-AES128-SHA256、ECDHE-RSA-AES256-SHA384、AES128-GCM-SHA256、AES256-GCM-SHA384、AES128-SHA256、AES256-SHA256、ECDHE-RSA-AES128-SHA、ECDHE-RSA-AES256-SHA、AES128-SHA、AES256-SHA和DES-CBC3-SHA。
+-   **tls\_cipher\_policy\_1\_2** 
+    -   支持TLS版本：TLSv1.2。
+    -   支持加密算法套件：ECDHE-RSA-AES128-GCM-SHA256、ECDHE-RSA-AES256-GCM-SHA384、ECDHE-RSA-AES128-SHA256、ECDHE-RSA-AES256-SHA384、AES128-GCM-SHA256、AES256-GCM-SHA384、AES128-SHA256、AES256-SHA256、ECDHE-RSA-AES128-SHA、ECDHE-RSA-AES256-SHA、AES128-SHA、AES256-SHA和DES-CBC3-SHA。
+-   **tls\_cipher\_policy\_1\_2\_strict** 
+    -   支持TLS版本：TLSv1.2。
+    -   支持加密算法套件：ECDHE-RSA-AES128-GCM-SHA256、ECDHE-RSA-AES256-GCM-SHA384、ECDHE-RSA-AES128-SHA256、ECDHE-RSA-AES256-SHA384、ECDHE-RSA-AES128-SHA和ECDHE-RSA-AES256-SHA。
 
  |
 |UnhealthyThreshold|Integer|否|4|健康检查连续失败多少次后，将后端服务器的健康检查状态由**success**判定为**fail**。
