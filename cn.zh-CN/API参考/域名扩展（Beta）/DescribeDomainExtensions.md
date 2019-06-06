@@ -1,6 +1,6 @@
-# DescribeDomainExtensions {#doc_api_1088674 .reference}
+# DescribeDomainExtensions {#doc_api_Slb_DescribeDomainExtensions .reference}
 
-使用DescribeDomainExtensions查询已添加的扩展域名。
+调用DescribeDomainExtensions查询已添加的扩展域名。
 
 ## 调试 {#apiExplorer .section}
 
