@@ -1,6 +1,6 @@
-# SetDomainExtensionAttribute {#doc_api_1088676 .reference}
+# SetDomainExtensionAttribute {#doc_api_Slb_SetDomainExtensionAttribute .reference}
 
-使用SetDomainExtensionAttribute修改扩展域名的证书。
+调用SetDomainExtensionAttribute修改扩展域名的证书。
 
 ## 调试 {#apiExplorer .section}
 
