@@ -1,12 +1,12 @@
-# DeleteLoadBalancer {#doc_api_879500 .reference}
+# DeleteLoadBalancer {#doc_api_Slb_DeleteLoadBalancer .reference}
 
-使用DeleteLoadBalancer删除后付费的负载均衡实例。
+调用DeleteLoadBalancer删除后付费的负载均衡实例。
 
 **说明：** 如果负载均衡实例上还有监听或者绑定了相应的标签，也会一并被删除。
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=DeleteLoadBalancer)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DeleteLoadBalancer)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -63,11 +63,37 @@
 }
 ```
 
-## 错误码 { .section}
+如果删除的实例开启了删除保护，系统会报以下错误：
 
-|HttpCode|错误码|错误信息|描述|
-|--------|---|----|--|
-|400|Operation.NotAllowed|Operation Denied. Unfinished order exists.|不允许该操作，存在未完成的购买订单。|
+-   JSON格式
+
+    ```
+    
+        {
+    	"RequestId": "7B7AB375-1EA6-4A18-9D1C-F258F2D57638",
+    	"HostId": "slb.aliyuncs.com",
+    	"Code": "OperationDenied.DeleteProtectionIsOn",
+    	"Message": "The loadbalancer can't be deleted due to DeleteProtection is enabled."
+         }
+       
+    ```
+
+-   XML格式
+
+    ```
+    
+       <?xml version="1.0" encoding="UTF-8" ?>
+            <DeleteLoadBabalancerResponse>
+    	<RequestId>7B7AB375-1EA6-4A18-9D1C-F258F2D57638</RequestId>
+    	<HostId>slb.aliyuncs.com</HostId>
+    	<Code>OperationDenied.DeleteProtectionIsOn</Code>
+    	<Message>The loadbalancer can't be deleted due to DeleteProtection is enabled.</Message>
+           </DeleteLoadBabalancerResponse>
+       
+    ```
+
+
+## 错误码 { .section}
 
 [查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
 
