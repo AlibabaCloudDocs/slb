@@ -1,10 +1,10 @@
-# RemoveAccessControlListEntry {#doc_api_859285 .reference}
+# RemoveAccessControlListEntry {#doc_api_Slb_RemoveAccessControlListEntry .reference}
 
-使用RemoveAccessControlListEntry删除访问控制策略组中的IP条目。
+调用RemoveAccessControlListEntry删除访问控制策略组中的IP条目。
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=RemoveAccessControlListEntry)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=RemoveAccessControlListEntry)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -21,7 +21,9 @@
  您可以通过调用[DescribeRegions](~~27584~~)接口查询地域ID。
 
  |
-|AclEntrys|String|否|\[\{"entry":"10.0.0.0/24","comment":"privaterule1"\}\]|访问控制策略组中要添加的IP条目，可以指定IP地址或IP地址段（CIDR block），多个IP地址/地址段之间用逗号隔开。
+|AclEntrys|String|否|\[\{"entry":"10.0.0.0/24","comment":"privaterule1"\}\]| 
+
+ 访问控制策略组中要添加的IP条目，可以指定IP地址或IP地址段（CIDR block），多个IP地址/地址段之间用逗号隔开。
 
  **注意**：如果访问控制策略组关联了监听，不允许删除组内的所有IP条目。
 
@@ -67,8 +69,6 @@
 	"RequestId":"988CB45E-1643-48C0-87B4-928DDF77EA49"
 }
 ```
-
-异常返回示例
 
 ## 错误码 { .section}
 
