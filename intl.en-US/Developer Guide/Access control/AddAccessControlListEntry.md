@@ -1,40 +1,40 @@
-# AddAccessControlListEntry {#doc_api_876093 .reference}
+# AddAccessControlListEntry {#doc_api_Slb_AddAccessControlListEntry .reference}
 
-You can call the AddAccessControlListEntry API to add IP addresses to an access control policy group.
+Adds IP entries to an access control list.
 
-Each group can contain multiple IP addresses or CIDR blocks. Access control policy groups are subject to the following limits:
+Each access control list can contain multiple IP addresses and CIDR blocks. Access control lists have the following limits:
 
--   Each Alibaba Cloud account can add a maximum of 50 IP addresses at a time.
--   An access control policy group can contain a maximum of 300 items.
+-   Each Alibaba Cloud account can add a maximum of 50 IP entries at a time.
+-   An access control list can contain a maximum of 300 IP entries.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=AddAccessControlListEntry) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddAccessControlListEntry) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|AddAccessControlListEntry|The action to perform. Valid value: **AddAccessControlListEntry**.
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|AddAccessControlListEntry| The name of this action. Value: **AddAccessControlListEntry**
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the access control policy group belongs
+|AclId|String|Yes|acl-bp1l0kk4gxce43kzet04s| The ID of the target access control list.
 
  |
-|AclEntrys|String|No|\[\{"entry":"10.0.0.0/24","comment":"privaterule1"\},\{"entry":"192.168.0.0/16","comment":"privaterule2"\}\]|The IP address to be added to the access control policy group. You can specify the target IP addresses or IP address segments \(namely, CIDR blocks\). Use commas \(,\) to separate multiple IP addresses or CIDR blocks.
-
- **Note:** You can add a maximum of 50 IP address or CIDR blocks at a time.
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the access control list belongs.
 
  |
-|AclId|String|No|acl-bp1l0kk4gxce43kzet04s|The ID of the access control policy group
+|AclEntrys|String|No|\[\{"entry":"10.0.0.0/24","comment":"privaterule1"\},\{"entry":"192.168.0.0/16","comment":"privaterule2"\}\]| The IP entries to be added to the access control list. You can add IP addresses or CIDR blocks. Use commas \(,\) to separate multiple IP addresses or CIDR blocks.
+
+ **Note:** You can add a maximum of 50 IP entries at a time.
 
  |
 
 ## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
-|RequestId|String|988CB45E-1643-48C0-87B4-928DDF77EA4|The ID of the request
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|RequestId|String|988CB45E-1643-48C0-87B4-928DDF77EA4| The ID of the request.
 
  |
 
@@ -45,21 +45,21 @@ Request example
 ``` {#request_demo}
 
 /? Action=AddAccessControlListEntry
-&RegionId=cn-hangzhou
+&RegionId=cn-hangzhou 
 &AclEntrys=[{"entry":"10.0.0.0/24","comment":"privaterule1"},{"entry":"192.168.0.0/16","comment":"privaterule2"}]
-&AclId=acl-bp1l0kk4gxce43kzet04s
+&AclId=acl-bp1l0kk4gxce43kzet04s 
 &<CommonParameters>
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
 ``` {#xml_return_success_demo}
-<AddAccessControlListEntryResponse>
-  <RequestId>988CB45E-1643-48C0-87B4-928DDF77EA49</RequestId>
-</AddAccessControlListEntryResponse>
+<AddAccessControlListEntryResponse> 
+  <RequestId>988CB45E-1643-48C0-87B4-928DDF77EA49</RequestId> 
+</AddAccessControlListEntryResponse> 
 
 ```
 
@@ -71,9 +71,7 @@ Normal response examples
 }
 ```
 
-Error response example
+## Error codes {#section_l4x_p8z_oqz .section}
 
-## Error codes { .section}
-
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb?spm=a2c69.11428812.home.38.5972hYtYhYtYON)
 
