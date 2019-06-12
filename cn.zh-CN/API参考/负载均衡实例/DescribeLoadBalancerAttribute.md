@@ -1,6 +1,6 @@
 # DescribeLoadBalancerAttribute {#doc_api_Slb_DescribeLoadBalancerAttribute .reference}
 
-使用DescribeLoadBalancerAttribute查询指定负载均衡实例的详细信息。
+调用DescribeLoadBalancerAttribute查询指定负载均衡实例的详细信息。
 
 ## 调试 {#apiExplorer .section}
 
@@ -109,6 +109,11 @@
 
  |
 |CreateTimeStamp|Long|1504147745000|负载均衡实例创建时间戳。
+
+ |
+|DeleteProtection|String|off|是否开启实例删除保护。
+
+ 取值：**on|off**。
 
  |
 |EndTime|String|2999-09-08T16:00:00Z|负载均衡实例结束时间。
