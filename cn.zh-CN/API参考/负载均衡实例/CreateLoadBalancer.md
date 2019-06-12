@@ -48,6 +48,9 @@
 |ClientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF3898|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不值过64个ASCII字符。
 
  |
+|DeleteProtection|String|否|on|是否开启实例删除保护。
+
+ |
 |Duration|Integer|否|1|预付费公网实例的购买时长，取值：
 
  -   如果**PricingCycle**为**month**，取值为**1~9**。
@@ -58,8 +61,7 @@
  |
 |InternetChargeType|String|否|paybytraffic|公网类型实例的付费方式。取值：
 
- -   paybybandwidth：按带宽计费
--   paybytraffic：按流量计费（默认值）
+ -   paybytraffic：按流量计费（默认值）
 
  |
 |LoadBalancerName|String|否|abc|负载均衡实例的名称。
@@ -93,7 +95,6 @@
 |PayType|String|否|PayOnDemand|实例的计费类型，取值：
 
  -   **PayOnDemand**：按量付费
--   **PrePay**：预付费
 
  |
 |PricingCycle|String|否|month|预付费公网实例的计费周期，取值：**month|year**
@@ -101,7 +102,7 @@
  **说明：** 仅适用于中国站。
 
  |
-|ResourceGroupId|String|否|rg-atstuj3rtoptyui|企业资源组ID。
+|ResourceGroupId|String|否|rg-atstuj3rtopt\*\*\*\*|企业资源组ID。
 
  |
 |SlaveZoneId|String|否|cn-hangzhou-d|负载均衡实例的备可用区ID。
@@ -109,12 +110,12 @@
  您可以通过调用[DescribeZone](~~27585~~)接口可查到相应地域下的主备可用区信息。
 
  |
-|VSwitchId|String|否|vsw-bp12mw1f8k3jgygk9bmlj|专有网络实例的所属交换机ID。
+|VSwitchId|String|否|vsw-bp12mw1f8k3jgy\*\*\*\*\*|专有网络实例的所属交换机ID。
 
  创建专有网络类型的负载均衡实例，必须指定该参数。如果指定了该参数，**AddessType**参数的值会默认被设置为**intranet**。
 
  |
-|VpcId|String|否|vpc-bp1aevy8sofi8mh1qc5cm|负载均衡实例的所属的VPC ID。
+|VpcId|String|否|vpc-bp1aevy8sofi8mh1\*\*\*\*\*|负载均衡实例的所属的VPC ID。
 
  |
 
@@ -131,7 +132,7 @@
 |VpcId|String|vpc-25dvzy9f8|负载均衡实例的所属专有网络的ID。
 
  |
-|VSwitchId|String|vsw-255ecrwq5|负载均衡实例的所属交换机的ID。
+|VSwitchId|String|vsw-255ecr\*\*\*|负载均衡实例的所属交换机的ID。
 
  |
 |LoadBalancerName|String|abc|负载均衡实例的名称。
@@ -160,7 +161,6 @@
 ``` {#request_demo}
 
 http(s)://[Endpoint]/?Action=CreateLoadBalancer
-&Action=CreateLoadBalancer
 &RegionId=cn-hangzhou
 &<公共请求参数>
 
@@ -175,12 +175,12 @@ http(s)://[Endpoint]/?Action=CreateLoadBalancer
   <NetworkType>vpc</NetworkType>
   <LoadBalancerName>abc</LoadBalancerName>
   <Address>192.168.0.6</Address>
-  <ResourceGroupId>rg-acfmxazb4ph6aiy</ResourceGroupId>
+  <ResourceGroupId>rg-acfmxazb***</ResourceGroupId>
   <RequestId>AB197CF0-D9E9-4475-A89D-35DBCCF13BBE</RequestId>
   <AddressIPVersion>ipv4</AddressIPVersion>
-  <LoadBalancerId>lb-bp1b6c719dfa08exfuca5</LoadBalancerId>
-  <VSwitchId>vsw-bp12mw1f8k3jgygk9bmlj</VSwitchId>
-  <VpcId>vpc-bp1aevy8sofi8mh1qc5cm</VpcId>
+  <LoadBalancerId>lb-bp1b6c719dfa0***</LoadBalancerId>
+  <VSwitchId>vsw-bp12mw1f8k3jgygk9****</VSwitchId>
+  <VpcId>vpc-bp1aevy8sofi8mh1q***</VpcId>
 </CreateLoadBalancerResponse>
 
 ```
@@ -192,12 +192,12 @@ http(s)://[Endpoint]/?Action=CreateLoadBalancer
 	"NetworkType":"vpc",
 	"LoadBalancerName":"abc",
 	"RequestId":"AB197CF0-D9E9-4475-A89D-35DBCCF13BBE",
-	"ResourceGroupId":"rg-acfmxazb4ph6aiy",
+	"ResourceGroupId":"rg-acfmxazb4ph****",
 	"Address":"192.168.0.6",
 	"AddressIPVersion":"ipv4",
-	"LoadBalancerId":"lb-bp1b6c719dfa08exfuca5",
-	"VSwitchId":"vsw-bp12mw1f8k3jgygk9bmlj",
-	"VpcId":"vpc-bp1aevy8sofi8mh1qc5cm"
+	"LoadBalancerId":"lb-bp1b6c719dfa08ex****",
+	"VSwitchId":"vsw-bp12mw1f8k3jgygk9****",
+	"VpcId":"vpc-bp1aevy8sofi8mh1****"
 }
 ```
 

@@ -1,4 +1,4 @@
-# CreateLoadBalancer {#doc_api_944742 .reference}
+# CreateLoadBalancer {#doc_api_Slb_CreateLoadBalancer .reference}
 
 调用CreateLoadBalancer创建负载均衡实例。
 
@@ -9,7 +9,7 @@
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancer)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancer)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
@@ -48,6 +48,9 @@
 |ClientToken|String|否|5A2CFF0E-5718-45B5-9D4D-70B3FF3898|用于保证请求的幂等性。由客户端生成该参数值，要保证在不同请求间唯一，最大不值过64个ASCII字符。
 
  |
+|DeleteProtection|String|否|on|是否开启实例删除保护。
+
+ |
 |Duration|Integer|否|1|预付费公网实例的购买时长，取值：
 
  -   如果**PricingCycle**为**month**，取值为**1~9**。
@@ -77,7 +80,7 @@
 -   slb.s3.medium
 -   slb.s3.large
 
-每个地域支持的规格不同。
+ 每个地域支持的规格不同。
 
  目前支持性能保障型实例的地域有：华北 1（青岛）、华北 2（北京）、华东 1（杭州）、华东 2（上海）、华南 1（深圳）、华北 3（张家口）、华北 5 （呼和浩特）、亚太东南 1（新加坡）、英国（伦敦）、欧洲中部 1（法兰克福）、亚太东南 2（悉尼）、亚太东南 3（吉隆坡）、中东东部 1（迪拜）、亚太东南 5（雅加达）、美西 1（硅谷）、亚太南部 1（孟买）、亚太东北 1（东京）、香港和美东 1（弗吉尼亚）。关于每种规格的说明，参见[性能保障型实例](~~27657~~)。
 
@@ -99,7 +102,7 @@
  **说明：** 仅适用于中国站。
 
  |
-|ResourceGroupId|String|否|rg-atstuj3rtoptyui|企业资源组ID。
+|ResourceGroupId|String|否|rg-atstuj3rtopt\*\*\*\*|企业资源组ID。
 
  |
 |SlaveZoneId|String|否|cn-hangzhou-d|负载均衡实例的备可用区ID。
@@ -107,12 +110,12 @@
  您可以通过调用[DescribeZone](~~27585~~)接口可查到相应地域下的主备可用区信息。
 
  |
-|VSwitchId|String|否|vsw-bp12mw1f8k3jgygk9bmlj|专有网络实例的所属交换机ID。
+|VSwitchId|String|否|vsw-bp12mw1f8k3jgy\*\*\*\*\*|专有网络实例的所属交换机ID。
 
  创建专有网络类型的负载均衡实例，必须指定该参数。如果指定了该参数，**AddessType**参数的值会默认被设置为**intranet**。
 
  |
-|VpcId|String|否|vpc-bp1aevy8sofi8mh1qc5cm|负载均衡实例的所属的VPC ID。
+|VpcId|String|否|vpc-bp1aevy8sofi8mh1\*\*\*\*\*|负载均衡实例的所属的VPC ID。
 
  |
 
@@ -129,7 +132,7 @@
 |VpcId|String|vpc-25dvzy9f8|负载均衡实例的所属专有网络的ID。
 
  |
-|VSwitchId|String|vsw-255ecrwq5|负载均衡实例的所属交换机的ID。
+|VSwitchId|String|vsw-255ecr\*\*\*|负载均衡实例的所属交换机的ID。
 
  |
 |LoadBalancerName|String|abc|负载均衡实例的名称。
@@ -158,7 +161,6 @@
 ``` {#request_demo}
 
 http(s)://[Endpoint]/?Action=CreateLoadBalancer
-&Action=CreateLoadBalancer
 &RegionId=cn-hangzhou
 &<公共请求参数>
 
@@ -173,12 +175,12 @@ http(s)://[Endpoint]/?Action=CreateLoadBalancer
   <NetworkType>vpc</NetworkType>
   <LoadBalancerName>abc</LoadBalancerName>
   <Address>192.168.0.6</Address>
-  <ResourceGroupId>rg-acfmxazb4ph6aiy</ResourceGroupId>
+  <ResourceGroupId>rg-acfmxazb***</ResourceGroupId>
   <RequestId>AB197CF0-D9E9-4475-A89D-35DBCCF13BBE</RequestId>
   <AddressIPVersion>ipv4</AddressIPVersion>
-  <LoadBalancerId>lb-bp1b6c719dfa08exfuca5</LoadBalancerId>
-  <VSwitchId>vsw-bp12mw1f8k3jgygk9bmlj</VSwitchId>
-  <VpcId>vpc-bp1aevy8sofi8mh1qc5cm</VpcId>
+  <LoadBalancerId>lb-bp1b6c719dfa0***</LoadBalancerId>
+  <VSwitchId>vsw-bp12mw1f8k3jgygk9****</VSwitchId>
+  <VpcId>vpc-bp1aevy8sofi8mh1q***</VpcId>
 </CreateLoadBalancerResponse>
 
 ```
@@ -190,12 +192,12 @@ http(s)://[Endpoint]/?Action=CreateLoadBalancer
 	"NetworkType":"vpc",
 	"LoadBalancerName":"abc",
 	"RequestId":"AB197CF0-D9E9-4475-A89D-35DBCCF13BBE",
-	"ResourceGroupId":"rg-acfmxazb4ph6aiy",
+	"ResourceGroupId":"rg-acfmxazb4ph****",
 	"Address":"192.168.0.6",
 	"AddressIPVersion":"ipv4",
-	"LoadBalancerId":"lb-bp1b6c719dfa08exfuca5",
-	"VSwitchId":"vsw-bp12mw1f8k3jgygk9bmlj",
-	"VpcId":"vpc-bp1aevy8sofi8mh1qc5cm"
+	"LoadBalancerId":"lb-bp1b6c719dfa08ex****",
+	"VSwitchId":"vsw-bp12mw1f8k3jgygk9****",
+	"VpcId":"vpc-bp1aevy8sofi8mh1****"
 }
 ```
 
