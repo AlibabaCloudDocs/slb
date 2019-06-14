@@ -11,21 +11,21 @@ This topic describes how to add an HTTP listener to a Server Load Balancer \(SLB
 To open the listener configuration wizard, follow these steps:
 
 1.  Log on to the [SLB console](https://slb.console.aliyun.com).
-2.  In the left-side navigation pane, select **Instances** \> **Server Load Balancer**.
+2.  In the left-side navigation pane, choose **Instances** \> **Server Load Balancer**.
 3.  Select the region of the target SLB instance.
 4.  Select one of the following methods to open the listener configuration wizard:
-    -   On the Server Load Balancer page, find the target SLB instance and then click **Configure Listener**.
+    -   On the Server Load Balancer page, find the target SLB instance and then click **Configure Listener** in the Actions column.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/155954000810004_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049960310004_en-US.png)
 
     -   On the Server Load Balancer page, click the ID of the target SLB instance. On the Listeners page, click **Add Listener**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15595400097399_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15604996037399_en-US.png)
 
 
-## Step 2 Configure an HTTPS listener {#section_ly4_2pn_42b .section}
+## Step 2 Configure the HTTPS listener {#section_ly4_2pn_42b .section}
 
-To configure an HTTPS listener, follow these steps:
+To configure the HTTPS listener, follow these steps:
 
 1.  On the Protocol and Listener page, configure the HTTPS listener according to the following information:
 
@@ -42,7 +42,7 @@ To configure an HTTPS listener, follow these steps:
     |**Advanced configurations**|
     |**Scheduling Algorithm**|SLB supports three scheduling algorithms: round robin, weighted round robin \(WRR\), and weighted least connections \(WLC\).     -   **Weighted Round-Robin \(WRR\)**: Backend servers with higher weights receive more requests.
     -   **Round-Robin \(RR\)**: Requests are evenly and sequentially distributed to backend servers.
-    -   **Weighted Least Connections \(WLC\)**: A backend server with a higher weight will receive more requests. When the weight values of two backend servers are the same, the backend server with a smaller number of connections is more likely to be polled.
+    -   **Weighted Least Connections \(WLC\)**: A server with a higher weight receives more requests. When the weight values of two backend servers are the same, the backend server with a smaller number of connections is more likely to be polled.
  |
     |**Enable Session Persistence**| Select whether to enable session persistence.
 
@@ -52,30 +52,30 @@ To configure an HTTPS listener, follow these steps:
 
      -   **Insert cookie**: You only need to specify the cookie timeout period.
 
-SLB adds a cookie to the first response from the backend server \(inserts SERVERID in the HTTP/HTTPS response packet\). The next request will contain the cookie and the listener will distribute the request to the same backend server.
+SLB adds a cookie to the first response from the backend server \(inserts SERVERID in the HTTP and HTTPS response packet\). The next request will contain the cookie and the listener will distribute the request to the same backend server.
 
-    -   **Rewrite cookie**: You can set the cookie to insert to the HTTP/HTTPS response according to your needs. You must maintain the timeout period and lifecycle of the cookie on the backend server.
+    -   **Rewrite cookie**: You can set the cookie to insert to the HTTP or HTTPS response according to your needs. You must maintain the timeout period and lifecycle of the cookie on the backend server.
 
 SLB will overwrite the original cookie when it discovers that a new cookie is set. The next time the client carries the new cookie to access SLB, the listener will distribute the request to the recorded backend server. For more information, see [Configure session persistence](../../../../intl.en-US/FAQ/Best practices/Configure cookie in the backend server.md#).
 
  |
     |**Enable HTTP/2**|Select whether to enable HTTP 2.0.|
     |**Enable Access Control**|Select whether to enable the access control function.|
-    |**Access Control Method**| Select an access control method after enabling the access control function:
+    |**Access Control Method**| Select an access control method after you enable the access control function:
 
      -   **Whitelist**: Only requests from IP addresses or CIDR blocks in the selected access control list are forwarded. It applies to scenarios where the application only allows access from some specific IP addresses.
 
-Enabling a whitelist poses some business risks. After a whitelist is configured, only the IP addresses in the list can access the listener. If you enable the whitelist without adding any IP entry in the corresponding access control list, no requests are forwarded.
+Enabling a whitelist poses some risks to your services. After a whitelist is configured, only the IP addresses in the list can access the listener. If you enable the whitelist without adding any IP addresses in the corresponding access control list, no requests are forwarded.
 
     -   **Blacklist**: Requests from IP addresses or CIDR blocks in the selected access control list are not forwarded. It applies to scenarios where the application only denies access from some specific IP addresses.
 
-If you enable a blacklist without adding any IP entry in the corresponding access control list, all requests are forwarded.
+If you enable a blacklist without adding any IP addresses in the corresponding access control list, all requests are forwarded.
 
  |
     |**Access Control List**|Select an access control list as the whitelist or the blacklist. **Note:** An IPv6 instance can only be associated with IPv6 access control lists and an IPv4 instance can only be associated with IPv4 access control lists. For more information, see [Configure an access control list](intl.en-US/Archives/User Guide (Old Console)/Access control/Configure an access control list.md#).
 
  |
-    |**Enable Peak Bandwidth Limit**| Select whether to configure the listener bandwidth.
+    |**Enable Peak Bandwidth Limit**| Select whether to configure the listening bandwidth.
 
  If the SLB instance is billed by bandwidth, you can set different peak bandwidth values for different listeners to limit the traffic passing through the listeners. The sum of the peak bandwidth values of all listeners under an SLB instance cannot exceed the bandwidth value of that SLB instance.
 
@@ -108,13 +108,13 @@ If you enable a blacklist without adding any IP entry in the corresponding acces
     -   Use the `SLB-ID` field to retrieve the ID of the SLB instance.
  |
     |**Get Client Source IP Address**|HTTP listeners use X-Forwarded-For to obtain real IP addresses of clients.|
-    |**Automatically Enable Listener After Creation**|Choose whether to start the listener after the listener is configured. This function is enabled by default.|
+    |**Automatically Enable Listener After Creation**|Choose whether to start the listener after the listener is configured. The listener is started by default.|
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155954000911858_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156049960311858_en-US.png)
 
 2.  Click **Next**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155954000910035_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156049960310035_en-US.png)
 
 
 ## Step 3 Configure the SSL certificate {#section_m52_pxn_42b .section}
@@ -135,17 +135,17 @@ To add an HTTPS listener, you must upload a server certificate or CA certificate
  |No|Yes You need to install the client certificate on the client.
 
  |
-|CA certificate|The server uses the CA certificate to authenticate the signature on the client certificate. If the authentication fails, the connection will be rejected.|No|Yes You need to upload the CA certificate to the certificate management system of SLB.
+|CA certificate|The server uses the CA certificate to authenticate the signature on the client certificate, as part of the authorization before launching a secure connection. If the authentication fails, the connection is rejected.|No|Yes You need to upload the CA certificate to the certificate management system of SLB.
 
  |
 
 Note the following before you upload a certificate:
 
--   The uploaded certificate must be in the PEM format. For more information, see [Certificate requirements](intl.en-US/User Guide/证书管理/Certificate requirements.md#).
--   After the certificate is uploaded to SLB, SLB can manage the certificate and you do not need to associate the certificate on backend ECS instances.
+-   The uploaded certificate must be in the PEM format. For more information, see [Certificate requirements](intl.en-US/User Guide/Certificate management/Certificate requirements.md#).
+-   After the certificate is uploaded to SLB, SLB can manage the certificate and you do not need to associate the certificate with backend ECS instances.
 -   It usually takes one to three minutes to activate the HTTPS listener because the uploading, loading, and validation of certificates take some time. Normally it takes effect in one minute and it will definitely take effect in three minutes.
--   The ECDHE algorithm cluster used by HTTPS listeners supports forward secrecy, but does not support uploading security enhancement parameter files required by the DHE algorithm cluster, such as strings containing the `BEGIN DH PARAMETERS` field in the PEM certificate file. For more information, see [Certificate formats](intl.en-US/Archives/User Guide (Old Console)/Certificate management/Certificate requirements.md#).
--   Currently, SLB HTTPS listeners do not support SNI \(Server Name Indication\). You can use TCP listeners instead, and then configure SNI on the backend ECS instances.
+-   The ECDHE algorithm cluster used by HTTPS listeners supports forward secrecy, but does not support uploading security enhancement parameter files required by the DHE algorithm cluster, such as strings containing the `BEGIN DH PARAMETERS` field in the PEM certificate file. For more information, see [Certificate requirements](intl.en-US/Archives/User Guide (Old Console)/Certificate management/Certificate requirements.md#).
+-   Currently, SLB HTTPS listeners do not support SNI \(Server Name Indication\). You can use TCP listeners instead, and then configure SNI on backend ECS instances.
 -   The session ticket timeout period of HTTPS listeners is 300 seconds.
 -   The actual amount of traffic is larger than the billed traffic amount because some traffic is used for protocol handshaking.
 -   In the case of a large number of new connections, HTTPS listeners consume more traffic.
@@ -154,16 +154,17 @@ To configure the SSL certificate, follow these steps:
 
 1.  Select the server certificate that has been uploaded, or click **Create Server Certificate** to upload a server certificate.
 
-    For more information, see [Create a certificate](intl.en-US/User Guide/证书管理/Create a certificate.md#).
+    For more information, see [Create a certificate](intl.en-US/User Guide/Certificate management/Create a certificate.md#).
 
-2.  If you want to enable HTTPS mutual authentication, click **Modify** and enable mutual authentication.
+2.  If you want to enable HTTPS mutual authentication or set a TLS security policy, click **Modify**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/15595400099566_en-US.png)
+    ![](images/47905_en-US.png)
 
 3.  Select an uploaded CA certificate, or click **Create CA Certificate** to upload a CA certificate.
 
-    You can use a self-signed CA certificate. For more information, see [Generate a CA certificate](intl.en-US/User Guide/证书管理/Generate a CA certificate.md#).
+    You can use a self-signed CA certificate. For more information, see [Generate a CA certificate](intl.en-US/User Guide/Certificate management/Generate a CA certificate.md#).
 
+4.  Select a TLS security policy. For more information, see [Manage TLS security policies](intl.en-US/User Guide/Listeners/Manage TLS security policies.md#).
 
 ## Step 4 Add backend servers {#section_vqk_zmn_42b .section}
 
@@ -171,26 +172,26 @@ You need to add backend servers to process requests. You can use the default ser
 
 In this topic, use the default server group.
 
-1.  Select **Default Server Group** and then click **Add**.
+1.  Select **Default Server Group** and then click **Add More**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155954000910036_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156049960410036_en-US.png)
 
-2.  Select the ECS instances to add and then click **Add to Selected Server List**. Click **OK**.
+2.  Select the ECS instances to add, and then click **Next: Set Weight and Port**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15595400097499_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15604996047499_en-US.png)
 
-3.  Configure the ports and weights of the added backend servers.
+3.  Configure ports and weights for the added backend servers.
     -   Port
 
         The port opened on the backend server \(ECS instance\) to receive requests. The port number is in the range of 1 to 65535. Ports of backend servers can be the same in an SLB instance.
 
     -   Weight
 
-        The weight of the backend server \(ECS instance\). An ECS instance with a higher weight will receive a larger number of connection requests.
+        The weight of the backend server \(ECS instance\). An ECS instance with a higher weight receives more requests.
 
-        **Note:** If the weight is set to 0, no requests will be sent to the ECS instance.
+        **Note:** If the weight is set to 0, no requests are sent to the ECS instance.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15595400097504_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15604996047504_en-US.png)
 
 4.  Click **Next**.
 
@@ -198,7 +199,7 @@ In this topic, use the default server group.
 
 SLB checks the service availability of backend servers \(ECS instances\) by performing health checks. The health check function improves the overall availability of your services and avoids the impact of backend server failures. Click **Modify** to change health check configurations. For more information, see [Configure health checks](intl.en-US/User Guide/Health check/Configure health checks.md#).
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155954000910037_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156049960510037_en-US.png)
 
 ## Step 6 Submit the configurations {#section_hwm_qnn_42b .section}
 
@@ -207,12 +208,12 @@ To confirm the listener configurations, follow these steps:
 1.  On the Submit page, check the listener configurations. You can click **Modify** to change the configurations. Click **Submit**.
 2.  On the Submit page, click **OK** after the configurations are successful.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155954000910038_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156049960510038_en-US.png)
 
 
-After the configurations are submitted, you can view the created listener on the listeners page.
+After the configurations are submitted, you can view the created listener on the Listeners page.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155954000910039_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156049960510039_en-US.png)
 
 ## Related operations {#section_pz4_2pn_42b .section}
 
@@ -220,8 +221,8 @@ After the configurations are submitted, you can view the created listener on the
 -   [Manage a default server group](intl.en-US/User Guide/Backend servers/Manage a default server group.md#)
 -   [Manage a VServer group](intl.en-US/User Guide/Backend servers/Manage a VServer group.md#)
 -   [Manage an active/standby server group](intl.en-US/User Guide/Backend servers/Manage an active__standby server group.md#)
--   [Generate a CA certificate](intl.en-US/User Guide/证书管理/Generate a CA certificate.md#)
--   [Create a certificate](intl.en-US/User Guide/证书管理/Create a certificate.md#)
+-   [Generate a CA certificate](intl.en-US/User Guide/Certificate management/Generate a CA certificate.md#)
+-   [Create a certificate](intl.en-US/User Guide/Certificate management/Create a certificate.md#)
 -   [Configure access control](intl.en-US/User Guide/Access control/Configure access control.md#)
 -   [Add domain-name based or URL-based forwarding rules](intl.en-US/Tutorials/Traffic forwarding based on domain names or URLs.md#)
 -   [Manage a domain name extension](intl.en-US/User Guide/Listeners/Manage a domain name extension.md#)
