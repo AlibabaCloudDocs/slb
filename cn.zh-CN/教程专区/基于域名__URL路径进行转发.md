@@ -8,7 +8,7 @@
 
 七层负载均衡服务支持配置域名或者URL转发策略，将来自不同域名或者URL的请求转发给不同的ECS处理。
 
-URL转发支持字符串匹配，按照顺序匹配原则，比如 /admin、/bbs、/test。
+URL转发支持字符串匹配，按照前缀最长匹配原则，比如有/abc和/abcd两个规则，访问/abcde，优先匹配/abcd规则。
 
 域名转发策略支持精确匹配和通配符匹配两种模式：
 
@@ -34,7 +34,7 @@ URL转发支持字符串匹配，按照顺序匹配原则，比如 /admin、/bbs
 -   如果未匹配，而对应监听启用并配置了虚拟服务器组，则将请求转发到对应的虚拟服务器组。
 -   如果均未匹配，则转发到负载均衡实例默认服务器组中的ECS。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4135/15405484442798_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4135/15607374402798_zh-CN.png)
 
 ## 添加域名和路径转发策略 {#section_z1n_t1b_wdb .section}
 
@@ -51,7 +51,7 @@ URL转发支持字符串匹配，按照顺序匹配原则，比如 /admin、/bbs
 4.  选择监听页签。
 5.  单击目标七层监听的**添加转发策略**选项。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15405484447453_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15607374407453_zh-CN.png)
 
 6.  在转发策略页面，单击**添加转发策略**。
 7.  在添加转发策略页面，根据以下信息配置转发策略：
@@ -64,11 +64,11 @@ URL转发支持字符串匹配，按照顺序匹配原则，比如 /admin、/bbs
     3.  **虚拟服务器组**：选择关联的虚拟服务器组。
     4.  **备注（可选）**：输入描述。
     5.  单击**确定**。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15405484447463_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15607374417463_zh-CN.png)
 
 8.  单击**添加域名**或**添加策略**再添加一个域名或URL策略。
 
-    一个HTTP或HTTPS监听最多可添加转发策略请参见[使用限制](../intl.zh-CN/产品限制/使用限制.md#)。
+    一个HTTP或HTTPS监听最多可添加转发策略个数请参见[使用限制](../intl.zh-CN/产品限制/使用限制.md#)。
 
 
 ## 编辑转发策略 {#section_gpm_gv4_42b .section}
@@ -84,7 +84,7 @@ URL转发支持字符串匹配，按照顺序匹配原则，比如 /admin、/bbs
 5.  单击目标七层监听的**添加转发策略**选项。
 6.  在**转发策略列表**区域，单击目标转发策略的**编辑**选项。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15405484447464_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15607374417464_zh-CN.png)
 
 7.  编辑转发策略，根据以下信息自定义转发策略的调度算法、会话保持和健康检查等配置。
 
@@ -116,7 +116,7 @@ URL转发支持字符串匹配，按照顺序匹配原则，比如 /admin、/bbs
 
     -   **重写Cookie**：可以根据需要指定HTTPS/HTTP响应中插入的Cookie。您需要在后端服务器上维护该Cookie的过期时间和生存时间。
 
-负载均衡服务发现用户自定义了Cookie，将会对原来的Cookie进行重写，下次客户端携带新的Cookie访问，负载均衡服务会将请求定向转发给之前记录到的后端服务器。详情参考[会话保持规则配置](../intl.zh-CN/扩展阅读/最佳实践/配置服务器Cookie.md#)。
+负载均衡服务发现用户自定义了Cookie，将会对原来的Cookie进行重写，下次客户端携带新的Cookie访问，负载均衡服务会将请求定向转发给之前记录到的后端服务器。详情参考[会话保持规则配置](../intl.zh-CN/常见问题/最佳实践/配置服务器Cookie.md#)。
 
  |
     |**开启健康检查**|     -   **健康检查端口**：健康检查服务访问后端时的探测端口。
@@ -144,7 +144,7 @@ URL转发支持字符串匹配，按照顺序匹配原则，比如 /admin、/bbs
 
  |
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/154054844511504_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/156073744111504_zh-CN.png)
 
 8.  单击**确定**。
 
@@ -159,6 +159,6 @@ URL转发支持字符串匹配，按照顺序匹配原则，比如 /admin、/bbs
 5.  单击目标七层监听的**添加转发策略**选项。
 6.  在**转发策略列表**区域，单击目标转发策略的**删除**选项。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15405484457465_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15607374427465_zh-CN.png)
 
 
