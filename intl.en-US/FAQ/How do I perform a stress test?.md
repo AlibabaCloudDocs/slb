@@ -25,31 +25,31 @@ In this example, an SLB instance has been created and added with two ECS instanc
 
 1.  Install Apache Web Server to provide web services.
 
-    ```
+    ``` {#codeblock_3sm_s4t_791}
     yum install -y httpd
     ```
 
 2.  Initialize the default home page index.html.
 
-    ```
+    ``` {#codeblock_e7h_0oz_ov2}
     echo "testvm" > /var/www/html/index.html
     ```
 
 3.  Start the HTTP service.
 
-    ```
+    ``` {#codeblock_jnw_ynr_u00}
     service httpd start
     ```
 
 4.  Visit the local port 80 to confirm that the web service is available.
 
-    ```
+    ``` {#codeblock_3tf_ox8_iqr}
     curl localhost
     ```
 
-5.  [Create a test script](https://help.aliyun.com/document_detail/70290.html) in PTS and start the stress test.
+5.  Create a test script in PTS and start the stress test.
 
-## Why is my Layer-7 listener performing poorly during a stress test? {#section_ha4_wpf_b3d .section}
+## Why is my Layer-7 listener performing poorly during a stress test? {#section_8h4_bh2_sbj .section}
 
 Layer-4 Server Load Balancer \(SLB\) uses LVS \(Linux Virtual Server\) and Keepalived to provide the load balancing service, whereas Layer-7 SLB uses Tengine. In a Layer-4 listener, requests are directly sent to backend servers after being passed through LVS. However, in a Layer-7 listener, requests are sent to Tengine before they are sent to backend servers. Due to this additional step, the performance of a Layer-7 listener is inadequate when compared with a Layer-4 listener.
 
