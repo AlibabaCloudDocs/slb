@@ -7,11 +7,12 @@ IPv6 is the abbreviation of Internet Protocol Version 6. IPv6 is the next-genera
 **Note:** 
 
 -   Currently, IPv6 instances are supported in the following zones, but the instances must be guaranteed-performance instances.
-
-    Zone E and Zone F in China \(Hangzhou\), Zone F and Zone G in China \(Beijing\), Zone D and Zone E in China \(Shanghai\), and Zone D and Zone E in China \(Shenzhen\).
-
+    -   Zones E and F in the China \(Hangzhou\) region
+    -   Zones F and G in the China \(Beijing\) region
+    -   Zones D and E in the China \(Shanghai\) region
+    -   Zones D and E in the China \(Shenzhen\) region
 -   The Internet IPv6 network environment is still in the early stage of construction, and some links may be inaccessible. If such problem occurs, submit a ticket for technical support. SLA is not provided in the open beta test stage.
--   IPv6 has a longer IP header than IPv4. Therefore, when you use a UDP listener in an IPv6 SLB instance, you must ensure that the MTU of the NIC communicating with SLB on the backend server \(ECS instance\) is not greater than 1480 \(some applications need to synchronize their configuration files based on this MTU value\). Otherwise the packets may be discarded because they are too large.
+-   IPv6 has a longer IP header than IPv4. Therefore, when you use a UDP listener in an IPv6 SLB instance, you must ensure that the MTU of the NIC communicating with SLB on the backend server \(ECS instance\) is not greater than 1480 \(some applications need to synchronize their configuration files based on this MTU value\). Otherwise, the packets may be discarded because they are too large.
 
     If you use a TCP, HTTP, or HTTPS listener, no additional configurations are required because the TCP protocol supports MSS auto-negotiation.
 
@@ -37,13 +38,17 @@ IPv6 instances have the following features:
 3.  On the Server Load Balancer page, click **Create SLB Instance** in the upper-left corner.
 4.  Configure the SLB instance. For the IP version, select **IPv6**. Other configurations are the same as configurations of common instances. For more information, see [SLB configurations](intl.en-US/Archives/User Guide (Old Console)/SLB instances/Create an instance.md#table_ivr_hjn_vdb).
 
-    **Note:** Currently, IPv6 instances are supported in the following zones, but the instances must be guaranteed-performance instances: Zone E and Zone F in China \(Hangzhou\), Zone F and Zone G in China \(Beijing\), Zone D and Zone E in China \(Shanghai\), and Zone D and Zone E in China \(Shenzhen\).
+    **Note:** Currently, IPv6 instances are supported in the following zones, but the instances must be guaranteed-performance instances.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15597924147308_en-US.png)
+    -   Zones E and F in the China \(Hangzhou\) region
+    -   Zones F and G in the China \(Beijing\) region
+    -   Zones D and E in the China \(Shanghai\) region
+    -   Zones D and E in the China \(Shenzhen\) region
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15607361927308_en-US.png)
 
-5.  Go back to the Server Load Balancer page to view the created IPv6 instance.
+5.  Go back to the **Server Load Balancer** page to view the created IPv6 instance.
 
 After the IPv6 instance is created, the system allocates an IPv6 address to it.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15597924147309_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15607361927309_en-US.png)
 
