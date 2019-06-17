@@ -10,30 +10,30 @@ For Layer-7 listeners, the following algorithm is used to determine whether requ
 
 ## Create a VServer group {#section_jqy_c3p_42b .section}
 
-Before you create a VServer group, make sure that the following conditions are met:
+Before you create a VServer group, make sure the following conditions are met:
 
--   You have [created an SLB instance](reseller.en-US/Archives/User Guide (Old Console)/SLB instances/Create an instance.md#).
--   You have created ECS instances and deployed applications to process distributed requests.
+-   A Server Load Balancer \(SLB\) instance is created. For more information, see [Create an SLB instance](intl.en-US/Archives/User Guide (Old Console)/SLB instances/Create an instance.md#).
+-   ECS instances are created and applications are deployed on the ECS instances to process distributed requests.
 
 Note the following when you create a VServer group:
 
 -   The ECS instances added to a VServer group and the SLB instance must belong to the same region.
 -   One ECS instance can be added to multiple VServer groups.
--   One VServer group can be associated with multiple listeners.
+-   One VServer group can be associated with multiple listeners of an SLB instance.
 -   A VServer group consists of ECS instances and application ports.
 
-To add ECS instances, complete these steps:
+To add ECS instances, follow these steps:
 
-1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
-2.  On the Server Load Balancer page, select the region to which the target instance belongs.
-3.  Find the target instance and click the instance ID.
+1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb/).
+2.  On the Server Load Balancer page, select the region of the target SLB instance.
+3.  Find the target SLB instance and click the instance ID.
 4.  Click the VServer Groups tab.
-5.  On the VServer Groups tab page, click **Create VServer Group**.
+5.  On the VServer Groups page, click **Create VServer Group**.
 6.  On the Create VServer Group page, complete these steps:
-    1.  In the **VServer Group Name** text box, enter the name of the VServer group.
-    2.  Click **Add**, and select a server to add on the Available Servers page.
-    3.  Click **Add to Selected Server List** and click **OK**.
-    4.  In the **Servers Added** area, complete the following configuration and click **OK**.
+    1.  In the **VServer Group Name** field, enter a name for the VServer group to be created.
+    2.  Click **Add** and on the Available Servers page, select the servers to add.
+    3.  Click **Next: Set weight and Port**.
+    4.  Enter the port and weight of each ECS instance, and click **OK**.
 
         -   **Port**: The backend port opened on the ECS instance to receive requests.
 
@@ -41,44 +41,42 @@ To add ECS instances, complete these steps:
 
         -   **Weight**: An ECS instance with a higher weight receivers more requests.
 
-            **说明：** If the weight is set to 0, no requests will be sent to the ECS instance.
+            **Note:** If the weight is set to 0, no requests are sent to the ECS instance.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/15580601867368_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/15607641887368_en-US.png)
 
         You can modify the ports and weights of added servers in batches.
 
-        -   ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/155806018611116_en-US.png): Duplicate to below. If you modify the port or weight of the current server, the ports or weights of all servers blow are also changed.
-        -   ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/155806018611119_en-US.png): Duplicate to above. If you modify the port or weight of the current server, the ports or weights of all servers above are also changed.
-        -   ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/155806018611120_en-US.png): Duplicate to all. If you modify the port or weight of the current server, the ports or weights of all servers in the VServer group are also changed.
-        -   ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/155806018611121_en-US.png): Clear all. If you clear the port or weight of the current server, the ports or weights of all servers in the VServer group are also cleared.
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/155806018611115_en-US.png)
-
+        -   Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/156076418911116_en-US.png): Duplicate to below. If you modify the port or weight of the current server, the ports or weights of all servers blow are also changed.
+        -   Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/156076418911119_en-US.png): Duplicate to above. If you modify the port or weight of the current server, the ports or weights of all servers above are also changed.
+        -   Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/156076418911120_en-US.png): Duplicate to all. If you modify the port or weight of the current server, the ports or weights of all servers in the VServer group are also changed.
+        -   Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/156076418911121_en-US.png): Clear all. If you clear the port or weight of the current server, the ports or weights of all servers in the VServer group are also cleared.
 
 ## Edit a VServer group {#section_iwj_tjp_42b .section}
 
-To modify the ECS instance configuration in a VServer group, complete these steps:
+To modify the ECS instance configuration in a VServer group, follow these steps:
 
-1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
-2.  On the Server Load Balancer page, select the region to which the target instance belongs.
-3.  Find the target instance and click the instance ID.
+1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb/).
+2.  On the Server Load Balancer page, select the region of the target instance.
+3.  Find the target SLB instance and click the instance ID.
 4.  Click the VServer Groups tab.
-5.  Find the target VServer group, and click **Edit** from the **Actions** column.
+5.  Find the target VServer group, and then click **Edit** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/15580601867473_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/15607641897473_en-US.png)
 
 6.  Modify the ports and weights of ECS instances or click **Delete** to remove ECS instances from the VServer group, and then click **OK**.
 
 ## Delete a VServer group {#section_upw_1np_42b .section}
 
-To delete a VServer group, complete these steps:
+To delete a VServer group, follow these steps:
 
-1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
-2.  On the Server Load Balancer page, select the region to which the target instance belongs.
-3.  Find the target instance and click the instance ID.
+1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb/).
+2.  On the Server Load Balancer page, select the region of the target instance.
+3.  Find the target SLB instance and click the instance ID.
 4.  Click the VServer Groups tab.
-5.  Find the target VServer group, and click **Edit** from the **Actions** column.
+5.  Find the target VServer group, and then click **Delete** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/15580601877474_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/15607641897474_en-US.png)
 
 6.  In the displayed dialog box, click **OK**.
 
