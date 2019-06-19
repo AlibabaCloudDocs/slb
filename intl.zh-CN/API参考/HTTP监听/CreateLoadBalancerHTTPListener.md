@@ -1,6 +1,6 @@
 # CreateLoadBalancerHTTPListener {#doc_api_Slb_CreateLoadBalancerHTTPListener .reference}
 
-使用CreateLoadBalancerHTTPListener创建HTTP监听。
+调用CreateLoadBalancerHTTPListener创建HTTP监听。
 
 **说明：** 新建的监听的状态为**stopped**。创建完成后，调用[StartLoadBalancerListener](~~27597~~)接口启动监听来转发流量。
 
@@ -21,7 +21,7 @@
 |ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。取值：**1~65535**
 
  |
-|LoadBalancerId|String|是|lb-bp1c9vixxjh92q83tw1ae-cn-east-hangzhou-01|负载均衡实例的ID。
+|LoadBalancerId|String|是|lb-bp1c9vixxjh92q83tw\*\*\*\*\*|负载均衡实例的ID。
 
  |
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域。
@@ -181,7 +181,7 @@
  取值：**2,10**
 
  |
-|VServerGroupId|String|否|rsp-cige6j5e7p|服务器组ID。
+|VServerGroupId|String|否|rsp-cige6j\*\*\*\*\*|服务器组ID。
 
  |
 |XForwardedFor|String|否|on|是否开启通过X-Forwarded-For头字段获取来访者真实 IP。默认值为**on**。
@@ -222,7 +222,7 @@
 http(s)://[Endpoint]/?Action=CreateLoadBalancerHTTPListener
 &HealthCheck=on
 &ListenerPort=80
-&LoadBalancerId=lb-bp1c9vixxjh92q83tw1ae-cn-east-hangzhou-01
+&LoadBalancerId=lb-bp1c9vixxjh92q83tw*****
 &StickySession=off
 &<公共请求参数>
 
