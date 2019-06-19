@@ -2,23 +2,23 @@
 
 负载均衡提供以下相关API接口。
 
-## 负载均衡实例 {#section_hvb_us8_v5i .section}
+## 负载均衡实例 {#section_hdi_fid_rka .section}
 
 |API|描述|
 |---|--|
 |[CreateLoadBalancer](~~27577~~)|调用CreateLoadBalancer创建负载均衡实例。|
 |[ModifyLoadBalancerInternetSpec](~~27578~~)|使用ModifyLoadBalancerInternetSpec修改公网负载均衡实例的计费方式。|
-|[DeleteLoadBalancer](~~27579~~)|使用DeleteLoadBalancer删除后付费的负载均衡实例。|
+|[DeleteLoadBalancer](~~27579~~)|调用DeleteLoadBalancer删除后付费的负载均衡实例。|
 |[SetLoadBalancerStatus](~~27580~~)|使用SetLoadBalancerStatus设置负载均衡实例的状态。|
 |[SetLoadBalancerName](~~27581~~)|使用SetLoadBalancerName修改负载均衡实例的名称。|
 |[DescribeLoadBalancers](~~27582~~)|调用DescribeLoadBalancers查询已创建的负载均衡实例。|
-|[DescribeLoadBalancerAttribute](~~27583~~)|使用DescribeLoadBalancerAttribute查询指定负载均衡实例的详细信息。|
+|[DescribeLoadBalancerAttribute](~~27583~~)|调用DescribeLoadBalancerAttribute查询指定负载均衡实例的详细信息。|
 |[DescribeRegions](~~27584~~)|使用DescribeRegions查询可用地域。|
 |[DescribeZones](~~27585~~)|使用DescribeZones查询指定地域的可用区信息。|
 |[ModifyLoadBalancerInstanceSpec](~~53360~~)|使用ModifyLoadBalancerInstanceSpec修改负载均衡的实例规格。|
 |[ModifyLoadBalancerPayType](~~59589~~)|使用ModifyLoadBalancerPayType将后付费实例转换为预付费实例。|
 
-## UDP监听 {#section_yn7_ren_wu1 .section}
+## UDP监听 {#section_a27_kvl_3aj .section}
 
 |API|描述|
 |---|--|
@@ -26,7 +26,7 @@
 |[SetLoadBalancerUDPListenerAttribute](~~27605~~)|使用SetLoadBalancerUDPListenerAttribute修改UDP协议监听的配置。|
 |[DescribeLoadBalancerUDPListenerAttribute](~~27609~~)|调用DescribeLoadBalancerUDPListenerAttribute查询UDP监听的配置。|
 
-## TCP监听 {#section_lx9_zqg_p00 .section}
+## TCP监听 {#section_fa9_ogt_2nj .section}
 
 |API|描述|
 |---|--|
@@ -34,15 +34,15 @@
 |[SetLoadBalancerTCPListenerAttribute](~~27604~~)|调用SetLoadBalancerTCPListenerAttribute修改TCP监听的配置。|
 |[DescribeLoadBalancerTCPListenerAttribute](~~27608~~)|使用DescribeLoadBalancerTCPListenerAttribute查询TCP监听配置。|
 
-## HTTP监听 {#section_fzq_y2i_4ow .section}
+## HTTP监听 {#section_1lx_pcn_rbk .section}
 
 |API|描述|
 |---|--|
 |[SetLoadBalancerHTTPListenerAttribute](~~27602~~)|使用SetLoadBalancerHTTPListenerAttribute修改HTTP监听的配置。|
-|[CreateLoadBalancerHTTPListener](~~27592~~)|使用CreateLoadBalancerHTTPListener创建HTTP监听。|
+|[CreateLoadBalancerHTTPListener](~~27592~~)|调用CreateLoadBalancerHTTPListener创建HTTP监听。|
 |[DescribeLoadBalancerHTTPListenerAttribute](~~27606~~)|使用DescribeLoadBalancerHTTPListenerAttribute查询HTTP监听配置。|
 
-## HTTPS监听 {#section_v6z_5cc_id6 .section}
+## HTTPS监听 {#section_pl8_o7e_ped .section}
 
 |API|描述|
 |---|--|
@@ -50,15 +50,15 @@
 |[DescribeLoadBalancerHTTPSListenerAttribute](~~27607~~)|使用DescribeLoadBalancerHTTPSListenerAttribute查询HTTPS监听配置。|
 |[CreateLoadBalancerHTTPSListener](~~27593~~)|使用CreateLoadBalancerHTTPSListener创建HTTPS监听。|
 
-## 监听 {#section_knb_owq_vdf .section}
+## 监听 {#section_7ds_1gb_zun .section}
 
 |API|描述|
 |---|--|
-|[StartLoadBalancerListener](~~27597~~)|使用StartLoadBalancerListener启动监听。|
+|[StartLoadBalancerListener](~~27597~~)|调用StartLoadBalancerListener启动监听。|
 |[StopLoadBalancerListener](~~27598~~)|使用StopLoadBalancerListener停止监听。|
 |[DeleteLoadBalancerListener](~~27596~~)|使用DeleteLoadBalancerListener删除监听。|
 
-## 后端服务器 {#section_y9q_bdh_chw .section}
+## 后端服务器 {#section_ef6_l59_ybd .section}
 
 |API|描述|
 |---|--|
@@ -67,7 +67,7 @@
 |[RemoveBackendServers](~~27633~~)|使用RemoveBackendServers移除后端服务器。|
 |[DescribeHealthStatus](~~27635~~)|使用DescribeHealthStatus查询后端服务器的健康状态。|
 
-## 后端服务器组 {#section_r1g_fq9_xlq .section}
+## 后端服务器组 {#section_tnr_d74_83h .section}
 
 |API|描述|
 |---|--|
@@ -80,7 +80,7 @@
 |[DeleteVServerGroup](~~35221~~)|调用DeleteVServerGroup删除服务器组。|
 |[DescribeVServerGroups](~~35222~~)|调用DescribeVServerGroups查询服务器组列表。|
 
-## 主备服务器组 {#section_xuq_dcf_xzq .section}
+## 主备服务器组 {#section_yfx_awa_e8i .section}
 
 |API|描述|
 |---|--|
@@ -89,11 +89,11 @@
 |[DescribeMasterSlaveServerGroupAttribute](~~50509~~)|使用DescribeMasterSlaveServerGroupAttribute查询指定主备服务器组的详细信息。|
 |[DescribeMasterSlaveServerGroups](~~50508~~)|使用DescribeMasterSlaveServerGroups查询主备服务器组列表。|
 
-## 服务器证书 {#section_rey_idv_5xt .section}
+## 服务器证书 {#section_u6t_2pk_kwz .section}
 
 |API|描述|
 |---|--|
-|[UploadServerCertificate](~~34181~~)|使用UploadServerCertificate上传服务器证书。|
+|[UploadServerCertificate](~~34181~~)|调用UploadServerCertificate上传服务器证书。|
 |[DeleteServerCertificate](~~34182~~)|删除服务器证书。|
 |[DescribeServerCertificates](~~34183~~)|使用DescribeServerCertificates查询指定地域的服务器证书列表。|
 |[SetServerCertificateName](~~34184~~)|使用SetServerCertificateName设置服务器证书名称。|
@@ -102,22 +102,22 @@
 |[DescribeCACertificates](~~34938~~)|使用DescribeCACertificates查询CA证书列表。|
 |[SetCACertificateName](~~34936~~)|使用SetCACertificateName设置CA证书名称。|
 
-## 域名扩展（Beta） {#section_vwc_5kj_msl .section}
+## 域名扩展（Beta） {#section_c45_2u4_ip7 .section}
 
 |API|描述|
 |---|--|
 |[CreateDomainExtension](~~85912~~)|使用CreateDomainExtension创建扩展域名。|
-|[SetDomainExtensionAttribute](~~85913~~)|使用SetDomainExtensionAttribute修改扩展域名的证书。|
-|[DescribeDomainExtensions](~~85914~~)|使用DescribeDomainExtensions查询已添加的扩展域名。|
-|[DeleteDomainExtension](~~85915~~)|使用DeleteDomainExtension删除扩展域名。|
+|[SetDomainExtensionAttribute](~~85913~~)|调用SetDomainExtensionAttribute修改扩展域名的证书。|
+|[DescribeDomainExtensions](~~85914~~)|调用DescribeDomainExtensions查询已添加的扩展域名。|
+|[DeleteDomainExtension](~~85915~~)|调用DeleteDomainExtension删除扩展域名。|
 
-## 查询资源 {#section_tqw_5pu_twe .section}
+## 查询资源 {#section_ami_z0b_gpz .section}
 
 |API|描述|
 |---|--|
 |[DescribeAvailableResource](~~117645~~)|调用DescribeAvailableResource查询某个地域的可用区支持的资源售卖情况。|
 
-## 标签 {#section_evr_hg5_198 .section}
+## 标签 {#section_qeo_kb9_xhv .section}
 
 |API|描述|
 |---|--|
@@ -125,7 +125,7 @@
 |[AddTags](~~42871~~)|使用AddTags为指定的负载均衡实例添加标签。|
 |[DescribeTags](~~42873~~)|调用DescribeTags查询标签列表。|
 
-## 转发规则 {#section_dn2_b25_a4t .section}
+## 转发规则 {#section_21e_73o_sph .section}
 
 |API|描述|
 |---|--|
@@ -133,21 +133,21 @@
 |[DeleteRules](~~35227~~)|删除转发规则。|
 |[SetRule](~~35228~~)|调用SetRule更改转发规则的目标虚拟服务器组。|
 |[DescribeRuleAttribute](~~35229~~)|使用DescribeRuleAttribute查询指定转发规则的配置详情。|
-|[DescribeRules](~~35230~~)|使用DescribeRules查询指定监听已配置的转发规则。|
+|[DescribeRules](~~35230~~)|调用DescribeRules查询指定监听已配置的转发规则。|
 
-## 访问控制 {#section_hdk_23f_yjc .section}
+## 访问控制 {#section_eob_kqr_z3x .section}
 
 |API|描述|
 |---|--|
 |[CreateAccessControlList](~~70015~~)|调用CreateAccessControlList创建访问控制策略组。|
-|[DeleteAccessControlList](~~70056~~)|使用DeleteAccessControlList删除访问控制策略组。|
-|[DescribeAccessControlLists](~~70052~~)|使用DescribeAccessControlLists查询已创建的访问控制策略组。|
-|[DescribeAccessControlListAttribute](~~70051~~)|使用DescribeAccessControlListAttribute查询访问控制策略组的配置。|
-|[SetAccessControlListAttribute](~~70022~~)|使用SetAccessControlListAttribute修改访问控制策略组的名称。|
-|[AddAccessControlListEntry](~~70023~~)|使用AddAccessControlListEntry在访问控制策略组中添加IP条目。|
-|[RemoveAccessControlListEntry](~~70055~~)|使用RemoveAccessControlListEntry删除访问控制策略组中的IP条目。|
+|[DeleteAccessControlList](~~70056~~)|调用DeleteAccessControlList删除访问控制策略组。|
+|[DescribeAccessControlLists](~~70052~~)|调用DescribeAccessControlLists查询已创建的访问控制策略组。|
+|[DescribeAccessControlListAttribute](~~70051~~)|调用DescribeAccessControlListAttribute查询访问控制策略组的配置。|
+|[SetAccessControlListAttribute](~~70022~~)|调用SetAccessControlListAttribute修改访问控制策略组的名称。|
+|[AddAccessControlListEntry](~~70023~~)|调用AddAccessControlListEntry在访问控制策略组中添加IP条目。|
+|[RemoveAccessControlListEntry](~~70055~~)|调用RemoveAccessControlListEntry删除访问控制策略组中的IP条目。|
 
-## 访问控制（旧版） {#section_l4a_u7n_s8s .section}
+## 访问控制（旧版） {#section_icq_3hk_7qr .section}
 
 |API|描述|
 |---|--|
