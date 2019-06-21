@@ -61,7 +61,7 @@ To view thresholds, follow these steps:
     -   Traffic Scrubbing Threshold \(packet/s\): When the inbound packets exceed this value, scrubbing is triggered.
     -   Blackholing Threshold: When the inbound traffic exceeds this value, blackholing is triggered.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15694/15601528747339_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15694/15610874917339_en-US.png)
 
 
 ## Allow read-only access to Anti-DDoS Basic {#section_c4n_wjc_wdb .section}
@@ -73,12 +73,12 @@ To allow read-only access to Anti-DDoS Basic, follow these steps:
 1.  Use the Alibaba Cloud account to log on to the RAM console.
 2.  In the left-side navigation pane, click **Users**, find the target RAM user and click **Manage**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4157/15601528742872_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4157/15610874912872_en-US.png)
 
 3.  Click **User Authorization Policies**, and then click **Edit Authorization Policy**.
 4.  In the displayed dialog box, search **AliyunYundunDDosReadOnlyAccess**, and then add it to the Selected Authorization Policy Name list. Click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4157/15601528752873_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4157/15610874912873_en-US.png)
 
 
 ## View the security credit score {#section_chv_cjy_gfb .section}
@@ -93,6 +93,6 @@ To view the security credit score, follow these steps:
 
     **Note:** Security credit scores are region-based.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15694/156015287512959_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15694/156108749112959_en-US.png)
 
 

@@ -10,7 +10,7 @@
 
 云盾DDoS基础防护根据公网负载均衡实例的带宽设定清洗阈值和黑洞阈值。当入方向流量达到阈值上限时，触发清洗和黑洞：
 
--   清洗：当来自Internet的攻击流量较大或符合某些特定攻击流量模型特征时，云盾将会针攻击流量启动清洗操作，清洗包括攻击报文过滤、流量限速、包限速等。
+-   清洗：当来自Internet的攻击流量较大或符合某些特定攻击流量模型特征时，云盾将会自动对攻击流量进行清洗，清洗包括攻击报文过滤、流量限速、包限速等。
 -   黑洞：当来自Internet的攻击流量非常大时，为保护整个集群的安全，流量将会被黑洞处理，即所有入流量全部被丢弃。
 
 阈值的计算遵循如下两个原则：
@@ -61,7 +61,7 @@
     -   PPS清洗阈值：入方向数据包数超过了PPS清洗阈值时，触发清洗。
     -   黑洞阈值：入方向流量超过黑洞阈值时将触发黑洞。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15694/15580604337339_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15694/15610874857339_zh-CN.png)
 
 
 ## 授权云盾基础防护只读权限 {#section_c4n_wjc_wdb .section}
@@ -73,12 +73,12 @@
 1.  使用主账号登录访问控制RAM管理控制台。
 2.  在左侧导航栏，单击**用户管理**，找到目标子账号，然后单击**管理**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4157/15580604332872_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4157/15610874852872_zh-CN.png)
 
 3.  单击**用户授权策略**，然后单击**编辑授权策略**。
 4.  在弹出的对话框，在可授权策略列表中搜索**AliyunYundunDDosReadOnlyAccess**，将其加入到已授权策略列表。单击**确定**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4157/15580604332873_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4157/15610874852873_zh-CN.png)
 
 
 ## 查看安全信誉分 {#section_chv_cjy_gfb .section}
@@ -93,6 +93,6 @@
 
     **说明：** 安全信誉值是分地域的。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15694/155806043312959_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15694/156108748612959_zh-CN.png)
 
 
