@@ -8,7 +8,9 @@
 
 1.  登录[负载均衡管理控制台](https://slb.console.aliyun.com/slb)。
 2.  在左侧导航栏，选择证书管理，单击**创建证书**。
-3.  按照以下信息，配置证书：
+3.  单击**上传第三方签发证书**。
+4.  按照以下信息，配置证书：
+    -   证书名称：长度限制为1-80个字符，只允许包含字母、数字、"-"、"/"、"."、"\_", "\*"。
     -   证书部署地域: 选择华东1。
 
         **说明：** 证书的地域和负载均衡实例的地域要相同。
@@ -16,9 +18,9 @@
     -   证书类型：选择**服务器证书**。
     -   证书内容和私钥：复制服务器证书的内容和私钥。单击**导入样例**查看合法的证书格式。上传的证书必须是PEM格式，详情查看[证书格式要求](intl.zh-CN/历史文档/用户指南（旧版控制台）/证书管理/证书要求.md#)。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15591107447324_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15610875207324_zh-CN.png)
 
-4.  单击**确定**，完成上传。
+5.  单击**确定**，完成上传。
 
 ## 步骤二 配置负载均衡实例 {#section_rc5_sx5_vdb .section}
 
@@ -36,14 +38,14 @@
     -   **选择负载均衡协议**：HTTPS
     -   **监听端口**：443
     -   **调度算法**：轮询（RR）
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/155911074410035_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156108752010035_zh-CN.png)
 
-8.  单击**下一步**，在SSL证书页签下，选择已经上传的服务器证书。
+8.  单击**下一步**，在SSL证书页签下，选择已经上传的服务器证书和TLS安全策略。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15591107447326_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15610875207326_zh-CN.png)
 
-9.  单击**下一步**，选择默认服务器组，单击**添加**，添加ECS服务器，后端协议监听端口设置为80。
-10. 在左侧导航栏，单击**服务器** \> **后端服务器** ，然后单击**添加后端服务器**，添加ECS服务器。
+9.  单击**下一步**，选择默认服务器组，单击**继续添加**，添加ECS服务器，后端协议监听端口设置为80。
+10. 其他参数保持默认值，单击**下一步**至**确定**，完成负载均衡实例配置。
 
 ## 步骤三 测试负载均衡服务 {#section_jcf_4y5_vdb .section}
 
@@ -53,8 +55,8 @@
 
 2.  在浏览器中输入负载均衡的公网服务地址。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15591107447447_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15610875217447_zh-CN.png)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15591107447448_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15658/15610875217448_zh-CN.png)
 
 
