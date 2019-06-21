@@ -51,7 +51,7 @@
 
     尤其容易发生在压测的时候，客户端端口不足会导致建立连接失败，负载均衡默认会抹除TCP连接的timestamp属性，Linux协议栈的tw\_reuse\(time\_wait状态连接复用\)无法生效，time\_wait状态连接堆积导致客户端端口不足。
 
-    解决方法：客户端端使用长连接代替短连接。使用RST报文断开连接（socket设置SO\_LINGER属性） ，而不是发FIN包这种方式断开。
+    解决方法：客户端使用长连接代替短连接。使用RST报文断开连接（socket设置SO\_LINGER属性） ，而不是发FIN包这种方式断开。
 
 -   后端服务器accept队列满
 
@@ -95,7 +95,7 @@
 
     在负载均衡所有后端ECS中创建测试页面，如下图所示页面中能显示本机内网IP。内网IP用于判断相应请求被指派到的物理服务器。通过观察该IP的一致性，来判断负载均衡会话保持的有效性。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4290/15445245713296_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4290/15610844383296_zh-CN.png)
 
 2.  Linux下curl测试。
 
@@ -104,7 +104,7 @@
     1.  登录用来测试的Linux服务器。
     2.  执行以下命令负载均衡服务器cookie值。
 
-        ```
+        ``` {#codeblock_rar_dv5_lxp}
         curl -c test.cookie http://1.1.1.1/check.jsp
         ```
 
@@ -112,7 +112,7 @@
 
     3.  执行以下命令持续测试。
 
-        ```
+        ``` {#codeblock_98b_hk1_zeb}
         for ((a=1;a<=30;a++)); 2="" do="" curl="" -b="" 1.cookie=""
                     check.jsp="">/dev/null | grep '10.170.*';sleep 1; done`
         ```
