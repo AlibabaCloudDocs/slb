@@ -34,7 +34,7 @@ URL转发支持字符串匹配，按照前缀最长匹配原则，比如有/abc�
 -   如果未匹配，而对应监听启用并配置了虚拟服务器组，则将请求转发到对应的虚拟服务器组。
 -   如果均未匹配，则转发到负载均衡实例默认服务器组中的ECS。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4135/15607374402798_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4135/15610875412798_zh-CN.png)
 
 ## 添加域名和路径转发策略 {#section_z1n_t1b_wdb .section}
 
@@ -51,10 +51,9 @@ URL转发支持字符串匹配，按照前缀最长匹配原则，比如有/abc�
 4.  选择监听页签。
 5.  单击目标七层监听的**添加转发策略**选项。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15607374407453_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15610875417453_zh-CN.png)
 
-6.  在转发策略页面，单击**添加转发策略**。
-7.  在添加转发策略页面，根据以下信息配置转发策略：
+6.  在添加转发策略页签，根据以下信息配置转发策略：
 
     1.  **域名**：输入要转发的请求域名。域名只能使用字母、数字、连字符（-）、点（.）。
     2.  **URL**：输入请求路径。路径必须以/开头，只能包含字母、数字和特殊字符（-./%?\#&）。
@@ -62,11 +61,11 @@ URL转发支持字符串匹配，按照前缀最长匹配原则，比如有/abc�
         **说明：** 如果您只想配置域名转发策略，则不需要配置URL。
 
     3.  **虚拟服务器组**：选择关联的虚拟服务器组。
-    4.  **备注（可选）**：输入描述。
-    5.  单击**确定**。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15607374417463_zh-CN.png)
+    4.  **备注**：输入描述。
+    5.  单击**添加转发策略**。
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/156108754149834_zh-CN.png)
 
-8.  单击**添加域名**或**添加策略**再添加一个域名或URL策略。
+7.  单击**添加域名**或**添加规则**再添加一个域名或URL策略。
 
     一个HTTP或HTTPS监听最多可添加转发策略个数请参见[使用限制](../intl.zh-CN/产品限制/使用限制.md#)。
 
@@ -84,7 +83,7 @@ URL转发支持字符串匹配，按照前缀最长匹配原则，比如有/abc�
 5.  单击目标七层监听的**添加转发策略**选项。
 6.  在**转发策略列表**区域，单击目标转发策略的**编辑**选项。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15607374417464_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/156108754149835_zh-CN.png)
 
 7.  编辑转发策略，根据以下信息自定义转发策略的调度算法、会话保持和健康检查等配置。
 
@@ -100,10 +99,10 @@ URL转发支持字符串匹配，按照前缀最长匹配原则，比如有/abc�
     -   日本
     |高级配置|说明|
     |----|--|
-    |**调度算法**|负载均衡支持轮询、加权轮询（WRR）、加权最小连接数（WLC）三种调度算法。    -   **加权轮询**：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
+    |**调度算法**|负载均衡支持轮询、加权轮询（WRR）、加权最小连接数（WLC）三种调度算法。     -   **加权轮询**：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
     -   **轮询**：按照访问顺序依次将外部请求依序分发到后端服务器。
     -   **加权最小连接数**：除了根据每台后端服务器设定的权重值来进行轮询，同时还考虑后端服务器的实际负载（即连接数）。当权重值相同时，当前连接数越小的后端服务器被轮询到的次数（概率）也越高。
-|
+ |
     |**开启会话保持**| 选择是否开启会话保持。
 
  开启会话保持功能后，负载均衡会把来自同一客户端的访问请求分发到同一台后端服务器上进行处理。
@@ -144,7 +143,7 @@ URL转发支持字符串匹配，按照前缀最长匹配原则，比如有/abc�
 
  |
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/156073744111504_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/156108754211504_zh-CN.png)
 
 8.  单击**确定**。
 
@@ -159,6 +158,6 @@ URL转发支持字符串匹配，按照前缀最长匹配原则，比如有/abc�
 5.  单击目标七层监听的**添加转发策略**选项。
 6.  在**转发策略列表**区域，单击目标转发策略的**删除**选项。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15607374427465_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15610875427465_zh-CN.png)
 
 
