@@ -11,36 +11,36 @@
 
     真实的客户端IP会被负载均衡放在HTTP头部的X-Forwarded-For字段，格式如下：
 
-    ```
+    ``` {#codeblock_sqk_lrz_on0}
     X-Forwarded-For: 用户真实IP, 代理服务器1-IP， 代理服务器2-IP，...
     ```
 
     当使用此方式获取客户端真实IP时，获取的第一个地址就是客户端真实IP。
 
-    **说明：** 负载均衡的HTTPS监听是在负载均衡服务上的加密控制，后端仍旧使用HTTP协议，因此，在Web应用服务器配置上HTTPS和HTTP监听没有区别。
+    **说明：** 负载均衡的HTTPS监听是在负载均衡服务上的加密控制，后端仍旧使用HTTP协议，因此，在Web应用服务器上配置HTTPS和HTTP监听没有区别。
 
 
 ## 配置IIS7/IIS8服务器 {#section_jcy_l2w_wdb .section}
 
 1.  [下载](https://img.alicdn.com/tfscom/TB1R64PLVXXXXaaXVXXXXXXXXXX.rar?spm=a2c4g.11186623.2.5.z475ev&file=TB1R64PLVXXXXaaXVXXXXXXXXXX.rar)并解压 F5XForwardedFor文件。
-2.  根据自己的服务器操作系统版本将x86\\Release或者 x64\\Release目录下的 F5XFFHttpModule.dll 和 F5XFFHttpModule.ini拷贝到某个目录，比如 C:\\F5XForwardedFor\\。确保IIS进程对该目录有读取权限。
+2.  根据自己的服务器操作系统版本将x86\\Release或x64\\Release目录下的F5XFFHttpModule.dll和F5XFFHttpModule.ini拷贝到某个目录，比如C:\\F5XForwardedFor\\。确保IIS进程对该目录有读取权限。
 3.  打开**IIS管理器**，双击**模块**功能。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4171/15541013623132_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4171/15610841713132_zh-CN.png)
 
 4.  单击**配置本机模块**，然后在弹出的对话框中，单击**注册**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4171/15541013623133_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4171/15610841723133_zh-CN.png)
 
 5.  添加下载的.dll文件。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4171/15541013623135_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4171/15610841723135_zh-CN.png)
 
 6.  为添加的两个文件授权允许运行ISAPI和CGI扩展。
 
     **说明：** 确保您已经安装了ISAPI和CGI应用程序。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4171/15541013633136_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4171/15610841723136_zh-CN.png)
 
 7.  重启IIS服务器，等待配置生效。
 
@@ -48,7 +48,7 @@
 
 1.  运行以下命令安装Apache的一个第三方模块mod\_rpaf。
 
-    ```
+    ``` {#codeblock_xgn_twx_6v0}
      wget https://github.com/gnif/mod_rpaf/archive/v0.6.0.tar.gz
      tar zxvf mod_rpaf-0.6.tar.gz
      cd mod_rpaf-0.6
@@ -57,7 +57,7 @@
 
 2.  修改Apache的配置文件/alidata/server/httpd/conf/httpd.conf，在最末尾添加以下配置信息。
 
-    ```
+    ``` {#codeblock_otx_kh1_56t}
      LoadModule rpaf_module modules/mod_rpaf-2.0.so
      RPAFenable On
      RPAFsethostname On
@@ -69,7 +69,7 @@
 
 3.  添加完成后重启Apache。
 
-    ```
+    ``` {#codeblock_83v_6e7_3bh}
     /alidata/server/httpd/bin/apachectl restart
     ```
 
@@ -78,7 +78,7 @@
 
 1.  运行以下命令安装http\_realip\_module。
 
-    ```
+    ``` {#codeblock_can_115_49f}
      wget http://nginx.org/download/nginx-1.0.12.tar.gz
      tar zxvf nginx-1.0.12.tar.gz
      cd nginx-1.0.12
@@ -91,13 +91,13 @@
 
 2.  打开nginx.conf文件。
 
-    ```
+    ``` {#codeblock_6s6_tqs_bcq}
     vi /alidata/server/nginx/conf/nginx.conf
     ```
 
 3.  在以下配置信息后添加新的配置字段和信息。
 
-    ```
+    ``` {#codeblock_pqr_0yd_4fz}
      fastcgi connect_timeout 300;
      fastcgi send_timeout 300;
      fastcgi read_timeout 300;
@@ -109,7 +109,7 @@
 
     需要添加的配置字段和信息为：
 
-    ```
+    ``` {#codeblock_702_mz2_ad6}
      set_real_ip_from IP_address
      real_ip_header X-Forwarded-For;
     ```
@@ -118,7 +118,7 @@
 
 4.  重启Nginx。
 
-    ```
+    ``` {#codeblock_66v_x13_dh3}
     /alidata/server/nginx/sbin/nginx -s reload
     ```
 
