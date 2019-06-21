@@ -16,11 +16,11 @@ TCP协议适用于注重可靠性，对数据准确性要求高，速度可以�
 4.  选择以下一种方法，打开监听配置向导：
     -   在实例管理页面，找到目标实例，单击**监听配置向导**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049933710004_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156108685210004_zh-CN.png)
 
     -   在实例管理页面，单击目标实例ID。在监听页面，单击**添加监听**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15604993377399_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15610868537399_zh-CN.png)
 
 
 ## 步骤二 配置协议监听 {#section_mhj_lmn_42b .section}
@@ -51,7 +51,7 @@ TCP协议适用于注重可靠性，对数据准确性要求高，速度可以�
  |
     |**高级配置**|
     |**调度算法**|负载均衡支持轮询、加权轮询（WRR）、加权最小连接数（WLC）和一致性哈希（CH）四种调度算法。     -   **加权轮询**：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
-    -   **轮询**：按照访问顺序依次将外部请求依序分发到后端服务器。
+    -   **轮询**：按照访问顺序依次将外部请求分发到后端服务器。
     -   **加权最小连接数**：除了根据每台后端服务器设定的权重值来进行轮询，同时还考虑后端服务器的实际负载（即连接数）。当权重值相同时，当前连接数越小的后端服务器被轮询到的次数（概率）也越高。
     -   **一致性哈希（CH）**：
 
@@ -107,9 +107,6 @@ TCP协议适用于注重可靠性，对数据准确性要求高，速度可以�
 
 2.  单击**下一步**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15604993377421_zh-CN.png)
-
-
 ## 步骤三 添加后端服务器 {#section_vqk_zmn_42b .section}
 
 添加处理前端请求的后端服务器。您可以使用实例配置的默认服务器组，也可以为监听配置一个虚拟服务器组或主备服务器组。详情参见[后端服务器概述](intl.zh-CN/用户指南/后端服务器/后端服务器概述.md#)。
@@ -118,11 +115,11 @@ TCP协议适用于注重可靠性，对数据准确性要求高，速度可以�
 
 1.  选择**默认服务器组**，单击**继续添加**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049933810030_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156108685310030_zh-CN.png)
 
 2.  选择要添加的ECS实例，然后单击**下一步：配置权重和端口号**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15604993387499_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15610868537499_zh-CN.png)
 
 3.  配置添加的后端服务器的端口和权重。
     -   端口
@@ -135,7 +132,7 @@ TCP协议适用于注重可靠性，对数据准确性要求高，速度可以�
 
         **说明：** 权重设置为0，该服务器不会再接受新请求。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15604993387504_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15610868537504_zh-CN.png)
 
 4.  单击**下一步**。
 
@@ -143,7 +140,7 @@ TCP协议适用于注重可靠性，对数据准确性要求高，速度可以�
 
 负载均衡通过健康检查来判断后端服务器（ECS实例）的业务可用性。健康检查机制提高了前端业务整体可用性，避免了后端ECS异常对总体服务的影响。单击**修改**更改健康检查配置，详情参见[配置健康检查](intl.zh-CN/用户指南/健康检查/配置健康检查.md#)。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049933910032_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156108685310032_zh-CN.png)
 
 ## 步骤五 提交配置 {#section_hwm_qnn_42b .section}
 
@@ -154,8 +151,6 @@ TCP协议适用于注重可靠性，对数据准确性要求高，速度可以�
 3.  在配置审核页面，配置成功后，单击**确定**。
 
 配置成功后，您可以在监听页面查看已创建的监听。
-
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049933910034_zh-CN.png)
 
 ## 相关操作 {#section_or1_14n_42b .section}
 
