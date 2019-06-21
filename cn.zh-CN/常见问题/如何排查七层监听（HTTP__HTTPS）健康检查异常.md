@@ -1,6 +1,6 @@
 # 如何排查七层监听（HTTP/HTTPS）健康检查异常 {#task_o13_vjz_xfb .task}
 
-健康检查用于探测您的后端服务器是否处于正常工作状态，当出现健康检查异常时，通常说明您的后端服务器出现了异常，但也有可能是您的健康检查配置不正确导致，本文介绍七层监听（HTTP/HTTPS）健康检查异常排查详细步骤。
+健康检查用于探测您的后端服务器是否处于正常工作状态，当健康检查出现异常时，通常说明您的后端服务器出现了异常，但也有可能是您的健康检查配置不正确导致，本文主要介绍对七层监听（HTTP/HTTPS）健康检查异常进行排查的详细步骤。
 
 1.  确保后端服务器上没有针对100.64.0.0/10地址段进行任何形式的屏蔽，包括iptables或其他任何第三方防火墙/安全策略软件。 
 
@@ -14,20 +14,20 @@
         -   **健康检查端口**：80
         -   **健康检查域名**：`www.slb-test.com`
         -   **健康检查路径**：`/test.html`
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65042/155954649633076_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65042/156108423333076_zh-CN.png)
 
-    2.  以Linux系统为例，执行nc或curl命令对后端服务器上的HTTP服务进行探测，健康检查路径、健康检查端口和健康检查域名配置必须与后端服务器上配置保持一致，否则会产生健康检查异常。 此处使用nc命令为例，请根据实际情况配置健康检查路径、域名、内网地址和健康检查端口：
+    2.  以Linux系统为例，执行nc或curl命令对后端服务器上的HTTP服务进行探测，健康检查路径、健康检查端口和健康检查域名配置必须与后端服务器上配置保持一致，否则会产生健康检查异常。 此处使用nc命令为例，请根据实际情况配置健康检查路径、健康检查域名、健康检查内网地址和健康检查端口：
 
-        ```
+        ``` {#codeblock_sss_nx2_8ga}
         echo -e "HEAD /test.html HTTP/1.0\r\nHost: www.slb-test.com\r\n\r\n" | nc -t 172.17.58.131 80
         ```
 
         -   正常情况下，返回`200`或其他`2xx/3xx`返回码，如下图所示。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65042/155954649633084_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65042/156108423333084_zh-CN.png)
 
-        -   异常示例：假设负载均衡上的监听配置保持不变，但是删除后端服务器上/test.html页面，执行nc命令后，得到404错误码，该错误码与负载均衡SLB监听中设置的2xx或者3xx错误码不符，此时会出现健康检查异常结果，如下图所示。
+        -   异常示例：假设负载均衡上的监听配置保持不变，但是删除后端服务器上/test.html页面，执行nc命令后，得到404错误码，该错误码与负载均衡SLB监听中设置的2xx或者3xx状态码不符，此时会出现健康检查异常结果，如下图所示。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65042/155954649733092_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65042/156108423333092_zh-CN.png)
 
 
