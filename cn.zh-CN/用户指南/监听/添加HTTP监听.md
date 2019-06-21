@@ -16,11 +16,11 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 4.  选择以下一种方法，打开监听配置向导：
     -   在实例管理页面，找到目标实例，单击**监听配置向导**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049942710004_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156108704310004_zh-CN.png)
 
     -   在实例管理页面，单击目标实例ID。在监听页面，单击**添加监听**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15604994277399_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15610870437399_zh-CN.png)
 
 
 ## 步骤二 配置协议监听 {#section_ly4_2pn_42b .section}
@@ -41,7 +41,7 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
  |
     |**高级配置**|
     |**调度算法**|负载均衡支持轮询、加权轮询（WRR）、加权最小连接数（WLC）三种调度算法。     -   **加权轮询**：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
-    -   **轮询**：按照访问顺序依次将外部请求依序分发到后端服务器。
+    -   **轮询**：按照访问顺序依次将外部请求分发到后端服务器。
     -   **加权最小连接数**：除了根据每台后端服务器设定的权重值来进行轮询，同时还考虑后端服务器的实际负载（即连接数）。当权重值相同时，当前连接数越小的后端服务器被轮询到的次数（概率）也越高。
  |
     |**监听转发**|选择是否将HTTP监听的流量转发到HTTPS监听。 **说明：** 如果开启监听转发，确保您已经创建了HTTPS监听。
@@ -86,7 +86,7 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
  **说明：** 使用流量计费方式的实例默认不限制带宽峰值。
 
  |
-    |**连接空闲超时时间**|指定连接空闲超时时间，取值范围为1-60秒。 在超时时间内一直没有访问请求，负载均衡会暂时中断当前连接，直到一下次请求来临时重新建立新的连接。
+    |**连接空闲超时时间**|指定连接空闲超时时间，取值范围为1-60秒。 在超时时间内一直没有访问请求，负载均衡会暂时中断当前连接，直到下一次请求来临时重新建立新的连接。
 
  该功能已经在全部地域开放。
 
@@ -111,7 +111,7 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
 2.  单击**下一步**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15604994277434_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15610870437434_zh-CN.png)
 
 
 ## 步骤三 添加后端服务器 {#section_ylm_3qn_42b .section}
@@ -122,11 +122,11 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
 1.  选择**默认服务器组**，单击**继续添加**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049942810030_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156108704310030_zh-CN.png)
 
 2.  选择要添加的ECS实例，然后单击**下一步：配置权重和端口号**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15604994287499_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15610870437499_zh-CN.png)
 
 3.  配置添加的后端服务器的端口和权重。
     -   端口
@@ -139,7 +139,7 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
         **说明：** 权重设置为0，该服务器不会再接受新请求。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15604994287504_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15610870447504_zh-CN.png)
 
 4.  单击**下一步**。
 
@@ -147,7 +147,7 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
 负载均衡通过健康检查来判断后端服务器（ECS实例）的业务可用性。健康检查机制提高了前端业务整体可用性，避免了后端ECS异常对总体服务的影响。单击**修改**更改健康检查配置，详情参见[配置健康检查](intl.zh-CN/用户指南/健康检查/配置健康检查.md#)。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049942810032_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156108704410032_zh-CN.png)
 
 ## 步骤五 提交配置 {#section_ey5_lqn_42b .section}
 
@@ -158,8 +158,6 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 3.  在配置审核页面，配置成功后，单击**确定**。
 
 配置成功后，您可以在监听页面查看已创建的监听。
-
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049942910034_zh-CN.png)
 
 ## 相关操作 {#section_pz4_2pn_42b .section}
 
