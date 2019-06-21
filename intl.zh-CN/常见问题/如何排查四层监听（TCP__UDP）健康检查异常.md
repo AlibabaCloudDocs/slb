@@ -1,6 +1,6 @@
 # 如何排查四层监听（TCP/UDP）健康检查异常 {#task_j5n_rgz_xfb .task}
 
-健康检查用于探测您的后端服务器是否处于正常工作状态，当出现健康检查异常时，通常说明您的后端服务器出现了异常，但也有可能是您的健康检查配置不正确导致，本文介绍四层监听（TCP/UDP）健康检查异常排查详细步骤。
+健康检查用于探测您的后端服务器是否处于正常工作状态，当健康检查出现异常时，通常说明您的后端服务器出现了异常，但也有可能是您的健康检查配置不正确导致，本文主要介绍对四层监听（TCP/UDP）健康检查异常进行排查的详细步骤。
 
 1.  确保后端服务器上没有针对100.64.0.0/10地址段进行任何形式的屏蔽，包括iptables或其他任何第三方防火墙/安全策略软件。 
 
@@ -11,7 +11,7 @@
 
         其中，**健康检查端口**默认使用后端服务器端口进行健康检查，也可以手动设置端口。此处示例使用后端服务器端口，端口号为80。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65040/155954618033070_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65040/156108421433070_zh-CN.png)
 
     2.  执行如下命令，尝试连接健康检查端口，负载均衡上配置的健康检查端口要与后端服务器上的监听的端口保持一致。 
 
@@ -21,11 +21,11 @@
 
         -   正常情况下，会返回类似`Connected to xxx.xxx.xxx.xxx`信息，表示后端服务器上指定端口处于正常工作（监听）状态，此时健康检查是正常的，如下图所示。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65040/155954618033071_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65040/156108421433071_zh-CN.png)
 
         -   异常示例：假设负载均衡上的监听配置保持不变，但是停止后端服务器上的80端口监听进程，执行telnet命令后，系统提示无法连接到该主机，连接被拒绝，表示80端口监听的进程不再工作，此时健康检查会出现异常，如下图所示。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65040/155954618033072_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/65040/156108421433072_zh-CN.png)
 
-3.  四层监听支持HTTP方式健康检查，如果使用HTTP方式健康检查，请参考[七层监听（HTTP/HTTPS）健康检查异常排查](intl.zh-CN/常见问题/如何排查七层监听（HTTP__HTTPS）健康检查异常.md#)，排查方式与七层监听一致。 
+3.  四层监听支持HTTP方式健康检查，如果使用HTTP方式进行健康检查，请参见[七层监听（HTTP/HTTPS）健康检查异常排查](intl.zh-CN/常见问题/如何排查七层监听（HTTP__HTTPS）健康检查异常.md#)进行排查。
 
