@@ -1,14 +1,13 @@
 # View monitoring data {#task_jn4_vsc_f2b .task}
 
-This topic describes how to use CloudMonitor to view the monitoring data of SLB instances.
+This topic describes how to view the monitoring data of a Server Load Balancer \(SLB\) instance.
 
-1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb). 
-2.  In the left-side navigation pane, choose **Instances** \> **Server Load Balancer**. 
-3.  Select the region to which the target SLB instance belongs. 
-4.  Find the target instance, and click the monitoring icon ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15691/15561770547338_en-US.png) next to the instance. 
-5.  Select the metric that you want to view. 
+1.  Log on to the [SLB console](https://slb.console.aliyun.com).
+2.  Select the region of the target SLB instance.
+3.  Click the monitoring icon ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15691/15610873917338_en-US.png) next to the target SLB instance.
+4.  Select the monitoring metrics that you want to view. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15691/15561770547337_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15691/15610873917337_en-US.png)
 
     The following metrics are monitored for SLB instances.
 
@@ -20,11 +19,11 @@ This topic describes how to use CloudMonitor to view the monitoring data of SLB 
     |**Packets**|     -   RX Packets Count: the number of request packets received per second
     -   TX Packets Count: the number of response packets sent per second
  |
-    |**Concurrent Connections**|     -   Active Connections Count: the number of established TCP connections. If persistent connections are configured, a connection can transfer multiple file requests at one time.
+    |**Concurrent Connections**|     -   Active Connections Count: the number of established TCP connections. If persistent connections are used, a connection can transfer multiple file requests at one time.
     -   Inactive Connections Count: the number of TCP connections not in the established state. You can use the `netstat -an` command to view the connections for both Windows and Linux servers.
     -   Max Concurrent Connections Count: the total number of TCP connections.
  |
-    |**Average Connection Requests Count**|The average number of new TCP connections established between clients and SLB in a statistical period.|
+    |**Average Connection Requests Count**|The average number of new TCP connections established between clients and SLB in a statistical period|
     |**Dropped Traffic**|     -   Dropped Inbound Traffic: the amount of inbound traffic dropped per second
     -   Dropped Outbound Traffic: the amount of outbound traffic dropped per second
  |
