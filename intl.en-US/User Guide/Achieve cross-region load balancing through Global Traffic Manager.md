@@ -45,7 +45,7 @@ In this example, two ECS instances are purchased in Beijing, Shenzhen, and Singa
 
         After the instance is successfully purchased, the system automatically allocates a CNAME record.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15689/155806041710621_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15689/156108746610621_en-US.png)
 
 2.  Configure the GTM instance.
     1.  On the Global Traffic Manager page, click the target GTM instance ID or click **Configure** in the **Actions** column.
@@ -66,7 +66,7 @@ In this example, two ECS instances are purchased in Beijing, Shenzhen, and Singa
 
         -   **Address Pool Name**: Enter a name, for example, China North\_Beijing, China East\_Shenzhen, and Singapore.
         -   **Address**: Enter the public IP address of the Internet SLB instance that belongs to the region in the address pool name.
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15689/155806041710664_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15689/156108746610664_en-US.png)
 
     3.  Click **Confirm**.
 4.  Configure health check.
@@ -96,7 +96,7 @@ In this example, two ECS instances are purchased in Beijing, Shenzhen, and Singa
     3.  On the DNS Settings page, click **Add Record**.
     4.  On the Add Record page, direct the domain name that is accessed by end users, aliyuntest.club in this example, to the CNAME record of the GTM instance.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15689/155806041710688_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15689/156108746610688_en-US.png)
 
     5.  Click **OK**.
 
