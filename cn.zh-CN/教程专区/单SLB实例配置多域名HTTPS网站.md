@@ -20,7 +20,7 @@
     -   监听使用的默认证书为default。
     -   域名\*.example1.com使用的证书为example1。
     -   域名www.example2.com使用的证书为example2。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15661/15439946908320_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15661/15613552438320_zh-CN.png)
 
 
 ## 步骤一 添加HTTPS监听 {#section_s3n_qpt_q2b .section}
@@ -54,7 +54,7 @@
     -   设置规则名称，在**域名**操作列输入www.example2.com，选择test2虚拟服务器组，单击**确认**。
     **说明：** 转发规则中设置的域名，必须与证书中和[步骤三 添加扩展域名](../intl.zh-CN/教程专区/单SLB实例配置多域名HTTPS网站.md#section_bk4_ypt_q2b)中添加的扩展域名保持一致。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17005/15439946918327_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17005/15613552438327_zh-CN.png)
 
 
 ## 步骤三 添加扩展域名 {#section_bk4_ypt_q2b .section}
@@ -64,7 +64,7 @@
 1.  单击SLB1实例ID，进入实例详情页面。
 2.  在监听页签下，找到已创建的HTTPS监听，选择**更多** \> **扩展域名管理**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17020/154399469110044_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17020/156135524310044_zh-CN.png)
 
 3.  在扩展域名管理页面，单击**添加扩展域名**，配置扩展域名。
 
@@ -89,7 +89,7 @@
 
         **说明：** 证书中的域名和您添加的扩展域名必须一致。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17005/15439946918324_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17005/15613552438324_zh-CN.png)
 
 
 **说明：** 配置完成后，如果出现问题，请尝试重启浏览器后再测试，避免缓存对结果的影响。
