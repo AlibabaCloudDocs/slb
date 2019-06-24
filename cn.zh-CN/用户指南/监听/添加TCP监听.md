@@ -16,11 +16,11 @@ TCP协议适用于注重可靠性，对数据准确性要求高，速度可以�
 4.  选择以下一种方法，打开监听配置向导：
     -   在实例管理页面，找到目标实例，单击**监听配置向导**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156109419410004_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156135484810004_zh-CN.png)
 
     -   在实例管理页面，单击目标实例ID。在监听页面，单击**添加监听**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15610941957399_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15613548487399_zh-CN.png)
 
 
 ## 步骤二 配置协议监听 {#section_mhj_lmn_42b .section}
@@ -38,6 +38,7 @@ TCP协议适用于注重可靠性，对数据准确性要求高，速度可以�
 
  **说明：** 现在是公测阶段，您需要在[配额管理](https://slb.console.aliyun.com/slb/quota)申请**TCP/UDP协议监听同端口公测权限**，在同一个负载均衡实例内，才能在以下地域支持UDP和TCP监听端口重复。其他情况下，监听端口不可重复。
 
+    -   阿联酋（迪拜）
     -   澳大利亚（悉尼）
     -   阿联酋（迪拜）
     -   英国（伦敦）
@@ -48,6 +49,14 @@ TCP协议适用于注重可靠性，对数据准确性要求高，速度可以�
     -   日本（东京）
     -   印度（孟买）
     -   新加坡
+    -   马来西亚（吉隆坡）
+    -   香港
+    -   华南1（深圳）
+    -   华北5（呼和浩特）
+    -   华北1（青岛）
+    -   西南1（成都）
+    -   华北3（张家口）
+    -   华东2（上海）
  |
     |**高级配置**|
     |**调度算法**|负载均衡支持轮询、加权轮询（WRR）、加权最小连接数（WLC）和一致性哈希（CH）四种调度算法。     -   **加权轮询**：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
@@ -115,11 +124,11 @@ TCP协议适用于注重可靠性，对数据准确性要求高，速度可以�
 
 1.  选择**默认服务器组**，单击**继续添加**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156109419510030_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156135484910030_zh-CN.png)
 
 2.  选择要添加的ECS实例，然后单击**下一步：配置权重和端口号**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15610941957499_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15613548497499_zh-CN.png)
 
 3.  配置添加的后端服务器的端口和权重。
     -   端口
@@ -132,7 +141,7 @@ TCP协议适用于注重可靠性，对数据准确性要求高，速度可以�
 
         **说明：** 权重设置为0，该服务器不会再接受新请求。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15610941957504_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15613548607504_zh-CN.png)
 
 4.  单击**下一步**。
 
