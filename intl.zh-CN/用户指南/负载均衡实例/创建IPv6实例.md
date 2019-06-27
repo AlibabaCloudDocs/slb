@@ -11,6 +11,7 @@ IPv6是Internet Protocol Version 6的缩写，其中Internet Protocol译为互�
     -   华北2地域的F、G两个可用区
     -   华东2地域的D、E两个可用区
     -   华南1地域的D、E两个可用区
+    -   华北3地域的A、B两个可用区
 -   互联网IPv6网络大环境还处于建设初期，当前可能存在部分线路访问不通，如有请工单反馈，同时IPv6公测期间，不提供SLA保障。
 -   由于IPv6的IP头部较IPv4更长，当您在SLB IPv6实例上使用UDP监听时，需要确保后端服务器（通常是ECS云服务器）与SLB通信的网卡的MTU不大于1480（有些应用程序需要根据此MTU值同步修改其配置文件），否则数据包可能会因过大被丢弃。
 
@@ -44,11 +45,12 @@ IPv6是Internet Protocol Version 6的缩写，其中Internet Protocol译为互�
     -   华北2地域的F、G两个可用区
     -   华东2地域的D、E两个可用区
     -   华南1地域的D、E两个可用区
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15591275527308_zh-CN.png)
+    -   华北3地域的A、B两个可用区
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15616242047308_zh-CN.png)
 
 5.  返回实例列表页面，查看已创建的IPv6实例。
 
 创建后，系统会为该实例分配一个IPv6地址。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15591275527309_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15645/15616242047309_zh-CN.png)
 
