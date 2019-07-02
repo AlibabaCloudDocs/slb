@@ -12,7 +12,9 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DeleteLoadBalancer|要执行的操作，取值：**DeleteLoadBalancer**
+|Action|String|是|DeleteLoadBalancer|要执行的操作。
+
+ 取值：**DeleteLoadBalancer**。
 
  |
 |LoadBalancerId|String|是|lb-bp1h66tp5uat84khmqc9e|负载均衡实例的ID。
@@ -38,8 +40,8 @@
 
 ``` {#request_demo}
 
-/?Action=DeleteLoadBalancer
-&LoadBalancerId=139a00604ad-cn-east-hangzhou-01
+http(s)://[Endpoint]/?Action=DeleteLoadBalancer
+&LoadBalancerId=lb-bp1h66tp5uat84khmqc9e
 &<公共请求参数>
 
 ```
