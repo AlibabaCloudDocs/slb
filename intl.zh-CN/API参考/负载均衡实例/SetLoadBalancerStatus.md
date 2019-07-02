@@ -1,6 +1,6 @@
 # SetLoadBalancerStatus {#doc_api_Slb_SetLoadBalancerStatus .reference}
 
-使用SetLoadBalancerStatus设置负载均衡实例的状态。
+调用SetLoadBalancerStatus设置负载均衡实例的状态。
 
 ## 调试 {#apiExplorer .section}
 
@@ -10,13 +10,15 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|SetLoadBalancerStatus|要执行的操作。取值：**SetLoadBalancerStatus**
+|Action|String|是|SetLoadBalancerStatus|要执行的操作。
+
+ 取值：**SetLoadBalancerStatus**。
 
  |
 |LoadBalancerId|String|是|lb-bp1b6c719dfa08exfuca5|负载均衡实例的ID。
 
  |
-|LoadBalancerStatus|String|是|active|负载均衡实例状态。取值：**active|inactive**
+|LoadBalancerStatus|String|是|active|负载均衡实例状态。取值：**active|inactive**。
 
  -   active（默认值）
 
@@ -35,9 +37,6 @@
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域ID。
 
  您可以从[地域和可用区](~~40654~~)列表或通过调用[DescribeRegions](~~25609~~)接口查询地域ID。
-
- |
-|OwnerAccount|String|否|OwnerAccount|OwnerAccount
 
  |
 
