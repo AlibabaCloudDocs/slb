@@ -12,10 +12,12 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|AddBackendServers|要执行的操作。取值：**AddBackendServers**
+|Action|String|是|AddBackendServers|要执行的操作。
+
+ 取值：**AddBackendServers**。
 
  |
-|BackendServers|String|是|\[\{"ServerId":"eni-xxxxxxxxx","Weight":"100","Type":"eni","":"192.168.11.1"\}，\{"ServerId":"eni-xxxxxxxxx","Weight":"100","Type":"eni","":"192.168.11.2"\}\]|要添加的后端服务器列表。
+|BackendServers|String|是|\[\{"ServerId":"eni-xxxxxxxxx","Weight":"100","Type":"eni","ServerIp":"192.168.11.1"\}，\{"ServerId":"eni-xxxxxxxxx","Weight":"100","Type":"eni","ServerIp":"192.168.11.2"\}\]|要添加的后端服务器列表。
 
  服务器组列表需要包含以下参数：
 
@@ -28,7 +30,7 @@
  **说明：** 后端服务器（ECS实例）必须是运行中才可以加入负载均衡实例，每次调用最多可添加20个后端服务器。
 
  |
-|LoadBalancerId|String|是|lb-2ze7o5h52g02kkzze7lru|负载均衡实例ID。
+|LoadBalancerId|String|是|lb-2ze7o5h52g02kkzz\*\*\*\*\*\*|负载均衡实例ID。
 
  |
 |RegionId|String|是|cn-beijing|负载均衡实例的ID。
@@ -41,13 +43,13 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|LoadBalancerId|String|lb-2ze7o5h52g02kkzze7lru|负载均衡实例ID。
+|LoadBalancerId|String|lb-2ze7o5h52g02kkzz\*\*\*\*|负载均衡实例ID。
 
  |
 |BackendServers| | |后端服务器列表。
 
  |
-|└ServerId|String|i-2zej4lxhjoq1icue6kup|ECS实例ID或ENI的实例ID。
+|└ServerId|String|i-2zej4lxhjoq1icu\*\*\*\*\*|ECS实例ID或ENI的实例ID。
 
  |
 |└Weight|String|100|后端服务器的权重。
@@ -77,7 +79,7 @@
 ``` {#request_demo}
 
 http(s)://[Endpoint]/?Action=AddBackendServers
-&LoadBalancerId=lb-2ze7o5h52g02kkzze7lru
+&LoadBalancerId=lb-2ze7o5h52g02kkzz******
 &<公共请求参数>
 
 ```
@@ -90,18 +92,18 @@ http(s)://[Endpoint]/?Action=AddBackendServers
 <AddBackendServersResponse>
   <BackendServers>
     <BackendServer>
-      <ServerId>i-2zej4lxhjoq1icue6kup</ServerId>
+      <ServerId>i-2zej4lxhjoq1icu*****</ServerId>
       <Weight>100</Weight>
       <Type>ecs</Type>
     </BackendServer>
     <BackendServer>
-      <ServerId>i-2ze1u9ywulp5pbvvc7hv</ServerId>
+      <ServerId>i-2ze1u9ywulp5pbv*****</ServerId>
       <Weight>100</Weight>
       <Type>ecs</Type>
     </BackendServer>
   </BackendServers>
   <RequestId>34B82C81-F13B-4EEB-99F6-A048C67CC830</RequestId>
-  <LoadBalancerId>lb-2ze7o5h52g02kkzze7lru</LoadBalancerId>
+  <LoadBalancerId>lb-2ze7o5h52g02kkzz*****</LoadBalancerId>
 </AddBackendServersResponse>
 
 ```
@@ -113,19 +115,19 @@ http(s)://[Endpoint]/?Action=AddBackendServers
 	"BackendServers":{
 		"BackendServer":[
 			{
-				"ServerId":"i-2zej4lxhjoq1icue6kup",
+				"ServerId":"i-2zej4lxhjoq1icue****",
 				"Weight":100,
 				"Type":"ecs"
 			},
 			{
-				"ServerId":"i-2ze1u9ywulp5pbvvc7hv",
+				"ServerId":"i-2ze1u9ywulp5pbvv****",
 				"Weight":100,
 				"Type":"ecs"
 			}
 		]
 	},
 	"RequestId":"34B82C81-F13B-4EEB-99F6-A048C67CC830",
-	"LoadBalancerId":"lb-2ze7o5h52g02kkzze7lru"
+	"LoadBalancerId":"lb-2ze7o5h52g02kkzze****"
 }
 ```
 
