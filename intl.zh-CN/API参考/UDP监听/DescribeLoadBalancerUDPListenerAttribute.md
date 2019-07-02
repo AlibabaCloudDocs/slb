@@ -10,13 +10,17 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeLoadBalancerUDPListenerAttribute|系统规定参数，取值：`DescribeLoadBalancerUDPListenerAttribut`
+|Action|String|是|DescribeLoadBalancerUDPListenerAttribute|要执行的操作。
+
+ 取值：DescribeLoadBalancerUDPListenerAttribut。
 
  |
-|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。取值：**1-65535**
+|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
+
+ 取值：**1-65535**。
 
  |
-|LoadBalancerId|String|是|lb-bp1rtfnodmywb43ecu4sf-cn-east-hangzhou-01|负载均衡实例的ID。
+|LoadBalancerId|String|是|lb-bp1rtfnodmywb43e\*\*\*\*\*|负载均衡实例的ID。
 
  |
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域ID。
@@ -55,7 +59,7 @@
  |
 |HealthCheck|String|on|是否开启健康检查。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |HealthyThreshold|Integer|4|健康检查阈值。
@@ -73,7 +77,7 @@
 |HealthCheckInterval|Integer|5|健康检查的时间间隔，单位为秒。
 
  |
-|VServerGroupId|String|rsp-cige6j5e7p|绑定的虚拟服务器组ID。
+|VServerGroupId|String|rsp-cige6j\*\*\*\*8|绑定的虚拟服务器组ID。
 
  |
 |AclId|String|12394388|访问控制策略组ID。
@@ -81,7 +85,7 @@
  |
 |AclStatus|String|off|是否开启访问控制功能。
 
- 取值：**on|off**（默认值）
+ 取值：**on|off**（默认值）。
 
  |
 |AclType|String|white|访问控制类型：
@@ -111,7 +115,7 @@
 |HealthCheckReq|String|hello|UDP监听健康检查的请求串。
 
  |
-|MasterSlaveServerGroupId|String|rsp-0bfucwuotx|绑定的主备服务器组ID。
+|MasterSlaveServerGroupId|String|rsp-0bfucw\*\*\*\*|绑定的主备服务器组ID。
 
  |
 |RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|请求ID。
@@ -126,7 +130,7 @@
 
 http(s)://[Endpoint]/?Action=DescribeLoadBalancerUDPListenerAttribute
 &ListenerPort=80
-&LoadBalancerId=lb-bp1rtfnodmywb43ecu4sf-cn-east-hangzhou-01
+&LoadBalancerId=lb-bp1rtfnodmywb43e*****
 &<公共请求参数>
 
 ```
