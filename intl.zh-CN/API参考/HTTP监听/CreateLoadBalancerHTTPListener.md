@@ -12,13 +12,19 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|CreateLoadBalancerHTTPListener|要执行的操作，取值：**CreateLoadBalancerHTTPListener**
+|Action|String|是|CreateLoadBalancerHTTPListener|要执行的操作。
+
+ 取值：**CreateLoadBalancerHTTPListener**。
 
  |
-|HealthCheck|String|是|on|是否开启健康检查。取值：**on | off**
+|HealthCheck|String|是|on|是否开启健康检查。
+
+ 取值：**on | off**。
 
  |
-|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。取值：**1~65535**
+|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
+
+ 取值：**1~65535**。
 
  |
 |LoadBalancerId|String|是|lb-bp1c9vixxjh92q83tw\*\*\*\*\*|负载均衡实例的ID。
@@ -31,7 +37,7 @@
  |
 |StickySession|String|是|off|是否开启会话保持。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |AclId|String|否|123|监听绑定的访问策略组ID。
@@ -41,7 +47,7 @@
  |
 |AclStatus|String|否|off|是否开启访问控制功能。
 
- 取值：**on | off**（默认值）
+ 取值：**on | off**（默认值）。
 
  |
 |AclType|String|否|white|访问控制类型：
@@ -64,7 +70,7 @@
  |
 |BackendServerPort|Integer|否|80|负载均衡实例后端使用的端口。
 
- 取值：**1~65535**
+ 取值：**1~65535**。
 
  **说明：** 如果不使用服务器组（不指定VServerGroupId参数），则该参数必选。
 
@@ -72,7 +78,7 @@
 |Bandwidth|Integer|否|-1|监听的带宽峰值，取值：
 
  -   **-1**：不限制带宽峰值。
--   **1-5120**：监听的带宽峰值，所有监听的带宽峰值之和不能超过实例的带宽峰值
+-   **1-5120**：监听的带宽峰值，所有监听的带宽峰值之和不能超过实例的带宽峰值。
 
  **说明：** 该参数只适用于国内站。
 
@@ -86,7 +92,7 @@
  |
 |CookieTimeout|Integer|否|500|Cookie超时时间。
 
- 取值：**1~86400**（秒）
+ 取值：**1~86400**（秒）。
 
  **说明：** 当**StickySession**为**on**且**StickySessionType**为**insert**时，该参数必选。
 
@@ -101,12 +107,12 @@
  |
 |Gzip|String|否|on|是否开启Gzip压缩，对特定文件类型进行压缩。默认值为**on**。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |HealthCheckConnectPort|Integer|否|80|健康检查的后端服务器的端口。
 
- 取值： **1~65535**
+ 取值： **1~65535**。
 
  |
 |HealthCheckDomain|String|否|$\_ip|用于健康检查的域名，取值：
@@ -117,17 +123,17 @@
  |
 |HealthCheckHttpCode|String|否|http\_2xx,http\_3xx|健康检查正常的HTTP状态码，多个状态码用逗号分隔。默认值为**http\_2xx**。
 
- 取值：**http\_2xx | http\_3xx | http\_4xx | http\_5xx**
+ 取值：**http\_2xx | http\_3xx | http\_4xx | http\_5xx**。
 
  |
 |HealthCheckInterval|Integer|否|5|健康检查的时间间隔。
 
- 取值： **1-50**（秒）
+ 取值： **1-50**（秒）。
 
  |
 |HealthCheckTimeout|Integer|否|3|接收来自运行状况检查的响应需要等待的时间。如果后端ECS在指定的时间内没有正确响应，则判定为健康检查失败。
 
- 取值：**1~300**（秒）
+ 取值：**1~300**（秒）。
 
  **说明：** 如果**HealthCHeckTimeout**的值小于**HealthCheckInterval**的值，则**HealthCHeckTimeout**无效，超时时间为**HealthCheckInterval**的值。
 
@@ -137,7 +143,7 @@
  |
 |HealthyThreshold|Integer|否|4|健康检查连续成功多少次后，将后端服务器的健康检查状态由**fail**判定为**success**。
 
- 取值：**2~10**
+ 取值：**2~10**。
 
  |
 |IdleTimeout|Integer|否|3|指定连接空闲超时时间，取值范围为1-60秒，默认值为15秒。
@@ -147,7 +153,7 @@
  |
 |ListenerForward|String|否|off|是否开启HTTP至HTTPS的转发。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |RequestTimeout|Integer|否|6|指定请求超时时间，取值范围为1-180秒，默认值为60秒。
@@ -178,7 +184,7 @@
  |
 |UnhealthyThreshold|Integer|否|4|健康检查连续失败多少次后，将后端服务器的健康检查状态由**success**判定为**fail**。
 
- 取值：**2,10**
+ 取值：**2~10**。
 
  |
 |VServerGroupId|String|否|rsp-cige6j\*\*\*\*\*|服务器组ID。
@@ -186,22 +192,22 @@
  |
 |XForwardedFor|String|否|on|是否开启通过X-Forwarded-For头字段获取来访者真实 IP。默认值为**on**。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |XForwardedFor\_SLBID|String|否|on|是否通过`SLB-ID`头字段获取负载均衡实例ID。
 
- 取值：**on | off**（默认值）
+ 取值：**on | off**（默认值）。
 
  |
 |XForwardedFor\_SLBIP|String|否|on|是否通过`SLB-IP`头字段获取客户端请求的真实IP。
 
- 取值：**on | off**（默认值）
+ 取值：**on | off**（默认值）。
 
  |
 |XForwardedFor\_proto|String|否|on|是否通过`X-Forwarded-Proto`头字段获取负载均衡实例的监听协议。
 
- 取值：**on | off**（默认值）
+ 取值：**on | off**（默认值）。
 
  |
 
