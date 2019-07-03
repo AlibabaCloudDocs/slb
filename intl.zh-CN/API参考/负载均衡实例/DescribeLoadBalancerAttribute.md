@@ -10,7 +10,9 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeLoadBalancerAttribute|要执行的操作。取值：**DescribeLoadBalancerAttribute**
+|Action|String|是|DescribeLoadBalancerAttribute|要执行的操作。
+
+ 取值：**DescribeLoadBalancerAttribute**。
 
  |
 |LoadBalancerId|String|是|lb-bp1b6c719dfa08exfuca5|负载均衡实例ID。
@@ -142,13 +144,13 @@
  |
 |RenewalCycUnit|String|Month|自动续费周期，仅在**RenewalStatus**为**AutoRenewal**时有效。
 
- 取值：**Year | Month**（默认值）
+ 取值：**Year | Month**（默认值）。
 
  |
 |RenewalDuration|Integer|1|自动续费时长，仅在**RenewalStatus**为**AutoRenewal时**有效.
 
- -   **PeriodUnit**为**Year**时，取值：1，2，3
--   **PeriodUnit**为**Month**时，取值：1，2，3，6
+ -   **PeriodUnit**为**Year**时，取值：1，2，3。
+-   **PeriodUnit**为**Month**时，取值：1，2，3，6。
 
  |
 |RenewalStatus|String|AutoRenewal|续费状态，取值：
