@@ -1,66 +1,68 @@
-# AddVServerGroupBackendServers {#doc_api_880565 .reference}
+# AddVServerGroupBackendServers {#doc_api_Slb_AddVServerGroupBackendServers .reference}
 
-You can call the AddVServerGroupBackendServers API to add backend servers to a specified VServer group.
+Adds backend servers to a specified VServer group.
 
 ## Debug {#apiExplorer .section}
 
-Perform a [debug](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) in OpenAPI Explorer. We recommend that you use OpenAPI Explorer. By using OpenAPI Explorer, you can call APIs, generate SDK code examples automatically, and search APIs, allowing you to quickly and easily get started with using APIs on the cloud.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|AddVServerGroupBackendServers|The action to perform. Valid value: AddVServerGroupBackendServers
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|AddVServerGroupBackendServers| The name of this action.
+
+ Value: **AddVServerGroupBackendServers**
 
  |
-|BackendServers|String|Yes|\[\{'ServerId':'vm-233','Port':'80','Weight':'100'\},\{'ServerId':'vm-232','Port':'90','Weight':'100'\},\{'ServerId':'vm-231','Port':'70','Weight':'100'\}\]|The list of backend servers to be added. Up to 20 backend servers can be added through one API call.
+|BackendServers|String|Yes|\[\{'ServerId':'vm-233','Port':'80','Weight':'100'\},\{'ServerId':'vm-232','Port':'90','Weight':'100'\},\{'ServerId':'vm-231','Port':'70','Weight':'100'\}\]| The list of backend servers to be added. Up to 20 backend servers can be added through one API call.
 
  The list of backend servers requires the following parameters:
 
- -   **ServerId**: the ECS instance ID
--   **Port**: the port used by the backend server. Valid values: 1–65535
--   **Weight**: the weight of the backend server. Valid values: 0–100. Default value: 100. If the value is 0, no requests will be forwarded to the backend server.
+ -   **ServerId**: the ECS instance ID.
+-   **Port**: the port used by the backend server. **Value range: 1 to 65535**
+-   **Weight**: the weight of the backend server. Value range: 0 to 100. Default value: 100. If the value is 0, no requests are forwarded to the backend server.
 -   **Type**: the backend server type. Valid values:
     -   **ecs**: ECS instance \(default\)
     -   **eni**: Elastic Network Interface \(ENI\)
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs
+|RegionId|String|Yes|cn-hangzhou-d| The ID of the region to which the SLB instance belongs.
 
  |
-|VServerGroupId|String|Yes|rsp-cige6j5e7p|The ID of the VServer group
+|VServerGroupId|String|Yes|rsp-cige6j5e7p| The ID of the VServer group.
 
  |
 
 ## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
-|VServerGroupId|String|rsp-cige6j5e7p|The ID of the VServer group
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|VServerGroupId|String|rsp-cige6j5e7p| The ID of the VServer group.
 
  |
-|BackendServers| | |A list of backend servers
+|BackendServers| | | A list of backend servers.
 
  |
-|└ServerId|String|vm-231|The ECS instance ID or ENI ID
+|└ServerId|String|vm-231| The ECS instance ID or ENI ID.
 
  |
-|└Port|Integer|70|The port used by the backend server
+|└Port|Integer|70| The port used by the backend server.
 
  |
-|└Weight|Integer|100|The weight of the backend server
+|└Weight|Integer|100| The weight of the backend server.
 
  |
-|└Description|String|A description of the VServer group|A description of the VServer group
+|└Description|String|A description of the VServer group| A description of the VServer group.
 
  |
-|└Type|String|ecs|The backend server type. Valid values:
+|└Type|String|ecs| The backend server type. Valid values:
 
  -   **ecs**: ECS instance \(default\)
 -   **eni**: Elastic Network Interface \(ENI\)
 
  |
-|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|The ID of the request
+|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C| The ID of the request.
 
  |
 
@@ -78,12 +80,12 @@ http(s)://[Endpoint]/? Action=AddVServerGroupBackendServers
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
 ``` {#xml_return_success_demo}
-<AddVServerGroupBackendServers>
+<AddVServerGroupBackendServersResponse>
   <RequestId>9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C</RequestId>
   <VServerGroupId>rsp-cige6j5e7p</VServerGroupId>
   <BackendServers>
@@ -103,7 +105,7 @@ Normal response examples
       <Weight>100</Weight>
     </BackendServer>
   </BackendServers>
-</AddVServerGroupBackendServers>
+</AddVServerGroupBackendServersResponse>
 
 ```
 
@@ -137,7 +139,7 @@ Normal response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_pev_bf3_fqc .section}
 
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

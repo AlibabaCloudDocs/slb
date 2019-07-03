@@ -1,4 +1,4 @@
-# AddVServerGroupBackendServers {#doc_api_961761 .reference}
+# AddVServerGroupBackendServers {#doc_api_Slb_AddVServerGroupBackendServers .reference}
 
 调用AddVServerGroupBackendServers向指定的后端服务器组中添加后端服务器。
 
@@ -10,7 +10,9 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|AddVServerGroupBackendServers|系统规定参数，取值：`AddVServerGroupBackendServers`
+|Action|String|是|AddVServerGroupBackendServers|要执行的操作。
+
+ 取值：**AddVServerGroupBackendServers**。
 
  |
 |BackendServers|String|是|\[\{'ServerId':'vm-233','Port':'80','Weight':'100'\},\{'ServerId':'vm-232','Port':'90','Weight':'100'\},\{'ServerId':'vm-231','Port':'70','Weight':'100'\}\]|服务器组列表。单次调用最多可添加20个后端服务器。
@@ -18,7 +20,7 @@
  服务器组列表需要包含以下参数：
 
  -   **ServerId**：ECS实例ID。
--   **Port**：后端服务器使用的端口。取值范围：1~65535
+-   **Port**：后端服务器使用的端口。取值范围：**1~65535**。
 -   **Weight**：后端服务器的权重，取值：0~100。默认值为100。如果值为0，则不会将请求转发给该后端服务器。
 -   **Type**：后端服务器类型，取值：
     -   **ecs**: ECS实例（默认）
@@ -83,7 +85,7 @@ http(s)://[Endpoint]/?Action=AddVServerGroupBackendServers
 `XML` 格式
 
 ``` {#xml_return_success_demo}
-<AddVServerGroupBackendServers>
+<AddVServerGroupBackendServersResponse>
   <RequestId>9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C</RequestId>
   <VServerGroupId>rsp-cige6j5e7p</VServerGroupId>
   <BackendServers>
@@ -103,7 +105,7 @@ http(s)://[Endpoint]/?Action=AddVServerGroupBackendServers
       <Weight>100</Weight>
     </BackendServer>
   </BackendServers>
-</AddVServerGroupBackendServers>
+</AddVServerGroupBackendServersResponse>
 
 ```
 
