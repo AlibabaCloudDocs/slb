@@ -1,104 +1,128 @@
-# DescribeVServerGroupAttribute {#reference_jnq_yvd_ndb .reference}
+# DescribeVServerGroupAttribute {#doc_api_Slb_DescribeVServerGroupAttribute .reference}
 
-查询服务器组的详细信息。
+调用DescribeVServerGroupAttribute查询服务器组的详细信息。
 
-## 调试 {#section_xyp_511_rfb .section}
+## 调试 {#apiExplorer .section}
 
-```
-点击[这里](https://api.aliyun.com/#product=Slb&api=DescribeVServerGroupAttribute)在OpenAPI Explorer中可视化调试，并自动生成SDK调用示例。
-```
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeVServerGroupAttribute)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
-## 请求参数 {#section_v5w_nds_cz .section}
+## 请求参数 {#parameters .section}
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|要执行的操作，取值：DescribeVServerGroupAttribute
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|DescribeVServerGroupAttribute|要执行的操作。
 
-|
-|RegionId|String|是|负载均衡实例的地域ID。您可以通过调用 DescribeRegions接口获取地域ID。
+ 取值：**DescribeVServerGroupAttribute**。
 
-|
-|VServerGroupId|String|是|服务器组ID。|
+ |
+|RegionId|String|是|cn-hangzhou|负载均衡实例的地域ID。
 
-## 返回参数 {#section_ssd_pds_cz .section}
+ |
+|VServerGroupId|String|是|rsp-cige6j5e7p|服务器组ID。
 
-|名称|类型|描述|
-|:-|:-|:-|
-|RequestId|String|请求ID。|
-|VServerGroupId|String|服务器组ID。|
-|VServerGroupName|String|服务器组名称。|
-|BackendServers|StringJSON格式的List
+ |
 
-|后端服务器列表。|
+## 返回参数 {#resultMapping .section}
 
-|名称|类型|描述|
-|:-|:-|:-|
-|ServerId|String|ECS实例ID。|
-|Port|Integer|后端服务器使用的端口。|
-|Weight|Integer|后端服务器的权重。|
-|Type|String|后端服务器类型，取值：-   ecs：ECS实例（默认）
--   eni：弹性网卡实例
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|VServerGroupId|String|rsp-cige6j5e7p|服务器组ID。
 
-|
+ |
+|VServerGroupName|String|Group1|虚拟服务器组的名称。
 
-## 示例 {#section_oxr_pds_cz .section}
+ |
+|BackendServers| | |后端服务器列表。
 
-**请求示例**
+ |
+|└ServerId|String|vm-233|ECS实例ID。
 
-``` {#public}
-https://slb.aliyuncs.com/?Action=DescribeVServerGroupAttribute
+ |
+|└Port|Integer|90|后端服务器使用的端口。
+
+ |
+|└Weight|Integer|100|后端服务器的权重。
+
+ |
+|└Description|String|服务器组描述。|服务器组描述。
+
+ |
+|└Type|String|ecs|后端服务器类型，取值：
+
+ -   **ecs**：ECS实例（默认）
+-   **eni**：弹性网卡实例
+
+ |
+|LoadBalancerId|String|lb-jfakd\*\*\*|负载均衡实例ID。
+
+ |
+|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|请求ID。
+
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
+http(s)://[Endpoint]/?Action=DescribeVServerGroupAttribute
 &RegionId=cn-hangzhou
 &VServerGroupId=rsp-cige6j5e7p
-&公共请求参数
+&<公共请求参数>
+
 ```
 
-**返回示例**
+正常返回示例
 
--   XML格式
+`XML` 格式
 
-    ```
-    <?xml version="1.0" encoding="utf-8"?>
-    <DescribeVServerGroupAttributeResponse>
-    	<RequestId>9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C</RequestId>
-    	<VServerGroupId>rsp-cige6j5e7p</VServerGroupId>
-    	<VServerGroupName>Group1</VServerGroupName>
-    	<BackendServers>
-    		<BackendServer>
-    			<ServerId>vm-232</ServerId>
-    			<Port>80</Port>
-    			<Weight>100</Weight>
-    		</BackendServer>
-    		<BackendServer>
-    			<ServerId>vm-233</ServerId>
-    			<Port>90</Port>
-    			<Weight>100</Weight>
-    		</BackendServer>
-    	</BackendServers>
-    </DescribeVServerGroupAttributeResponse>
-    ```
+``` {#xml_return_success_demo}
+<DescribeVServerGroupAttributeResponse>
+  <RequestId>9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C</RequestId>
+  <VServerGroupId>rsp-cige6j5e7p</VServerGroupId>
+  <VServerGroupName>Group1</VServerGroupName>
+  <BackendServers>
+    <BackendServer>
+      <ServerId>vm-232</ServerId>
+      <Port>80</Port>
+      <Weight>100</Weight>
+    </BackendServer>
+    <BackendServer>
+      <ServerId>vm-233</ServerId>
+      <Port>90</Port>
+      <Weight>100</Weight>
+    </BackendServer>
+  </BackendServers>
+</DescribeVServerGroupAttributeResponse>
 
--   JSON格式
+```
 
-    ```
-    {
-      "RequestId": "9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C",
-      "VServerGroupId": "rsp-cige6j5e7p",
-      "VServerGroupName": "Group1",
-      "BackendServers": {
-        "BackendServer": [
-          {
-            "ServerId": "vm-233",
-            "Port": "80",
-            "Weight": "100"
-          },
-          {
-            "ServerId": "vm-232",
-            "Port": "90",
-            "Weight": "100"
-          }
-        ]
-      }
-    }
-    ```
+`JSON` 格式
 
+``` {#json_return_success_demo}
+{
+	"BackendServers":{
+		"BackendServer":[
+			{
+				"ServerId":"vm-233",
+				"Port":"80",
+				"Weight":"100"
+			},
+			{
+				"ServerId":"vm-232",
+				"Port":"90",
+				"Weight":"100"
+			}
+		]
+	},
+	"RequestId":"9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C",
+	"VServerGroupId":"rsp-cige6j5e7p",
+	"VServerGroupName":"Group1"
+}
+```
+
+## 错误码 { .section}
+
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
 
