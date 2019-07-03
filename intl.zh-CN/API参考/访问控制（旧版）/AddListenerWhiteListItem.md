@@ -1,30 +1,30 @@
-# AddListenerWhiteListItem {#doc_api_952775 .reference}
+# AddListenerWhiteListItem {#doc_api_Slb_AddListenerWhiteListItem .reference}
 
 调用AddListenerWhiteListItem添加监听访问控制白名单。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#section_m44_g4p_wws .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=AddListenerWhiteListItem)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=AddListenerWhiteListItem&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|AddListenerWhiteListItem|要执行的操作。
+|Action|String|是|AddListenerWhiteListItem| 要执行的操作。
 
- 取值：**AddListenerWhiteListItem**
-
- |
-|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
+ 取值：**AddListenerWhiteListItem**。
 
  |
-|LoadBalancerId|String|是|139a00604ad-cn-east-hangzhou-01|负载均衡实例的ID。
+|ListenerPort|Integer|是|80| 负载均衡实例前端使用的端口。
 
  |
-|RegionId|String|是|cn-hangzhou|实例所在地域。
+|LoadBalancerId|String|是|139a00604ad-cn-east-hangzhou-01| 负载均衡实例的ID。
 
  |
-|SourceItems|String|是|1.1.1.1,1.1.1.0/21|访问控制列表。
+|RegionId|String|是|cn-hangzhou| 实例所在地域。
+
+ |
+|SourceItems|String|是|1.1.1.1,1.1.1.0/21| 访问控制列表。
 
  监听的**AccessControlStatus**为**open\_white\_list**时有效。
 
@@ -38,7 +38,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984|请求ID。
+|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984| 请求ID。
 
  |
 
@@ -48,12 +48,13 @@
 
 ``` {#request_demo}
 
+
 http(s)://[Endpoint]/?Action=AddListenerWhiteListItem
 &ListenerPort=80
 &LoadBalancerId=139a00604ad-cn-east-hangzhou-01
 &SourceItems=1.1.1.1,1.1.1.0/21
 &<公共请求参数>
-
+			
 ```
 
 正常返回示例
@@ -64,18 +65,18 @@ http(s)://[Endpoint]/?Action=AddListenerWhiteListItem
 <AddListenerWhiteListItemResponse>
   <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
 </AddListenerWhiteListItemResponse>
-
+			
 ```
 
 `JSON` 格式
 
 ``` {#json_return_success_demo}
 {
-	"RequestId":" CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
+    "RequestId":" CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
 }
 ```
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 
