@@ -18,7 +18,7 @@
 |Action|String|是|AddAccessControlListEntry|要执行的操作，取值：**AddAccessControlListEntry**。
 
  |
-|AclId|String|是|acl-bp1l0kk4gxce43kzet04s|访问控制策略组ID。
+|AclId|String|是|acl-bp1l0kk4gxce43kze\*\*\*\*\*|访问控制策略组ID。
 
  |
 |RegionId|String|是|cn-hangzhou|访问控制策略组的地域ID。
@@ -44,10 +44,9 @@
 
 ``` {#request_demo}
 
-/?Action=AddAccessControlListEntry
+http(s)://[Endpoint]/?Action=AddAccessControlListEntry
+&AclId=acl-bp1l0kk4gxce43kze*****
 &RegionId=cn-hangzhou
-&AclEntrys=[{"entry":"10.0.0.0/24","comment":"privaterule1"},{"entry":"192.168.0.0/16","comment":"privaterule2"}]
-&AclId=acl-bp1l0kk4gxce43kzet04s
 &<公共请求参数>
 
 ```
