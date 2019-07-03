@@ -1,6 +1,6 @@
-# DeleteMasterSlaveServerGroup {#doc_api_1025812 .reference}
+# DeleteMasterSlaveServerGroup {#doc_api_Slb_DeleteMasterSlaveServerGroup .reference}
 
-使用DeleteMasterSlaveServerGroup删除指定的主备服务器组。
+调用DeleteMasterSlaveServerGroup删除指定的主备服务器组。
 
 ## 调试 {#apiExplorer .section}
 
@@ -10,7 +10,9 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DeleteMasterSlaveServerGroup|要执行的操作。取值：**DeleteMasterSlaveServerGroup**
+|Action|String|是|DeleteMasterSlaveServerGroup|要执行的操作。
+
+ 取值：**DeleteMasterSlaveServerGroup**。
 
  |
 |MasterSlaveServerGroupId|String|是|rsp-cige6j5e7p|主备服务器组ID。
@@ -36,10 +38,9 @@
 
 ``` {#request_demo}
 
-/?MasterSlaveServerGroupId=rsp-cige6j5e7p
+http(s)://[Endpoint]/?Action=DeleteMasterSlaveServerGroup
+&MasterSlaveServerGroupId=rsp-cige6j5e7p
 &RegionId=cn-hangzhou
-&Action=DeleteMasterSlaveServerServerGroup
-&Tags={"tagKey":"Key1","tagValue":"Value1"}
 &<公共请求参数>
 
 ```
