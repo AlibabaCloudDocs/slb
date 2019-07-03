@@ -1,6 +1,6 @@
-# SetServerCertificateName {#doc_api_1093838 .reference}
+# SetServerCertificateName {#doc_api_Slb_SetServerCertificateName .reference}
 
-使用SetServerCertificateName设置服务器证书名称。
+调用SetServerCertificateName设置服务器证书名称。
 
 ## 调试 {#apiExplorer .section}
 
@@ -10,7 +10,9 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|SetServerCertificateName|要执行的操作，取值：**SetServerCertificateName**。
+|Action|String|是|SetServerCertificateName|要执行的操作。
+
+ 取值：**SetServerCertificateName**。
 
  |
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域。
@@ -41,11 +43,10 @@
 
 ``` {#request_demo}
 
-https://slb.aliyuncs.com/
-&Action=SetServerCertificateName
+http(s)://[Endpoint]/?Action=SetServerCertificateName
 &RegionId=cn-hangzhou
-&ServerCertificateId=1231579085529****_166f8204689_1714763408_709981430
-&ServerCertificateName=.example1.com
+&ServerCertificateId=139a00604ad-cn-east-hangzhou-01
+&ServerCertificateName=abc
 &<公共请求参数>
 
 ```
