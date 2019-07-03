@@ -1,82 +1,111 @@
-# UploadCACertificate {#reference_lpx_l1f_ndb .reference}
+# UploadCACertificate {#doc_api_Slb_UploadCACertificate .reference}
 
-上传CA证书。
+调用UploadCACertificate上传CA证书。
 
 一次只能上传一份CA证书内容。添加成功后，返回该用户的该证书的ID、名称和指纹。
 
-## 调试 {#section_rnm_5b1_rfb .section}
+## 调试 {#apiExplorer .section}
 
-```
-点击[这里](https://api.aliyun.com/#product=Slb&api=UploadCACertificate)在OpenAPI Explorer中可视化调试，并自动生成SDK调用示例。
-```
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=UploadCACertificate)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
-## 请求参数 {#section_bqw_c1g_cz .section}
+## 请求参数 {#parameters .section}
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|要执行的操作，取值：UploadCACertificate
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|UploadCACertificate|要执行的操作。
 
-|
-|RegionId|String|是|负载均衡实例的地域。您可以通过调用 DescribeRegions接口获取地域ID。
+ 取值：**UploadCACertificate**。
 
-|
-|CACertificate|String|是|要上传公钥证书的内容。|
-|CACertificateName|String|否|CA证书名称。|
-|ResourceGroupId|String|否|企业资源组ID。|
+ |
+|RegionId|String|是|cn-hangzhou|CA证书的地域。
 
-## 返回参数 {#section_ugs_f1g_cz .section}
+ 您可以通过调用[DescribeRegions](~~27584~~)接口查询地域ID。
 
-|名称|类型|描述|
-|:-|:-|:-|
-|RequestId|String|请求ID。|
-|CACertificateId|String|CA证书ID。|
-|CACertificateName|String|CA证书名称。|
-|Fingerprint|String|CA证书的指纹。|
-|CreateTime|String|CA证书上传的时间。|
-|Fingerprint|Long|CA证书上传的时间戳。|
-|ExpireTime|String|过期时间。|
-|ExpireTimeStamp|Long|过期时间戳。|
-|CommonName|String|对应证书Common Name字段。|
+ |
+|CACertificate|String|是|test|要上传CA证书的内容。
 
-## 示例 {#section_ix5_h1g_cz .section}
+ |
+|CACertificateName|String|否|mycacert01|CA证书名称。
 
-**请求示例**
+ |
+|ResourceGroupId|String|否|rg-atstuj3rtoptyui|企业资源组ID。
 
-``` {#public}
-https://slb.aliyuncs.com/?Action=UploadCACertificate
-&Action=UploadCACertificate
-&RegionId=cn-east-hangzhou-01
+ |
+
+## 返回参数 {#resultMapping .section}
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|CACertificateId|String|139a00604ad-cn-east-hangzhou-01|CA证书ID。
+
+ |
+|CACertificateName|String|mycacert01|CA证书的名称。
+
+ |
+|Fingerprint|String|02:DF:AB:ED|CA证书的指纹。
+
+ |
+|CommonName|String|.example.com|CA证书的域名。
+
+ |
+|CreateTime|String|2017-08-31T02:49:05Z|CA证书上传的时间。
+
+ |
+|CreateTimeStamp|Long|1504147745000|CA证书上传的时间戳。
+
+ |
+|ExpireTime|String|2024-11-21T06:04:25Z|CA证书的过期时间。
+
+ |
+|ExpireTimeStamp|Long|1732169065000|CA证书的过期时间戳。
+
+ |
+|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|请求ID。
+
+ |
+|ResourceGroupId|String|rg-atstuj3rtoptyui|企业资源组ID。
+
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
+http(s)://[Endpoint]/?Action=UploadCACertificate
+&RegionId=cn-hangzhou
 &CACertificate=test
-&CACertificateName=mycacert01
-&公共请求参数
+&<公共请求参数>
+
 ```
 
-**返回示例**
+正常返回示例
 
--   XML格式
+`XML` 格式
 
-    ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <UploadCACertificateResponse>
-    	<RequestId>365F4154-92F6-4AE4-92F8-7FF34B540710</RequestId>
-    	<CACertificateId>idkp-234-cn-test-02</CACertificateId>
-    	<CACertificateName>mycacert01</CACertificateName>
-    	<Fingerprint>02:DF:AB:ED</Fingerprint>
-    </UploadCACertificateResponse>
-    ```
+``` {#xml_return_success_demo}
+<UploadCACertificateResponse>
+  <RequestId>365F4154-92F6-4AE4-92F8-7FF34B540710</RequestId>
+  <ServerCertificateId>idkp-234-cn-test-02</ServerCertificateId>
+  <ServerCertificateName>mycacert01</ServerCertificateName>
+  <Fingerprint>02:DF:AB:ED</Fingerprint>
+</UploadCACertificateResponse>
 
--   JSON格式
+```
 
-    ```
-    {
-        "RequestId": "365F4154-92F6-4AE4-92F8-7FF34B540710", 
-        "CACertificateId": "idkp-123-cn-test-01", 
-        "CACertificateName": "mycert01", 
-        "Fingerprint": "01:DF:AB:CD", 
-        "ExpireTime": "2017-06-23T11:33:08Z", 
-        "ExpireTimeStamp": 1498217588000, 
-        "CommonName": "symantec basic dv ssl ca - g1"
-    }
-    ```
+`JSON` 格式
 
+``` {#json_return_success_demo}
+{
+	"ServerCertificateId":"idkp-234-cn-test-02",
+	"RequestId":"365F4154-92F6-4AE4-92F8-7FF34B540710",
+	"ServerCertificateName":"mycacert01",
+	"Fingerprint":"02:DF:AB:ED"
+}
+```
+
+## 错误码 { .section}
+
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
 
