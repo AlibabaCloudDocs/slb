@@ -1,6 +1,6 @@
 # DescribeLoadBalancerHTTPSListenerAttribute {#doc_api_Slb_DescribeLoadBalancerHTTPSListenerAttribute .reference}
 
-使用DescribeLoadBalancerHTTPSListenerAttribute查询HTTPS监听配置。
+调用DescribeLoadBalancerHTTPSListenerAttribute查询HTTPS监听配置。
 
 ## 调试 {#apiExplorer .section}
 
@@ -10,10 +10,14 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeLoadBalancerHTTPSListenerAttribute|要执行的操作。取值：**DescribeLoadBalancerHTTPSListenerAttribute**
+|Action|String|是|DescribeLoadBalancerHTTPSListenerAttribute|要执行的操作。
+
+ 取值：**DescribeLoadBalancerHTTPSListenerAttribute**。
 
  |
-|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。取值：**1-65535**
+|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
+
+ 取值：**1-65535**。
 
  |
 |LoadBalancerId|String|是|lb-bp1mxu5r8laukr35n1k5r|负载均衡实例的ID。
@@ -38,27 +42,27 @@
  |
 |Status|String|stopped|当前监听的状态。
 
- 取值：**starting | running | configuring | stopping | stopped**
+ 取值：**starting | running | configuring | stopping | stopped**。
 
  |
 |XForwardedFor|String|on|是否开启通过X-Forwarded-For的方式获取来访者真实IP。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |Scheduler|String|wrr|调度算法。
 
- 取值：**wrr | wlc | rr**
+ 取值：**wrr | wlc | rr**。
 
  |
 |StickySession|String|on|是否开启会话保持。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |StickySessionType|String|on|cookie的处理方式。当StickySession的值为**on**时，必须指定该参数。
 
- 取值：**insert | server**
+ 取值：**insert | server**。
 
  |
 |CookieTimeout|Integer|500|cookie超时时间。
@@ -69,7 +73,7 @@
  |
 |HealthCheck|String|on|是否开启健康检查。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |HealthCheckDomain|String|$\_ip|用于健康检查的域名。
@@ -107,7 +111,7 @@
  |
 |Gzip|String|on|是否开启Gzip压缩。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |AclId|String|45|监听绑定的访问策略组ID。
@@ -117,7 +121,7 @@
  |
 |AclStatus|String|off|是否开启访问控制功能。
 
- 取值：**on | off**（默认值）
+ 取值：**on | off**（默认值）。
 
  |
 |AclType|String|white|访问控制类型：
@@ -155,7 +159,7 @@
  |
 |EnableHttp2|String|off|是否开启HTTP/2特性。
 
- 取值：**on**（默认值）**| off**
+ 取值：**on**（默认值）**| off**。
 
  |
 |IdleTimeout|Integer|23|指定连接空闲超时时间，取值范围为1-60秒，默认值为15秒。
@@ -224,17 +228,17 @@
  |
 |XForwardedFor\_SLBID|String|on|是否通过`SLB-ID`头字段获取负载均衡实例ID。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |XForwardedFor\_SLBIP|String|on|是否通过`SLB-IP`头字段获取客户端请求的真实IP。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |XForwardedFor\_proto|String|on|是否通过`X-Forwarded-Proto`头字段获取负载均衡实例的监听协议。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 
@@ -244,9 +248,9 @@
 
 ``` {#request_demo}
 
-/?Action=DescribeLoadBalancerHTTPSListenerAttribute
+http(s)://[Endpoint]/?Action=DescribeLoadBalancerHTTPSListenerAttribute
 &ListenerPort=80
-&LoadBalancerId=139a00604ad-cn-east-hangzhou-01
+&LoadBalancerId=lb-bp1mxu5r8laukr35n1k5r
 &<公共请求参数>
 
 ```
