@@ -1,62 +1,75 @@
-# SetLoadBalancerName {#SetLoadBalancerStatus .reference}
+# SetLoadBalancerName {#doc_api_Slb_SetLoadBalancerName .reference}
 
-修改负载均衡实例的名称。
+调用SetLoadBalancerName修改负载均衡实例的名称。
 
-## 调试 {#section_yrm_xs5_qfb .section}
+## 调试 {#apiExplorer .section}
+
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=SetLoadBalancerName)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+
+## 请求参数 {#parameters .section}
+
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|SetLoadBalancerName|要执行的操作。
+
+ 取值：**SetLoadBalancerName**。
+
+ |
+|LoadBalancerId|String|是|lb-bp1b6c719dfa08exfuca5|负载均衡实例ID。
+
+ |
+|LoadBalancerName|String|是|abc1|负载均衡实例的名称。
+
+ 长度为2-128个英文或中文字符，必须以大小字母或中文开头，可包含数字，点号（.），下划线（\_）和短横线（-）。
+
+ |
+|RegionId|String|是|cn-hangzhou|负载均衡实例的地域ID。
+
+ 您可以从[地域和可用区](~~40654~~)列表或通过调用[DescribeRegions](~~25609~~)接口查询地域ID。
+
+ |
+
+## 返回参数 {#resultMapping .section}
+
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984|请求ID。
+
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
+http(s)://[Endpoint]/?Action=SetLoadBalancerName
+&LoadBalancerId=lb-bp1b6c719dfa08exfuca5
+&LoadBalancerName=abc1
+&<公共请求参数>
 
 ```
-点击[这里](https://api.aliyun.com/#product=Slb&api=SetLoadBalancerName)在OpenAPI Explorer中可视化调试，并自动生成SDK调用示例。
+
+正常返回示例
+
+`XML` 格式
+
+``` {#xml_return_success_demo}
+<SetLoadBalancerStatusResponse>
+  <RequestId>3C7F675E-9F82-4806-BA47-FF57E3ACC850</RequestId>
+</SetLoadBalancerStatusResponse>
+
 ```
 
-## 请求参数 {#section_bqw_c1g_cz .section}
+`JSON` 格式
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|要执行的操作。取值：SetLoadBalancerName
-
-|
-|RegionId|String|否|负载均衡实例的地域。您可以通过调用 DescribeRegions接口获取地域ID。
-
-|
-|LoadBalancerId|String|是|负载均衡实例ID。|
-|LoadBalancerName|String|是|负载均衡实例的名称。长度为 2-128个字符，必须以字母或中文开头，可包含数字，点号（.），下划线（\_）和短横线（-）。
-
-|
-
-## 返回参数 {#section_ugs_f1g_cz .section}
-
-|参数|类型|说明|
-|:-|:-|:-|
-|RequestId|String|请求ID。|
-
-## 示例 {#section_ix5_h1g_cz .section}
-
-**请求示例**
-
-``` {#public}
-https://slb.aliyuncs.com/?Action=SetLoadBalancerName
-&LoadBalancerId=lb-t4nj5vuz8ish9emfk1f20
-&LoadBalancerName=abc
-&公共请求参数
+``` {#json_return_success_demo}
+{
+	"RequestId":"3C7F675E-9F82-4806-BA47-FF57E3ACC850"
+}
 ```
 
-**返回示例**
+## 错误码 { .section}
 
--   XML格式
-
-    ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <SetLoadBalancerNameResponse>
-    	<RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
-    </SetLoadBalancerNameResponse>
-    ```
-
--   JSON格式
-
-    ```
-    {
-      "RequestId": " CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
-    }
-    ```
-
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
 
