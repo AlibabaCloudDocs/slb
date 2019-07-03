@@ -10,10 +10,14 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|SetLoadBalancerTCPListenerAttribute|要执行的操作。取值：**SetLoadBalancerTCPListenerAttribute**
+|Action|String|是|SetLoadBalancerTCPListenerAttribute|要执行的操作。
+
+ 取值：**SetLoadBalancerTCPListenerAttribute**。
 
  |
-|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。取值：**1-65535**
+|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
+
+ 取值：**1-65535**。
 
  |
 |LoadBalancerId|String|是|lb-bp1ygod3yctvg1y7wezms|负载均衡实例的ID。
@@ -31,7 +35,7 @@
  |
 |AclStatus|String|否|off|是否开启访问控制功能。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |AclType|String|否|white|访问控制类型：
@@ -52,7 +56,7 @@
  当**AclStatus**参数的值为**on**时，该参数必选。
 
  |
-|Bandwidth|Integer|否|43|监听的带宽峰值。取值：**-1 | 1-5120**
+|Bandwidth|Integer|否|43|监听的带宽峰值。取值：**-1 | 1-5120**。
 
  -   **-1**：对于按流量计费的公网负载均衡实例，可以将带宽峰值设置为**-1**，即不限制带宽峰值。
 -   **1-5120Mbps**：对于按带宽计费的公网负载均衡实例，可以设置每个监听的带宽峰值，但所有监听的带宽峰值之和不能超过实例的带宽峰值。详情参见[共享实例带宽](~~57846~~)。
@@ -63,10 +67,10 @@
  |
 |EstablishedTimeout|Integer|否|500|连接超时时间。
 
- 取值：**10-900**（秒）
+ 取值：**10-900**（秒）。
 
  |
-|HealthCheckConnectPort|Integer|否|8080|健康检查使用的端口。取值：1-65535
+|HealthCheckConnectPort|Integer|否|8080|健康检查使用的端口。取值：**1-65535**。
 
  不设置此参数时，表示使用后端服务端口（**BackendServerPort**）。
 
@@ -75,7 +79,7 @@
 
  如果后端ECS在指定的时间内没有正确响应，则判定为健康检查失败。
 
- 取值：**1-300**（秒）
+ 取值：**1-300**（秒）。
 
  **说明：** 如果**HealthCheckConnectTimeout**的值小于**HealthCheckInterval**的值，则**HCTimeout**无效，超时时间为**HealthCheckInterval**的值。
 
@@ -91,15 +95,15 @@
  |
 |HealthCheckHttpCode|String|否|http\_2xx,http\_3xx|健康检查正常的HTTP状态码，多个状态码用逗号（,）分割。
 
- 取值：**http\_2xx | http\_3xx | http\_4xx | http\_5xx**
+ 取值：**http\_2xx | http\_3xx | http\_4xx | http\_5xx**。
 
  |
-|HealthCheckInterval|Integer|否|5|健康检查的时间间隔。取值：**1-50**（秒）
+|HealthCheckInterval|Integer|否|5|健康检查的时间间隔。取值：**1-50**（秒）。
 
  |
 |HealthCheckType|String|否|tcp|健康检查类型。
 
- 取值：**tcp | http**
+ 取值：**tcp | http**。
 
  |
 |HealthCheckURI|String|否|/test/index.html|用于健康检查的URI。
@@ -111,20 +115,22 @@
  |
 |HealthyThreshold|Integer|否|4|健康检查连续成功多少次后，将后端服务器的健康检查状态由**fail**判定为**success**。
 
- 取值：**2-10**
+ 取值：**2-10**。
 
  |
-|MasterSlaveServerGroup|String|否|on|是否使用主备服务器组。取值：**on | off**
+|MasterSlaveServerGroup|String|否|on|是否使用主备服务器组。
+
+ 取值：**on | off**。
 
  **VserverGroup**和**MasterSlaveServerGroup**只允许一个值为**on**。
 
  |
-|MasterSlaveServerGroupId|String|否|rsp-cige6j5e7p|主备服务器组ID。
+|MasterSlaveServerGroupId|String|否|rsp-cige\*\*\*\*\*\*|主备服务器组ID。
 
  **说明：** 服务器组ID和主备服务器组ID只能选择一个。
 
  |
-|PersistenceTimeout|Integer|否|0|会话保持的超时时间。取值：**0-3600**（秒）
+|PersistenceTimeout|Integer|否|0|会话保持的超时时间。取值：**0-3600**（秒）。
 
  默认值：**0**，表示关闭会话保持。
 
@@ -144,20 +150,22 @@
 
  建议用户一般情况下不要调整这个参数，由负载均衡控制。
 
- 取值：**enable | disable**
+ 取值：**enable | disable**。
 
  |
 |UnhealthyThreshold|Integer|否|4|健康检查连续失败多少次后，将后端服务器的健康检查状态由**success**判定为**fail**。
 
- 取值：**2-10**
+ 取值：**2-10**。
 
  |
-|VServerGroup|String|否|on|是否使用虚拟服务器组，取值：**on | off**
+|VServerGroup|String|否|on|是否使用虚拟服务器组。
+
+ 取值：**on | off**。
 
  **VserverGroup**和**MasterSlaveServerGroup**只允许一个值为**on**。
 
  |
-|VServerGroupId|String|否|rsp-cige6j5e7p|虚拟服务器组ID。
+|VServerGroupId|String|否|rsp-cige6j5\*\*\*\*\*|虚拟服务器组ID。
 
  |
 
