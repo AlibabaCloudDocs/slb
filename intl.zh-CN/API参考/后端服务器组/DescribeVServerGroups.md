@@ -1,133 +1,146 @@
-# DescribeVServerGroups {#reference_fy2_gvd_ddd .reference}
+# DescribeVServerGroups {#doc_api_Slb_DescribeVServerGroups .reference}
 
-查询已创建的服务器组。
+调用DescribeVServerGroups查询服务器组列表。
 
-## 调试 {#section_qyy_l11_rfb .section}
+## 调试 {#apiExplorer .section}
 
-```
-点击[这里](https://api.aliyun.com/#product=Slb&api=DescribeVServerGroups)在OpenAPI Explorer中可视化调试，并自动生成SDK调用示例。
-```
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeVServerGroups)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
-## 请求参数 {#section_v5w_nds_cz .section}
+## 请求参数 {#parameters .section}
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|要执行的操作，取值：DescribeVServerGroups
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|DescribeVServerGroups|要执行的操作。
 
-|
-|RegionId|String|是|负载均衡实例的地域ID。您可以通过调用 DescribeRegions接口获取地域ID。
+ 取值：**DescribeVServerGroups**。
 
-|
-|LoadBalancerId|String|是|负载均衡实例ID。|
-|**IncludeRule**|Boolean|否|返回关联的转发规则信息，默认值：false
+ |
+|LoadBalancerId|String|是|lb-bp1o94dp5i6earr9g6d1l|负载均衡实例ID。
 
-|
-|**IncludeListener**|Boolean|否|返回关联的监听信息，默认值：false
+ |
+|RegionId|String|是|cn-hangzhou|负载均衡实例的地域ID。
 
-|
+ |
+|IncludeListener|Boolean|否|false|返回关联的监听信息。
 
-## 返回参数 {#section_ssd_pds_cz .section}
+ 默认值：**false**。
 
-|名称|类型|描述|
-|--|--|--|
-|**RequestId**|String|请求ID。|
-|**VServerGroups**|List|虚拟服务器组列表。|
+ |
+|IncludeRule|Boolean|否|false|返回关联的转发规则信息。
 
-|名称|类型|描述|
-|:-|:-|:-|
-|VServerGroupId|String|服务器组ID。|
-|VServerGroupName|String|服务器组名称。|
-|**AssociatedObjects**|Object|关联信息。|
+ 默认值：**false**。
 
-|名称|类型|描述|
-|:-|:-|:-|
-|Rules|List|转发规则列表。|
-|Listeners|List|监听列表。|
+ |
 
-|名称|类型|描述|
-|--|--|--|
-|RuleId|String|转发规则ID。|
-|RuleName|String|转发规则名称。|
-|Domain|String|请求域名。|
-|Url|String|访问路径。|
+## 返回参数 {#resultMapping .section}
 
-|名称|类型|描述|
-|--|--|--|
-|Protocol|String|监听协议。|
-|Port|Integer|监听端口。|
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|VServerGroups| | |后端服务器列表。
 
-## 示例 {#section_oxr_pds_cz .section}
+ |
+|└VServerGroupId|String|rsp-0bfucwuotx|服务器组ID。
 
-**请求示例**
+ |
+|└VServerGroupName|String|Group3|服务器组名称。
 
-``` {#public}
-https://slb.aliyuncs.com/?Action=DescribeVServerGroups
+ |
+|└AssociatedObjects| | |关联信息。
+
+ |
+|└Listeners| | |监听列表。
+
+ |
+|└Port|Integer|80|监听端口。
+
+ |
+|└Protocol|String|tcp|监听协议。
+
+ |
+|└Rules| | |转发规则列表。
+
+ |
+|└Domain|String|www.example.com|请求域名。
+
+ |
+|└RuleId|String|123|转发规则ID。
+
+ |
+|└RuleName|String|test|转发规则名称。
+
+ |
+|└Url|String|/example|访问路径。
+
+ |
+|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|请求ID。
+
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
+http(s)://[Endpoint]/?Action=DescribeVServerGroups
+&LoadBalancerId=lb-bp1o94dp5i6earr9g6d1l
 &RegionId=cn-hangzhou
-&LoadBalancerId=lb-bp1yii0s312x83r3qpzke
-&公共请求参数
+&<公共请求参数>
+
 ```
 
-**返回示例**
+正常返回示例
 
--   XML格式
+`XML` 格式
 
-    ```
-    <?xml version="1.0" encoding="UTF-8" ?>
-    	<VServerGroups>
-    		<VServerGroup>
-    			<VServerGroupId>rsp-bp12bjrnykyp0</VServerGroupId>
-    			<VServerGroupName>6</VServerGroupName>
-    			<AssociatedObjects>
-    				<Listeners></Listeners>
-    				<Rules></Rules>
-    			</AssociatedObjects>
-    		</VServerGroup>
-    		<VServerGroup>
-    			<VServerGroupId>rsp-bp16rt0dzbm23</VServerGroupId>
-    			<VServerGroupName>text2</VServerGroupName>
-    			<AssociatedObjects>
-    				<Listeners></Listeners>
-    				<Rules></Rules>
-    			</AssociatedObjects>
-    		</VServerGroup>
-    	</VServerGroups>
-    	<RequestId>E3F94C66-5DDD-4A6B-B37D-FD237FB31FE6</RequestId>
-    ```
+``` {#xml_return_success_demo}
+<DescribeVServerGroupsResponse>
+  <VServerGroups>
+    <VServerGroup>
+      <VServerGroupId>rsp-bp12bjrnykyp0</VServerGroupId>
+      <VServerGroupName>6</VServerGroupName>
+      <AssociatedObjects>
+        <Listeners/>
+        <Rules/>
+      </AssociatedObjects>
+    </VServerGroup>
+    <VServerGroup>
+      <VServerGroupId>rsp-bp16rt0dzbm23</VServerGroupId>
+      <VServerGroupName>text2</VServerGroupName>
+      <AssociatedObjects>
+        <Listeners/>
+        <Rules/>
+      </AssociatedObjects>
+    </VServerGroup>
+  </VServerGroups>
+  <RequestId>E3F94C66-5DDD-4A6B-B37D-FD237FB31FE6</RequestId>
+</DescribeVServerGroupsResponse>
 
--   JSON格式
+```
 
-    ```
-    {
-        "VServerGroups": {
-            "VServerGroup": [
-                {
-                    "VServerGroupId": "rsp-bp12bjrnykyp0", 
-                    "VServerGroupName": "6", 
-                    "AssociatedObjects": {
-                        "Listeners": {
-                            "Listener": [ ]
-                        }, 
-                        "Rules": {
-                            "Rule": [ ]
-                        }
-                    }
-                }, 
-                {
-                    "VServerGroupId": "rsp-bp16rt0dzbm23", 
-                    "VServerGroupName": "text2", 
-                    "AssociatedObjects": {
-                        "Listeners": {
-                            "Listener": [ ]
-                        }, 
-                        "Rules": {
-                            "Rule": [ ]
-                        }
-                    }
-                }
-            ]
-        }, 
-        "RequestId": "E3F94C66-5DDD-4A6B-B37D-FD237FB31FE6"
-    }
-    ```
+`JSON` 格式
 
+``` {#json_return_success_demo}
+{
+	"VServerGroups":[
+		{
+			"VServerGroupId":"rsp-cige6j5e7p",
+			"VServerGroupName":"Group1"
+		},
+		{
+			"VServerGroupId":"rsp-6cejjzlld7",
+			"VServerGroupName":"Group2"
+		},
+		{
+			"VServerGroupId":"rsp-0bfucwuotx",
+			"VServerGroupName":"Group3"
+		}
+	],
+	"RequestId":"9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C"
+}
+```
+
+## 错误码 { .section}
+
+[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
 
