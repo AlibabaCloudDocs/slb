@@ -14,7 +14,9 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|UploadServerCertificate|要执行的操作。取值：**UploadServerCertificate**
+|Action|String|是|UploadServerCertificate|要执行的操作。
+
+ 取值：**UploadServerCertificate**。
 
  |
 |RegionId|String|是|cn-hangzhou|服务器证书的地域。
