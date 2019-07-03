@@ -1,6 +1,6 @@
-# DeleteServerCertificate {#doc_api_1088687 .reference}
+# DeleteServerCertificate {#doc_api_Slb_DeleteServerCertificate .reference}
 
-删除服务器证书。
+调用DeleteServerCertificate删除服务器证书。
 
 **说明：** 如果指定删除的证书被引用，无法删除。
 
@@ -12,7 +12,9 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DeleteServerCertificate|要执行的操作，取值：**DeleteServerCertificate**
+|Action|String|是|DeleteServerCertificate|要执行的操作。
+
+ 取值：**DeleteServerCertificate**。
 
  |
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域。
@@ -39,7 +41,7 @@
 ``` {#request_demo}
 
 http(s)://[Endpoint]/?Action=DeleteServerCertificate
-&ServerCertificateId=1231579xxxxxx3_166f8204689_1714763408_709981430
+&ServerCertificateId=123157xxxxxxx_166f8204689_1714763408_709981430
 &<公共请求参数>
 
 ```
