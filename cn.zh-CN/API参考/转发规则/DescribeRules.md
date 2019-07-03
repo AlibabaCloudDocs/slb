@@ -10,10 +10,14 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeRules|要执行的操作。取值：**DescribeRules**。
+|Action|String|是|DescribeRules|要执行的操作。
+
+ 取值：**DescribeRules**。
 
  |
-|ListenerPort|Integer|是|90|负载均衡实例前端使用的监听端口。取值范围：1~65535
+|ListenerPort|Integer|是|90|负载均衡实例前端使用的监听端口。
+
+ 取值范围：**1~65535**。
 
  |
 |LoadBalancerId|String|是|lb-bp1ca0zt07t934wxezyxo|负载均衡实例ID。
