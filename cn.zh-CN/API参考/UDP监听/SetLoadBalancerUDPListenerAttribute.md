@@ -1,6 +1,6 @@
 # SetLoadBalancerUDPListenerAttribute {#doc_api_Slb_SetLoadBalancerUDPListenerAttribute .reference}
 
-使用SetLoadBalancerUDPListenerAttribute修改UDP协议监听的配置。
+调用SetLoadBalancerUDPListenerAttribute修改UDP协议监听的配置。
 
 ## 调试 {#apiExplorer .section}
 
@@ -10,15 +10,17 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|SetLoadBalancerUDPListenerAttribute|要执行的操作。取值：**SetLoadBalancerUDPListenerAttribute**
+|Action|String|是|SetLoadBalancerUDPListenerAttribute|要执行的操作。
+
+ 取值：**SetLoadBalancerUDPListenerAttribute**。
 
  |
 |ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
 
- 取值：**1-65535**
+ 取值：**1-65535**。
 
  |
-|LoadBalancerId|String|是|lb-bp1rtfnodmywb43ecu4sf-cn-east-hangzhou-01|负载均衡实例的ID。
+|LoadBalancerId|String|是|lb-bp1rtfnodmywb43ecu4sf-c\*\*\*\*|负载均衡实例的ID。
 
  |
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域ID。
@@ -31,7 +33,7 @@
  |
 |AclStatus|String|否|off|是否开启访问控制功能。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |AclType|String|否|white|访问控制类型：
@@ -52,7 +54,9 @@
  当**AclStatus**参数的值为**on**时，该参数必选。
 
  |
-|Bandwidth|Integer|否|-1|监听的带宽峰值，取值：**-1|1-5120**
+|Bandwidth|Integer|否|-1|监听的带宽峰值。
+
+ 取值：**-1|1-5120**。
 
  -   **-1**：不限制带宽峰值。
 -   **1-5120**（Mbps）：监听的带宽峰值，所有监听的带宽峰值之和不能超过实例的带宽峰值。
@@ -63,32 +67,34 @@
  |
 |HealthCheckConnectPort|Integer|否|80|健康检查使用的端口。
 
- 取值：**1-65535**
+ 取值：**1-65535**。
 
  |
 |HealthCheckConnectTimeout|Integer|否|100|接收来自运行状况检查的响应需要等待的时间。如果后端ECS在指定的时间内没有正确响应，则判定为健康检查失败。
 
- 取值：**1-300**（秒）
+ 取值：**1-300**（秒）。
 
  **说明：** 如果**HealthCheckConnectTimeout**的值小于**HealthCheckInterval**的值，则**HealthCheckConnectTimeout**无效，超时时间为**HealthCheckInterval**的值。
 
  |
 |HealthCheckInterval|Integer|否|5|健康检查的时间间隔。
 
- 取值：**1-50**（秒）
+ 取值：**1-50**（秒）。
 
  |
 |HealthyThreshold|Integer|否|4|健康检查连续成功多少次后，将后端服务器的健康检查状态由**fail**判定为**success**。
 
- 取值：**2-10**
+ 取值：**2-10**。
 
  |
-|MasterSlaveServerGroup|String|否|on|是否使用主备服务器组。取值：**on|off**
+|MasterSlaveServerGroup|String|否|on|是否使用主备服务器组。
+
+ 取值：**on|off**。
 
  **VserverGroup**和**MasterSlaveServerGroup**只允许一个值为**on**。
 
  |
-|MasterSlaveServerGroupId|String|否|rsp-0bfucwuotx|主备服务器组ID。
+|MasterSlaveServerGroupId|String|否|rsp-0bfuc\*\*\*\*\*|主备服务器组ID。
 
  **说明：** 服务器组ID和主备服务器组ID只能选择一个。
 
@@ -110,17 +116,17 @@
  |
 |UnhealthyThreshold|Integer|否|4|健康检查连续失败多少次后，将后端服务器的健康检查状态由**success**判定为**fail**。
 
- 取值：**2-10**
+ 取值：**2-10**。
 
  |
 |VServerGroup|String|否|on|是否使用虚拟服务器组。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  **说明：** **VserverGroup**和**MasterSlaveServerGroup**只允许一个值为**on**。
 
  |
-|VServerGroupId|String|否|rsp-cige6j5e7p|虚拟服务器组ID。
+|VServerGroupId|String|否|rsp-cige6\*\*\*\*\*\*|虚拟服务器组ID。
 
  |
 |healthCheckExp|String|否|ok|UDP监听健康检查的响应串，只允许包含字母、数字字符，最大长度限制为500字符。
@@ -146,7 +152,7 @@
 
 http(s)://[Endpoint]/?Action=SetLoadBalancerUDPListenerAttribute
 &ListenerPort=80
-&LoadBalancerId=lb-bp1rtfnodmywb43ecu4sf-cn-east-hangzhou-01
+&LoadBalancerId=lb-bp1rtfnodmywb43ecu4sf-c****
 &<公共请求参数>
 
 ```
