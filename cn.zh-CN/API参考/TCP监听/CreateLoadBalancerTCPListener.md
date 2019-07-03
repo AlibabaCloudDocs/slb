@@ -12,19 +12,23 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|CreateLoadBalancerTCPListener|要执行的操作。取值：**CreateLoadBalancerTCPListener**
+|Action|String|是|CreateLoadBalancerTCPListener|要执行的操作。
+
+ 取值：**CreateLoadBalancerTCPListener**。
 
  |
-|Bandwidth|Integer|是|-1|监听的带宽峰值。取值：**-1|1-5120**
+|Bandwidth|Integer|是|-1|监听的带宽峰值。取值：**-1|1-5120**。
 
  -   **-1**：对于按流量计费的公网负载均衡实例，可以将带宽峰值设置为**-1**，即不限制带宽峰值。
 -   **1-5120**（Mbps）： 对于按带宽计费的公网负载均衡实例，可以设置每个监听的带宽峰值，但所有监听的带宽峰值之和不能超过实例的带宽峰值。详情参见[共享实例带宽](~~57846~~)。
 
  |
-|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。取值：**1-65535**
+|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
+
+ 取值：**1-65535**。
 
  |
-|LoadBalancerId|String|是|lb-bp1b6c719dfa08exfuca5|负载均衡实例的ID。
+|LoadBalancerId|String|是|lb-bp1b6c719dfa08ex\*\*\*\*\*\*|负载均衡实例的ID。
 
  |
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域。
@@ -39,7 +43,7 @@
  |
 |AclStatus|String|否|off|是否开启访问控制功能。
 
- 取值：**on | off**（默认值）
+ 取值：**on | off**（默认值）。
 
  |
 |AclType|String|否|black| 
@@ -48,13 +52,13 @@
 
  -   **white**： 仅转发来自所选访问控制策略组中设置的IP地址或地址段的请求，白名单适用于应用只允许特定IP访问的场景。
 
- 设置白名单存在一定业务风险。
+设置白名单存在一定业务风险。
 
- 一旦设置白名单，就只有白名单中的IP可以访问负载均衡监听。
+一旦设置白名单，就只有白名单中的IP可以访问负载均衡监听。
 
- 如果开启了白名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
+如果开启了白名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
 
- -   **black**： 来自所选访问控制策略组中设置的IP地址或地址段的所有请求都不会转发，黑名单适用于应用只限制某些特定IP访问的场景。
+-   **black**： 来自所选访问控制策略组中设置的IP地址或地址段的所有请求都不会转发，黑名单适用于应用只限制某些特定IP访问的场景。
 
 如果开启了黑名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
 
@@ -62,7 +66,9 @@
  当**AclStatus**参数的值为**on**时，该参数必选。
 
  |
-|BackendServerPort|Integer|否|80|负载均衡实例后端使用的端口。取值：**1-65535**。
+|BackendServerPort|Integer|否|80|负载均衡实例后端使用的端口。
+
+ 取值：**1-65535**。
 
  如果不使用服务器组（不指定VServerGroupId），则该参数必选。
 
@@ -72,17 +78,21 @@
  长度限制为1-80个字符，允许包含字母、数字、“-”、“/”、“.”和“\_”等字符。支持中文描述。
 
  |
-|EstablishedTimeout|Integer|否|500|连接超时时间。取值：**10-900**（秒）
+|EstablishedTimeout|Integer|否|500|连接超时时间。
+
+ 取值：**10-900**（秒）。
 
  |
-|HealthCheckConnectPort|Integer|否|80|健康检查使用的端口。取值：**1-65535**
+|HealthCheckConnectPort|Integer|否|80|健康检查使用的端口。取值：**1-65535**。
 
  不设置此参数时，表示使用后端服务端口（BackendServerPort）。
 
  |
-|HealthCheckConnectTimeout|Integer|否|100|每次健康检查响应的最大超时时间。取值：**1-300**（秒）
+|HealthCheckConnectTimeout|Integer|否|100|每次健康检查响应的最大超时时间。
 
- 默认值：5
+ 取值：**1-300**（秒）
+
+ 默认值：5。
 
  |
 |HealthCheckDomain|String|否|$\_ip|用于健康检查的域名。取值：
@@ -93,10 +103,12 @@
  |
 |HealthCheckHttpCode|String|否|http\_2xx,http\_3xx|健康检查正常的HTTP状态码，多个状态码用逗号（,）分割。
 
- 取值：**http\_2xx（默认值） | http\_3xx | http\_4xx | http\_5xx**
+ 取值：**http\_2xx（默认值） | http\_3xx | http\_4xx | http\_5xx**。
 
  |
-|HealthCheckType|String|否|tcp|健康检查类型。取值：**tcp（默认值） | http**
+|HealthCheckType|String|否|tcp|健康检查类型。
+
+ 取值：**tcp（默认值） | http**。
 
  |
 |HealthCheckURI|String|否|/test/index.html|用于健康检查的URI。
@@ -106,20 +118,22 @@
  |
 |HealthyThreshold|Integer|否|4|健康检查连续成功多少次后，将后端服务器的健康检查状态由**fail**判定为**success**。
 
- 取值: **2-10**
+ 取值: **2-10**。
 
  |
-|MasterSlaveServerGroupId|String|否|rsp-0bfucwuotx|主备服务器组ID。
+|MasterSlaveServerGroupId|String|否|rsp-0bfucw\*\*\*\*\*|主备服务器组ID。
 
  **说明：** 服务器组ID和主备服务器组ID只能选择一个。
 
  |
-|PersistenceTimeout|Integer|否|0|会话保持的超时时间。取值：**0-3600**（秒）
+|PersistenceTimeout|Integer|否|0|会话保持的超时时间。
+
+ 取值：**0-3600**（秒）。
 
  默认值：**0**，表示关闭会话保持。
 
  |
-|Scheduler|String|否|wrr|调度算法。取值：**wrr | wlc | rr**
+|Scheduler|String|否|wrr|调度算法。取值：**wrr | wlc | rr**。
 
  -   **wrr**（默认值）：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
 -   **wlc**：除了根据每台后端服务器设定的权重值来进行轮询，同时还考虑后端服务器的实际负载（即连接数）。
@@ -131,13 +145,15 @@
  |
 |UnhealthyThreshold|Integer|否|4|健康检查连续失败多少次后，将后端服务器的健康检查状态由**success**判定为**fail**。
 
- 取值：2-10
+ 取值：**2-10**。
 
  |
-|VServerGroupId|String|否|rsp-cige6j5e7p|服务器组ID。
+|VServerGroupId|String|否|rsp-cige6j\*\*\*\*\*|服务器组ID。
 
  |
-|healthCheckInterval|Integer|否|3|健康检查的时间间隔。取值:**1-50**（秒）
+|healthCheckInterval|Integer|否|3|健康检查的时间间隔。
+
+ 取值:**1-50**（秒）。
 
  |
 
@@ -158,7 +174,7 @@
 http(s)://[Endpoint]/?Action=CreateLoadBalancerTCPListener
 &Bandwidth=-1
 &ListenerPort=80
-&LoadBalancerId=lb-bp1b6c719dfa08exfuca5
+&LoadBalancerId=lb-bp1b6c719dfa08ex******
 &<公共请求参数>
 
 ```
