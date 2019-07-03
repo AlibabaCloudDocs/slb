@@ -10,10 +10,12 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeDomainExtensions|要执行的操作，取值：**DescribeDomainExtensions**
+|Action|String|是|DescribeDomainExtensions|要执行的操作。
+
+ 取值：**DescribeDomainExtensions**。
 
  |
-|ListenerPort|Integer|是|443|负载均衡实例HTTPS监听的前端端口，取值：**1-65535**
+|ListenerPort|Integer|是|443|负载均衡实例HTTPS监听的前端端口，取值：**1-65535**。
 
  |
 |LoadBalancerId|String|是|lb-bp1o94dp5i6earr9g6d1l|负载均衡实例的ID。
@@ -52,12 +54,10 @@
 
 ``` {#request_demo}
 
-/?ListenerPort=443
+http(s)://[Endpoint]/?Action=DescribeDomainExtensions
+&ListenerPort=443
 &LoadBalancerId=lb-bp1o94dp5i6earr9g6d1l
 &RegionId=cn-hangzhou
-&Action=DescribeDomainExtensions
-&DomainExtensionId=de-bp1rp7ta191dv
-&Tags={"tagKey":"Key1","tagValue":"Value1"}
 &<公共请求参数>
 
 ```
