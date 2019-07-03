@@ -1,16 +1,18 @@
-# SetCACertificateName {#doc_api_875294 .reference}
+# SetCACertificateName {#doc_api_Slb_SetCACertificateName .reference}
 
-使用SetCACertificateName设置CA证书名称。
+调用SetCACertificateName设置CA证书名称。
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=SetCACertificateName)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=SetCACertificateName)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|SetCACertificateName|要执行的操作，取值：**SetCACertificateName**。
+|Action|String|是|SetCACertificateName|要执行的操作。
+
+ 取值：**SetCACertificateName**。
 
  |
 |RegionId|String|是|cn-hangzhou|CA证书的地域。
@@ -65,19 +67,6 @@ http(s)://[Endpoint]/?Action=SetCACertificateName
 ``` {#json_return_success_demo}
 {
 	"RequestId":" CEF72CEB-54B6-4AE8-B225-F876FE7BA984"
-}
-```
-
-异常返回示例
-
-`JSON` 格式
-
-``` {#json_return_failed_demo}
-{
-	"Message":"The specified parameter is not valid.",
-	"RequestId":"0669D684-69D8-408E-A4FA-B9011E0F4E66",
-	"HostId":"slb-pop.aliyuncs.com",
-	"Code":"InvalidParameter"
 }
 ```
 
