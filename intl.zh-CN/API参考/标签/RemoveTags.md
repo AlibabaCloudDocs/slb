@@ -1,16 +1,18 @@
-# RemoveTags {#doc_api_834936 .reference}
+# RemoveTags {#doc_api_Slb_RemoveTags .reference}
 
-使用RemoveTags解绑指定负载均衡实例下的标签。
+调用RemoveTags解绑指定负载均衡实例下的标签。
 
 ## 调试 {#apiExplorer .section}
 
-单击[这里](https://api.aliyun.com/#product=Slb&api=RemoveTags)在OpenAPI Explorer中进行可视化调试，并生成SDK代码示例。
+前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=RemoveTags)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|RemoveTags|要执行的操作。取值：**RemoveTags**
+|Action|String|是|RemoveTags|要执行的操作。
+
+ 取值：**RemoveTags**。
 
  |
 |LoadBalancerId|String|是|139a00604ad-cn-east-hangzhou-01|负载均衡实例ID。
@@ -37,7 +39,7 @@
 
 ``` {#request_demo}
 
-/?Action=RemoveTags
+http(s)://[Endpoint]/?Action=RemoveTags
 &LoadBalancerId=139a00604ad-cn-east-hangzhou-01
 &RegionId=cn-hangzhou
 &Tags=[{"TagKey":"Key1","TagValue":"Value1"}{"TagKey":"Key2","TagValue":"Value2"}]
@@ -61,19 +63,6 @@
 ``` {#json_return_success_demo}
 {
 	"RequestId":"365F4154-92F6-4AE4-92F8-7FF34B540710"
-}
-```
-
-异常返回示例
-
-`JSON` 格式
-
-``` {#json_return_failed_demo}
-{
-	"Message":"The specified parameter is not valid.",
-	"RequestId":"0669D684-69D8-408E-A4FA-B9011E0F4E66",
-	"HostId":"slb-pop.aliyuncs.com",
-	"Code":"InvalidParameter"
 }
 ```
 
