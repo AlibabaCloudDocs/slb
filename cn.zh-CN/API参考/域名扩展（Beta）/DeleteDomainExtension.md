@@ -10,7 +10,9 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DeleteDomainExtension|要执行的操作，取值：**DeleteDomainExtension**
+|Action|String|是|DeleteDomainExtension|要执行的操作。
+
+ 取值：**DeleteDomainExtension**。
 
  |
 |DomainExtensionId|String|是|de-bp1rp7ta191dv|要删除的扩展域名ID。
