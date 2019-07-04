@@ -26,20 +26,20 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |Regions| | |地域列表。
 
  |
-|└RegionId|String|cn-beijing|地域ID。
+|RegionId|String|cn-beijing|地域ID。
 
  |
-|└LocalName|String|华北2（北京）|地域名称。
+|LocalName|String|华北2（北京）|地域名称。
 
  |
-|└RegionEndpoint|String|slb.aliyuncs.com|Region服务的Endpoint地址。
+|RegionEndpoint|String|slb.aliyuncs.com|Region服务的Endpoint地址。
 
  |
 |RequestId|String|1651FBB6-4FBF-49FF-A9F5-DF5D696C7EC6|请求ID。
@@ -278,5 +278,5 @@ http(s)://[Endpoint]/?Action=DescribeRegions
 |--------|---|----|--|
 |400|InvalidParameter|Illegal parameter, query.namespace is not auth.|query.namespace未授权，请您先授权再操作。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.aliyun.com/status/product/Slb)查看更多错误码。
 
