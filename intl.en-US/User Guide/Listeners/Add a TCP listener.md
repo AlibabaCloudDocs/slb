@@ -14,13 +14,13 @@ To open the listener configuration wizard, follow these steps:
 2.  In the left-side navigation pane, choose **Instances** \> **Server Load Balancer**.
 3.  Select the region of the target SLB instance.
 4.  Select one of the following methods to open the listener configuration wizard:
-    -   On the Server Load Balancer page, find the target SLB instance and then click **Configure Listener** in the Actions column.
+    -   On the Server Load Balancer page, find the target SLB instance and then click **Configure Listener** in the **Actions** column.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049934810004_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156231476710004_en-US.png)
 
     -   On the Server Load Balancer page, click the ID of the target SLB instance. On the Listeners page, click **Add Listener**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15604993487399_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15623147687399_en-US.png)
 
 
 ## Step 2 Configure the TCP listener {#section_mhj_lmn_42b .section}
@@ -38,6 +38,7 @@ To configure the TCP listener, follow these steps:
 
  **Note:** UDP and TCP listener port numbers can be the same in the following regions. However, you must first apply for the **privilege to use the beta function of configuring the same ports in TCP/UDP listeners** on the [Quota Management](https://slb.console.aliyun.com/slb/quota) page of the SLB console. In other cases, the listener port numbers must be unique.
 
+    -   UAE \(Dubai\)
     -   Australia \(Sydney\)
     -   UAE \(Dubai\)
     -   UK \(London\)
@@ -48,11 +49,19 @@ To configure the TCP listener, follow these steps:
     -   Japan \(Tokyo\)
     -   India \(Mumbai\)
     -   Singapore
+    -   Malaysia \(Kuala Lumpur\)
+    -   Hong Kong
+    -   China \(Shenzhen\)
+    -   China \(Hohhot\)
+    -   China \(Qingdao\)
+    -   China \(Chengdu\)
+    -   China \(Zhangjiakou\)
+    -   China \(Shanghai\)
  |
     |**Advanced configurations**|
     |**Scheduling Algorithm**|SLB supports four scheduling algorithms: round robin, weighted round robin \(WRR\), weighted least connections \(WLC\), and consistent hash.     -   **Weighted Round-Robin \(WRR\)**: Backend servers with higher weights receive more requests.
     -   **Round-Robin \(RR\)**: Requests are evenly and sequentially distributed to backend servers.
-    -   **Weighted Least Connections \(WLC\)**: A backend server with a higher weight receives more requests. When the weight values of two backend servers are the same, the backend server with a smaller number of connections is more likely to be polled.
+    -   **Weighted Least Connections \(WLC\)**: A server with a higher weight receives more requests. When the weight values of two backend servers are the same, the backend server with a smaller number of connections is more likely to be polled.
     -   **Consistent Hash \(CH\)**:
 
         -   **Source IP**: the consistent hash based on source IP addresses. Requests from the same source IP address are scheduled to the same backend server.
@@ -81,7 +90,7 @@ Currently, the Consistent Hash \(CH\) algorithm is only supported in the followi
 
      -   **Whitelist**: Only requests from IP addresses or CIDR blocks in the selected access control list are forwarded. It applies to scenarios where the application only allows access from some specific IP addresses.
 
-Enabling a whitelist poses some risks to your services. After a whitelist is configured, only the IP addresses in the list can access the SLB listener. If you enable the whitelist without adding any IP addresses in the corresponding access control list, no requests are forwarded.
+Enabling a whitelist poses some risks to your services. After a whitelist is configured, only the IP addresses in the list can access the SLB listener. If you enable the whitelist without adding any IP addresses in the corresponding access control list, all requests are forwarded.
 
     -   **Blacklist**: Requests from IP addresses or CIDR blocks in the selected access control list are not forwarded. It applies to scenarios where the application only denies access from some specific IP addresses.
 
@@ -93,7 +102,7 @@ If you enable a blacklist without adding any IP addresses in the corresponding a
  |
     |**Enable Peak Bandwidth Limit**| Select whether to configure the listening bandwidth.
 
- If the SLB instance is billed by bandwidth, you can set different peak bandwidth values for different listeners to limit the traffic passing through the listeners. The sum of the peak bandwidth values of all listeners under an SLB instance cannot exceed the bandwidth value of that SLB instance.
+ If the SLB instance is charged based on bandwidth, you can set different peak bandwidth values for different listeners to limit the traffic passing through the listeners. The sum of the peak bandwidth values of all listeners under an SLB instance cannot exceed the bandwidth value of that SLB instance.
 
  By default, all listeners share the bandwidth of the SLB instance.
 
@@ -103,12 +112,9 @@ If you enable a blacklist without adding any IP addresses in the corresponding a
     |**Idle Timeout**|Specify the idle connection timeout period. Value range: 10 to 900. Unit: seconds.|
     |**Listener Name**|Enter a name for the TCP listener to be added.|
     |**Get Client Source IP Address**|Backend servers of a Layer-4 listener can directly obtain the source IP addresses of clients.|
-    |**Automatically Enable Listener after Creation**|Choose whether to start the listener after the listener is configured. This function is enabled by default.|
+    |**Automatically Enable Listener after Creation**|Choose whether to start the listener after the listener is configured. The listener is started by default.|
 
 2.  Click **Next**.
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15604993497421_en-US.png)
-
 
 ## Step 3 Add backend servers {#section_vqk_zmn_42b .section}
 
@@ -118,11 +124,11 @@ In this topic, use the default server group.
 
 1.  Select **Default Server Group** and then click **Add More**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049934910030_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156231476810030_en-US.png)
 
 2.  Select the ECS instances to add, and then click **Next: Set Weight and Port**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15604993497499_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15623147687499_en-US.png)
 
 3.  Configure ports and weights for the added backend servers.
     -   Port
@@ -133,17 +139,15 @@ In this topic, use the default server group.
 
         The weight of the backend server \(ECS instance\). An ECS instance with a higher weight receives more requests.
 
-        **Note:** If the weight is set to 0, no requests are sent to the ECS instance.
+        **Note:** If the weight is set to 0, no requests will be sent to the ECS instance.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15604993497504_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15623147687504_en-US.png)
 
 4.  Click **Next**.
 
 ## Step 4 Configure health checks {#section_oj3_mnn_42b .section}
 
 SLB checks the service availability of backend servers by performing health checks. The health check function improves the overall availability of your services and avoids the impact of backend server failures. Click **Modify** to change health check configurations. For more information, see [Configure health checks](intl.en-US/User Guide/Health check/Configure health checks.md#).
-
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049935010032_en-US.png)
 
 ## Step 5 Submit the configurations {#section_hwm_qnn_42b .section}
 
@@ -153,9 +157,7 @@ To confirm the listener configurations, follow these steps:
 2.  Click **Submit**.
 3.  On the Submit page, click **OK** after the configurations are successful.
 
-After the configurations are submitted, you can view the created listener on the Listeners page.
-
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156049935010034_en-US.png)
+After the configurations are successful, you can view the created listener on the **Listeners** page.
 
 ## Related operations {#section_or1_14n_42b .section}
 
