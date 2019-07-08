@@ -4,7 +4,7 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
 ## 前提条件 {#section_tx3_vqn_42b .section}
 
-[创建负载均衡实例](intl.zh-CN/用户指南/负载均衡实例/创建负载均衡实例.md#)。
+[创建负载均衡实例](cn.zh-CN/用户指南/负载均衡实例/创建负载均衡实例.md#)。
 
 ## 步骤一 打开监听配置向导 {#section_wx3_5qn_42b .section}
 
@@ -16,11 +16,11 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 4.  选择以下一种方法，打开监听配置向导：
     -   在实例管理页面，找到目标实例，单击**监听配置向导**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156108704310004_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156257442510004_zh-CN.png)
 
     -   在实例管理页面，单击目标实例ID。在监听页面，单击**添加监听**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15610870437399_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15625744267399_zh-CN.png)
 
 
 ## 步骤二 配置协议监听 {#section_ly4_2pn_42b .section}
@@ -59,7 +59,7 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
     -   **重写Cookie**：可以根据需要指定HTTPS/HTTP响应中插入的Cookie。您需要在后端服务器上维护该Cookie的过期时间和生存时间。
 
-负载均衡服务发现用户自定义了Cookie，将会对原来的Cookie进行重写，下次客户端携带新的Cookie访问，负载均衡服务会将请求定向转发给之前记录到的后端服务器。详情参考[会话保持规则配置](../../../../intl.zh-CN/常见问题/最佳实践/配置服务器Cookie.md#)。
+负载均衡服务发现用户自定义了Cookie，将会对原来的Cookie进行重写，下次客户端携带新的Cookie访问，负载均衡服务会将请求定向转发给之前记录到的后端服务器。详情参考[会话保持规则配置](../../../../cn.zh-CN/常见问题/最佳实践/配置服务器Cookie.md#)。
 
  |
     |**启用访问控制**|选择是否启用访问控制。|
@@ -74,7 +74,7 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 如果开启了黑名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
 
  |
-    |**选择访问控制策略组**|选择访问控制策略组，作为该监听的白名单或黑名单。 **说明：** IPv6实例只能绑定IPv6访问控制策略组，IPv4实例只能绑定IPv4访问控制策略组。详情参见[访问控制策略组](intl.zh-CN/历史文档/用户指南（旧版控制台）/访问控制/配置访问控制策略组.md#)。
+    |**选择访问控制策略组**|选择访问控制策略组，作为该监听的白名单或黑名单。 **说明：** IPv6实例只能绑定IPv6访问控制策略组，IPv4实例只能绑定IPv4访问控制策略组。详情参见[访问控制策略组](cn.zh-CN/历史文档/用户指南（旧版控制台）/访问控制/配置访问控制策略组.md#)。
 
  |
     |**开启带宽峰值**| 选择是否配置监听带宽。
@@ -111,22 +111,22 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
 2.  单击**下一步**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15610870437434_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15625744267434_zh-CN.png)
 
 
 ## 步骤三 添加后端服务器 {#section_ylm_3qn_42b .section}
 
-添加处理前端请求的后端服务器。您可以使用实例配置的默认服务器组，也可以为监听配置一个虚拟服务器组或主备服务器组。详情参见[后端服务器概述](intl.zh-CN/用户指南/后端服务器/后端服务器概述.md#)。
+添加处理前端请求的后端服务器。您可以使用实例配置的默认服务器组，也可以为监听配置一个虚拟服务器组或主备服务器组。详情参见[后端服务器概述](cn.zh-CN/用户指南/后端服务器/后端服务器概述.md#)。
 
 本操作中，以默认后端服务器组为例：
 
 1.  选择**默认服务器组**，单击**继续添加**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156108704310030_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156257442610030_zh-CN.png)
 
 2.  选择要添加的ECS实例，然后单击**下一步：配置权重和端口号**。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15610870437499_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15625744267499_zh-CN.png)
 
 3.  配置添加的后端服务器的端口和权重。
     -   端口
@@ -139,15 +139,13 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
         **说明：** 权重设置为0，该服务器不会再接受新请求。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15610870447504_zh-CN.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15625744277504_zh-CN.png)
 
 4.  单击**下一步**。
 
 ## 步骤四 配置健康检查 {#section_ay4_jqn_42b .section}
 
-负载均衡通过健康检查来判断后端服务器（ECS实例）的业务可用性。健康检查机制提高了前端业务整体可用性，避免了后端ECS异常对总体服务的影响。单击**修改**更改健康检查配置，详情参见[配置健康检查](intl.zh-CN/用户指南/健康检查/配置健康检查.md#)。
-
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156108704410032_zh-CN.png)
+负载均衡通过健康检查来判断后端服务器（ECS实例）的业务可用性。健康检查机制提高了前端业务整体可用性，避免了后端ECS异常对总体服务的影响。单击**修改**更改健康检查配置，详情参见[配置健康检查](cn.zh-CN/用户指南/健康检查/配置健康检查.md#)。
 
 ## 步骤五 提交配置 {#section_ey5_lqn_42b .section}
 
@@ -161,11 +159,11 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
 ## 相关操作 {#section_pz4_2pn_42b .section}
 
--   [配置健康检查](intl.zh-CN/用户指南/健康检查/配置健康检查.md#)
--   [管理默认服务器组](intl.zh-CN/用户指南/后端服务器/管理默认服务器组.md#)
--   [管理虚拟服务器组](intl.zh-CN/用户指南/后端服务器/管理虚拟服务器组.md#)
--   [管理主备服务器组](intl.zh-CN/用户指南/后端服务器/管理主备服务器组.md#)
--   [设置访问控制](intl.zh-CN/用户指南/访问控制/设置访问控制.md#)
--   [基于域名/URL路径进行转发](intl.zh-CN/教程专区/基于域名__URL路径进行转发.md#)
--   [管理扩展域名](intl.zh-CN/用户指南/监听/管理扩展域名.md#)
+-   [配置健康检查](cn.zh-CN/用户指南/健康检查/配置健康检查.md#)
+-   [管理默认服务器组](cn.zh-CN/用户指南/后端服务器/管理默认服务器组.md#)
+-   [管理虚拟服务器组](cn.zh-CN/用户指南/后端服务器/管理虚拟服务器组.md#)
+-   [管理主备服务器组](cn.zh-CN/用户指南/后端服务器/管理主备服务器组.md#)
+-   [设置访问控制](cn.zh-CN/用户指南/访问控制/设置访问控制.md#)
+-   [基于域名/URL路径进行转发](cn.zh-CN/教程专区/基于域名__URL路径进行转发.md#)
+-   [管理扩展域名](cn.zh-CN/用户指南/监听/管理扩展域名.md#)
 
