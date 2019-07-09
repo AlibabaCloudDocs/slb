@@ -27,7 +27,10 @@
     -   ecs: ECS实例（默认）
     -   eni：弹性网卡实例
 
- **说明：** 后端服务器（ECS实例）必须是运行中才可以加入负载均衡实例，每次调用最多可添加20个后端服务器。
+ **说明：** 
+
+-   后端服务器（ECS实例）必须是运行中才可以加入负载均衡实例，每次调用最多可添加20个后端服务器。
+-   只有性能保障型实例支持添加eni类型的后端服务器。
 
  |
 |LoadBalancerId|String|是|lb-2ze7o5h52g02kkzz\*\*\*\*\*\*|负载均衡实例ID。
@@ -39,7 +42,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -49,20 +52,20 @@
 |BackendServers| | |后端服务器列表。
 
  |
-|└ServerId|String|i-2zej4lxhjoq1icu\*\*\*\*\*|ECS实例ID或ENI的实例ID。
+|ServerId|String|i-2zej4lxhjoq1icu\*\*\*\*\*|ECS实例ID或ENI的实例ID。
 
  |
-|└Weight|String|100|后端服务器的权重。
+|Weight|String|100|后端服务器的权重。
 
  取值：**0~100**
 
  默认值为**100**，如果值为**0**，则不会将请求转发给该后端服务器。
 
  |
-|└Description|String|后端服务器|后端服务器描述。
+|Description|String|后端服务器|后端服务器描述。
 
  |
-|└Type|String|ecs|后端服务器类型。
+|Type|String|ecs|后端服务器类型。
 
  -   ecs：ECS实例（默认）
 -   eni：弹性网卡实例
@@ -137,5 +140,5 @@ http(s)://[Endpoint]/?Action=AddBackendServers
 |--------|---|----|--|
 |400|InvalidParameter|The specified load balancer does not support the network type of the ECS instance.|负载均衡实例不支持此种网络类型的ECS实例，请您换一种网络类型的ECS后再重试。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 
