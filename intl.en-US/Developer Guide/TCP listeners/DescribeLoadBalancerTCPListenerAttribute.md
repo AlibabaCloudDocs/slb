@@ -10,18 +10,18 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalan
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeLoadBalancerTCPListenerAttribute|The name of this action. Value: **DescribeLoadBalancerTCPListenerAttribute**
+|Action|String|Yes|DescribeLoadBalancerTCPListenerAttribute| The name of this action. Value: **DescribeLoadBalancerTCPListenerAttribute**
 
  |
-|ListenerPort|Integer|Yes|80|The frontend port used by the SLB instance. Value range:**1 to 65535**
+|ListenerPort|Integer|Yes|80| The frontend port used by the SLB instance. Value range:**1 to 65535**
 
  |
-|LoadBalancerId|String|Yes|lb-bp1ygod3yctvg1y7wezms|The ID of the SLB instance.
+|LoadBalancerId|String|Yes|lb-bp1ygod3yctvg1y7wezms| The ID of the SLB instance.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The region to which the SLB instance belongs.
+|RegionId|String|Yes|cn-hangzhou| The region to which the SLB instance belongs.
 
- To query the region ID, refer to the list of [regions and zones](~~40654~~) or call the [DescribeRegions](~~25609~~) API.
+ To query the region ID, refer to the list of[regions and zones](~~40654~~)or call the[DescribeRegions](~~25609~~)API.
 
  |
 
@@ -29,23 +29,23 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalan
 
 |Parameter|Type|Example value|Description|
 |---------|----|-------------|-----------|
-|ListenerPort|Integer|443|The frontend port used by the SLB instance.
+|ListenerPort|Integer|443| The frontend port used by the SLB instance.
 
  |
-|BackendServerPort|Integer|443|The backend port used by the SLB instance.
+|BackendServerPort|Integer|443| The backend port used by the SLB instance.
 
  **Note:** This parameter is not displayed when the backend server group is a virtual server group.
 
  |
-|Bandwidth|Integer|-1|The peak bandwidth of the listener.
+|Bandwidth|Integer|-1| The peak bandwidth of the listener.
 
  |
-|Status|String|stopped|The status of the listener.
+|Status|String|stopped| The status of the listener.
 
- Valid values: **starting | running | configuring | stopping | stopped**
+ Valid values:**starting | running | configuring | stopping | stopped**
 
  |
-|SynProxy|String|enable|Indicates whether to enable SynProxy. SynProxy protects SLB from attacks.
+|SynProxy|String|enable| Indicates whether to enable SynProxy. SynProxy protects SLB from attacks.
 
  We recommend that you retain the value set by SLB in this parameter.
 
@@ -53,63 +53,63 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalan
 -   **disable**: Disable SynProxy.
 
  |
-|Scheduler|String|wrr|The algorithm used to distribute traffic.
+|Scheduler|String|wrr| The algorithm used to distribute traffic.
 
  -   **wrr** \(default\): Backend servers with higher weights receive more requests than those with smaller weights.
 -   **wlc**: A server with a higher weight receives more connections. When the weight values of two backend servers are the same, the backend server with a smaller number of connections is more likely to be polled.
 -   **rr**: Requests are evenly and sequentially distributed to backend servers.
 
  |
-|PersistenceTimeout|Integer|0|Indicates whether to enable session persistence.
+|PersistenceTimeout|Integer|0| Indicates whether to enable session persistence.
 
  When the value is**0**, session persistence is disabled.
 
  |
-|HealthCheckType|String|tcp|The health check type of the TCP listener.
+|HealthCheckType|String|tcp| The health check type of the TCP listener.
 
  Valid values:**tcp | http**
 
  |
-|HealthCheck|String|on|Indicates whether to enable the health check function.
+|HealthCheck|String|on| Indicates whether to enable the health check function.
 
  Valid values:**on | off**
 
  |
-|HealthyThreshold|Integer|4|The number of consecutive successes of health checks before a backend server is declared as healthy \(from failure to success\).
+|HealthyThreshold|Integer|4| The number of consecutive successes of health checks before a backend server is declared as healthy \(from failure to success\).
 
  |
-|UnhealthyThreshold|Integer|4|The number of consecutive failures of health checks before a backend server is declared as unhealthy \(from success to failure\).
+|UnhealthyThreshold|Integer|4| The number of consecutive failures of health checks before a backend server is declared as unhealthy \(from success to failure\).
 
  |
-|HealthCheckConnectPort|Integer|8080|The maximum amount of time to wait for the response from a health check. Unit: seconds
+|HealthCheckConnectPort|Integer|8080| The maximum amount of time to wait for the response from a health check. Unit: seconds
 
  |
-|HealthCheckInterval|Integer|5|The time interval between two consecutive health checks. Unit: seconds.
+|HealthCheckInterval|Integer|5| The time interval between two consecutive health checks. Unit: seconds.
 
  |
-|HealthCheckDomain|String|$\_ip|The domain name used for health checks.
+|HealthCheckDomain|String|$\_ip| The domain name used for health checks.
 
  |
-|HealthCheckURI|String|/test/index.html|The URI used for health checks.
+|HealthCheckURI|String|/test/index.html| The URI used for health checks.
 
  |
-|HealthCheckHttpCode|String|http\_2xx,http\_3xx|The HTTP status code indicating that the health check is normal.
+|HealthCheckHttpCode|String|http\_2xx,http\_3xx| The HTTP status code indicating that the health check is normal.
 
  |
-|VServerGroupId|String|rsp-cige6j5e7p|The ID of the VServer group.
+|VServerGroupId|String|rsp-cige6j5e7p| The ID of the VServer group.
 
  |
-|AclId|String|12|The ID of the access control list associated with the listener.
+|AclId|String|12| The ID of the access control list associated with the listener.
 
  If the value of the**AclStatus** parameter is**on**, this parameter is required.
 
  |
-|AclStatus|String|off|Indicates whether to enable access control.
+|AclStatus|String|off| Indicates whether to enable access control.
 
- Valid values: **on | off**. Default value: off
+ Valid values:**on | off**. Default value: off
 
  |
-|AclType|String|white|The access control type:
+|AclType|String|white| The access control type:
 
  -   **white**: Indicates a whitelist. Only requests from the IP addresses or CIDR blocks in the selected access control lists are forwarded. It applies to scenarios where an application allows access only from specific IP addresses.
 
@@ -125,19 +125,19 @@ If you enable a blacklist without adding any IP addresses to the list, all reque
  If the value of the **AclStatus** parameter is**on**, this parameter is required.
 
  |
-|Description|String|Description|A description of the listener.
+|Description|String|Description| A description of the listener.
 
  |
-|EstablishedTimeout|Integer|500|The timeout value of the TCP connection. Unit: seconds.
+|EstablishedTimeout|Integer|500| The timeout value of the TCP connection. Unit: seconds.
 
  |
-|HealthCheckConnectTimeout|Integer|100|The timeout value.
+|HealthCheckConnectTimeout|Integer|100| The timeout value.
 
  |
-|MasterSlaveServerGroupId|String|rsp-0bfucwuotx|The ID of the active/standby server group.
+|MasterSlaveServerGroupId|String|rsp-0bfucwuotx| The ID of the active/standby server group.
 
  |
-|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|The ID of the request.
+|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710| The ID of the request.
 
  |
 
@@ -209,7 +209,7 @@ Response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_mgr_ebl_xe5 .section}
 
-[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb?spm=a2c69.11428812.home.38.5972hYtYhYtYON)
 

@@ -1,26 +1,28 @@
-# DeleteLoadBalancer {#doc_api_879500 .reference}
+# DeleteLoadBalancer {#doc_api_Slb_DeleteLoadBalancer .reference}
 
-Call the DeleteLoadBalancer API to delete a Pay-As-You-Go SLB instance.
+Deletes a Pay-As-You-Go SLB instance.
 
 **Note:** When you delete a Pay-As-You-Go SLB instance, all associated configurations \(such as listeners or tags\) are deleted at the same time.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=DeleteLoadBalancer) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DeleteLoadBalancer) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|DeleteLoadBalancer|The action to perform. Valid value: **DeleteLoadBalancer**
+|Action|String|Yes|DeleteLoadBalancer| The name of this action.
+
+ Value: **DeleteLoadBalancer**
 
  |
-|LoadBalancerId|String|Yes|lb-bp1h66tp5uat84khmqc9e|The ID of the SLB instance
+|LoadBalancerId|String|Yes|lb-bp1h66tp5uat84khmqc9e| The ID of the SLB instance.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The region to which the SLB instance belongs.
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the SLB instance belongs.
 
- You can query the region ID by calling the [DescribeRegions](~~27584~~) API.
+ To query the region ID, call [DescribeRegions](~~27584~~).
 
  |
 
@@ -28,7 +30,7 @@ Click [here](https://api.aliyun.com/#product=Slb&api=DeleteLoadBalancer) to perf
 
 |Parameter|Type|Example value|Description|
 |---------|----|-------------|-----------|
-|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984|The ID of the request
+|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984| The ID of the request.
 
  |
 
@@ -38,13 +40,13 @@ Request example
 
 ``` {#request_demo}
 
-/? Action=DeleteLoadBalancer
-&LoadBalancerId=139a00604ad-cn-east-hangzhou-01
+http(s)://[Endpoint]/? Action=DeleteLoadBalancer
+&LoadBalancerId=lb-bp1h66tp5uat84khmqc9e
 &<CommonParameters>
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
@@ -63,11 +65,37 @@ Normal response examples
 }
 ```
 
-## Error codes { .section}
+If you enable the deletion protection function, the following error is reported when you delete an SLB instance.
 
-|HttpCode|Error code|Error message|Description|
-|--------|----------|-------------|-----------|
-|400|Operation.NotAllowed|Operation Denied. Unfinished order exists.|The operation is not allowed. An unfinished purchase order exists.|
+-   JSON format
 
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+    ``` {#codeblock_wmu_p1v_con}
+    
+        {
+    	"RequestId": "7B7AB375-1EA6-4A18-9D1C-F258F2D57638",
+    	"HostId": "slb.aliyuncs.com",
+    	"Code": "OperationDenied.DeleteProtectionIsOn",
+    	"Message": "The loadbalancer can't be deleted due to DeleteProtection is enabled."
+         }
+       
+    ```
+
+-   XML format
+
+    ``` {#codeblock_8zw_rnh_m8c}
+    
+       <? xml version="1.0" encoding="UTF-8" ? >
+            <DeleteLoadBabalancerResponse>
+    	<RequestId>7B7AB375-1EA6-4A18-9D1C-F258F2D57638</RequestId>
+    	<HostId>slb.aliyuncs.com</HostId>
+    	<Code>OperationDenied.DeleteProtectionIsOn</Code>
+    	<Message>The loadbalancer can't be deleted due to DeleteProtection is enabled. </Message>
+           </DeleteLoadBabalancerResponse>
+       
+    ```
+
+
+## Error codes {#section_hpp_3y4_h7g .section}
+
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

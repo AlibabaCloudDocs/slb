@@ -1,68 +1,76 @@
-# DescribeHealthStatus {#doc_api_879477 .reference}
+# DescribeHealthStatus {#doc_api_Slb_DescribeHealthStatus .reference}
 
-You can call the DescribeHealthStatus API to query the health status of a backend server.
+Queries the health status of one or more backend servers.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=DescribeHealthStatus) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeHealthStatus) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeHealthStatus|The action to perform. Valid value: **DescribeHealthStatus**
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|DescribeHealthStatus| The name of this action.
+
+ Value: **DescribeHealthStatus**
 
  |
-|LoadBalancerId|String|Yes|lb-bp1qjwo61pqz3ahltv0mw|The ID of the SLB instance
+|LoadBalancerId|String|Yes|lb-bp1qjwo61pqz3ahltv0mw| The ID of the SLB instance.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs
+|RegionId|String|Yes|cn-hangzhou-d| The ID of the region to which the SLB instance belongs.
 
  |
-|ListenerPort|Integer|No|80|The frontend port used by the SLB instance.
+|ListenerPort|Integer|No|80| Optional. The frontend port used by the SLB instance.
 
- Valid values: **1–65535**
+ Value range:**1 to 65535**
 
  **Note:** If you do not set this parameter, the health check status of all ports is returned.
+
+ |
+|ListenerProtocol|String|No|https| Optional. The frontend protocol used by the SLB instance.
 
  |
 
 ## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
-|BackendServers| | |A list of backend servers
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|BackendServers| | | A list of backend servers.
 
  |
-|└ServerId|String|vm-234|The ECS instance ID or ENI ID
+|└ServerId|String|vm-234| The ECS instance ID or ENI ID.
 
  |
-|└ServerHealthStatus|String|abnormal|The health status of a backend server:
+|└ServerHealthStatus|String|abnormal| The health status of a backend server:
 
  -   **normal**: The backend server is healthy.
 -   **abnormal**: The backend server is unhealthy.
 -   **unavailable**: The health check is not completed.
 
  |
-|└EniHost|String|192.168.0.1|The IP address of the ENI
+|└EniHost|String|192.168.0.1| The IP address of an ENI.
 
  |
-|└ListenerPort|Integer|80|The frontend port used by the SLB instance
+|└ListenerPort|Integer|80| The frontend port used by the SLB instance.
 
  |
-|└Port|Integer|70|The backend port used by the SLB instance
+|└Port|Integer|70| The backend port used by the SLB instance.
 
  |
-|└ServerIp|String|192.168.0.2|The IP address of the ECS instance
+|└Protocol|String|https| The frontend protocol used by the SLB instance.
 
  |
-|└Type|String|ecs|The backend server type. Valid values:
+|└ServerIp|String|192.168.0.2| The IP address of an ECS instance.
+
+ |
+|└Type|String|ecs| The backend server type. Valid values:
 
  -   **ecs**: ECS instance \(default\)
 -   **eni**: Elastic Network Interface \(ENI\)
 
  |
-|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|The ID of the request
+|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710| The ID of the request.
 
  |
 
@@ -78,7 +86,7 @@ http(s)://[Endpoint]/? Action=DescribeHealthStatus
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
@@ -117,7 +125,7 @@ Normal response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_n3u_9ha_80v .section}
 
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

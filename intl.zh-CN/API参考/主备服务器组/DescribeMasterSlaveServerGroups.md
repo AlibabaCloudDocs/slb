@@ -1,6 +1,6 @@
-# DescribeMasterSlaveServerGroups {#doc_api_1025813 .reference}
+# DescribeMasterSlaveServerGroups {#doc_api_Slb_DescribeMasterSlaveServerGroups .reference}
 
-使用DescribeMasterSlaveServerGroups查询主备服务器组列表。
+调用DescribeMasterSlaveServerGroups查询主备服务器组列表。
 
 ## 调试 {#apiExplorer .section}
 
@@ -10,7 +10,9 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeMasterSlaveServerGroups|要执行的操作。取值：**DescribeMasterSlaveServerGroups**
+|Action|String|是|DescribeMasterSlaveServerGroups|要执行的操作。
+
+ 取值：**DescribeMasterSlaveServerGroups**。
 
  |
 |LoadBalancerId|String|是|lb-bp14zi0n66zpg6ohffzaa|负载均衡实例ID。
@@ -19,7 +21,7 @@
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域ID。
 
  |
-|IncludeListener|Boolean|否|false|是否返回关联的监听信息，默认值：**false**
+|IncludeListener|Boolean|否|false|是否返回关联的监听信息，默认值：**false**。
 
  |
 
@@ -58,11 +60,9 @@
 
 ``` {#request_demo}
 
-/?LoadBalancerId=lb-bp14zi0n66zpg6ohffzaa
+http(s)://[Endpoint]/?Action=DescribeMasterSlaveServerGroups
+&LoadBalancerId=lb-bp14zi0n66zpg6ohffzaa
 &RegionId=cn-hangzhou
-&Action=DescribeMasterSlaveServerGroups
-&IncludeListener=
-&Tags={"tagKey":"Key1","tagValue":"Value1"}
 &<公共请求参数>
 
 ```

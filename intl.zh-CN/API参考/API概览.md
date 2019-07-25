@@ -2,7 +2,7 @@
 
 负载均衡提供以下相关API接口。
 
-## 负载均衡实例 {#section_hdi_fid_rka .section}
+## 负载均衡实例 {#section_9jh_1d5_hik .section}
 
 |API|描述|
 |---|--|
@@ -18,7 +18,7 @@
 |[ModifyLoadBalancerInstanceSpec](~~53360~~)|使用ModifyLoadBalancerInstanceSpec修改负载均衡的实例规格。|
 |[ModifyLoadBalancerPayType](~~59589~~)|使用ModifyLoadBalancerPayType将后付费实例转换为预付费实例。|
 
-## UDP监听 {#section_a27_kvl_3aj .section}
+## UDP监听 {#section_uwn_kj1_lki .section}
 
 |API|描述|
 |---|--|
@@ -26,7 +26,7 @@
 |[SetLoadBalancerUDPListenerAttribute](~~27605~~)|使用SetLoadBalancerUDPListenerAttribute修改UDP协议监听的配置。|
 |[DescribeLoadBalancerUDPListenerAttribute](~~27609~~)|调用DescribeLoadBalancerUDPListenerAttribute查询UDP监听的配置。|
 
-## TCP监听 {#section_fa9_ogt_2nj .section}
+## TCP监听 {#section_ikl_1c9_7lv .section}
 
 |API|描述|
 |---|--|
@@ -34,7 +34,7 @@
 |[SetLoadBalancerTCPListenerAttribute](~~27604~~)|调用SetLoadBalancerTCPListenerAttribute修改TCP监听的配置。|
 |[DescribeLoadBalancerTCPListenerAttribute](~~27608~~)|使用DescribeLoadBalancerTCPListenerAttribute查询TCP监听配置。|
 
-## HTTP监听 {#section_1lx_pcn_rbk .section}
+## HTTP监听 {#section_ap4_qgk_bxo .section}
 
 |API|描述|
 |---|--|
@@ -42,7 +42,7 @@
 |[CreateLoadBalancerHTTPListener](~~27592~~)|调用CreateLoadBalancerHTTPListener创建HTTP监听。|
 |[DescribeLoadBalancerHTTPListenerAttribute](~~27606~~)|使用DescribeLoadBalancerHTTPListenerAttribute查询HTTP监听配置。|
 
-## HTTPS监听 {#section_pl8_o7e_ped .section}
+## HTTPS监听 {#section_orb_ubs_3zj .section}
 
 |API|描述|
 |---|--|
@@ -50,7 +50,7 @@
 |[DescribeLoadBalancerHTTPSListenerAttribute](~~27607~~)|使用DescribeLoadBalancerHTTPSListenerAttribute查询HTTPS监听配置。|
 |[CreateLoadBalancerHTTPSListener](~~27593~~)|使用CreateLoadBalancerHTTPSListener创建HTTPS监听。|
 
-## 监听 {#section_7ds_1gb_zun .section}
+## 监听 {#section_sbg_coi_amw .section}
 
 |API|描述|
 |---|--|
@@ -58,7 +58,7 @@
 |[StopLoadBalancerListener](~~27598~~)|使用StopLoadBalancerListener停止监听。|
 |[DeleteLoadBalancerListener](~~27596~~)|使用DeleteLoadBalancerListener删除监听。|
 
-## 后端服务器 {#section_ef6_l59_ybd .section}
+## 后端服务器 {#section_stt_e7g_b7m .section}
 
 |API|描述|
 |---|--|
@@ -67,7 +67,7 @@
 |[RemoveBackendServers](~~27633~~)|使用RemoveBackendServers移除后端服务器。|
 |[DescribeHealthStatus](~~27635~~)|使用DescribeHealthStatus查询后端服务器的健康状态。|
 
-## 后端服务器组 {#section_tnr_d74_83h .section}
+## 后端服务器组 {#section_qfz_3bd_fkm .section}
 
 |API|描述|
 |---|--|
@@ -80,7 +80,7 @@
 |[DeleteVServerGroup](~~35221~~)|调用DeleteVServerGroup删除服务器组。|
 |[DescribeVServerGroups](~~35222~~)|调用DescribeVServerGroups查询服务器组列表。|
 
-## 主备服务器组 {#section_yfx_awa_e8i .section}
+## 主备服务器组 {#section_3iu_w9l_rwa .section}
 
 |API|描述|
 |---|--|
@@ -89,7 +89,7 @@
 |[DescribeMasterSlaveServerGroupAttribute](~~50509~~)|使用DescribeMasterSlaveServerGroupAttribute查询指定主备服务器组的详细信息。|
 |[DescribeMasterSlaveServerGroups](~~50508~~)|使用DescribeMasterSlaveServerGroups查询主备服务器组列表。|
 
-## 服务器证书 {#section_u6t_2pk_kwz .section}
+## 服务器证书 {#section_tvf_he8_kb1 .section}
 
 |API|描述|
 |---|--|
@@ -102,7 +102,7 @@
 |[DescribeCACertificates](~~34938~~)|使用DescribeCACertificates查询CA证书列表。|
 |[SetCACertificateName](~~34936~~)|使用SetCACertificateName设置CA证书名称。|
 
-## 域名扩展（Beta） {#section_c45_2u4_ip7 .section}
+## 域名扩展（Beta） {#section_vfz_0bl_g4f .section}
 
 |API|描述|
 |---|--|
@@ -111,13 +111,13 @@
 |[DescribeDomainExtensions](~~85914~~)|调用DescribeDomainExtensions查询已添加的扩展域名。|
 |[DeleteDomainExtension](~~85915~~)|调用DeleteDomainExtension删除扩展域名。|
 
-## 查询资源 {#section_ami_z0b_gpz .section}
+## 查询资源 {#section_m7y_htd_vs1 .section}
 
 |API|描述|
 |---|--|
 |[DescribeAvailableResource](~~117645~~)|调用DescribeAvailableResource查询某个地域的可用区支持的资源售卖情况。|
 
-## 标签 {#section_qeo_kb9_xhv .section}
+## 标签 {#section_nuw_hwj_md1 .section}
 
 |API|描述|
 |---|--|
@@ -125,7 +125,7 @@
 |[AddTags](~~42871~~)|使用AddTags为指定的负载均衡实例添加标签。|
 |[DescribeTags](~~42873~~)|调用DescribeTags查询标签列表。|
 
-## 转发规则 {#section_21e_73o_sph .section}
+## 转发规则 {#section_ywn_tua_iki .section}
 
 |API|描述|
 |---|--|
@@ -135,7 +135,7 @@
 |[DescribeRuleAttribute](~~35229~~)|使用DescribeRuleAttribute查询指定转发规则的配置详情。|
 |[DescribeRules](~~35230~~)|调用DescribeRules查询指定监听已配置的转发规则。|
 
-## 访问控制 {#section_eob_kqr_z3x .section}
+## 访问控制 {#section_6cl_dyy_1b7 .section}
 
 |API|描述|
 |---|--|
@@ -147,7 +147,7 @@
 |[AddAccessControlListEntry](~~70023~~)|调用AddAccessControlListEntry在访问控制策略组中添加IP条目。|
 |[RemoveAccessControlListEntry](~~70055~~)|调用RemoveAccessControlListEntry删除访问控制策略组中的IP条目。|
 
-## 访问控制（旧版） {#section_icq_3hk_7qr .section}
+## 访问控制（旧版） {#section_bnr_l94_qve .section}
 
 |API|描述|
 |---|--|

@@ -1,6 +1,6 @@
-# DescribeTags {#doc_api_879798 .reference}
+# DescribeTags {#doc_api_Slb_DescribeTags .reference}
 
-Call the DescribeTags API to query the details of added tags.
+Queries details of specified tags.
 
 Before you call this API, note the following:
 
@@ -12,62 +12,64 @@ Before you call this API, note the following:
 
 ## Debug {#apiExplorer .section}
 
-Perform a [debug](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) in OpenAPI Explorer. We recommend that you use OpenAPI Explorer. By using OpenAPI Explorer, you can call APIs, generate SDK code examples automatically, and search APIs, allowing you to quickly and easily get started with using APIs on the cloud.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeTags) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeTags| The action to perform. Valid value: DescribeTags.
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|DescribeTags| The name of this action.
+
+ Value: **DescribeTags**
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs.
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the SLB instance belongs.
 
  |
-|DistinctKey|Boolean|No|false|Whether it is DistinctKey.
+|DistinctKey|Boolean|No|false| Optional. Indicates whether it is DistinctKey.
 
- Valid values: **true | false**.
-
- |
-|LoadBalancerId|String|No|139a00604ad-cn-east-hangzhou-01|The ID of the SLB instance.
+ Valid values: **true | false**
 
  |
-|PageNumber|Integer|No|1| The page number of the SLB instance list. Initial value: 1. Default value: 1.
+|LoadBalancerId|String|No|139a00604ad-cn-east-hangzhou-01| Optional. The ID of the SLB instance.
 
  |
-|PageSize|Integer|No|50| The number of results per page. Default value: 50. Maximum value: 100.
+|PageNumber|Integer|No|1| Optional. The page number of the SLB instance list. Initial value: 1. Default value: 1
 
  |
-|Tags|String|No|\[\{"TagKey":"Key1","TagValue":"Value1"\}\{"TagKey":"Key2","TagValue":"Value2"\}\]|A list of tags to query.
+|PageSize|Integer|No|50| Optional. The number of results per page. Default value: 50. Maximum value: 100
+
+ |
+|Tags|String|No|\[\{"TagKey":"Key1","TagValue":"Value1"\}\{"TagKey":"Key2","TagValue":"Value2"\}\]| Optional. A list of tags to query.
 
  |
 
 ## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
-|TagSets| | |The list of tags.
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|TagSets| | | The list of tags.
 
  |
-|└TagKey|String|test|The tag key.
+|└TagKey|String|test| The tag key.
 
  |
-|└TagValue|String|api|The tag value.
+|└TagValue|String|api| The tag value.
 
  |
-|└InstanceCount|Integer|10|The total number of SLB instances where the tag is attached.
+|└InstanceCount|Integer|10| The total number of SLB instances with which the tag is associated.
 
  |
-|PageSize|Integer|50| Default value: 50. Maximum value: 100.
+|PageSize|Integer|50| Default value: 50. Maximum value: 100
 
  |
-|PageNumber|Integer|1| The page number of the SLB instance list. Initial value: 1. Default value: 1.
+|PageNumber|Integer|1| The page number of the tag list. Initial value: 1. Default value: 1
 
  |
-|TotalCount|Integer|1|The total number of instances that meet your search conditions.
+|TotalCount|Integer|1| The total number of tags that meet your search conditions.
 
  |
-|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|The ID of the request.
+|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710| The ID of the request.
 
  |
 
@@ -77,18 +79,13 @@ Request example
 
 ``` {#request_demo}
 
-https://slb.aliyuncs.com/
-&Action=DescribeTags
-&RegionId=cn-hangzhou
-&LoadBalancerID=139a00604ad-cn-east-hangzhou-01
-&<CommonParameters>
-? Action=DescribeTags
+http(s)://[Endpoint]/? Action=DescribeTags
 &RegionId=cn-hangzhou
 &<CommonParameters>
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
@@ -127,7 +124,7 @@ Normal response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_zkr_r4r_vme .section}
 
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

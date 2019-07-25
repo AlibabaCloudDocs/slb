@@ -2,26 +2,28 @@
 
 调用StartLoadBalancerListener启动监听。
 
-启动监听。
-
 在调用该接口时，注意：
 
 -   监听状态必须为stopped时，才可以调用该接口。
 -   接口调用成功后，监听进入starting状态。
 -   当监听所属负载均衡实例的状态为locked时，调用此接口会失败。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=StartLoadBalancerListener)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=StartLoadBalancerListener&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|StartLoadBalancerListener|要执行的操作。取值：**StartLoadBalancerListener**
+|Action|String|是|StartLoadBalancerListener|要执行的操作。
+
+ 取值：**StartLoadBalancerListener**。
 
  |
-|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。取值：1-65535
+|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
+
+ 取值：**1-65535**。
 
  |
 |LoadBalancerId|String|是|lb-bp13jaf5qli5xmgl1miup|负载均衡实例的ID。
@@ -33,7 +35,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -47,9 +49,9 @@
 
 ``` {#request_demo}
 
-/?Action=StartLoadBalancerListener
+http(s)://[Endpoint]/?Action=StartLoadBalancerListener
 &ListenerPort=80
-&LoadBalancerId=139a00604ad-cn-east-hangzhou-01
+&LoadBalancerId=lb-bp13jaf5qli5xmgl1miup
 &<公共请求参数>
 
 ```
@@ -60,9 +62,8 @@
 
 ``` {#xml_return_success_demo}
 <StartLoadBalancerListenerResponse>
-  <RequestId>CC000321-00F2-49B8-9BCA-60D822414960</RequestId>
-</StartLoadBalancerListenerResponse>
-
+			  <RequestId>CC000321-00F2-49B8-9BCA-60D822414960</RequestId>
+		</StartLoadBalancerListenerResponse>
 ```
 
 `JSON` 格式
@@ -75,5 +76,5 @@
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

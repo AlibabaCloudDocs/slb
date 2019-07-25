@@ -4,18 +4,20 @@
 
 调用该接口创建实例时，请注意：
 
--   实例创建后，会产生费用。关于负载均衡的计费说明，参见[计费说明](~~27692~~)。
+-   实例创建后，会产生费用。
 -   如果不指定实例规格**LoadBalancerSpec**，则创建性能共享型实例。建议在创建负载均衡实例时，通过规格参数**LoadBalancerSpec**指定实例的规格。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancer)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancer&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|CreateLoadBalancer|要执行的操作，取值：**CreateLoadBalancer**
+|Action|String|是|CreateLoadBalancer|要执行的操作。
+
+ 取值：**CreateLoadBalancer**。
 
  |
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域。
@@ -37,7 +39,7 @@
  |
 |AutoPay|Boolean|否|true|是否是自动支付预付费公网实例的账单。
 
- 取值：**true|false（默认）**
+ 取值：**true|false（默认）**。
 
  **说明：** 该参数仅适用于中国站。
 
@@ -61,7 +63,7 @@
  |
 |InternetChargeType|String|否|paybytraffic|公网类型实例的付费方式。取值：
 
- -   paybytraffic：按流量计费（默认值）
+ -   paybytraffic：按流量计费（默认值）。
 
  |
 |LoadBalancerName|String|否|abc|负载均衡实例的名称。
@@ -94,7 +96,7 @@
  |
 |PayType|String|否|PayOnDemand|实例的计费类型，取值：
 
- -   **PayOnDemand**：按量付费
+ -   **PayOnDemand**：按量付费。
 
  |
 |PricingCycle|String|否|month|预付费公网实例的计费周期，取值：**month|year**
@@ -119,7 +121,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -172,17 +174,16 @@ http(s)://[Endpoint]/?Action=CreateLoadBalancer
 
 ``` {#xml_return_success_demo}
 <CreateLoadBalancerResponse>
-  <NetworkType>vpc</NetworkType>
-  <LoadBalancerName>abc</LoadBalancerName>
-  <Address>192.168.0.6</Address>
-  <ResourceGroupId>rg-acfmxazb***</ResourceGroupId>
-  <RequestId>AB197CF0-D9E9-4475-A89D-35DBCCF13BBE</RequestId>
-  <AddressIPVersion>ipv4</AddressIPVersion>
-  <LoadBalancerId>lb-bp1b6c719dfa0***</LoadBalancerId>
-  <VSwitchId>vsw-bp12mw1f8k3jgygk9****</VSwitchId>
-  <VpcId>vpc-bp1aevy8sofi8mh1q***</VpcId>
+    <NetworkType>vpc</NetworkType>
+	  <LoadBalancerName>abc</LoadBalancerName>
+	  <Address>192.168.0.6</Address>
+	  <ResourceGroupId>rg-acfmxazb***</ResourceGroupId>
+	  <RequestId>AB197CF0-D9E9-4475-A89D-35DBCCF13BBE</RequestId>
+	  <AddressIPVersion>ipv4</AddressIPVersion>
+	  <LoadBalancerId>lb-bp1b6c719dfa0***</LoadBalancerId>
+	  <VSwitchId>vsw-bp12mw1f8k3jgygk9****</VSwitchId>
+	  <VpcId>vpc-bp1aevy8sofi8mh1q***</VpcId>
 </CreateLoadBalancerResponse>
-
 ```
 
 `JSON` 格式
@@ -203,5 +204,5 @@ http(s)://[Endpoint]/?Action=CreateLoadBalancer
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

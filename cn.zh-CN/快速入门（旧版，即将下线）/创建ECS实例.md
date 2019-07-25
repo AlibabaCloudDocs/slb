@@ -14,12 +14,12 @@
     -   **购买数量**：将购买数量设置为**2**，系统会自动创建两台相同配置的ECS实例。
     -   **选择安全组**：配置的安全组规则必须包括入方向的22和80端口。
         -   22端口是SSH远程连接端口，用于登录ECS实例。
-        -   80端口是Web服务默认端口，用于访问[创建静态网页](cn.zh-CN/快速入门（旧版，即将下线）/创建静态网页.md#)中Apache搭建的静态网页。
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4105/15348358762201_zh-CN.png)
+        -   80端口是Web服务默认端口，用于访问[创建静态网页](cn.zh-CN/快速入门（旧版，即将下线）_废弃/创建静态网页.md#)中Apache搭建的静态网页。
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4105/15481735972201_zh-CN.png)
 
 4.   单击**立即购买**，完成创建。 
 5.  在实例列表页面，选择**华东1**地域，找到目标实例。将光标移至实例名称区域，单击出现的铅笔图标，分别输入ECS01和ECS02作为实例名称。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4105/15348358762204_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4105/15481735982204_zh-CN.png)
 
 

@@ -2,9 +2,9 @@
 
 调用DescribeVServerGroups查询服务器组列表。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeVServerGroups)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=DescribeVServerGroups&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
@@ -32,44 +32,44 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |VServerGroups| | |后端服务器列表。
 
  |
-|└VServerGroupId|String|rsp-0bfucwuotx|服务器组ID。
+|VServerGroupId|String|rsp-0bfucwuotx|服务器组ID。
 
  |
-|└VServerGroupName|String|Group3|服务器组名称。
+|VServerGroupName|String|Group3|服务器组名称。
 
  |
-|└AssociatedObjects| | |关联信息。
+|AssociatedObjects| | |关联信息。
 
  |
-|└Listeners| | |监听列表。
+|Listeners| | |监听列表。
 
  |
-|└Port|Integer|80|监听端口。
+|Port|Integer|80|监听端口。
 
  |
-|└Protocol|String|tcp|监听协议。
+|Protocol|String|tcp|监听协议。
 
  |
-|└Rules| | |转发规则列表。
+|Rules| | |转发规则列表。
 
  |
-|└Domain|String|www.example.com|请求域名。
+|Domain|String|www.example.com|请求域名。
 
  |
-|└RuleId|String|123|转发规则ID。
+|RuleId|String|123|转发规则ID。
 
  |
-|└RuleName|String|test|转发规则名称。
+|RuleName|String|test|转发规则名称。
 
  |
-|└Url|String|/example|访问路径。
+|Url|String|/example|访问路径。
 
  |
 |RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|请求ID。
@@ -95,27 +95,26 @@ http(s)://[Endpoint]/?Action=DescribeVServerGroups
 
 ``` {#xml_return_success_demo}
 <DescribeVServerGroupsResponse>
-  <VServerGroups>
-    <VServerGroup>
-      <VServerGroupId>rsp-bp12bjrnykyp0</VServerGroupId>
-      <VServerGroupName>6</VServerGroupName>
-      <AssociatedObjects>
-        <Listeners/>
-        <Rules/>
-      </AssociatedObjects>
-    </VServerGroup>
-    <VServerGroup>
-      <VServerGroupId>rsp-bp16rt0dzbm23</VServerGroupId>
-      <VServerGroupName>text2</VServerGroupName>
-      <AssociatedObjects>
-        <Listeners/>
-        <Rules/>
-      </AssociatedObjects>
-    </VServerGroup>
-  </VServerGroups>
-  <RequestId>E3F94C66-5DDD-4A6B-B37D-FD237FB31FE6</RequestId>
+      <VServerGroups>
+		    <VServerGroup>
+			      <VServerGroupId>rsp-bp12bjrnykyp0</VServerGroupId>
+			      <VServerGroupName>6</VServerGroupName>
+			      <AssociatedObjects>
+				        <Listeners></Listeners>
+				        <Rules></Rules>
+			      </AssociatedObjects>
+		    </VServerGroup>
+		    <VServerGroup>
+			      <VServerGroupId>rsp-bp16rt0dzbm23</VServerGroupId>
+			      <VServerGroupName>text2</VServerGroupName>
+			      <AssociatedObjects>
+				        <Listeners></Listeners>
+				        <Rules></Rules>
+			      </AssociatedObjects>
+		    </VServerGroup>
+	  </VServerGroups>
+	  <RequestId>E3F94C66-5DDD-4A6B-B37D-FD237FB31FE6</RequestId>
 </DescribeVServerGroupsResponse>
-
 ```
 
 `JSON` 格式
@@ -142,5 +141,5 @@ http(s)://[Endpoint]/?Action=DescribeVServerGroups
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

@@ -10,16 +10,20 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalan
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeLoadBalancerUDPListenerAttribute|The name of this action. Value:`DescribeLoadBalancerUDPListenerAttribute`
+|Action|String|Yes|DescribeLoadBalancerUDPListenerAttribute| The name of this action.
+
+ Value: DescribeLoadBalancerUDPListenerAttribute
 
  |
-|ListenerPort|Integer|Yes|80|The frontend port configured in the SLB instance. Value range:**1 to 65535**
+|ListenerPort|Integer|Yes|80| The frontend port used by the SLB instance.
+
+ Value range:**1 to 65535**
 
  |
-|LoadBalancerId|String|Yes|lb-bp1rtfnodmywb43ecu4sf-cn-east-hangzhou-01|The ID of the SLB instance.
+|LoadBalancerId|String|Yes|lb-bp1rtfnodmywb43e\*\*\*\*\*| The ID of the SLB instance.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs.
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the SLB instance belongs.
 
  |
 
@@ -27,94 +31,94 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalan
 
 |Parameter|Type|Example value|Description|
 |---------|----|-------------|-----------|
-|ListenerPort|Integer|53|The frontend port used by the SLB instance.
+|ListenerPort|Integer|53| The frontend port used by the SLB instance.
 
  |
-|BackendServerPort|Integer|53|The backend port used by the SLB instance.
+|BackendServerPort|Integer|53| The backend port used by the SLB instance.
 
- **Note:** This parameter is not returned when a virtual backend server group is used.
-
- |
-|Bandwidth|Integer|-1|The peak bandwidth of the listener.
+ **Note:** This parameter is not returned if a VServer group is used.
 
  |
-|Status|String|stopped|The status of the listener.
+|Bandwidth|Integer|-1| The peak bandwidth of the listener.
+
+ |
+|Status|String|stopped| The status of the listener.
 
  Valid values:**starting | running | configuring | stopping | stopped**
 
  |
-|Scheduler|String|wrr|The algorithm used to distribute traffic.
+|Scheduler|String|wrr| The algorithm used to distribute traffic.
 
  -   **wrr** \(default\): Backend servers with higher weights receive more requests than those with smaller weights.
--   **wlc**: A server with a higher weight will receive more requests.
+-   **wlc**: A server with a higher weight receives more requests.
 
-When the weight is the same, the server with a smaller number of connections is more likely to be polled.
+When the weight values of two backend servers are the same, the server with a smaller number of connections is more likely to be polled.
 
 -   **rr**: Requests are evenly and sequentially distributed to the backend servers.
 
  |
-|HealthCheck|String|on|Indicates whether to enable health checks.
+|HealthCheck|String|on| Indicates whether the health check function is enabled.
 
- Valid values:**on | off**.
-
- |
-|HealthyThreshold|Integer|4|The number of consecutive successes of health checks before a backend server is declared as healthy \(from failure to success\).
+ Valid values:**on | off**
 
  |
-|UnhealthyThreshold|Integer|4|The number of consecutive failures of health checks before a backend server is declared as unhealthy \(from success to failure\).
+|HealthyThreshold|Integer|4| The number of consecutive successes of health checks before a backend server is declared as healthy \(from failure to success\).
 
  |
-|HealthCheckConnectTimeout|Integer|100|The length of time to wait for the response from a health check.
+|UnhealthyThreshold|Integer|4| The number of consecutive failures of health checks before a backend server is declared as unhealthy \(from success to failure\).
 
  |
-|HealthCheckConnectPort|Integer|8080|The port used for health checks.
+|HealthCheckConnectTimeout|Integer|100| The length of time to wait for the response from a health check.
 
  |
-|HealthCheckInterval|Integer|5|The time interval between two consecutive health checks. Unit: seconds.
+|HealthCheckConnectPort|Integer|8080| The port used for health checks.
 
  |
-|VServerGroupId|String|rsp-cige6j5e7p|The ID of the VServer group.
+|HealthCheckInterval|Integer|5| The time interval between two consecutive health checks. Unit: seconds
 
  |
-|AclId|String|12394388|The ID of the access control list.
+|VServerGroupId|String|rsp-cige6j\*\*\*\*8| The ID of the VServer group.
 
  |
-|AclStatus|String|off|Indicates whether to enable access control.
-
- Valid value: **on | off**. Default value: off.
+|AclId|String|12394388| The ID of the access control list.
 
  |
-|AclType|String|white|The access control method:
+|AclStatus|String|off| Indicates whether access control is enabled.
+
+ Valid value: **on | off**. Default value: off
+
+ |
+|AclType|String|white| The access control method:
 
  -   white:
 
-Indicates a whitelist. Only requests from IP addresses or CIDR blocks in the selected access control lists are forwarded. It applies to scenarios where an application only allows access from specific IP addresses.
+Indicates a whitelist. Only requests from IP addresses or CIDR blocks in the selected access control list are forwarded. It applies to scenarios where an application only allows access from specific IP addresses.
 
-Enabling a whitelist poses some risks to your services. After a whitelist is configured, only the IP addresses in the list can access the listener. If you enable a whitelist without adding any IP addresses in the corresponding access control list, no requests are forwarded.
+Enabling a whitelist poses some business risks to your services. After a whitelist is configured, only the IP addresses in the list can access the listener. If you enable a whitelist without adding any IP addresses in the corresponding access control list, all requests are forwarded.
 
 -   black:
 
-Indicates a blacklist. Requests from IP addresses or CIDR blocks in the selected access control lists are not forwarded \(that is, they are blocked\). It applies to scenarios where an application only denies access from specific IP addresses.
+Indicates a blacklist. Requests from IP addresses or CIDR blocks in the selected access control list are not forwarded \(that is, they are blocked\). It applies to scenarios where an application only denies access from specific IP addresses.
 
-If you enable a blacklist without adding any IP addresses in the corresponding access control list, all requests are forwarded.
+If you enable a blacklist without adding any IP addresses to the list, all requests are forwarded.
 
 
- If the value of the **AclStatus** parameter is **on**, this parameter is required.
-
- |
-|Description|String|A description of the access control|A description of the access control.
+ If the value of the **AclStatus** parameter is**on**, this parameter is required.
 
  |
-|HealthCheckExp|String|ok|The response string for the health check of the UDP listener.
+|Description|String|A description of the access control| A description of the access control list.
 
  |
-|HealthCheckReq|String|hello|The request string for the health check of the UDP listener.
+|HealthCheckExp|String|ok| The response string for the health check of the UDP listener.
 
  |
-|MasterSlaveServerGroupId|String|rsp-0bfucwuotx|The ID of the active/standby server group.
+|HealthCheckReq|String|hello| The request string for the health check of the UDP listener.
 
  |
-|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|The ID of the request.
+|MasterSlaveServerGroupId|String|rsp-0bfucw\*\*\*\*| The ID of the active/standby server group.
+
+ |
+|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710| The ID of the request.
 
  |
 
@@ -126,7 +130,7 @@ Request example
 
 http(s)://[Endpoint]/? Action=DescribeLoadBalancerUDPListenerAttribute
 &ListenerPort=80
-&LoadBalancerId=lb-bp1rtfnodmywb43ecu4sf-cn-east-hangzhou-01 
+&LoadBalancerId=lb-bp1rtfnodmywb43e*****
 &<CommonParameters>
 
 ```
@@ -136,21 +140,21 @@ Response examples
 `XML` format
 
 ``` {#xml_return_success_demo}
-<DescribeLoadBalancerUDPListenerAttributeResponse> 
-  <AclStatus>off</AclStatus> 
-  <HealthCheck>on</HealthCheck> 
-  <HealthCheckConnectTimeout>5</HealthCheckConnectTimeout> 
-  <PersistenceTimeout>0</PersistenceTimeout> 
-  <ListenerPort>80</ListenerPort> 
-  <Status>stopped</Status> 
-  <Scheduler>wrr</Scheduler> 
-  <HealthyThreshold>3</HealthyThreshold> 
-  <HealthCheckInterval>2</HealthCheckInterval> 
+<DescribeLoadBalancerUDPListenerAttributeResponse>
+  <AclStatus>off</AclStatus>
+  <HealthCheck>on</HealthCheck>
+  <HealthCheckConnectTimeout>5</HealthCheckConnectTimeout>
+  <PersistenceTimeout>0</PersistenceTimeout>
+  <ListenerPort>80</ListenerPort>
+  <Status>stopped</Status>
+  <Scheduler>wrr</Scheduler>
+  <HealthyThreshold>3</HealthyThreshold>
+  <HealthCheckInterval>2</HealthCheckInterval>
   <RequestId>9C103591-2533-432B-9E6B-6DB098C0E65C</RequestId>
-  <UnhealthyThreshold>3</UnhealthyThreshold> 
-  <BackendServerPort>34</BackendServerPort> 
-  <Bandwidth>67</Bandwidth> 
-</DescribeLoadBalancerUDPListenerAttributeResponse> 
+  <UnhealthyThreshold>3</UnhealthyThreshold>
+  <BackendServerPort>34</BackendServerPort>
+  <Bandwidth>67</Bandwidth>
+</DescribeLoadBalancerUDPListenerAttributeResponse>
 
 ```
 
@@ -174,7 +178,7 @@ Response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_yov_mew_unx .section}
 
-[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

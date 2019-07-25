@@ -10,16 +10,18 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=SetDomainExtensio
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|SetDomainExtensionAttribute|The name of this action. Value: **SetDomainExtensionAttribute**
+|Action|String|Yes|SetDomainExtensionAttribute| The name of this action.
+
+ Value: **SetDomainExtensionAttribute**
 
  |
-|DomainExtensionId|String|Yes|de-bp1rp7ta191dv|The ID of the domain name extension to be modified.
+|DomainExtensionId|String|Yes|de-bp1rp7ta191dv| The ID of the domain name extension to be modified.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs.
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the SLB instance belongs.
 
  |
-|ServerCertificateId|String|Yes|1231579xxxxxxxx\_166f8204689\_1714763408\_709981xxx|The ID of the new certificate.
+|ServerCertificateId|String|Yes|1231579xxxxxxxx\_166f8204689\_1714763408\_709981xxx| The ID of the new certificate.
 
  |
 
@@ -27,7 +29,7 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=SetDomainExtensio
 
 |Parameter|Type|Example value|Description|
 |---------|----|-------------|-----------|
-|RequestId|String|149A2470-F010-4437-BF68-343D5099C19D|The ID of the request.
+|RequestId|String|149A2470-F010-4437-BF68-343D5099C19D| The ID of the request.
 
  |
 
@@ -38,8 +40,8 @@ Request example
 ``` {#request_demo}
 
 http(s)://[Endpoint]/? Action=SetDomainExtensionAttribute
-&DomainExtensionId=de-bp1rp7ta191dv 
-&RegionId=cn-hangzhou 
+&DomainExtensionId=de-bp1rp7ta191dv
+&RegionId=cn-hangzhou
 &ServerCertificateId=1231579xxxxxxxx_166f8204689_1714763408_709981xxx
 &<CommonParameters>
 
@@ -50,9 +52,9 @@ Response examples
 `XML` format
 
 ``` {#xml_return_success_demo}
-<SetDomainExtensionAttributeResponse> 
+<SetDomainExtensionAttributeResponse>
   <RequestId>149A2470-F010-4437-BF68-xxxxx</RequestId>
-</SetDomainExtensionAttributeResponse> 
+</SetDomainExtensionAttributeResponse>
 
 ```
 
@@ -64,7 +66,7 @@ Response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_vr4_zwx_0ws .section}
 
-[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

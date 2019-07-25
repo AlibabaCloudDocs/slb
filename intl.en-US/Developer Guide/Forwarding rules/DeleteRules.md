@@ -1,32 +1,34 @@
-# DeleteRules {#doc_api_875532 .reference}
+# DeleteRules {#doc_api_Slb_DeleteRules .reference}
 
-You can call the DeleteRules API to delete forwarding rules.
+Deletes one or more forwarding rules.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=DeleteRules) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DeleteRules) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|DeleteRules|The action to perform. Valid value: **DeleteRules**
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|DeleteRules| The name of this action.
+
+ Value: **DeleteRules**
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs.
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the SLB instance belongs.
 
- You can call the [DescribeRegions](~~27584~~) API to query the region ID.
+ To query the region ID, call [DescribeRegions](~~27584~~).
 
  |
-|RuleIds|String|Yes|\["rule-bp1z9cee47oip","rule-bp1tucxr06qu4"\]|A list of the forwarding rules to be deleted
+|RuleIds|String|Yes|\["rule-bp1z9cee47oip","rule-bp1tucxr06qu4"\]| A list of the forwarding rules to be deleted
 
  |
 
 ## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
-|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|The ID of the request
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C| The ID of the request.
 
  |
 
@@ -43,7 +45,7 @@ http(s)://[Endpoint]/? Action=DeleteRules
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
@@ -62,20 +64,7 @@ Normal response examples
 }
 ```
 
-Abnormal response example
+## Error codes {#section_73k_ez3_zle .section}
 
-`JSON` format
-
-``` {#json_return_failed_demo}
-{
-	"Message":"The specified parameter is not valid.",
-	"RequestId":"0669D684-69D8-408E-A4FA-B9011E0F4E66",
-	"HostId":"slb-pop.aliyuncs.com",
-	"Code":"InvalidParameter"
-}
-```
-
-## Error codes { .section}
-
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

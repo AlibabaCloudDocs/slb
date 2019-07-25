@@ -1,16 +1,18 @@
-# SetRule {#doc_api_1086309 .reference}
+# SetRule {#doc_api_Slb_SetRule .reference}
 
 调用SetRule更改转发规则的目标虚拟服务器组。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=SetRule)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=SetRule&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|SetRule|要执行的操作，取值：**SetRule**。
+|Action|String|是|SetRule|要执行的操作。
+
+ 取值：**SetRule**。
 
  |
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域ID。
@@ -33,21 +35,21 @@
  |
 |CookieTimeout|Integer|否|123|Cookie超时时间。
 
- 取值：1-86400（秒）
+ 取值：**1-86400**（秒）。
 
  当**StickySession**为**on**且**StickySessionType**为**insert**时，该参数必选且有效，其他情况会忽略此值。
 
  |
 |HealthCheck|String|否|off|是否开启健康检查。
 
- 取值：**on|off**
+ 取值：**on|off**。
 
  **说明：** **ListenerSync**为**off**时必选且有效，其他情况会忽略此值。
 
  |
 |HealthCheckConnectPort|Integer|否|80|健康检查使用的端口。
 
- 取值：1-65535
+ 取值：**1-65535**。
 
  **说明：** **HealthCheck**为**on**时有效，其他情况会忽略此值。
 
@@ -64,7 +66,7 @@
 
  **HealthCheck**为**on**时必选。
 
- 取值：**http\_2xx**（默认值）**| http\_3xx | http\_4xx | http\_5xx**
+ 取值：**http\_2xx**（默认值）**| http\_3xx | http\_4xx | http\_5xx**。
 
  **说明：** **HealthCheck**为**on**时有效，其他情况会忽略此值。
 
@@ -73,7 +75,7 @@
 
  **HealthCheck**为**on**时必选。
 
- 取值：**1-50**（秒）
+ 取值：**1-50**（秒）。
 
  **说明：** **HealthCheck**为**on**时有效，其他情况会忽略此值。
 
@@ -82,7 +84,7 @@
 
  **说明：** **HealthCheck**为**on**时必选且有效，其他情况会忽略此值。
 
- 取值：**1-300**（秒）
+ 取值：**1-300**（秒）。
 
  |
 |HealthCheckURI|String|否|/example|**HealthCheck**为**on**时必选且有效，其他情况会忽略此值，用于健康检查的URI。
@@ -92,12 +94,12 @@
 
  **HealthCheck**为**on**时必选且有效，其他情况会忽略此值。
 
- 取值：2-10
+ 取值：**2-10**。
 
  |
 |ListenerSync|String|否|off|规则是否从监听上继承健康检查、会话保持和调度算法配置。
 
- 取值：**on|off**
+ 取值：**on|off**。
 
  -   **off**：不继承监听配置，转发规则自定义健康检查及会话保持配置。
 -   **on**：继承监听配置。
@@ -110,7 +112,7 @@
  |
 |Scheduler|String|否|wrr|在**ListenerSync**为**off**时必选且有效，其他情况会忽略此值。
 
- 调度算法。取值：
+ 调度算法，取值：
 
  -   **wrr**（默认值）：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
 -   **wlc**：除了根据每台后端服务器设定的权重值来进行轮询，同时还考虑后端服务器的实际负载（即连接数）。当权重值相同时，当前连接数越小的后端服务器被轮询到的次数（概率）也越高。
@@ -140,11 +142,11 @@
 
  **HealthCheck**为**on**时必选且有效，其他情况会忽略此值。
 
- 取值：2-10
+ 取值：**2-10**。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -171,9 +173,8 @@ http(s)://[Endpoint]/?Action=SetRule
 
 ``` {#xml_return_success_demo}
 <SetRuleResponse>
-  <RequestId>9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C</RequestId>
+      <RequestId>9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C</RequestId>
 </SetRuleResponse>
-
 ```
 
 `JSON` 格式
@@ -186,5 +187,5 @@ http(s)://[Endpoint]/?Action=SetRule
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

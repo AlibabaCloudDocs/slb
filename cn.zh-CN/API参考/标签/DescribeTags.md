@@ -1,4 +1,4 @@
-# DescribeTags {#doc_api_993682 .reference}
+# DescribeTags {#doc_api_Slb_DescribeTags .reference}
 
 调用DescribeTags查询标签列表。
 
@@ -10,15 +10,17 @@
 -   不允许用户只指定Tagvalue而不指定Tagkey。
 -   若指定了Tagkey/Tagvalue对，则精确匹配该Tag。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeTags)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=DescribeTags&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeTags|系统规定参数,取值：`DescribeTags`
+|Action|String|是|DescribeTags|要执行的操作。
+
+ 取值：**DescribeTags**。
 
  |
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域ID。
@@ -26,7 +28,7 @@
  |
 |DistinctKey|Boolean|否|false|是否为DistinctKey。
 
- 取值：**true|false**
+ 取值：**true|false**。
 
  |
 |LoadBalancerId|String|否|139a00604ad-cn-east-hangzhou-01|负载均衡实例ID。
@@ -42,20 +44,20 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |TagSets| | |Tag列表。
 
  |
-|└TagKey|String|test|标签Key。
+|TagKey|String|test|标签Key。
 
  |
-|└TagValue|String|api|标签Value。
+|TagValue|String|api|标签Value。
 
  |
-|└InstanceCount|Integer|10|该标签绑定的实例总数。
+|InstanceCount|Integer|10|该标签绑定的实例总数。
 
  |
 |PageSize|Integer|50|默认50，最大100。
@@ -77,12 +79,7 @@
 
 ``` {#request_demo}
 
-https://slb.aliyuncs.com/
-&Action=DescribeTags
-&RegionId=cn-hangzhou
-&LoadBalancerID=139a00604ad-cn-east-hangzhou-01
-&<公共请求参数>
-?Action=DescribeTags
+http(s)://[Endpoint]/?Action=DescribeTags
 &RegionId=cn-hangzhou
 &<公共请求参数>
 
@@ -94,18 +91,17 @@ https://slb.aliyuncs.com/
 
 ``` {#xml_return_success_demo}
 <DescribeTagsResponse>
-  <RequestId>365F4154-92F6-4AE4-92F8-7FF34B540710</RequestId>
-  <TagSets>
-    <TagSet>
-      <TagKey>test</TagKey>
-      <TagValue>api</TagValue>
-    </TagSet>
-  </TagSets>
-  <PageSize>50</PageSize>
-  <PageNumber>1</PageNumber>
-  <TotalCount>1</TotalCount>
+	  <RequestId>365F4154-92F6-4AE4-92F8-7FF34B540710</RequestId>
+	   <TagSets>
+            <TagSet>
+                  <TagKey>test</TagKey>
+                  <TagValue>api</TagValue>
+            </TagSet>
+      </TagSets>
+	  <PageSize>50</PageSize>
+	  <PageNumber>1</PageNumber>
+	  <TotalCount>1</TotalCount>
 </DescribeTagsResponse>
-
 ```
 
 `JSON` 格式
@@ -129,5 +125,5 @@ https://slb.aliyuncs.com/
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 
