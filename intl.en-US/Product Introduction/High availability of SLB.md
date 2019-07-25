@@ -25,7 +25,7 @@ Best practice:
 
     However, we recommend that you do not deploy all ECS instances in one zone. You also need to deploy a small number of ECS instances in the secondary zone, so that the secondary zone can still process requests in extreme conditions \(the primary zone is unavailable\).
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4169/15604818803122_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4169/15640681173122_en-US.png)
 
 
 ## High availability of multiple SLB instances {#section_vvj_kwv_wdb .section}
@@ -36,15 +36,15 @@ Best practice:
 
 You can deploy SLB instances and ECS instances in multiple zones of a region or in multiple regions and schedule access requests by using Alibaba Cloud DNS.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4169/15604818803121_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4169/15640681173121_en-US.png)
 
 ## High availability of backend ECS instances {#section_cnp_dzt_vdb .section}
 
 SLB checks the service availability of backend ECS instances by performing health checks. Health checks improve the overall availability of frontend services and help reduce the impact of service availability when backend servers are abnormal.
 
-When SLB discovers that an instance is unhealthy, it distributes requests to other healthy ECS instances, and only resumes distributing requests to the instance when it has restored to a healthy status. For more information, see [Health check overview](../../../../intl.en-US/User Guide/Health check/Health check overview.md#) .
+When SLB discovers that an instance is unhealthy, it distributes requests to other healthy ECS instances, and only resumes distributing requests to the instance when it has restored to a healthy status. For more information, see [Health check overview](../../../../intl.en-US/Health check/Health check overview.md#) .
 
 Best practice:
 
-You need to enable and correctly configure the health check function. For more information, see [Configure health checks](../../../../intl.en-US/User Guide/Health check/Configure health checks.md#) .
+You need to enable and correctly configure the health check function. For more information, see [Configure health checks](../../../../intl.en-US/Health check/Configure health checks.md#) .
 
