@@ -6,9 +6,9 @@
 
 该接口保证事务性，即上传的证书和私钥要么都上传成功，要么都不成功。上传成功后，返回该用户的所有服务器证书列表的Fingerprint。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=UploadServerCertificate)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=UploadServerCertificate&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
@@ -43,9 +43,11 @@
  |
 |ServerCertificateName|String|否|mycert01|要上传的服务器证书的名称。
 
+ 名称长度为 1~80 个英文或中文字符，必须以大小字母或中文开头，可包含数字，点号（.），下划线（\_）和短横线（-）。
+
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -116,21 +118,20 @@ http(s)://[Endpoint]/?Action=UploadServerCertificate
 
 ``` {#xml_return_success_demo}
 <UploadServerCertificateResponse>
-  <CommonName>*.example1.com</CommonName>
-  <RegionIdAlias>cn-hangzhou</RegionIdAlias>
-  <ResourceGroupId>rg-acfmxazb4ph6aiy</ResourceGroupId>
-  <Fingerprint>68:08:1a:f8:2c:97:69:a3:a1:e6:16:41:4b:ca:4f:5d:ee:a5:ef:0d</Fingerprint>
-  <ServerCertificateId>12315790xxxxxxxx3_166f8204689_1714763408_709981430</ServerCertificateId>
-  <ExpireTimeStamp>1558161264000</ExpireTimeStamp>
-  <AliCloudCertificateId>1501739</AliCloudCertificateId>
-  <ExpireTime>2019-05-18T06:34:24Z</ExpireTime>
-  <RegionId>cn-hangzhou</RegionId>
-  <RequestId>C87620A7-3608-48D0-BC41-A83FB4FF0EC6</RequestId>
-  <ServerCertificateName>*.example1.com</ServerCertificateName>
-  <IsAliCloudCertificate>1</IsAliCloudCertificate>
-  <AliCloudCertificateName>slb</AliCloudCertificateName>
+	  <CommonName>*.example1.com</CommonName>
+	  <RegionIdAlias>cn-hangzhou</RegionIdAlias>
+	  <ResourceGroupId>rg-acfmxazb4ph6aiy</ResourceGroupId>
+	  <Fingerprint>68:08:1a:f8:2c:97:69:a3:a1:e6:16:41:4b:ca:4f:5d:ee:a5:ef:0d</Fingerprint>
+	  <ServerCertificateId>12315790xxxxxxxx3_166f8204689_1714763408_709981430</ServerCertificateId>
+	  <ExpireTimeStamp>1558161264000</ExpireTimeStamp>
+	  <AliCloudCertificateId>1501739</AliCloudCertificateId>
+	  <ExpireTime>2019-05-18T06:34:24Z</ExpireTime>
+	  <RegionId>cn-hangzhou</RegionId>
+	  <RequestId>C87620A7-3608-48D0-BC41-A83FB4FF0EC6</RequestId>
+	  <ServerCertificateName>*.example1.com</ServerCertificateName>
+	  <IsAliCloudCertificate>1</IsAliCloudCertificate>
+	  <AliCloudCertificateName>slb</AliCloudCertificateName>
 </UploadServerCertificateResponse>
-
 ```
 
 `JSON` 格式
@@ -154,5 +155,5 @@ http(s)://[Endpoint]/?Action=UploadServerCertificate
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 
