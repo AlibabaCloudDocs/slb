@@ -10,12 +10,12 @@ An active/standby server group only contains two ECS instances. One acts as the 
 
 Before you create an active/standby server group, make sure the following conditions are met:
 
--   A Server Load Balancer \(SLB\) instance is created. For more information, see [Create an SLB instance](intl.en-US/Archives/User Guide (Old Console)/SLB instances/Create an instance.md#).
+-   A Server Load Balancer \(SLB\) instance is created. For more information, see [Create an SLB instance](reseller.en-US/Archives/User Guide (Old Console)/SLB instances/Create an instance.md#).
 -   ECS instances are created and applications are deployed on the ECS instances to process distributed requests.
 
 To create an active/standby server group, follow these steps:
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb/).
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  On the Server Load Balancer page, select the region of the target SLB instance.
 3.  Find the target SLB instance and click the instance ID.
 4.  Click the Active/Standby Server Groups tab.
@@ -34,20 +34,20 @@ To create an active/standby server group, follow these steps:
             The backend ports in an SLB instance can be the same.
 
         -   **Server**: Select a server to act as the active server.
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15671/15640486867370_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15671/15647270567370_en-US.png)
 
 
 ## Delete an active/standby server group {#section_upw_1np_42b .section}
 
 To delete an active/standby server group, follow these steps:
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb/).
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  On the Server Load Balancer page, select the region of the target SLB instance.
 3.  Click the ID of the target SLB instance.
 4.  Click the Active/Standby Server Groups tab.
 5.  Find the target active/standby server group and click **Delete** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15671/15640486877475_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15671/15647270577475_en-US.png)
 
 6.  In the displayed dialog box, click **OK**.
 
