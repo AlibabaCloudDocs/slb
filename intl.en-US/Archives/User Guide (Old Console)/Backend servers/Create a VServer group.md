@@ -2,7 +2,7 @@
 
 A virtual server group \(VServer group\) is a group of ECS instances. VServer groups allow you to manage and customize backend servers in the listener dimension. It allows listeners in a Server Load Balancer instance to use different backend servers. Then, different requests can be distributed to different backend servers.
 
--   You have [created an SLB instance](intl.en-US/User Guide/SLB instances/Create an SLB instance.md#).
+-   You have [created an SLB instance](reseller.en-US/Archives/User Guide (Old Console)/SLB instances/Create an instance.md#).
 -   You have created an ECS instance for receiving the forwarded requests.
 
 If you use a VServer group when configuring a listener, the listener distributes requests to the associated VServer group. The listener no longer distribute the requests to ECS instances in the backend server pool.
@@ -20,7 +20,7 @@ When using the VServer group, note the following limitations:
 -   One VServer group can be associated with multiple listeners.
 -   The VServer group consists of multiple ECS instances with different port numbers.
 
-1.  Log on to the [SLB console](https://slbnew.console.aliyun.com/?spm=5176.2020520102.1002.d10slb.Nu53OX#/list/cn-hangzhou). 
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb). 
 2.  On the Instances page, select a region. 
 3.  Click the ID of an SLB instance. 
 4.  In the left-side navigation pane, click **Server** \> **VServer Group**. 
@@ -31,6 +31,6 @@ When using the VServer group, note the following limitations:
 7.  In the **Available Servers**, select the ECS instances to add. The selected instances are displayed in the **Selected Servers** list.
 8.  In the **Selected Servers** list, enter the port number and weight for each added ECS instance, and then click **Confirm**. The created VServer group is displayed on the VServer Group page. You can delete or add ECS instances for the VServer group \(click **Edit**\). You can also associate this VServer Group with the instance's listeners or forwarding rules.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4124/2676_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4124/15647272982676_en-US.png)
 
 

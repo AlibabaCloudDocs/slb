@@ -1,73 +1,75 @@
-# DescribeCACertificates {#doc_api_834969 .reference}
+# DescribeCACertificates {#doc_api_Slb_DescribeCACertificates .reference}
 
-You can call the DescribeCACertificates API to query the details of CA certificates.
+Queries the list of CA certificates.
 
 **Note:** For security reasons, only the name and the fingerprint are returned instead of the certificate content and the private key.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=DescribeCACertificates) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeCACertificates) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeCACertificates|The action to perform. Valid value: **DescribeCACertificates**.
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|DescribeCACertificates| The name of this action.
+
+ Value: **DescribeCACertificates**
 
  |
-|RegionId|String|Yes|cn-hangzhou|The region to which the CA certificate belongs.
+|RegionId|String|Yes|cn-hangzhou| The region to which the CA certificate belongs.
 
- You can query the region ID by calling the [DescribeRegions](~~27584~~) API.
-
- |
-|CACertificateId|String|No|139a00604bd-cn-east-hangzhou-02|The ID of the CA certificate
+ To query the region ID, call [DescribeRegions](~~27584~~).
 
  |
-|OwnerAccount|String|No|testuser@aliyun.com|Your account
+|CACertificateId|String|No|139a00604bd-cn-east-hangzhou-02| Optional. The ID of the CA certificate.
 
  |
-|ResourceGroupId|String|No|rg-atstuj3rtoptyui|The ID of the enterprise resource group
+|OwnerAccount|String|No|testuser@aliyun.com| Optional. Your account.
+
+ |
+|ResourceGroupId|String|No|rg-atstuj3rtoptyui| Optional. The ID of the enterprise resource group.
 
  |
 
 ## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
-|CACertificates| | |The CA certificate information
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|CACertificates| | | A list of CA certificates.
 
  |
-|└CACertificateId|String|139a00604bd-cn-east-hangzhou-02|The ID of the CA certificate
+|└CACertificateId|String|139a00604bd-cn-east-hangzhou-02| The ID of the CA certificate.
 
  |
-|└CACertificateName|String|test|The name of the CA certificate
+|└CACertificateName|String|test| The name of the CA certificate.
 
  |
-|└RegionId|String|cn-hangzhou|The region to which the CA certificate belongs
+|└RegionId|String|cn-hangzhou| The region to which the CA certificate belongs.
 
  |
-|└Fingerprint|String|AC:BE:FD|The fingerprint of the CA certificate
+|└Fingerprint|String|AC:BE:FD| The fingerprint of the CA certificate.
 
  |
-|└CommonName|String|.example.com|The domain name of the CA certificate
+|└CommonName|String|.example.com| The domain name of the CA certificate.
 
  |
-|└CreateTime|String|2017-08-31T02:49:05Z|The time at which the CA certificate is created
+|└CreateTime|String|2017-08-31T02:49:05Z| The time when the CA certificate is created.
 
  |
-|└CreateTimeStamp|Long|1504147745000|The timestamp that indicates when the CA certificate is created
+|└CreateTimeStamp|Long|1504147745000| The timestamp that indicates when the CA certificate is created.
 
  |
-|└ExpireTime|String|2024-11-21T06:04:25Z|The time at which the CA certificate expires
+|└ExpireTime|String|2024-11-21T06:04:25Z| The time when the CA certificate expires.
 
  |
-|└ExpireTimeStamp|Long|1732169065000|The timestamp that indicates when the CA certificate expires
+|└ExpireTimeStamp|Long|1732169065000| The timestamp that indicates when the CA certificate expires.
 
  |
-|└ResourceGroupId|String|rg-atstuj3rtoptyui|The ID of the enterprise resource group
+|└ResourceGroupId|String|rg-atstuj3rtoptyui| The ID of the enterprise resource group.
 
  |
-|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|The ID of the request
+|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710| The ID of the request.
 
  |
 
@@ -77,14 +79,13 @@ Request example
 
 ``` {#request_demo}
 
-/? RegionId=cn-hangzhou
-&Action=DescribeCACertificates
+http(s)://[Endpoint]/? Action=DescribeCACertificates
 &RegionId=cn-hangzhou
 &<CommonParameters>
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
@@ -131,20 +132,7 @@ Normal response examples
 }
 ```
 
-Error response example
+## Error codes {#section_vnd_h5a_49a .section}
 
-`JSON` format
-
-``` {#json_return_failed_demo}
-{
-	"Message":"The specified parameter is not valid.",
-	"RequestId":"0669D684-69D8-408E-A4FA-B9011E0F4E66",
-	"HostId":"slb-pop.aliyuncs.com",
-	"Code":"InvalidParameter"
-}
-```
-
-## Error codes { .section}
-
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

@@ -4,7 +4,7 @@ This topic describes how to add an HTTP listener to a Server Load Balancer \(SLB
 
 ## Prerequisites {#section_tx3_vqn_42b .section}
 
-[Create an SLB instance](intl.en-US/Server Load Balancer instance/Create an SLB instance.md#).
+[Create an SLB instance](intl.en-US/Instance/Create an SLB instance.md#).
 
 ## Step 1 Open the listener configuration wizard {#section_wx3_5qn_42b .section}
 
@@ -16,11 +16,11 @@ To open the listener configuration wizard, follow these steps:
 4.  Select one of the following methods to open the listener configuration wizard:
     -   On the Server Load Balancer page, find the target SLB instance and then click **Configure Listener** in the **Actions** column.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156404800110004_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156454840010004_en-US.png)
 
     -   On the Server Load Balancer page, click the ID of the target SLB instance. On the Listeners page, click **Add Listener**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15640480017399_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15645484007399_en-US.png)
 
 
 ## Step 2 Configure the HTTP listener {#section_ly4_2pn_42b .section}
@@ -109,22 +109,22 @@ If you enable a blacklist without adding any IP addresses in the corresponding a
 
 2.  Click **Next**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15640480017434_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15645484007434_en-US.png)
 
 
 ## Step 3 Add backend servers {#section_ylm_3qn_42b .section}
 
-After configuring the listener, you need to add backend servers to process requests. You can use the default server group configured for the SLB instance, or configure a VServer group or an active/standby server group for the listener. For more information, see [Backend server overview](intl.en-US/User Guide/Backend servers/Backend server overview.md#).
+After configuring the listener, you need to add backend servers to process requests. You can use the default server group configured for the SLB instance, or configure a VServer group or an active/standby server group for the listener. For more information, see [Backend server overview](intl.en-US/Backend servers/Backend server overview.md#).
 
 In this topic, use the default server group.
 
 1.  Select **Default Server Group** and then click **Add More**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156404800110030_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156454840010030_en-US.png)
 
 2.  Select the ECS instances to add, and then click **Next: Set Weight and Port**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15640480017499_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15645484007499_en-US.png)
 
 3.  Configure ports and weights for the added backend servers.
     -   Port
@@ -137,13 +137,13 @@ In this topic, use the default server group.
 
         **Note:** If the weight is set to 0, no requests will be sent to the ECS instance.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15640480027504_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15645484007504_en-US.png)
 
 4.  Click **Next**.
 
 ## Step 4 Configure health checks {#section_ay4_jqn_42b .section}
 
-SLB checks the service availability of backend servers by performing health checks. The health check function improves the overall availability of your services and avoids the impact of backend server failures. Click **Modify** to change health check configurations. For more information, see [Configure health checks](intl.en-US/User Guide/Health check/Configure health checks.md#).
+SLB checks the service availability of backend servers by performing health checks. The health check function improves the overall availability of your services and avoids the impact of backend server failures. Click **Modify** to change health check configurations. For more information, see [Configure health checks](intl.en-US/Health check/Configure health checks.md#).
 
 ## Step 5 Submit the configurations {#section_ey5_lqn_42b .section}
 
@@ -157,11 +157,11 @@ After the configurations are successful, you can view the created listener on th
 
 ## Related operations {#section_pz4_2pn_42b .section}
 
--   [Configure health checks](intl.en-US/User Guide/Health check/Configure health checks.md#)
--   [Manage a default server group](intl.en-US/User Guide/Backend servers/Manage a default server group.md#)
--   [Manage a VServer group](intl.en-US/User Guide/Backend servers/Manage a VServer group.md#)
--   [Manage an active/standby server group](intl.en-US/User Guide/Backend servers/Manage an active__standby server group.md#)
--   [Configure access control](intl.en-US/User Guide/Access control/Configure access control.md#)
+-   [Configure health checks](intl.en-US/Health check/Configure health checks.md#)
+-   [Manage a default server group](intl.en-US/Backend servers/Manage a default server group.md#)
+-   [Manage a VServer group](intl.en-US/Backend servers/Manage a VServer group.md#)
+-   [Manage an active/standby server group](intl.en-US/Backend servers/Manage an active__standby server group.md#)
+-   [Configure access control](intl.en-US/Access control/Configure access control.md#)
 -   [Add domain-name based or URL-based forwarding rules](intl.en-US/Tutorials/Traffic forwarding based on domain names or URLs.md#)
 -   [Manage a domain name extension](intl.en-US/Listeners/Manage a domain name extension.md#)
 

@@ -12,13 +12,13 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DeleteAccessContr
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|DeleteAccessControlList|The name of this action. Value: **DeleteAccessControlList**
+|Action|String|Yes|DeleteAccessControlList| The name of this action. Value: **DeleteAccessControlList**
 
  |
-|AclId|String|Yes|acl-bp1l0kk4gxce43kzet04s|The ID of the access control list to be deleted.
+|AclId|String|Yes|acl-bp1l0kk4gxce43kz\*\*\*\*\*\*| The ID of the access control list to be deleted.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the access control list belongs.
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the access control list belongs.
 
  To query the region ID, call [DescribeRegions](~~27584~~).
 
@@ -28,7 +28,7 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DeleteAccessContr
 
 |Parameter|Type|Example value|Description|
 |---------|----|-------------|-----------|
-|RequestId|String|988CB45E-1643-48C0-87B4-928DDF77EA49|The ID of the request.
+|RequestId|String|988CB45E-1643-48C0-87B4-928DDF77EA49| The ID of the request.
 
  |
 
@@ -38,9 +38,9 @@ Request example
 
 ``` {#request_demo}
 
-/? Action=DeleteAccessControlList
-&AclId=acl-bp1l0kk4gxce43kzet04s 
-&RegionId=cn-hangzhou 
+http(s)://[Endpoint]/? Action=DeleteAccessControlList
+&AclId=acl-bp1l0kk4gxce43kz******
+&RegionId=cn-hangzhou
 &<CommonParameters>
 
 ```
@@ -50,9 +50,9 @@ Response examples
 `XML` format
 
 ``` {#xml_return_success_demo}
-<DeleteAccessControlListResponse> 
-  <RequestId>988CB45E-1643-48C0-87B4-928DDF77EA49</RequestId> 
-</DeleteAccessControlListResponse> 
+<DeleteAccessControlListResponse>
+  <RequestId>988CB45E-1643-48C0-87B4-928DDF77EA49</RequestId>
+</DeleteAccessControlListResponse>
 
 ```
 
@@ -64,7 +64,7 @@ Response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_pat_a9j_b9g .section}
 
-[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

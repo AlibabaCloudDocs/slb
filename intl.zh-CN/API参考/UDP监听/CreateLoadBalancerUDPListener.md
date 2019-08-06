@@ -1,31 +1,37 @@
 # CreateLoadBalancerUDPListener {#doc_api_Slb_CreateLoadBalancerUDPListener .reference}
 
-使用CreateLoadBalancerUDPListener创建UDP监听。
+调用CreateLoadBalancerUDPListener创建UDP监听。
 
 经典网络的负载均衡的UDP协议监听暂不支持查看源地址。
 
 **说明：** 新建的监听的状态为**stopped**。创建完成后，调用StartLoadBalancerListener接口启动监听来转发流量。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancerUDPListener)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancerUDPListener&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|CreateLoadBalancerUDPListener|要执行的操作。取值：**CreateLoadBalancerUDPListener**
+|Action|String|是|CreateLoadBalancerUDPListener|要执行的操作。
+
+ 取值：**CreateLoadBalancerUDPListener**。
 
  |
-|Bandwidth|Integer|是|34|监听的带宽峰值。取值：**-1|1-5120**
+|Bandwidth|Integer|是|34|监听的带宽峰值。
+
+ 取值：**-1|1-5120**。
 
  -   **-1**：对于按流量计费的公网负载均衡实例，可以将带宽峰值设置为**-1**，即不限制带宽峰值。
 
  |
-|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。取值：**1-65535**
+|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
+
+ 取值：**1-65535**。
 
  |
-|LoadBalancerId|String|是|lb-bp1ygod3yctvg1y7wezms|负载均衡实例的ID。
+|LoadBalancerId|String|是|lb-bp1ygod3yctvg1y7\*\*\*\*\*\*|负载均衡实例的ID。
 
  |
 |RegionId|String|是|cn-hangzhou|地域ID。
@@ -38,7 +44,7 @@
  |
 |AclStatus|String|否|off|是否开启访问控制功能。
 
- 取值：**on|off**（默认值）
+ 取值：**on|off**（默认值）。
 
  |
 |AclType|String|否|white|访问控制类型：
@@ -59,7 +65,9 @@
  当**AclStatus**参数的值为**on**时，该参数必选。
 
  |
-|BackendServerPort|Integer|否|80|负载均衡实例后端使用的端口，取值：**1-65535**。如果不使用服务器组（不指定VServerGroupId），则该参数必选。
+|BackendServerPort|Integer|否|80|负载均衡实例后端使用的端口，取值：**1-65535**。
+
+ 如果不使用服务器组（不指定VServerGroupId），则该参数必选。
 
  |
 |Description|String|否|test|设置监听的描述信息。
@@ -76,15 +84,15 @@
 
  如果后端ECS在指定的时间内没有正确响应，则判定为健康检查失败。
 
- 取值：**1-300**（秒）
+ 取值：**1-300**（秒）。
 
  |
 |HealthyThreshold|Integer|否|4|健康检查连续成功多少次后，将后端服务器的健康检查状态由**fail**判定为**success**。
 
- 取值：**2-10**
+ 取值：**2-10**。
 
  |
-|MasterSlaveServerGroupId|String|否|rsp-0bfucwuotx|主备服务器组ID。
+|MasterSlaveServerGroupId|String|否|rsp-0bfucwu\*\*\*\*|主备服务器组ID。
 
  **说明：** 服务器组ID和主备服务器组ID只能选择一个。
 
@@ -111,14 +119,24 @@
 -   美国（弗吉利亚）
 -   阿联酋（迪拜）
 -   华北5（呼和浩特）
+-   英国（伦敦）
+-   新加坡B、C可用区
+-   香港
+-   华北1（青岛）
+-   华北3（张家口）
+-   西南1（成都）
+-   华东（杭州）I、H可用区
+-   华北2（北京）G、H可用区
+-   华南（深圳）D、E可用区
+-   华东2（上海）F、G可用区
 
  |
 |UnhealthyThreshold|Integer|否|4|健康检查连续失败多少次后，将后端服务器的健康检查状态由**success**判定为**fail**。
 
- 取值：**2-10**
+ 取值：**2-10**。
 
  |
-|VServerGroupId|String|否|rsp-cige6j5e7p|服务器组ID。
+|VServerGroupId|String|否|rsp-cige6j\*\*\*\*8|服务器组ID。
 
  |
 |healthCheckExp|String|否|ok|UDP监听健康检查的响应串，只允许包含字母、数字字符，最大长度限制为500字符。
@@ -126,14 +144,14 @@
  |
 |healthCheckInterval|Integer|否|3|健康检查的时间间隔。
 
- 取值：**1-50**（秒）
+ 取值：**1-50**（秒）。
 
  |
 |healthCheckReq|String|否|hello|UDP监听健康检查的请求串，只允许包含字母、数字字符，最大长度限制为500字符。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -150,7 +168,7 @@
 http(s)://[Endpoint]/?Action=CreateLoadBalancerUDPListener
 &Bandwidth=34
 &ListenerPort=80
-&LoadBalancerId=lb-bp1ygod3yctvg1y7wezms
+&LoadBalancerId=lb-bp1ygod3yctvg1y7******
 &<公共请求参数>
 
 ```
@@ -161,9 +179,8 @@ http(s)://[Endpoint]/?Action=CreateLoadBalancerUDPListener
 
 ``` {#xml_return_success_demo}
 <CreateLoadBalancerUDPListenerResponse>
-  <RequestId>06F00FBB-3D9E-4CCE-9D43-1A6946A75456</RequestId>
-</CreateLoadBalancerUDPListenerResponse>
-
+		  <RequestId>06F00FBB-3D9E-4CCE-9D43-1A6946A75456</RequestId>
+	</CreateLoadBalancerUDPListenerResponse>
 ```
 
 `JSON` 格式
@@ -180,5 +197,5 @@ http(s)://[Endpoint]/?Action=CreateLoadBalancerUDPListener
 |--------|---|----|--|
 |400|Abs.VServerGroupIdAndMasterSlaveServerGroupId.MissMatch|The parameters VServerGroupId or MasterSlaveServerGroupId miss match.|参数VServerGroupId或MasterSlaveServerGroupId不匹配。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

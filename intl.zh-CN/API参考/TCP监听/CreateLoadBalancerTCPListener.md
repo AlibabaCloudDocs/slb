@@ -4,9 +4,9 @@
 
 **说明：** 新建的监听的状态为stopped。创建完成后，调用[StartLoadBalancerListener](~~27597~~)接口启动监听来转发流量。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancerTCPListener)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancerTCPListener&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
@@ -133,14 +133,35 @@
  默认值：**0**，表示关闭会话保持。
 
  |
-|Scheduler|String|否|wrr|调度算法。取值：**wrr | wlc | rr**。
+|Scheduler|String|否|wrr|调度算法。取值：
 
  -   **wrr**（默认值）：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
--   **wlc**：除了根据每台后端服务器设定的权重值来进行轮询，同时还考虑后端服务器的实际负载（即连接数）。
-
-当权重值相同时，当前连接数越小的后端服务器被轮询到的次数（概率）也越高。
-
+-   **wlc**：除了根据每台后端服务器设定的权重值来进行轮询，同时还考虑后端服务器的实际负载（即连接数）。当权重值相同时，当前连接数越小的后端服务器被轮询到的次数（概率）也越高。
 -   **rr**：按照访问顺序依次将外部请求依序分发到后端服务器。
+-   **sch**：基于源IP地址的一致性hash，相同的源地址会调度到相同的后端服务器。
+-   **tch**：基于四元组的一致性hash（源IP+目的IP+源端口+目的端口），相同的流会调度到相同的后端服务器。
+
+ 一致性哈希（CH）算法目前仅支持以下地域：
+
+ -   日本（东京）
+-   澳大利亚（悉尼）
+-   马来西亚（吉隆坡）
+-   印度尼西亚（雅加达）
+-   德国（法兰克福）
+-   美国（硅谷）
+-   美国（弗吉利亚）
+-   阿联酋（迪拜）
+-   华北5（呼和浩特）
+-   英国（伦敦）
+-   新加坡B、C可用区
+-   香港
+-   华北1（青岛）
+-   华北3（张家口）
+-   西南1（成都）
+-   华东（杭州）I、H可用区
+-   华北2（北京）G、H可用区
+-   华南（深圳）D、E可用区
+-   华东2（上海）F、G可用区
 
  |
 |UnhealthyThreshold|Integer|否|4|健康检查连续失败多少次后，将后端服务器的健康检查状态由**success**判定为**fail**。
@@ -157,7 +178,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -185,9 +206,8 @@ http(s)://[Endpoint]/?Action=CreateLoadBalancerTCPListener
 
 ``` {#xml_return_success_demo}
 <CreateLoadBalancerTCPListenerResponse>
-  <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
-</CreateLoadBalancerTCPListenerResponse>
-
+			  <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
+		</CreateLoadBalancerTCPListenerResponse>
 ```
 
 `JSON` 格式
@@ -204,5 +224,5 @@ http(s)://[Endpoint]/?Action=CreateLoadBalancerTCPListener
 |--------|---|----|--|
 |400|Abs.VServerGroupIdAndMasterSlaveServerGroupId.MissMatch|The parameters VServerGroupId or MasterSlaveServerGroupId miss match.|参数VServerGroupId或MasterSlaveServerGroupId不匹配。|
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

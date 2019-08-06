@@ -4,7 +4,7 @@ You can configure the health check function when you add a listener. Generally, 
 
 ## Configure health checks {#section_rsr_4cb_wdb .section}
 
-You can configure the health check function of a listener through the console or APIs. For more information, see [Health check overview](intl.en-US/User Guide/Health check/Health check overview.md#) and [Health check FAQ](../intl.en-US/FAQ/Health check FAQ.md#).
+You can configure the health check function of a listener through the Server Load Balancer \(SLB\) console or APIs. For more information, see [Health check overview](intl.en-US/Health check/Health check overview.md#) and [Health check FAQ](../intl.en-US/FAQ/Health check FAQ.md#).
 
 To configure the health check function, follow these steps:
 
@@ -12,7 +12,7 @@ To configure the health check function, follow these steps:
 2.  Select the region of the target SLB instance.
 3.  Find the target SLB instance and click the instance ID.
 4.  On the **Instance Details** page, click the **Listeners** tab.
-5.  Click **Add Listener**, or find the target listener and click **Configure** in the **Actions** column.
+5.  Click **Add Listener**, or find the target listener and click **Configure** in the Actions column.
 6.  On the Health Check page, configure the health check function.
 
     We recommend that you use the default values when you configure the health check function.
@@ -37,7 +37,7 @@ To configure the health check function, follow these steps:
 
  |By default, SLB sends an HTTP HEAD request to the default homepage configured on the application server through the intranet IP address of the backend ECS instance to do health checks. If you do not use the default homepage of the application server to do health checks, you must specify the URL for health checks.
 
- Some application servers verify the host field in a request. Therefore, the request header must contain the host field. If a domain name is configured in the health check function, SLB adds the domain name to the host field when forwarding the request to a backend server. If not, the health check request is denied by the server and the health check may fail. Therefore, if your application server verifies the host field in the request, you must configure a domain name to make sure the health check works.
+ Some application servers verify the host field in a request. Therefore, the request header must contain the host field. If a domain name is configured in the health check function, SLB adds the domain name to the host field when forwarding a request to the backend server. If no domain name is configured, no host field will be contained in the request, the health check request will be denied by the server, and the health check may fail. Therefore, if your application server verifies the host field in the request, you must configure a domain name to make sure the health check works.
 
  |
     |**Normal Status Code** \(HTTP health checks only\)
@@ -45,7 +45,7 @@ To configure the health check function, follow these steps:
  |Select the HTTP status code that indicates normal health checks. The default values are http\_2xx and http\_3xx.
 
  |
-    |**Health Check Port**|The detection port used by health checks to access backend ECS instances. By default, the backend port configured in the listener is used.
+    |**Health Check Port**|The detection port used by health checks to access backend servers. By default, the backend port configured in the listener is used.
 
  **Note:** If a VServer group or an active/standby server group is configured for the listener, and the ECS instances in the group use different ports, leave this parameter empty. SLB uses the backend port of each ECS instance to do health checks.
 
@@ -70,8 +70,18 @@ To configure the health check function, follow these steps:
 
  |
 
+7.  SLB supports health check diagnostics on backend servers.
+    1.  Click **Health Check Diagnostics** in the **Advanced** section.
 
-## Example of health check response timeout and health check interval {#section_krm_4gb_wdb .section}
+        **Note:** If you log on as a RAM user, you must grant permissions to the RAM user before it can use the health check diagnostics function. Click [here](http://icms.alibaba-inc.com/document/content/5266?topic=15664) to grant permissions to a RAM user.
+
+    2.  Find the target backend server, and click **Diagnose** in the **Actions** column.
+
+        To check multiple backend servers at a time, select target backend servers and click **Batch**. Up to five backend servers can be selected at the same time. If the number of backend servers is larger than five, check the backend servers in batches.
+
+    3.  Click **OK**.
+
+## Example of the health check response timeout and health check interval {#section_krm_4gb_wdb .section}
 
 Take the following health check configurations as the example:
 
@@ -84,15 +94,15 @@ Health check failure time window = Response Timeout × Unhealthy Threshold + Hea
 
 The following figure shows the process to declare an unhealthy backend server:
 
-![](../DNSLB11827830/images/2816_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4138/15645484122816_en-US.png)
 
 Health check success time window = Health check response time × Healthy Threshold + Health Check Interval × \(Healthy Threshold - 1\). That is, \(1 × 3\) + 2 × \(3 - 1\) = 7s.
 
 **Note:** Health check response time is the duration from the time when the health check request is sent to the time when the response is received. When the TCP health check is used, the time is very short and almost negligible because the health check only detects whether the port is alive. When the HTTP health check is used, the response time depends on the performance and load of the application server and is usually within seconds.
 
-The following figure shows the process to declare a healthy backend server \(Assume that it takes one second for the backend server to respond to the health check request\):
+The following figure shows the process to declare a healthy backend server \(assume that it takes one second for the backend server to respond to the health check request\):
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4138/15607641342820_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4138/15645484122820_en-US.png)
 
 ## Configure a domain name in HTTP health checks {#section_yft_fhb_wdb .section}
 

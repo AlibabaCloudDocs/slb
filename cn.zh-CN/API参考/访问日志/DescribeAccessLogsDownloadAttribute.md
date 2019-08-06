@@ -43,7 +43,7 @@ https://slb.aliyuncs.com?Action=ModifyVServerGroupBackendServers
     			<LogStore>test-log-store</LogStore>
     			<LogType>layer7</LogType>
     			<Region>cn-hangzhou</Region>
-    			<RoleArn>acs:ram::1655928604919847:role/aliyunlogwriteonlyrole</RoleArn>
+    			<RoleArn>acs:ram::16559286049xxxxxx7:role/aliyunlogwriteonlyrole</RoleArn>
     		</LogsDownloadAttribute>
     	</LogsDownloadAttributes>
     	<PageNumber>1</PageNumber>
@@ -66,7 +66,7 @@ https://slb.aliyuncs.com?Action=ModifyVServerGroupBackendServers
     "LogStore": "test-log-store",
     "LogType": "layer7",
     "Region": "cn-hangzhou",
-    "RoleArn": "acs:ram::1655928604919847:role/aliyunlogwriteonlyrole"
+    "RoleArn": "acs:ram::165592860491xxxx7:role/aliyunlogwriteonlyrole"
     }
     ]
     },

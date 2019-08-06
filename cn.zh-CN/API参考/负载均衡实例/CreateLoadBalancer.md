@@ -9,7 +9,7 @@
 
 ## 调试 {#api_explorer .section}
 
- [您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancer&type=RPC&version=2014-05-15) 
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancer&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
@@ -63,8 +63,7 @@
  |
 |InternetChargeType|String|否|paybytraffic|公网类型实例的付费方式。取值：
 
- -   paybybandwidth：按带宽计费。
--   paybytraffic：按流量计费（默认值）。
+ -   paybytraffic：按流量计费（默认值）。
 
  |
 |LoadBalancerName|String|否|abc|负载均衡实例的名称。
@@ -98,7 +97,6 @@
 |PayType|String|否|PayOnDemand|实例的计费类型，取值：
 
  -   **PayOnDemand**：按量付费。
--   **PrePay**：预付费。
 
  |
 |PricingCycle|String|否|month|预付费公网实例的计费周期，取值：**month|year**
@@ -206,5 +204,5 @@ http(s)://[Endpoint]/?Action=CreateLoadBalancer
 
 ## 错误码 { .section}
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Slb)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

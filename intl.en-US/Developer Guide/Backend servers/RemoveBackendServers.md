@@ -1,32 +1,31 @@
-# RemoveBackendServers {#doc_api_874453 .reference}
+# RemoveBackendServers {#doc_api_Slb_RemoveBackendServers .reference}
 
 Removes backend servers.
 
-**Note:** If the ECS instance to be removed does not exist in the specified backend server group, the action is ignored and no error is returned.
+**Note:** If the backend server to be removed does not exist in the specified backend server group, the action is ignored and no error will be returned.
 
 ## Debug {#apiExplorer .section}
 
-We recommend that you use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) to call APIs, generate SDK code examples, perform debug operations, and search for APIs.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=RemoveBackendServers) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|RemoveBackendServers|The name of this action. Value: **RemoveBackendServers**
+|Action|String|Yes|RemoveBackendServers| The name of this action.
+
+ Value: **RemoveBackendServers**
 
  |
-|BackendServers|String|Yes|\[\{"ServerId":"i-2zej4lxhjoq1icue6kup","Weight":"100"\},\{"ServerId":"i-2ze1u9ywulp5pbvvc7hv","Weight":"100"\}\]|The backend servers to be removed.
+|BackendServers|String|Yes|\[\{"ServerId":"i-2zej4lxhjoq1icue6kup","Weight":"100"\},\{"ServerId":"i-2ze1u9ywulp5pbvvc7hv","Weight":"100"\}\]| The backend servers to be removed.
 
  **Note:** Up to 20 backend servers can be removed at a time.
 
  |
-|LoadBalancerId|String|Yes|lb-bp1qjwo61pqz3ahltv0mw|The ID of the SLB instance.
+|LoadBalancerId|String|Yes|lb-bp1qjwo61pqz3ahl\*\*\*\*\*| The ID of the SLB instance.
 
  |
-|RegionId|String|Yes|cn-east-hangzhou-01|The ID of the region to which the SLB instance belongs.
-
- |
-|OwnerAccount|String|No|OwnerAccount|Optional. The ID of the account.
+|RegionId|String|Yes|cn-east-hangzhou-01| The ID of the region to which the SLB instance belongs.
 
  |
 
@@ -34,28 +33,28 @@ We recommend that you use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb
 
 |Parameter|Type|Example value|Description|
 |---------|----|-------------|-----------|
-|LoadBalancerId|String|139a00604ad-cn-east-hangzhou-01|The ID of the SLB instance.
+|LoadBalancerId|String|139a00604ad-cn-east-hangzhou-01| The ID of the SLB instance.
 
  |
-|BackendServers|N/A|N/A|A list of backend servers.
+|BackendServers| | | A list of backend servers.
 
  |
-|└Description|String|Backend servers|A description of the backend server group.
+|└Description|String|Backend server| A description of the backend server group.
 
  |
-|└ServerId|String|vm-232|The alias of the backend server ID. Value: the ECS instance ID.
+|└ServerId|String|vm-232| The backend server name ID, which is the ECS instance ID.
 
  |
-|└Type|String|ecs|The backend server type. Valid values:
+|└Type|String|ecs| The backend server type. Valid values:
 
  -   **ecs**: ECS instance \(default\)
 -   **eni**: Elastic Network Interface \(ENI\)
 
  |
-|└Weight|Integer|100|The weight of the backend server. Value range: 0 to 100.
+|└Weight|Integer|100| The weight of the backend server. Value range:**0 to 100**
 
  |
-|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|The ID of the request.
+|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710| The ID of the request.
 
  |
 
@@ -65,9 +64,9 @@ Request example
 
 ``` {#request_demo}
 
-/? Action=RemoveBackendServers
-&BackendServers=["vm-233","vm-234"]
-&LoadBalancerId=139a00604ad-cn-east-hangzhou-01
+http(s)://[Endpoint]/? Action=RemoveBackendServers
+&BackendServers=[{"ServerId":"i-2zej4lxhjoq1icue6kup","Weight":"100"},{"ServerId":"i-2ze1u9ywulp5pbvvc7hv","Weight":"100"}]
+&LoadBalancerId=lb-bp1qjwo61pqz3ahl*****
 &<CommonParameters>
 
 ```
@@ -115,7 +114,7 @@ Response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_9j9_8tu_sgl .section}
 
-[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

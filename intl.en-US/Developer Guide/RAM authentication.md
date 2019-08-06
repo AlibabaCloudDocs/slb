@@ -1,10 +1,10 @@
 # RAM authentication {#concept_slb_rjf_cz .concept}
 
-Before you call SLB APIs using a RAM user, the account must grant the RAM user the corresponding permission by creating an authentication policy. An Alibaba Cloud Resource Name \(ARN\) is used as a unique description of a resource in the authorization rule. The following table lists the ARNs of SLB APIs.
+Before you call Server Load Balancer \(SLB\) APIs as a RAM user, you must grant the RAM user corresponding permissions by using your Alibaba Cloud account. Specifically, you need to create an authorization policy and attach the policy to the RAM user. In the policy, you need to use an Alibaba Cloud Resource Name \(ARN\) to specify the resource that you want the RAM user to access. The following table lists the ARNs of SLB resources.
 
 ## SLB resources {#section_vj2_fyf_cz .section}
 
-The following table lists SLB resources that can be authorized and the corresponding ARN formats.
+The following table lists the SLB resources that can be authorized and the corresponding ARNs.
 
 |Resource|ARN|
 |--------|---|
@@ -17,14 +17,14 @@ The following table lists SLB resources that can be authorized and the correspon
 |ACL|acs:slb:$regionid:$accountid:acl/\*|
 |acs:slb:$regionid:$accountid:acl/$aclid|
 
-`$regionid/accoutid/servercertificateId` is the specific resource ID, and `*` represents all corresponding resources.
+`$regionid/accoutid/servercertificateId` is the resource ID, and `*` indicates all corresponding resources.
 
 ## SLB APIs {#section_ytz_qyf_cz .section}
 
-The following table lists SLB APIs that can be authorized and the corresponding ARN formats.
+The following table lists SLB APIs that can be authorized and the corresponding ARNs.
 
-|API|ARN format|
-|---|----------|
+|API|ARN|
+|---|---|
 |CreateLoadBalancer|acs:slb:$regionid:$accountid:loadbalancer/\*|
 |ModifyLoadBalancerInternetSpec|acs:slb:$regionid:$accountid:loadbalancer/$loadbalancerid|
 |DeleteLoadBalancer|acs:slb:$regionid:$accountid:loadbalancer/$loadbalancerid|
@@ -33,7 +33,7 @@ The following table lists SLB APIs that can be authorized and the corresponding 
 |DescribeLoadBalancers|acs:slb:$regionid:$accountid:loadbalancer/\*|
 |DescribeLoadBalancerAttribute|acs:slb:$regionid:$accountid:loadbalancer/$loadbalancerid|
 |DescribeRegions|acs:slb:\*:$accountid:\*|
-|UploadServerCertificate|ACS: SLB: % s: Certificate /\*|
+|UploadServerCertificate|acs:slb:%s:%s:certificate/\*|
 |DeleteServerCertificate|acs:slb:%s:%s:certificate/%|
 |DescribeServerCertificate|acs:slb:%s:%s:certificate/%|
 |SetServerCertificateName|acs:slb:%s:%s:certificate/%|

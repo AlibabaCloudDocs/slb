@@ -1,21 +1,23 @@
 # SetLoadBalancerHTTPListenerAttribute {#doc_api_Slb_SetLoadBalancerHTTPListenerAttribute .reference}
 
-使用SetLoadBalancerHTTPListenerAttribute修改HTTP监听的配置。
+调用SetLoadBalancerHTTPListenerAttribute修改HTTP监听的配置。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=SetLoadBalancerHTTPListenerAttribute)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=SetLoadBalancerHTTPListenerAttribute&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|SetLoadBalancerHTTPListenerAttribute|要执行的操作。取值：**SetLoadBalancerHTTPListenerAttribute**
+|Action|String|是|SetLoadBalancerHTTPListenerAttribute|要执行的操作。
+
+ 取值：**SetLoadBalancerHTTPListenerAttribute**。
 
  |
 |ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
 
- 取值：**1-65535**
+ 取值：**1-65535**。
 
  |
 |LoadBalancerId|String|是|lb-bp1qjwo61pqz3ahltv0mw|负载均衡实例的ID。
@@ -33,7 +35,7 @@
  |
 |AclStatus|String|否|off|是否开启访问控制功能。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |AclType|String|否|white|访问控制类型：
@@ -54,7 +56,7 @@
  当**AclStatus**参数的值为**on**时，该参数必选。
 
  |
-|Bandwidth|Integer|否|-1|监听的带宽峰值。取值：**-1 | 1-5120**
+|Bandwidth|Integer|否|-1|监听的带宽峰值。取值：**-1 | 1-5120**。
 
  -   **-1**：对于按流量计费的公网负载均衡实例，可以将带宽峰值设置为**-1**，即不限制带宽峰值。
 
@@ -86,7 +88,7 @@
  |
 |HealthCheckConnectPort|Integer|否|8080|健康检查使用的端口。
 
- 取值：**1-65535**
+ 取值：**1-65535**。
 
  |
 |HealthCheckDomain|String|否|$\_ip|用于健康检查的域名，取值：
@@ -97,15 +99,17 @@
  |
 |HealthCheckHttpCode|String|否|http\_2xx,http\_3xx|健康检查正常的HTTP状态码，多个状态码用逗号（,）分割。
 
- 取值：**http\_2xx|http\_3xx |http\_4xx|http\_5xx**
+ 取值：**http\_2xx|http\_3xx |http\_4xx|http\_5xx**。
 
  |
-|HealthCheckInterval|Integer|否|5|健康检查的时间间隔。取值：**1-50**（秒）
+|HealthCheckInterval|Integer|否|5|健康检查的时间间隔。
+
+ 取值：**1-50**（秒）。
 
  |
 |HealthCheckTimeout|Integer|否|3|接收来自运行状况检查的响应需要等待的时间。如果后端ECS在指定的时间内没有正确响应，则判定为健康检查失败。
 
- 取值：**1-300**（秒）
+ 取值：**1-300**（秒）。
 
  **说明：** 如果**HealthCHeckTimeout**的值小于**HealthCheckInterval**的值，则**HealthCHeckTimeout**无效，超时时间为**HealthCheckInterval**的值。
 
@@ -115,7 +119,7 @@
  |
 |HealthyThreshold|Integer|否|4|健康检查连续成功多少次后，将后端服务器的健康检查状态由**fail**判定为**success**。
 
- 取值：**2-10**
+ 取值：**2-10**。
 
  |
 |IdleTimeout|Integer|否|12|指定连接空闲超时时间，取值范围为1-60秒，默认值为15秒。
@@ -138,7 +142,9 @@
 -   **rr**：按照访问顺序依次将外部请求依序分发到后端服务器。
 
  |
-|StickySession|String|否|on|是否开启会话保持。取值：**on|off**
+|StickySession|String|否|on|是否开启会话保持。
+
+ 取值：**on|off**。
 
  |
 |StickySessionType|String|否|on|cookie的处理方式。取值：
@@ -157,12 +163,12 @@
  |
 |UnhealthyThreshold|Integer|否|4|健康检查连续失败多少次后，将后端服务器的健康检查状态由**success**判定为**fail**。
 
- 取值：**2-10**
+ 取值：**2-10**。
 
  |
 |VServerGroup|String|否|on|是否使用虚拟服务器组。
 
- 取值：**on|off**
+ 取值：**on|off**。
 
  |
 |VServerGroupId|String|否|rsp-cige6j5e7p|服务器组ID。
@@ -170,32 +176,32 @@
  |
 |XForwardedFor|String|否|on|是否通过**X-Forwarded-For**获取客户端请求的真实IP。
 
- 取值：**on（默认值）| off**
+ 取值：**on（默认值）| off**。
 
  |
 |XForwardedFor\_SLBID|String|否|on|是否通过`SLB-ID`头字段获取负载均衡实例ID。
 
- 取值：**on | off**（默认值）
+ 取值：**on | off**（默认值）。
 
  该参数如果不设置，则配置为默认值。
 
  |
 |XForwardedFor\_SLBIP|String|否|on|是否通过`SLB-IP`头字段获取客户端请求的真实IP。
 
- 取值：**on | off**（默认值）
+ 取值：**on | off**（默认值）。
 
  **说明：** 该参数如果不设置，则配置为默认值。
 
  |
 |XForwardedFor\_proto|String|否|on|是否通过`X-Forwarded-Proto`头字段获取负载均衡实例的监听协议。
 
- 取值：**on | off**（默认值）
+ 取值：**on | off**（默认值）。
 
  该参数如果不设置，则配置为默认值。
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -222,9 +228,8 @@ http(s)://[Endpoint]/?Action=SetLoadBalancerHTTPListenerAttribute
 
 ``` {#xml_return_success_demo}
 <SetLoadBalancerHTTPListenerAttributeResponse>
-  <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
-</SetLoadBalancerHTTPListenerAttributeResponse>
-
+			  <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
+		</SetLoadBalancerHTTPListenerAttributeResponse>
 ```
 
 `JSON` 格式
@@ -237,5 +242,5 @@ http(s)://[Endpoint]/?Action=SetLoadBalancerHTTPListenerAttribute
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

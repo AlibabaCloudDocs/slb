@@ -2,8 +2,6 @@
 
 Starts a listener.
 
-Starts a listener.
-
 Before you call this API, note the following:
 
 -   The API can be called only when the listener is in the stopped state.
@@ -18,18 +16,22 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=StartLoadBalancer
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|StartLoadBalancerListener|The name of this action. Value: **StartLoadBalancerListener**
+|Action|String|Yes|StartLoadBalancerListener| The name of this action.
+
+ Value: **StartLoadBalancerListener**
 
  |
-|ListenerPort|Integer|Yes|80|The frontend port used by the SLB instance. Value range: 1 to 65535
+|ListenerPort|Integer|Yes|80| The frontend port used by the SLB instance.
+
+ Value range:**1 to 65535**
 
  |
-|LoadBalancerId|String|Yes|lb-bp13jaf5qli5xmgl1miup|The ID of the SLB instance.
+|LoadBalancerId|String|Yes|lb-bp13jaf5qli5xmgl1miup| The ID of the SLB instance.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The region to which the SLB instance belongs.
+|RegionId|String|Yes|cn-hangzhou| The region ID the SLB instance.
 
- To query the region ID, call [DescribeRegions](~~27584~~).
+ You can query the region ID by calling [DescribeRegions](~~27584~~).
 
  |
 
@@ -37,7 +39,7 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=StartLoadBalancer
 
 |Parameter|Type|Example value|Description|
 |---------|----|-------------|-----------|
-|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984|The ID of the request.
+|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984| The ID of the request.
 
  |
 
@@ -47,9 +49,9 @@ Request example
 
 ``` {#request_demo}
 
-/? Action=StartLoadBalancerListener
-&ListenerPort=80 
-&LoadBalancerId=139a00604ad-cn-east-hangzhou-01 
+http(s)://[Endpoint]/? Action=StartLoadBalancerListener
+&ListenerPort=80
+&LoadBalancerId=lb-bp13jaf5qli5xmgl1miup
 &<CommonParameters>
 
 ```
@@ -59,9 +61,9 @@ Response examples
 `XML` format
 
 ``` {#xml_return_success_demo}
-<StartLoadBalancerListenerResponse> 
-  <RequestId>CC000321-00F2-49B8-9BCA-60D822414960</RequestId> 
-</StartLoadBalancerListenerResponse> 
+<StartLoadBalancerListenerResponse>
+  <RequestId>CC000321-00F2-49B8-9BCA-60D822414960</RequestId>
+</StartLoadBalancerListenerResponse>
 
 ```
 
@@ -73,7 +75,7 @@ Response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_6ml_f2b_10v .section}
 
-[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

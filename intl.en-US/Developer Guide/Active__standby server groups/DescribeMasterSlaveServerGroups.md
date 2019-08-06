@@ -1,16 +1,18 @@
-# DescribeMasterSlaveServerGroups {#doc_api_835008 .reference}
+# DescribeMasterSlaveServerGroups {#doc_api_Slb_DescribeMasterSlaveServerGroups .reference}
 
 Queries the created active/standby server groups.
 
 ## Debug {#apiExplorer .section}
 
-We recommend that you use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) to call APIs, generate SDK code examples, perform debug operations, and search for APIs.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeMasterSlaveServerGroups) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeMasterSlaveServerGroups| The name of this action. Value: **DescribeMasterSlaveServerGroups**
+|Action|String|Yes|DescribeMasterSlaveServerGroups| The name of this action.
+
+ Value: **DescribeMasterSlaveServerGroups**
 
  |
 |LoadBalancerId|String|Yes|lb-bp14zi0n66zpg6ohffzaa| The ID of the SLB instance.
@@ -23,10 +25,10 @@ We recommend that you use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb
 
  |
 
-## Response elements {#resultMapping .section}
+## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
 |MasterSlaveServerGroups| | | A list of active/standby server groups.
 
  |
@@ -36,7 +38,7 @@ We recommend that you use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb
 |└MasterSlaveServerGroupName|String|Group3| The name of the active/standby server group.
 
  |
-|└AssociatedObjects| | | Associated information.
+|└AssociatedObjects| | | The resources associated with the active/standby server group.
 
  |
 |└Listeners| | | A list of associated listeners.
@@ -58,11 +60,9 @@ Request example
 
 ``` {#request_demo}
 
-/?LoadBalancerId=lb-bp14zi0n66zpg6ohffzaa
+http(s)://[Endpoint]/? Action=DescribeMasterSlaveServerGroups
+&LoadBalancerId=lb-bp14zi0n66zpg6ohffzaa
 &RegionId=cn-hangzhou
-&Action=DescribeMasterSlaveServerGroups
-&IncludeListener=
-&Tags={"tagKey":"Key1","tagValue":"Value1"}
 &<CommonParameters>
 
 ```
@@ -93,7 +93,7 @@ Response examples
 		"MasterSlaveServerGroup":[
 			{
 				"MasterSlaveServerGroupId":"rsp-bp1nlyu1366z7",
-				"MasterSlaveServerGroupName":"Group3",
+				"MasterSlaveServerGroupName":"Group1",
 				"AssociatedObjects":{
 					"Listeners":{
 						"Listener":[]
@@ -105,7 +105,7 @@ Response examples
 }
 ```
 
-## Errors { .section}
+## Error codes {#section_xjy_556_9dm .section}
 
-[See common errors.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

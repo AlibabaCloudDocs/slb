@@ -14,34 +14,34 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=CreateLoadBalance
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|CreateLoadBalancerUDPListener|The name of this action. Value:**CreateLoadBalancerUDPListener**
+|Action|String|Yes|CreateLoadBalancerUDPListener| The name of this action. Value:**CreateLoadBalancerUDPListener**
 
  |
-|Bandwidth|Integer|Yes|34|The peak bandwidth of the listener to be created. Valid values:**-1 | 1 to 5120**.
+|Bandwidth|Integer|Yes|34| The peak bandwidth of the listener to be created. Valid values:**-1 | 1 to 5120**.
 
  -   **-1**: Setting the peak bandwidth to **-1** for an Internet instance that is billed by traffic results in unlimited bandwidth.
 
  |
-|ListenerPort|Integer|Yes|80|The frontend port configured in the SLB instance. Value range: **1 to 65535**
+|ListenerPort|Integer|Yes|80| The frontend port configured in the SLB instance. Value range: **1 to 65535**
 
  |
-|LoadBalancerId|String|Yes|lb-bp1ygod3yctvg1y7wezms|The ID of the SLB instance.
+|LoadBalancerId|String|Yes|lb-bp1ygod3yctvg1y7wezms| The ID of the SLB instance.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The region ID of the SLB instance.
+|RegionId|String|Yes|cn-hangzhou| The region ID of the SLB instance.
 
  |
-|AclId|String|No|123|Optional. The ID of the access control list associated with the listener to be created.
+|AclId|String|No|123| Optional. The ID of the access control list associated with the listener to be created.
 
  If the value of the **AclStatus** parameter is **on**, this parameter is required.
 
  |
-|AclStatus|String|No|off|Optional. Indicates whether to enable access control.
+|AclStatus|String|No|off| Optional. Indicates whether to enable access control.
 
  Valid values: **on | off**. Default value: off
 
  |
-|AclType|String|No|white|Optional. The access control type:
+|AclType|String|No|white| Optional. The access control type:
 
  -   **white**: Indicates a whitelist. Only requests from IP addresses or CIDR blocks in the selected access control lists are forwarded. This applies to scenarios in which an application only allows access from specific IP addresses.
 
@@ -59,37 +59,37 @@ If you enable a blacklist without adding any IP addresses in the list, all reque
  If the value of the **AclStatus** parameter is **on**, this parameter is required.
 
  |
-|BackendServerPort|Integer|No|80|Optional. The backend port used by the SLB instance. Value range:**1 to 65535**. If the VServerGroupId parameter is not specified, this parameter is required.
+|BackendServerPort|Integer|No|80| Optional. The backend port used by the SLB instance. Value range:**1 to 65535**. If the VServerGroupId parameter is not specified, this parameter is required.
 
  |
-|Description|String|No|test|Optional. The description of the listener to be created.
+|Description|String|No|test| Optional. The description of the listener to be created.
 
  The description must be 1 to 80 characters in length. It can contain letters, numbers, hyphens \(-\), slashes \(/\), periods \(.\), and underscores \(\_\). Chinese characters are supported.
 
  |
-|HealthCheckConnectPort|Integer|No|80|Optional. The port used for health checks. Value range: **1 to 65535**
+|HealthCheckConnectPort|Integer|No|80| Optional. The port used for health checks. Value range: **1 to 65535**
 
  If you do not set this parameter, the backend service port \(**BackendServerPort**\) is used.
 
  |
-|HealthCheckConnectTimeout|Integer|No|100|Optional. The length of time to wait for the response from the health check.
+|HealthCheckConnectTimeout|Integer|No|100| Optional. The length of time to wait for the response from the health check.
 
  If the backend ECS instance does not send a correct response within the specified time, the health check fails.
 
  Value range:**1 to 300**. Unit: seconds
 
  |
-|HealthyThreshold|Integer|No|4|Optional. The number of consecutive successes of health checks before a backend server is declared as healthy \(that is, changes from**failure** to **success** state\).
+|HealthyThreshold|Integer|No|4| Optional. The number of consecutive successes of health checks before a backend server is declared as healthy \(that is, changes from**failure** to **success** state\).
 
  Value range:**2 to 10**
 
  |
-|MasterSlaveServerGroupId|String|No|rsp-0bfucwuotx|The ID of the active/standby server group.
+|MasterSlaveServerGroupId|String|No|rsp-0bfucwuotx| The ID of the active/standby server group.
 
  **Note:** You cannot set both the VServerGroupId parameter and the MasterSlaveServerGroupId parameter at the same time.
 
  |
-|Scheduler|String|No|wrr|Optional. The algorithm used to distribute traffic. Valid values:
+|Scheduler|String|No|wrr| Optional. The algorithm used to distribute traffic. Valid values:
 
  -   **wrr** \(default\): Backend servers with higher weights receive more requests than those with smaller weights.
 -   **wlc**: A server with a higher weight will receive more requests. When the weight value is the same, the backend server with a smaller number of connections is more likely to be polled.
@@ -113,23 +113,23 @@ If you enable a blacklist without adding any IP addresses in the list, all reque
 -   China \(Hohhot\)
 
  |
-|UnhealthyThreshold|Integer|No|4|Optional. The number of consecutive failures of health checks before a backend server is declared as unhealthy \(that is, changes from**success** to **failure** state\).
+|UnhealthyThreshold|Integer|No|4| Optional. The number of consecutive failures of health checks before a backend server is declared as unhealthy \(that is, changes from**success** to **failure** state\).
 
  Value range: **2 to 10**
 
  |
-|VServerGroupId|String|No|rsp-cige6j5e7p|Optional. The ID of the VServer group.
+|VServerGroupId|String|No|rsp-cige6j5e7p| Optional. The ID of the VServer group.
 
  |
-|healthCheckExp|String|No|ok|Optional. The health check response string of the UDP listener. The string must be 1 to 500 characters in length and can contain letters and numbers only.
+|healthCheckExp|String|No|ok| Optional. The health check response string of the UDP listener. The string must be 1 to 500 characters in length and can contain letters and numbers only.
 
  |
-|healthCheckInterval|Integer|No|3|Optional. The time interval between two consecutive health checks.
+|healthCheckInterval|Integer|No|3| Optional. The time interval between two consecutive health checks.
 
- Value range: **1 to 50**. Unit: seconds.
+ Value range:**1 to 50**. Unit: seconds.
 
  |
-|healthCheckReq|String|No|hello|Optional. The request string for UDP listener health checks. It must be 1 to 500 characters in length and can only contain letters and numbers.
+|healthCheckReq|String|No|hello| Optional. The request string for UDP listener health checks. It must be 1 to 500 characters in length and can only contain letters and numbers.
 
  |
 
@@ -137,7 +137,7 @@ If you enable a blacklist without adding any IP addresses in the list, all reque
 
 |Parameter|Type|Example value|Description|
 |---------|----|-------------|-----------|
-|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984|The ID of the request.
+|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984| The ID of the request.
 
  |
 
@@ -174,11 +174,11 @@ Response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_tcc_rdu_51e .section}
 
 |HTTP status code|Error code|Error message|Description|
 |----------------|----------|-------------|-----------|
 |400|Abs.VServerGroupIdAndMasterSlaveServerGroupId.MissMatch|The parameters VServerGroupId or MasterSlaveServerGroupId miss match.|VServerGroupId and MasterSlaveServerGroupId do not match.|
 
-[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb?spm=a2c69.11428812.home.38.5972hYtYhYtYON)
 

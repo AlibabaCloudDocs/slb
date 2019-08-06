@@ -2,9 +2,9 @@
 
 调用DescribeAccessControlLists查询已创建的访问控制策略组。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeAccessControlLists)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=DescribeAccessControlLists&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
@@ -37,20 +37,20 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |Acls| | |查询到的访问控制策略组列表。
 
  |
-|└AclId|String|acl-bp1l0kk4gxce43kzet04s|访问控制策略组ID。
+|AclId|String|acl-bp1l0kk4gxce43kzet04s|访问控制策略组ID。
 
  |
-|└AclName|String|rule1|访问控制策略组名称。
+|AclName|String|rule1|访问控制策略组名称。
 
  |
-|└AddressIPVersion|String|ipv4|关联的负载均衡实例的IP地址类型。
+|AddressIPVersion|String|ipv4|关联的负载均衡实例的IP地址类型。
 
  |
 |RequestId|String|B646EF-6147-4566|请求ID。
@@ -75,21 +75,20 @@
 
 ``` {#xml_return_success_demo}
 <DescribeAccessControlListsResponse>
-  <RequestId>3CB646EF-6147-4566-A9D9-CE8FBE86F971</RequestId>
-  <Acls>
-    <Acl>
-      <AclId>acl-bp1j9vn2g7wm9wn0xassu</AclId>
-      <AclName>test</AclName>
-      <AddressIPVersion>ipv4</AddressIPVersion>
-    </Acl>
-    <Acl>
-      <AclId>acl-bp1l0kk4gxce43kzet04s</AclId>
-      <AclName>doctest</AclName>
-      <AddressIPVersion>ipv4</AddressIPVersion>
-    </Acl>
-  </Acls>
+	  <RequestId>3CB646EF-6147-4566-A9D9-CE8FBE86F971</RequestId>
+	  <Acls>
+		    <Acl>
+			      <AclId>acl-bp1j9vn2g7wm9wn0xassu</AclId>
+			      <AclName>test</AclName>
+			      <AddressIPVersion>ipv4</AddressIPVersion>
+		    </Acl>
+		    <Acl>
+			      <AclId>acl-bp1l0kk4gxce43kzet04s</AclId>
+			      <AclName>doctest</AclName>
+			      <AddressIPVersion>ipv4</AddressIPVersion>
+		    </Acl>
+	  </Acls>
 </DescribeAccessControlListsResponse>
-
 ```
 
 `JSON` 格式
@@ -116,5 +115,5 @@
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

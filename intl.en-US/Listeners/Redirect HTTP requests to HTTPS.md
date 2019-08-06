@@ -15,7 +15,7 @@ The redirection function is supported only by the new version SLB console.
 
     The target listener can be an HTTPS listener with any port in the SLB instance.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64564/156404803832571_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64564/156454843832571_en-US.png)
 
 7.  Click **Next**.
 8.  Check the configurations and click **Submit**.
@@ -23,6 +23,6 @@ The redirection function is supported only by the new version SLB console.
 
     After the redirection function is enabled, all HTTP requests will be redirected to the selected HTTPS listener and distributed according to the listener configurations of the HTTPS listener.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64564/156404803832572_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64564/156454843832572_en-US.png)
 
 

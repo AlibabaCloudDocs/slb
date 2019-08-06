@@ -2,9 +2,9 @@
 
 调用DescribeRegions查询可用地域。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeRegions)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=DescribeRegions&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
@@ -63,106 +63,105 @@ http(s)://[Endpoint]/?Action=DescribeRegions
 
 ``` {#xml_return_success_demo}
 <DescribeRegionsResponse>
-  <RequestId>3CCA93B7-9590-42D6-8118-9CE3383558A9</RequestId>
-  <Regions>
-    <Region>
-      <RegionId>ap-southeast-1</RegionId>
-      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
-      <LocalName>新加坡</LocalName>
-    </Region>
-    <Region>
-      <RegionId>eu-central-1</RegionId>
-      <RegionEndpoint>slb.eu-central-1.aliyuncs.com</RegionEndpoint>
-      <LocalName>德国（法兰克福）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>ap-southeast-5</RegionId>
-      <RegionEndpoint>slb.ap-southeast-5.aliyuncs.com</RegionEndpoint>
-      <LocalName>印度尼西亚（雅加达）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>cn-qingdao</RegionId>
-      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
-      <LocalName>华北1（青岛）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>us-east-1</RegionId>
-      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
-      <LocalName>美国（弗吉尼亚）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>ap-south-1</RegionId>
-      <RegionEndpoint>slb.ap-south-1.aliyuncs.com</RegionEndpoint>
-      <LocalName>印度（孟买）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>cn-beijing</RegionId>
-      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
-      <LocalName>华北2（北京）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>cn-shanghai</RegionId>
-      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
-      <LocalName>华东2（上海）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>ap-northeast-1</RegionId>
-      <RegionEndpoint>slb.ap-northeast-1.aliyuncs.com</RegionEndpoint>
-      <LocalName>日本（东京）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>cn-huhehaote</RegionId>
-      <RegionEndpoint>slb.cn-huhehaote.aliyuncs.com</RegionEndpoint>
-      <LocalName>华北5（呼和浩特）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>cn-shenzhen</RegionId>
-      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
-      <LocalName>华南1（深圳）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>ap-southeast-2</RegionId>
-      <RegionEndpoint>slb.ap-southeast-2.aliyuncs.com</RegionEndpoint>
-      <LocalName>澳大利亚（悉尼）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>cn-hongkong</RegionId>
-      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
-      <LocalName>香港</LocalName>
-    </Region>
-    <Region>
-      <RegionId>us-west-1</RegionId>
-      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
-      <LocalName>美国（硅谷）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>eu-west-1</RegionId>
-      <RegionEndpoint>slb.eu-west-1.aliyuncs.com</RegionEndpoint>
-      <LocalName>英国（伦敦）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>me-east-1</RegionId>
-      <RegionEndpoint>slb.me-east-1.aliyuncs.com</RegionEndpoint>
-      <LocalName>阿联酋（迪拜）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>cn-zhangjiakou</RegionId>
-      <RegionEndpoint>slb.cn-zhangjiakou.aliyuncs.com</RegionEndpoint>
-      <LocalName>华北3（张家口）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>cn-hangzhou</RegionId>
-      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
-      <LocalName>华东1（杭州）</LocalName>
-    </Region>
-    <Region>
-      <RegionId>ap-southeast-3</RegionId>
-      <RegionEndpoint>slb.ap-southeast-3.aliyuncs.com</RegionEndpoint>
-      <LocalName>马来西亚（吉隆坡）</LocalName>
-    </Region>
-  </Regions>
-</DescribeRegionsResponse>
-
+		  <RequestId>3CCA93B7-9590-42D6-8118-9CE3383558A9</RequestId>
+	  <Regions>
+		    <Region>
+			      <RegionId>ap-southeast-1</RegionId>
+			      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
+			      <LocalName>新加坡</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>eu-central-1</RegionId>
+			      <RegionEndpoint>slb.eu-central-1.aliyuncs.com</RegionEndpoint>
+			      <LocalName>德国（法兰克福）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>ap-southeast-5</RegionId>
+			      <RegionEndpoint>slb.ap-southeast-5.aliyuncs.com</RegionEndpoint>
+			      <LocalName>印度尼西亚（雅加达）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>cn-qingdao</RegionId>
+			      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
+			      <LocalName>华北1（青岛）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>us-east-1</RegionId>
+			      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
+			      <LocalName>美国（弗吉尼亚）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>ap-south-1</RegionId>
+			      <RegionEndpoint>slb.ap-south-1.aliyuncs.com</RegionEndpoint>
+			      <LocalName>印度（孟买）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>cn-beijing</RegionId>
+			      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
+			      <LocalName>华北2（北京）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>cn-shanghai</RegionId>
+			      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
+			      <LocalName>华东2（上海）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>ap-northeast-1</RegionId>
+			      <RegionEndpoint>slb.ap-northeast-1.aliyuncs.com</RegionEndpoint>
+			      <LocalName>日本（东京）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>cn-huhehaote</RegionId>
+			      <RegionEndpoint>slb.cn-huhehaote.aliyuncs.com</RegionEndpoint>
+			      <LocalName>华北5（呼和浩特）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>cn-shenzhen</RegionId>
+			      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
+			      <LocalName>华南1（深圳）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>ap-southeast-2</RegionId>
+			      <RegionEndpoint>slb.ap-southeast-2.aliyuncs.com</RegionEndpoint>
+			      <LocalName>澳大利亚（悉尼）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>cn-hongkong</RegionId>
+			      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
+			      <LocalName>香港</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>us-west-1</RegionId>
+			      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
+			      <LocalName>美国（硅谷）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>eu-west-1</RegionId>
+			      <RegionEndpoint>slb.eu-west-1.aliyuncs.com</RegionEndpoint>
+			      <LocalName>英国（伦敦）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>me-east-1</RegionId>
+			      <RegionEndpoint>slb.me-east-1.aliyuncs.com</RegionEndpoint>
+			      <LocalName>阿联酋（迪拜）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>cn-zhangjiakou</RegionId>
+			      <RegionEndpoint>slb.cn-zhangjiakou.aliyuncs.com</RegionEndpoint>
+			      <LocalName>华北3（张家口）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>cn-hangzhou</RegionId>
+			      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
+			      <LocalName>华东1（杭州）</LocalName>
+		    </Region>
+		    <Region>
+			      <RegionId>ap-southeast-3</RegionId>
+			      <RegionEndpoint>slb.ap-southeast-3.aliyuncs.com</RegionEndpoint>
+			      <LocalName>马来西亚（吉隆坡）</LocalName>
+		    </Region>
+	  </Regions>
+		</DescribeRegionsResponse>
 ```
 
 `JSON` 格式
@@ -278,5 +277,5 @@ http(s)://[Endpoint]/?Action=DescribeRegions
 |--------|---|----|--|
 |400|InvalidParameter|Illegal parameter, query.namespace is not auth.|query.namespace未授权，请您先授权再操作。|
 
-访问[错误中心](https://error-center.aliyun.com/status/product/Slb)查看更多错误码。
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

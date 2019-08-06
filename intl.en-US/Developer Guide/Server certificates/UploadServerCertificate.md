@@ -14,12 +14,14 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=UploadServerCerti
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|UploadServerCertificate| The name of this action. Value: **UploadServerCertificate**
+|Action|String|Yes|UploadServerCertificate| The name of this action.
+
+ Value: **UploadServerCertificate**
 
  |
 |RegionId|String|Yes|cn-hangzhou| The region to which the server certificate belongs.
 
- To query the region ID, call the[DescribeRegions](~~27584~~)API.
+ To query the region ID, call [DescribeRegions](~~27584~~).
 
  |
 |AliCloudCertificateId|String|No|730912673xxxxxx\_15d97e7709a\_71445759hr\_789289731| Optional. The ID of the certificate from the Alibaba Cloud SSL Certificates Service.
@@ -33,7 +35,7 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=UploadServerCerti
 |PrivateKey|String|No|wmsad! q23| Optional. The private key to be uploaded.
 
  |
-|ResourceGroupId|String|No|rg-atstuj3rto\*\*\*\*| Optional. The ID of the enterprise resource group.
+|ResourceGroupId|String|No|rg-atstuj3rto\*\*\*\*| The ID of the enterprise resource group.
 
  |
 |ServerCertificate|String|No|test| Optional. The public key certificate to be uploaded.
@@ -62,7 +64,7 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=UploadServerCerti
 |AliCloudCertificateName|String|testcertkey| The name of the server certificate from the Alibaba Cloud SSL Certificate Service.
 
  |
-|CommonName|String|test| The domain name that corresponds to the common name field of the certificate.
+|CommonName|String|test| The domain name that corresponds to the Common Name field of the certificate.
 
  |
 |CreateTime|String|2017-08-31T02:49:05Z| The time when the certificate is created.
@@ -86,7 +88,7 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=UploadServerCerti
 |RegionId|String|cn-hangzhou| The ID of the region to which the certificate belongs.
 
  |
-|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710| The request ID.
+|RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710| The ID of the request.
 
  |
 |ResourceGroupId|String|rg-atstuj3rtoptyui| The ID of the enterprise resource group.
@@ -103,7 +105,7 @@ Request example
 ``` {#request_demo}
 
 http(s)://[Endpoint]/? Action=UploadServerCertificate
-&RegionId=cn-hangzhou 
+&RegionId=cn-hangzhou
 &<CommonParameters>
 
 ```
@@ -113,21 +115,21 @@ Response examples
 `XML` format
 
 ``` {#xml_return_success_demo}
-<UploadServerCertificateResponse> 
-  <CommonName>*.example1.com</CommonName> 
-  <RegionIdAlias>cn-hangzhou</RegionIdAlias> 
-  <ResourceGroupId>rg-acfmxazb4ph6aiy</ResourceGroupId> 
-  <Fingerprint>68:08:1a:f8:2c:97:69:a3:a1:e6:16:41:4b:ca:4f:5d:ee:a5:ef:0d</Fingerprint> 
+<UploadServerCertificateResponse>
+  <CommonName>*.example1.com</CommonName>
+  <RegionIdAlias>cn-hangzhou</RegionIdAlias>
+  <ResourceGroupId>rg-acfmxazb4ph6aiy</ResourceGroupId>
+  <Fingerprint>68:08:1a:f8:2c:97:69:a3:a1:e6:16:41:4b:ca:4f:5d:ee:a5:ef:0d</Fingerprint>
   <ServerCertificateId>12315790xxxxxxxx3_166f8204689_1714763408_709981430</ServerCertificateId>
-  <ExpireTimeStamp>1558161264000</ExpireTimeStamp> 
-  <AliCloudCertificateId>1501739</AliCloudCertificateId> 
+  <ExpireTimeStamp>1558161264000</ExpireTimeStamp>
+  <AliCloudCertificateId>1501739</AliCloudCertificateId>
   <ExpireTime>2019-05-18T06:34:24Z</ExpireTime>
-  <RegionId>cn-hangzhou</RegionId> 
+  <RegionId>cn-hangzhou</RegionId>
   <RequestId>C87620A7-3608-48D0-BC41-A83FB4FF0EC6</RequestId>
-  <ServerCertificateName>*.example1.com</ServerCertificateName> 
-  <IsAliCloudCertificate>1</IsAliCloudCertificate> 
-  <AliCloudCertificateName>slb</AliCloudCertificateName> 
-</UploadServerCertificateResponse> 
+  <ServerCertificateName>*.example1.com</ServerCertificateName>
+  <IsAliCloudCertificate>1</IsAliCloudCertificate>
+  <AliCloudCertificateName>slb</AliCloudCertificateName>
+</UploadServerCertificateResponse>
 
 ```
 
@@ -150,7 +152,7 @@ Response examples
 }
 ```
 
-## Error codes {#section_78q_mvb_paq .section}
+## Error codes {#section_l88_oxx_iqc .section}
 
 [See common error codes.](https://error-center.alibabacloud.com/status/product/Slb?spm=a2c69.11428812.home.38.5972hYtYhYtYON)
 

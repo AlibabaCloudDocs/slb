@@ -14,7 +14,7 @@ The certificate format must meet the following format requirements:
 
 The following is a sample certificate issued by a root CA.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4142/15596122012839_en-US.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4142/15645484342839_en-US.jpg)
 
 ## Certificates issued by an intermediate CA {#section_vyv_vnb_wdb .section}
 
@@ -29,7 +29,7 @@ The format of the certificate chain must meet the following requirements:
 
 The following is a sample certificate chain.
 
-```
+``` {#codeblock_vzj_g5q_6aa}
     -----BEGIN CERTIFICATE-----
     -----END CERTIFICATE-----
     -----BEGIN CERTIFICATE-----
@@ -38,7 +38,7 @@ The following is a sample certificate chain.
     -----END CERTIFICATE-----
 ```
 
-## RSA private key {#section_qgl_znb_wdb .section}
+## RSA private keys {#section_qgl_znb_wdb .section}
 
 When you upload the server certificate, you also need to upload the private key of the certificate.
 
@@ -49,13 +49,13 @@ The RSA private key format must meet the following requirements:
 
 If your private key is encrypted \(for example, the content at the beginning and end of the private key is `-----BEGIN PRIVATE KEY-----, -----END PRIVATE KEY-----` or `-----BEGIN ENCRYPTED PRIVATE KEY-----, -----END ENCRYPTED PRIVATE KEY-----`, or the private key contains `Proc-Type: 4,ENCRYPTED`\), you must first run the following command to convert the private key:
 
-```
+``` {#codeblock_eaf_6mo_42p}
 openssl rsa -in old_server_key.pem -out new_server_key.pem
 ```
 
 The following is a sample RSA private key.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4142/15596122012840_en-US.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4142/15645484342840_en-US.jpg)
 
 ## EC private key {#section_mb5_a98_j83 .section}
 
@@ -65,13 +65,13 @@ When you upload the server certificate, you also need to upload the private key 
 
 The EC private key format must meet the following requirements:
 
--   The private key must start with `-----BEGIN EC PARAMETERS-----`, and end with `-----END EC PARAMETERS-----`, and both parts must be uploaded together.
+-   The private key must start with `-----BEGIN EC PARAMETERS-----`, and end with -----END EC PARAMETERS-----, and both parts must be uploaded together.
 -   Blank lines are not allowed in the content. Each line except the last line must contain exactly 64 characters. The last line can contain 64 or fewer characters. For more information, see [RFC1421](https://tools.ietf.org/html/rfc1421).
 
 If your private key is encrypted \(for example, the content at the beginning and end of the private key is `-----BEGIN EC PRIVATE KEY-----, -----END EC PRIVATE KEY-----`, or the private key contains `Proc-Type: 4,ENCRYPTED`\), you must first run the following command to convert the private key:
 
 ``` {#codeblock_bsj_oro_u6k}
-openssl rsa -in old_server_key.pem -out new_server_key.pem
+openssl ec -in old_server_key.pem -out new_server_key.pem
 ```
 
 The following is a sample EC private key.

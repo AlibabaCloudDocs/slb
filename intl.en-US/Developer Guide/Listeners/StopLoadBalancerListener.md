@@ -17,18 +17,18 @@ Click [here](https://api.aliyun.com/#product=Slb&api=StopLoadBalancerListener) t
 
 |Name|Type|Required?|Example value|Description|
 |----|----|---------|-------------|-----------|
-|Action|String|Yes|StopLoadBalancerListener|The action to perform. Valid value: **StopLoadBalancerListener**
+|Action|String|Yes|StopLoadBalancerListener| The action to perform. Valid value:**StopLoadBalancerListener**
 
  |
-|ListenerPort|Integer|Yes|80|The frontend port used by the SLB instance. Valid values: **1–65535**
+|ListenerPort|Integer|Yes|80| The frontend port used by the SLB instance. Valid values:**1–65535**
 
  |
-|LoadBalancerId|String|Yes|lb-bp13jaf5qli5xmgl1miup|The ID of the SLB instance
+|LoadBalancerId|String|Yes|lb-bp13jaf5qli5xmgl1miup| The ID of the SLB instance
 
  |
-|RegionId|String|Yes|cn-hangzhou|The region to which the SLB instance belongs.
+|RegionId|String|Yes|cn-hangzhou| The region to which the SLB instance belongs.
 
- You can query the region ID by referring to the list of [regions and zones](~~40654~~) or by calling the [DescribeRegions](~~25609~~) API.
+ You can query the region ID by referring to the list of[regions and zones](~~40654~~)or by calling the[DescribeRegions](~~25609~~)API.
 
  |
 
@@ -36,7 +36,7 @@ Click [here](https://api.aliyun.com/#product=Slb&api=StopLoadBalancerListener) t
 
 |Name|Type|Example value|Description|
 |----|----|-------------|-----------|
-|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984|The ID of the request
+|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984| The ID of the request
 
  |
 
@@ -85,7 +85,7 @@ Error response example
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_7fh_wql_3h6 .section}
 
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb?spm=a2c69.11428812.home.38.5972hYtYhYtYON)
 

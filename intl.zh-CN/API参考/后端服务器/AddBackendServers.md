@@ -4,9 +4,9 @@
 
 **说明：** 如果一次请求中添加多个相同的ECS实例，只会取第一个，其他相同实例会被忽略。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=AddBackendServers)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=AddBackendServers&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
@@ -93,22 +93,21 @@ http(s)://[Endpoint]/?Action=AddBackendServers
 
 ``` {#xml_return_success_demo}
 <AddBackendServersResponse>
-  <BackendServers>
-    <BackendServer>
-      <ServerId>i-2zej4lxhjoq1icu*****</ServerId>
-      <Weight>100</Weight>
-      <Type>ecs</Type>
-    </BackendServer>
-    <BackendServer>
-      <ServerId>i-2ze1u9ywulp5pbv*****</ServerId>
-      <Weight>100</Weight>
-      <Type>ecs</Type>
-    </BackendServer>
-  </BackendServers>
-  <RequestId>34B82C81-F13B-4EEB-99F6-A048C67CC830</RequestId>
-  <LoadBalancerId>lb-2ze7o5h52g02kkzz*****</LoadBalancerId>
+    <BackendServers>
+        <BackendServer>
+            <ServerId>i-2zej4lxhjoq1icu*****</ServerId>
+            <Weight>100</Weight>
+            <Type>ecs</Type>
+        </BackendServer>
+        <BackendServer>
+            <ServerId>i-2ze1u9ywulp5pbv*****</ServerId>
+            <Weight>100</Weight>
+            <Type>ecs</Type>
+        </BackendServer>
+    </BackendServers>
+    <RequestId>34B82C81-F13B-4EEB-99F6-A048C67CC830</RequestId>
+    <LoadBalancerId>lb-2ze7o5h52g02kkzz*****</LoadBalancerId>
 </AddBackendServersResponse>
-
 ```
 
 `JSON` 格式

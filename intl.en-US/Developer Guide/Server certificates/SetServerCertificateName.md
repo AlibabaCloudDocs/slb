@@ -1,37 +1,39 @@
-# SetServerCertificateName {#doc_api_875287 .reference}
+# SetServerCertificateName {#doc_api_Slb_SetServerCertificateName .reference}
 
-You can call the SetServerCertificateName API to set the name for a server certificate.
+Sets the name of a server certificate.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=SetServerCertificateName) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=SetServerCertificateName) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|SetServerCertificateName|The action to perform. Valid value: **SetServerCertificateName**.
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|SetServerCertificateName| The name of this action.
+
+ Value: **SetServerCertificateName**
 
  |
-|RegionId|String|Yes|cn-hangzhou|The region to which the SLB instance belongs.
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the SLB instance belongs.
 
- You can query the region ID by calling the [DescribeRegions](~~27584~~) API.
-
- |
-|ServerCertificateId|String|Yes|139a00604ad-cn-east-hangzhou-01|The ID of the server certificate
+ To query the region ID, call [DescribeRegions](~~27584~~).
 
  |
-|ServerCertificateName|String|Yes|abc|The name of the server certificate.
+|ServerCertificateId|String|Yes|139a00604ad-cn-east-hangzhou-01| The ID of the server certificate.
 
- The name must be 1 to 80 characters in length, must start with English letters or Chinese characters, and can contain numbers, underscores \(\_\), periods \(.\), and hyphens \(-\).
+ |
+|ServerCertificateName|String|Yes|abc| The name of the server certificate.
+
+ The name must be 1 to 80 characters in length and start with an English letter or a Chinese character. It can contain numbers, underscores \(\_\), periods \(.\), and hyphens \(-\).
 
  |
 
 ## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
-|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FE7BA984|The ID of the request
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FE7BA984| The ID of the request.
 
  |
 
@@ -41,16 +43,15 @@ Request example
 
 ``` {#request_demo}
 
-https://slb.aliyuncs.com/
-&Action=SetServerCertificateName
+http(s)://[Endpoint]/? Action=SetServerCertificateName
 &RegionId=cn-hangzhou
-&ServerCertificateId=123157908552****_166f8204689_1714763408_709981430
-&ServerCertificateName=.example1.com
+&ServerCertificateId=139a00604ad-cn-east-hangzhou-01
+&ServerCertificateName=abc
 &<CommonParameters>
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
@@ -69,20 +70,7 @@ Normal response examples
 }
 ```
 
-Error response example
+## Error codes {#section_we9_60z_3li .section}
 
-`JSON` format
-
-``` {#json_return_failed_demo}
-{
-	"Message":"The specified parameter is not valid.",
-	"RequestId":"0669D684-69D8-408E-A4FA-B9011E0F4E66",
-	"HostId":"slb-pop.aliyuncs.com",
-	"Code":"InvalidParameter"
-}
-```
-
-## Error codes { .section}
-
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

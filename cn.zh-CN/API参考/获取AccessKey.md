@@ -13,7 +13,7 @@ AccessKey包括AccessKeyId和AccessKeySecret。
 2.  将鼠标置于页面右上方的账号图标，单击**accesskeys**。
 3.  在**安全提示**页面，选择获取主账号还是子账号的Accesskey。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/125197/155979237638859_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/125197/156403446238859_zh-CN.png)
 
 4.  获取账号Accesskey。 
     -   获取主账号AccessKey
@@ -22,7 +22,7 @@ AccessKey包括AccessKeyId和AccessKeySecret。
         3.  在手机验证页面，获取验证码，完成手机验证，单击**确定**。
         4.  在新建用户AccessKey页面，展开**AccessKey详情**，查看AccessKeyId和AccessKeySecret。可以单击**保存AK信息**，下载AccessKey信息。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/125197/155979237738862_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/125197/156403446238862_zh-CN.png)
 
     -   获取子账号AccessKey
         1.  单击**开始使用子用户AccessKey**。
@@ -32,6 +32,6 @@ AccessKey包括AccessKeyId和AccessKeySecret。
         5.  在手机验证页面，获取验证码，完成手机验证，单击**确定**。
         6.  在创建AccessKey页面，查看AccessKeyId和AccessKeySecret。可以单击**下载CSV文件**，下载AccessKey信息或者单击**复制**，复制AccessKey信息。
 
-            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/125197/155979237738866_zh-CN.png)
+            ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/125197/156403446238866_zh-CN.png)
 
 

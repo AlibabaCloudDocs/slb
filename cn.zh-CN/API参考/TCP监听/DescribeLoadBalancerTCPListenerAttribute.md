@@ -1,22 +1,26 @@
 # DescribeLoadBalancerTCPListenerAttribute {#doc_api_Slb_DescribeLoadBalancerTCPListenerAttribute .reference}
 
-使用DescribeLoadBalancerTCPListenerAttribute查询TCP监听配置。
+调用DescribeLoadBalancerTCPListenerAttribute查询TCP监听配置。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalancerTCPListenerAttribute)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalancerTCPListenerAttribute&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeLoadBalancerTCPListenerAttribute|要执行的操作。取值：**DescribeLoadBalancerTCPListenerAttribute**
+|Action|String|是|DescribeLoadBalancerTCPListenerAttribute|要执行的操作。
+
+ 取值：**DescribeLoadBalancerTCPListenerAttribute**。
 
  |
-|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。取值：**1~65535**
+|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
+
+ 取值：**1~65535**。
 
  |
-|LoadBalancerId|String|是|lb-bp1ygod3yctvg1y7wezms|负载均衡实例的ID。
+|LoadBalancerId|String|是|lb-bp1ygod3yctvg1y\*\*\*\*\*\*|负载均衡实例的ID。
 
  |
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域。
@@ -25,7 +29,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -42,15 +46,15 @@
  |
 |Status|String|stopped|当前监听的状态。
 
- 取值：**starting | running | configuring | stopping | stopped**
+ 取值：**starting | running | configuring | stopping | stopped**。
 
  |
 |SynProxy|String|enable|是否开启SynProxy，SynProxy是负载均衡的攻击防护功能。
 
  建议用户一般情况下不要调整这个参数，由负载均衡控制。
 
- -   **enable**：开启
--   **disable**：关闭
+ -   **enable**：开启。
+-   **disable**：关闭。
 
  |
 |Scheduler|String|wrr|调度算法。
@@ -67,12 +71,12 @@
  |
 |HealthCheckType|String|tcp|TCP协议监听的健康检查方式。
 
- 取值：**tcp | http**
+ 取值：**tcp | http**。
 
  |
 |HealthCheck|String|on|是否开启健康检查。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |HealthyThreshold|Integer|4|健康检查阈值。
@@ -96,7 +100,7 @@
 |HealthCheckHttpCode|String|http\_2xx,http\_3xx|健康检查正常的HTTP状态码。
 
  |
-|VServerGroupId|String|rsp-cige6j5e7p|绑定的服务器组ID。
+|VServerGroupId|String|rsp-cige6\*\*\*\*\*\*8|绑定的服务器组ID。
 
  |
 |AclId|String|12|监听绑定的访问策略组ID。
@@ -106,7 +110,7 @@
  |
 |AclStatus|String|off|是否开启访问控制功能。
 
- 取值：**on | off**（默认值）
+ 取值：**on | off**（默认值）。
 
  |
 |AclType|String|white|访问控制类型：
@@ -134,7 +138,10 @@
 |HealthCheckConnectTimeout|Integer|100|超时时间。
 
  |
-|MasterSlaveServerGroupId|String|rsp-0bfucwuotx|绑定的主备服务器组ID。
+|HealthCheckMethod|String|tcp|健康检查方式。
+
+ |
+|MasterSlaveServerGroupId|String|rsp-0bfucw\*\*\*\*\*|绑定的主备服务器组ID。
 
  |
 |RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|请求ID。
@@ -149,7 +156,7 @@
 
 http(s)://[Endpoint]/?Action=DescribeLoadBalancerTCPListenerAttribute
 &ListenerPort=80
-&LoadBalancerId=lb-bp1ygod3yctvg1y7wezms
+&LoadBalancerId=lb-bp1ygod3yctvg1y******
 &<公共请求参数>
 
 ```
@@ -160,27 +167,26 @@ http(s)://[Endpoint]/?Action=DescribeLoadBalancerTCPListenerAttribute
 
 ``` {#xml_return_success_demo}
 <DescribeLoadBalancerTCPListenerAttributeResponse>
-  <HealthCheckHttpCode>http_2xx,http_3xx</HealthCheckHttpCode>
-  <PersistenceTimeout>0</PersistenceTimeout>
-  <HealthCheckType>tcp</HealthCheckType>
-  <HealthyThreshold>3</HealthyThreshold>
-  <Scheduler>wrr</Scheduler>
-  <UnhealthyThreshold>3</UnhealthyThreshold>
-  <Bandwidth>-1</Bandwidth>
-  <Description>tcp_80</Description>
-  <AclStatus>off</AclStatus>
-  <HealthCheckURI>/</HealthCheckURI>
-  <HealthCheck>on</HealthCheck>
-  <HealthCheckConnectTimeout>5</HealthCheckConnectTimeout>
-  <ListenerPort>80</ListenerPort>
-  <Status>running</Status>
-  <EstablishedTimeout>900</EstablishedTimeout>
-  <HealthCheckDomain/>
-  <HealthCheckInterval>2</HealthCheckInterval>
-  <RequestId>9A113A8C-BB8F-475E-9533-7819ECA2FFC1</RequestId>
-  <BackendServerPort>80</BackendServerPort>
-</DescribeLoadBalancerTCPListenerAttributeResponse>
-
+			  <HealthCheckHttpCode>http_2xx,http_3xx</HealthCheckHttpCode>
+	  <PersistenceTimeout>0</PersistenceTimeout>
+	  <HealthCheckType>tcp</HealthCheckType>
+	  <HealthyThreshold>3</HealthyThreshold>
+	  <Scheduler>wrr</Scheduler>
+	  <UnhealthyThreshold>3</UnhealthyThreshold>
+	  <Bandwidth>-1</Bandwidth>
+	  <Description>tcp_80</Description>
+	  <AclStatus>off</AclStatus>
+	  <HealthCheckURI>/</HealthCheckURI>
+	  <HealthCheck>on</HealthCheck>
+	  <HealthCheckConnectTimeout>5</HealthCheckConnectTimeout>
+	  <ListenerPort>80</ListenerPort>
+	  <Status>running</Status>
+	  <EstablishedTimeout>900</EstablishedTimeout>
+	  <HealthCheckDomain></HealthCheckDomain>
+	  <HealthCheckInterval>2</HealthCheckInterval>
+	  <RequestId>9A113A8C-BB8F-475E-9533-7819ECA2FFC1</RequestId>
+	  <BackendServerPort>80</BackendServerPort>
+    </DescribeLoadBalancerTCPListenerAttributeResponse>
 ```
 
 `JSON` 格式
@@ -211,5 +217,5 @@ http(s)://[Endpoint]/?Action=DescribeLoadBalancerTCPListenerAttribute
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

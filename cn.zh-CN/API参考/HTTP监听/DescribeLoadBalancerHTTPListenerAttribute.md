@@ -1,19 +1,23 @@
 # DescribeLoadBalancerHTTPListenerAttribute {#doc_api_Slb_DescribeLoadBalancerHTTPListenerAttribute .reference}
 
-使用DescribeLoadBalancerHTTPListenerAttribute查询HTTP监听配置。
+调用DescribeLoadBalancerHTTPListenerAttribute查询HTTP监听配置。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalancerHTTPListenerAttribute)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalancerHTTPListenerAttribute&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeLoadBalancerHTTPListenerAttribute|要执行的操作。取值：**DescribeLoadBalancerHTTPListenerAttribute**
+|Action|String|是|DescribeLoadBalancerHTTPListenerAttribute|要执行的操作。
+
+ 取值：**DescribeLoadBalancerHTTPListenerAttribute**。
 
  |
-|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。取值：**1~65535**
+|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
+
+ 取值：**1~65535**。
 
  |
 |LoadBalancerId|String|是|lb-bp1o94dp5i6earr9g6d1l-cn-east-hangzhou-01|负载均衡实例的ID。
@@ -24,11 +28,8 @@
  您可以从[地域和可用区](~~40654~~)列表或通过调用[DescribeRegions](~~25609~~)接口查询地域ID。
 
  |
-|OwnerAccount|String|否|testuser@aliyun.com|用户主账号。
 
- |
-
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -40,29 +41,29 @@
  |
 |Status|String|stopped|当前监听的状态。
 
- 取值：**starting | running | configuring | stopping | stopped**
+ 取值：**starting | running | configuring | stopping | stopped**。
 
  |
 |XForwardedFor|String|on|是否开启通过X-Forwarded-For的方式获取来访者真实IP。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |Scheduler|String|wrr|调度算法。
 
- 取值：**wrr | wlc | rr**
+ 取值：**wrr | wlc | rr**。
 
  |
 |StickySession|String|on|是否开启会话保持。
 
- 取值：**on | off**（默认值）
+ 取值：**on | off**（默认值）。
 
  |
 |StickySessionType|String|on|cookie的处理方式。
 
  当**StickySession**的值为**on**时，必须指定该参数。
 
- 取值：**insert | server**
+ 取值：**insert | server**。
 
  |
 |CookieTimeout|Integer|500|cookie超时时间。
@@ -73,7 +74,7 @@
  |
 |HealthCheck|String|on|是否开启健康检查。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |HealthCheckDomain|String|$\_ip|用于健康检查的域名。
@@ -105,7 +106,7 @@
  |
 |Gzip|String|on|是否开启Gzip压缩，对特定文件类型进行压缩。
 
- 取值：**on | off**
+ 取值：**on | off**。
 
  |
 |AclId|String|on|监听绑定的访问策略组ID。
@@ -115,7 +116,7 @@
  |
 |AclStatus|String|off|是否开启访问控制功能。
 
- 取值：**on | off**（默认值）
+ 取值：**on | off**（默认值）。
 
  |
 |AclType|String|white|访问控制类型：
@@ -150,8 +151,8 @@
  |
 |ListenerForward|String|on|表示是否开启HTTP至HTTPS的监听转发。
 
- -   **on**：表示开启
--   **off**：表示未开启
+ -   **on**：表示开启。
+-   **off**：表示未开启。
 
  |
 |RequestId|String|365F4154-92F6-4AE4-92F8-7FF34B540710|请求ID。
@@ -165,19 +166,19 @@
 |Rules| | |转发规则描述。
 
  |
-|└Domain|String|www.example.com|域名。
+|Domain|String|www.example.com|域名。
 
  |
-|└RuleId|String|1234|转发规则ID。
+|RuleId|String|1234|转发规则ID。
 
  |
-|└RuleName|String|test|转发规则名称。
+|RuleName|String|test|转发规则名称。
 
  |
-|└Url|String|/example|访问路径。
+|Url|String|/example|访问路径。
 
  |
-|└VServerGroupId|String|123|转发规则的目标服务器组ID。
+|VServerGroupId|String|123|转发规则的目标服务器组ID。
 
  |
 |SecurityStatus|String|on|安全状态。
@@ -212,13 +213,12 @@ http(s)://[Endpoint]/?Action=DescribeLoadBalancerHTTPListenerAttribute
 
 ``` {#xml_return_success_demo}
 <DescribeLoadBalancerHTTPListenerAttributeResponse>
-  <ForwardPort>443</ForwardPort>
-  <ListenerPort>80</ListenerPort>
-  <Status>stopped</Status>
-  <RequestId>99439CEF-192C-4B01-A45A-2D5BD5BCDA62</RequestId>
-  <ListenerForward>on</ListenerForward>
-</DescribeLoadBalancerHTTPListenerAttributeResponse>
-
+			  <ForwardPort>443</ForwardPort>
+	  <ListenerPort>80</ListenerPort>
+	  <Status>stopped</Status>
+	  <RequestId>99439CEF-192C-4B01-A45A-2D5BD5BCDA62</RequestId>
+	  <ListenerForward>on</ListenerForward>
+		</DescribeLoadBalancerHTTPListenerAttributeResponse>
 ```
 
 `JSON` 格式
@@ -235,5 +235,5 @@ http(s)://[Endpoint]/?Action=DescribeLoadBalancerHTTPListenerAttribute
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

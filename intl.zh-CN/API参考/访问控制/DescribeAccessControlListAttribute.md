@@ -2,9 +2,9 @@
 
 调用DescribeAccessControlListAttribute查询访问控制策略组的配置。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeAccessControlListAttribute)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=DescribeAccessControlListAttribute&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
@@ -25,17 +25,17 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
 |AclEntrys| | |访问控制策略组的信息列表。
 
  |
-|└AclEntryComment|String|访问控制条目。|访问控制条目备注。
+|AclEntryComment|String|访问控制条目。|访问控制条目备注。
 
  |
-|└AclEntryIP|String|192.168.0.1|访问控制条目IP。
+|AclEntryIP|String|192.168.0.1|访问控制条目IP。
 
  |
 |AclId|String|acl-bp1l0kk4gxce43kzet04s|访问控制策略组ID。
@@ -50,19 +50,19 @@
 |RelatedListeners| | |该访问控制策略组已绑定的监听列表。
 
  |
-|└AclType|String|white|访问控制的类型：
+|AclType|String|white|访问控制的类型：
 
  -   **black**：黑名单
 -   **white**：白名单
 
  |
-|└ListenerPort|Integer|443|绑定的监听的前端端口。
+|ListenerPort|Integer|443|绑定的监听的前端端口。
 
  |
-|└LoadBalancerId|String|lb-bp13jaf5qli5xmgl1miup|负载均衡实例的ID。
+|LoadBalancerId|String|lb-bp13jaf5qli5xmgl1miup|负载均衡实例的ID。
 
  |
-|└Protocol|String|https|绑定的监听的协议类型。
+|Protocol|String|https|绑定的监听的协议类型。
 
  |
 |RequestId|String|C9906A1D-86F7-4C9C-A369-54DA42EF206A|请求ID。
@@ -91,20 +91,19 @@
 
 ``` {#xml_return_success_demo}
 <DescribeAccessControlListAttributeResponse>
-  <AclId>acl-bp1l0kk4gxce43kzet04s</AclId>
-  <RelatedListeners>
-    <RelatedListener>
-      <AclType>white</AclType>
-      <LoadBalancerId>lb-bp13jaf5qli5xmgl1miup</LoadBalancerId>
-      <Protocol>https</Protocol>
-      <ListenerPort>443</ListenerPort>
-    </RelatedListener>
-  </RelatedListeners>
-  <AclName>doctest</AclName>
-  <RequestId>C9906A1D-86F7-4C9C-A369-54DA42EF206A</RequestId>
-  <AddressIPVersion>ipv4</AddressIPVersion>
+	  <AclId>acl-bp1l0kk4gxce43kzet04s</AclId>
+	  <RelatedListeners>
+		    <RelatedListener>
+			      <AclType>white</AclType>
+			      <LoadBalancerId>lb-bp13jaf5qli5xmgl1miup</LoadBalancerId>
+			      <Protocol>https</Protocol>
+			      <ListenerPort>443</ListenerPort>
+		    </RelatedListener>
+	  </RelatedListeners>
+	  <AclName>doctest</AclName>
+	  <RequestId>C9906A1D-86F7-4C9C-A369-54DA42EF206A</RequestId>
+	  <AddressIPVersion>ipv4</AddressIPVersion>
 </DescribeAccessControlListAttributeResponse>
-
 ```
 
 `JSON` 格式
@@ -130,5 +129,5 @@
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

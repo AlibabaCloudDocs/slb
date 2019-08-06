@@ -6,22 +6,22 @@ Before you use the Server Load Balancer \(SLB\) service, you must add at least o
 
 Before you add ECS instances to the default server group, make sure the following conditions are met:
 
--   An SLB instance is created. For more information, see [Create an SLB instance](intl.en-US/Archives/User Guide (Old Console)/SLB instances/Create an instance.md#).
+-   An SLB instance is created. For more information, see [Create an SLB instance](reseller.en-US/Archives/User Guide (Old Console)/SLB instances/Create an instance.md#).
 -   ECS instances are created and applications are deployed on the ECS instances to process distributed requests.
 
 To add backend servers, follow these steps:
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb/).
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  On the Server Load Balancer page, select the region of the target SLB instance.
 3.  Find the target SLB instance and click the instance ID.
 4.  Click the Default Server Group tab.
 5.  Click **Add**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15669/15640486757365_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15669/15647270307365_en-US.png)
 
 6.  On the Available Servers page, select the ECS instances to add to the default server group.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15669/15640486757367_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15669/15647270307367_en-US.png)
 
 7.  Click **Next: Set Weight and Port**.
 8.  On the Available Servers page, set the weights and ports of added ECS instances, and click **OK**.
@@ -30,13 +30,13 @@ To add backend servers, follow these steps:
 
     You can modify server weights in batches:
 
-    -   Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/156404867511116_en-US.png): Duplicate to below. If you modify the weight of the current server, the weights of all servers blow are also changed.
-    -   Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/156404867511119_en-US.png): Duplicate to above. If you modify the weight of the current server, the weights of all servers above are also changed.
-    -   Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/156404867611120_en-US.png): Duplicate to all. If you modify the weight of the current server, the weights of all servers in the default server group are also changed.
-    -   Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/156404867611121_en-US.png): Clear all. If you clear the weight of the current server, the weights of all servers in the default server group are also cleared.
+    -   Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/156472703011116_en-US.png): Duplicate to below. If you modify the weight of the current server, the weights of all servers blow are also changed.
+    -   Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/156472703011119_en-US.png): Duplicate to above. If you modify the weight of the current server, the weights of all servers above are also changed.
+    -   Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/156472703011120_en-US.png): Duplicate to all. If you modify the weight of the current server, the weights of all servers in the default server group are also changed.
+    -   Click ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15670/156472703111121_en-US.png): Clear all. If you clear the weight of the current server, the weights of all servers in the default server group are also cleared.
     **Note:** If the weight is set to 0, the server no longer receives new requests.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15669/156404867611124_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15669/156472703111124_en-US.png)
 
 9.  Click **OK**.
 
@@ -44,7 +44,7 @@ To add backend servers, follow these steps:
 
 To edit the weight of a backend server, follow these steps:
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb/).
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  On the Server Load Balancer page, select the region of the target SLB instance.
 3.  Find the target SLB instance and click the instance ID.
 4.  Click the Default Server Group tab.
@@ -63,7 +63,7 @@ To edit the weight of a backend server, follow these steps:
 
 To remove a backend server, follow these steps:
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb/).
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  On the Server Load Balancer page, select the region of the target SLB instance.
 3.  Find the target SLB instance and click the instance ID.
 4.  Click the Default Server Group tab.

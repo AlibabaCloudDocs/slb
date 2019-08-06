@@ -30,7 +30,7 @@ To use a certificate from SSL Certificate Service, follow these steps:
 2.  In the left-side navigation pane, click **Certificates**.
 3.  Click **Create Certificate**. On the Create Certificate page, select **Select Certificate From SSL Certificate Service**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/155954448011881_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/156454844311881_en-US.png)
 
 4.  Click **Next**. On the Select Certificate From SSL Certificate Service page, select the region to deploy the certificate and then select the SSL certificate to use from the certificate list.
 
@@ -43,7 +43,7 @@ To use a certificate from SSL Certificate Service, follow these steps:
 Before you upload a third-party certificate, make sure that the following conditions are met:
 
 -   A server certificate is purchased.
--   A CA certificate and a client certificate are generated. For more information, see [Generate a CA certificate](intl.en-US/User Guide/证书管理/Generate a CA certificate.md#).
+-   A CA certificate and a client certificate are generated. For more information, see [Generate a CA certificate](intl.en-US/Certificate management/Generate a CA certificate.md#).
 
 To upload a third-party certificate to SLB, follow these steps:
 
@@ -52,7 +52,7 @@ To upload a third-party certificate to SLB, follow these steps:
 3.  Click **Create Certificate**.
 4.  On the Create Certificate page, select **Upload Third-Party Certificate**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/155954448011880_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/156454844411880_en-US.png)
 
 5.  Click **Next**. On the Upload Third-Party Certificate page, upload the certificate content.
 
@@ -75,10 +75,10 @@ To upload a third-party certificate to SLB, follow these steps:
  |
     |**Certificate Content**| Paste the certificate content into the text editor.
 
- Click **View Sample Certificate** to view the valid certificate formats. For more information, see [Certificate requirements](intl.en-US/User Guide/证书管理/Certificate requirements.md#).
+ Click **View Sample Certificate** to view the valid certificate formats. For more information, see [Certificate requirements](intl.en-US/Certificate management/Certificate requirements.md#).
 
  |
-    |**Private Key**|Paste the private key of the server certificate into the text editor. Click **View Sample Certificate** to view the valid certificate formats. For more information, see [Certificate requirements](intl.en-US/User Guide/证书管理/Certificate requirements.md#).
+    |**Private Key**|Paste the private key of the server certificate into the text editor. Click **View Sample Certificate** to view the valid certificate formats. For more information, see [Certificate requirements](intl.en-US/Certificate management/Certificate requirements.md#).
 
  SLB supports the following two private key formats:
 

@@ -7,7 +7,7 @@ SLB provides an API to query the default limits of an SLB instance.
 |Resource|Default limit|
 |:-------|:------------|
 |**Limits on SLB instances**|
-|The number of SLB instances per account|30|
+|The number of SLB instances per account| |
 |The number of times that an ECS instance can be added to SLB instances|50|
 |The number of backend servers that can be added to an SLB instance|200|
 |The number of listeners that can be added to an SLB instance|50|

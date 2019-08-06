@@ -20,7 +20,7 @@ The domain name extension function is available in all regions.
 4.  Click the **Listeners** tab.
 5.  On the Listeners tab page, find the target HTTPS listener, and choose **More** \> **Additional Domains** in the **Actions** column.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15661/15640480297466_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15661/15645484237466_en-US.png)
 
 6.  Click **Add Additional Domain** and configure the domain name:
     1.  Enter a domain name. The domain name can only contain letters, numbers, hyphens \(-\), and periods \(.\), and must start with a letter or a number. To check if the domain name you enter is valid, you can use the [Alibaba Cloud domain name check tool](https://zijian.aliyun.com).
@@ -66,7 +66,7 @@ To edit a domain name extension, follow these steps:
 6.  Find the target domain name extension and then click **Edit**.
 7.  In the Edit Additional Domain dialog box, select a new certificate and then click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15661/15640480297468_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15661/15645484237468_en-US.png)
 
 
 ## Delete a domain name extension {#section_htc_j1p_42b .section}
@@ -80,7 +80,7 @@ To delete a domain name extension, follow these steps:
 5.  On the Listeners page, find the created HTTPS listener, and then choose **More** \> **Additional Domains** in the **Actions** column.
 6.  Find the target domain name extension and click **Delete**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15661/15640480307469_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15661/15645484237469_en-US.png)
 
 7.  In the displayed dialog box, click **OK**.
 

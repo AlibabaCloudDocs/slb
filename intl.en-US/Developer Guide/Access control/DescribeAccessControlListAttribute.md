@@ -21,7 +21,7 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeAccessCon
  To query the region ID, call [DescribeRegions](~~27584~~).
 
  |
-|AclEntryComment|String|No|test| A note to an IP entry in the access control list.
+|AclEntryComment|String|No|test| Optional. A note to an IP entry in the access control list.
 
  |
 
@@ -32,16 +32,16 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeAccessCon
 |AclEntrys| | | A list of IP entries in the access control list.
 
  |
-|└AclEntryComment|String|IP entry| A note to an IP entry in the access control list.
+|└AclEntryComment|String|IP entry| A note to the IP entry in the access control list.
 
  |
 |└AclEntryIP|String|192.168.0.1| An IP entry in the access control list.
 
  |
-|AclId|String|acl-bp1l0kk4gxce43kzet04s| The ID of the access control list.
+|AclId|String|acl-bp1l0kk4gxce43kzet04s| The ID of the queried access control list.
 
  |
-|AclName|String|doctest| The name of the access control list.
+|AclName|String|doctest| The name of the queried access control list.
 
  |
 |AddressIPVersion|String|ipv4| The IP address type of the associated SLB instance.
@@ -79,8 +79,8 @@ Request example
 ``` {#request_demo}
 
 /? Action=DescribeAccessControlListAttribute
-&AclId=acl-bp1l0kk4gxce43kzet04s 
-&RegionId=cn-hangzhou 
+&AclId=acl-bp1l0kk4gxce43kzet04s
+&RegionId=cn-hangzhou
 &<CommonParameters>
 
 ```
@@ -90,20 +90,20 @@ Response examples
 `XML` format
 
 ``` {#xml_return_success_demo}
-<DescribeAccessControlListAttributeResponse> 
-  <AclId>acl-bp1l0kk4gxce43kzet04s</AclId> 
-  <RelatedListeners> 
-    <RelatedListener> 
-      <AclType>white</AclType> 
+<DescribeAccessControlListAttributeResponse>
+  <AclId>acl-bp1l0kk4gxce43kzet04s</AclId>
+  <RelatedListeners>
+    <RelatedListener>
+      <AclType>white</AclType>
       <LoadBalancerId>lb-bp13jaf5qli5xmgl1miup</LoadBalancerId>
-      <Protocol>https</Protocol> 
-      <ListenerPort>443</ListenerPort> 
-    </RelatedListener> 
-  </RelatedListeners> 
-  <AclName>doctest</AclName> 
-  <RequestId>C9906A1D-86F7-4C9C-A369-54DA42EF206A</RequestId> 
-  <AddressIPVersion>ipv4</AddressIPVersion> 
-</DescribeAccessControlListAttributeResponse> 
+      <Protocol>https</Protocol>
+      <ListenerPort>443</ListenerPort>
+    </RelatedListener>
+  </RelatedListeners>
+  <AclName>doctest</AclName>
+  <RequestId>C9906A1D-86F7-4C9C-A369-54DA42EF206A</RequestId>
+  <AddressIPVersion>ipv4</AddressIPVersion>
+</DescribeAccessControlListAttributeResponse>
 
 ```
 
@@ -128,7 +128,7 @@ Response examples
 }
 ```
 
-## Error codes {#section_olq_9r8_dh3 .section}
+## Error codes {#section_597_ds5_yje .section}
 
-[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb?spm=a2c69.11428812.home.38.5972hYtYhYtYON)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

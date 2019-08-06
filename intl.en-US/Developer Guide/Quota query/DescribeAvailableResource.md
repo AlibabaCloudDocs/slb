@@ -1,12 +1,12 @@
 # DescribeAvailableResource {#doc_api_Slb_DescribeAvailableResource .reference}
 
-Queries available resources in a specified region. Resource limits do not apply to users in the whitelist.
+Queries the resources available for purchase in a region.
 
-**Note:** Only available resources and corresponding zones are returned.
+**Note:** Only available zones and resource types are returned.
 
 ## Debug {#apiExplorer .section}
 
-Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) to perform debug operations and generate code examples.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeAvailableResource) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
@@ -22,12 +22,12 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBa
  |
 |AddressIPVersion|String|No|ipv4| Optional. The IP version of the resources to be queried.
 
- Valid values: **ipv4 | ipv6**
+ Valid value:**Ipv4 | ipv6**
 
  |
 |AddressType|String|No|vpc| Optional. The network type of the resources to be queried.
 
- Valid values: **vpc | classic-internet | classic-intranet**
+ Valid value:**vpc | classic-internet | classic-intranet**
 
  |
 
@@ -49,12 +49,12 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBa
  |
 |└AddressIPVersion|String|ipv4| The IP version of the resources.
 
- Valid values: **ipv4 | ipv6**
+ Valid values:**ipv4 | ipv6**
 
  |
 |└AddressType|String|classic\_internet| The network type of the resources.
 
- Valid values: **vpc | classic-internet | classic-intranet**
+ Valid value:**vpc | classic-internet | classic-intranet**
 
  |
 |RequestId|String|173B0EEA-22ED-4EE2-91F9-3A1CDDFFBBBA| The ID of the request.
@@ -67,7 +67,7 @@ Request example
 
 ``` {#request_demo}
 
-http(s)://[Endpoint]/?Action=DescribeAvailableResource
+http(s)://[Endpoint]/? Action=DescribeAvailableResource
 &RegionId=cn-hangzhou
 &<CommonParameters>
 
@@ -486,7 +486,7 @@ Response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_2jr_k6e_tu4 .section}
 
-For a list of error codes, visit the [API Error Center](https://error-center.aliyun.com/status/product/Slb).
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb?spm=a2c69.11428812.home.38.5972hYtYhYtYON)
 

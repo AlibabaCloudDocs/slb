@@ -1,26 +1,28 @@
-# DescribeRegions {#doc_api_859430 .reference}
+# DescribeRegions {#doc_api_Slb_DescribeRegions .reference}
 
 Queries available regions.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=DescribeRegions) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeRegions) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeRegions| The name of this action. Value: **DescribeRegions**
+|Action|String|Yes|DescribeRegions|The name of this action.
+
+ Value: **DescribeRegions**
 
  |
-|RegionId|String|Yes|cn-hangzhou| The ID of the region.
+|RegionId|String|Yes|cn-hangzhou-d|The ID of the region.
 
  |
-|AcceptLanguage|String|No|zh-CN| Supported languages. Valid values:
+|AcceptLanguage|String|No|zh-CN|Optional. The supported languages. Valid values:
 
- -   Chinese: zh-CN
--   English: en-US
--   Japanese: ja
+ -   zh-CN: Chinese
+-   en-US: English
+-   ja: Japanese
 
  |
 
@@ -28,19 +30,19 @@ Click [here](https://api.aliyun.com/#product=Slb&api=DescribeRegions) to perform
 
 |Parameter|Type|Example value|Description|
 |---------|----|-------------|-----------|
-|Regions| | | A list of regions.
+|Regions| | |A list of regions.
 
  |
-|└RegionId|String|cn-beijing| The ID of the region.
+|└RegionId|String|cn-beijing|The ID of the region.
 
  |
-|└LocalName|String|China \(Beijing\)| The name of the region.
+|└LocalName|String|China \(Beijing\)|The name of the region.
 
  |
-|└RegionEndpoint|String|slb.aliyuncs.com| The endpoint address of the region.
+|└RegionEndpoint|String|slb.aliyuncs.com|The endpoint address of the region.
 
  |
-|RequestId|String|1651FBB6-4FBF-49FF-A9F5-DF5D696C7EC6| The ID of the request.
+|RequestId|String|1651FBB6-4FBF-49FF-A9F5-DF5D696C7EC6|The ID of the request.
 
  |
 
@@ -50,12 +52,12 @@ Request example
 
 ``` {#request_demo}
 
-https://slb.aliyuncs.com/?Action=DescribeRegions
+http(s)://[Endpoint]/? Action=DescribeRegions
 &<CommonParameters>
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
@@ -270,25 +272,11 @@ Normal response examples
 }
 ```
 
-Error response example
+## Error codes { .section}
 
-`JSON` format
+|HTTP status code|Error code|Error message |Description|
+|----------------|----------|--------------|-----------|
+|400|InvalidParameter|Illegal parameter, query.namespace is not auth.|The query. namespace parameter is not authorized.|
 
-``` {#json_return_failed_demo}
-{
-	"Message":"The specified parameter is not valid.",
-	"RequestId":"0669D684-69D8-408E-A4FA-B9011E0F4E66",
-	"HostId":"slb-pop.aliyuncs.com",
-	"Code":"InvalidParameter"
-}
-```
-
-## Error codes {#section_bzn_1t6_0iq .section}
-
-|HttpCode|Error code|Error message|Description|
-|--------|----------|-------------|-----------|
-|400|InvalidParameter| |The parameter Bandwidth is invalid. Please check that the parameter is correct.|
-|400|InvalidParameter|Illegal parameter, query.namespace is not auth.|The parameter Bandwidth is invalid. Please check that the parameter is correct.|
-
-[Click here to view the error codes.](https://error-center.alibabacloud.com/status/product/Slb?spm=a2c69.11428812.home.38.5972hYtYhYtYON)
+[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
 

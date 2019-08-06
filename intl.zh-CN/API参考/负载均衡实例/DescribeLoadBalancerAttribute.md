@@ -2,9 +2,9 @@
 
 调用DescribeLoadBalancerAttribute查询指定负载均衡实例的详细信息。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalancerAttribute)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalancerAttribute&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
@@ -24,7 +24,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -71,34 +71,34 @@
 |ListenerPortsAndProtocol| | |负载均衡实例前端使用的端口和协议列表。
 
  |
-|└ListenerPort|Integer|443|负载均衡实例前端使用的端口。
+|ListenerPort|Integer|443|负载均衡实例前端使用的端口。
 
  |
-|└ListenerProtocol|String|https|负载均衡实例前端使用的协议。
+|ListenerProtocol|String|https|负载均衡实例前端使用的协议。
 
  |
-|└Description|String|监听|负载均衡监听端口和协议描述。
+|Description|String|监听|负载均衡监听端口和协议描述。
 
  |
-|└ForwardPort|Integer|80|转发到的目的监听端口，必须是已经存在的HTTPS监听端口。
+|ForwardPort|Integer|80|转发到的目的监听端口，必须是已经存在的HTTPS监听端口。
 
  |
-|└ListenerForward|String|yes|是否启用监听转发。
+|ListenerForward|String|yes|是否启用监听转发。
 
  |
 |BackendServers| | |负载均衡实例的后端服务器列表。
 
  |
-|└ServerId|String|vm-234|后端服务器名（ECS实例）ID。
+|ServerId|String|vm-234|后端服务器名（ECS实例）ID。
 
  |
-|└Weight|Integer|90|后端服务器的权重。
+|Weight|Integer|90|后端服务器的权重。
 
  |
-|└Description|String|描述。|后端服务器描述。
+|Description|String|描述。|后端服务器描述。
 
  |
-|└Type|String|ecs|后端服务器类型。
+|Type|String|ecs|后端服务器类型。
 
  |
 |MasterZoneId|String|cn-hangzhou-b|负载均衡实例的主可用区ID。
@@ -130,10 +130,10 @@
 |ListenerPortsAndProtocal| | |同ListenerPortsAndProtocol。
 
  |
-|└ListenerPort|Integer|443|负载均衡实例前端使用的端口。
+|ListenerPort|Integer|443|负载均衡实例前端使用的端口。
 
  |
-|└ListenerProtocal|String|http|负载均衡实例前端使用的协议。
+|ListenerProtocal|String|http|负载均衡实例前端使用的协议。
 
  |
 |LoadBalancerSpec|String|slb.s2.small|负载均衡实例的的性能规格。
@@ -191,42 +191,41 @@ http(s)://[Endpoint]/?Action=DescribeLoadBalancerAttribute
 
 ``` {#xml_return_success_demo}
 <DescribeLoadBalancerAttributeResponse>
-  <CreateTimeStamp>1541679713000</CreateTimeStamp>
-  <RegionIdAlias>cn-hangzhou</RegionIdAlias>
-  <BackendServers>
-    <BackendServer>
-      <ServerId>i-bp1c3zrr37ablp8ujo7v</ServerId>
-      <Weight>100</Weight>
-      <Type>ecs</Type>
-    </BackendServer>
-  </BackendServers>
-  <HasReservedInfo>false</HasReservedInfo>
-  <ListenerPorts/>
-  <InternetChargeType>paybytraffic</InternetChargeType>
-  <VSwitchId>vsw-bp12mw1f8k3jgygk9bmlj</VSwitchId>
-  <VpcId>vpc-bp1aevy8sofi8mh1qc5cm</VpcId>
-  <SlaveZoneId>cn-hangzhou-d</SlaveZoneId>
-  <LoadBalancerSpec>slb.s2.small</LoadBalancerSpec>
-  <NetworkType>vpc</NetworkType>
-  <ListenerPortsAndProtocol/>
-  <PayType>PayOnDemand</PayType>
-  <Bandwidth>5120</Bandwidth>
-  <LoadBalancerName>abc1</LoadBalancerName>
-  <ResourceGroupId>rg-acfmxazb4ph6aiy</ResourceGroupId>
-  <AddressIPVersion>ipv4</AddressIPVersion>
-  <LoadBalancerId>lb-bp1b6c719dfa08exfuca5</LoadBalancerId>
-  <EndTimeStamp>32493801600000</EndTimeStamp>
-  <MasterZoneId>cn-hangzhou-b</MasterZoneId>
-  <ListenerPortsAndProtocal/>
-  <Address>192.168.0.6</Address>
-  <RegionId>cn-hangzhou</RegionId>
-  <RequestId>35D745B3-1567-4855-9EF1-F5CED3C1670C</RequestId>
-  <CreateTime>2018-11-08T12:21:53Z</CreateTime>
-  <AddressType>intranet</AddressType>
-  <EndTime>2999-09-08T16:00:00Z</EndTime>
-  <LoadBalancerStatus>active</LoadBalancerStatus>
+      <CreateTimeStamp>1541679713000</CreateTimeStamp>
+	  <RegionIdAlias>cn-hangzhou</RegionIdAlias>
+	  <BackendServers>
+		    <BackendServer>
+			      <ServerId>i-bp1c3zrr37ablp8ujo7v</ServerId>
+			      <Weight>100</Weight>
+			      <Type>ecs</Type>
+		    </BackendServer>
+	  </BackendServers>
+	  <HasReservedInfo>false</HasReservedInfo>
+	  <ListenerPorts></ListenerPorts>
+	  <InternetChargeType>paybytraffic</InternetChargeType>
+	  <VSwitchId>vsw-bp12mw1f8k3jgygk9bmlj</VSwitchId>
+	  <VpcId>vpc-bp1aevy8sofi8mh1qc5cm</VpcId>
+	  <SlaveZoneId>cn-hangzhou-d</SlaveZoneId>
+	  <LoadBalancerSpec>slb.s2.small</LoadBalancerSpec>
+	  <NetworkType>vpc</NetworkType>
+	  <ListenerPortsAndProtocol></ListenerPortsAndProtocol>
+	  <PayType>PayOnDemand</PayType>
+	  <Bandwidth>5120</Bandwidth>
+	  <LoadBalancerName>abc1</LoadBalancerName>
+	  <ResourceGroupId>rg-acfmxazb4ph6aiy</ResourceGroupId>
+	  <AddressIPVersion>ipv4</AddressIPVersion>
+	  <LoadBalancerId>lb-bp1b6c719dfa08exfuca5</LoadBalancerId>
+	  <EndTimeStamp>32493801600000</EndTimeStamp>
+	  <MasterZoneId>cn-hangzhou-b</MasterZoneId>
+	  <ListenerPortsAndProtocal></ListenerPortsAndProtocal>
+	  <Address>192.168.0.6</Address>
+	  <RegionId>cn-hangzhou</RegionId>
+	  <RequestId>35D745B3-1567-4855-9EF1-F5CED3C1670C</RequestId>
+	  <CreateTime>2018-11-08T12:21:53Z</CreateTime>
+	  <AddressType>intranet</AddressType>
+	  <EndTime>2999-09-08T16:00:00Z</EndTime>
+	  <LoadBalancerStatus>active</LoadBalancerStatus>
 </DescribeLoadBalancerAttributeResponse>
-
 ```
 
 `JSON` 格式
@@ -280,5 +279,5 @@ http(s)://[Endpoint]/?Action=DescribeLoadBalancerAttribute
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

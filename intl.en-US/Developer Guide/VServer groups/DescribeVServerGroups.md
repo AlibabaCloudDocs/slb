@@ -1,28 +1,34 @@
-# DescribeVServerGroups {#doc_api_834959 .reference}
+# DescribeVServerGroups {#doc_api_Slb_DescribeVServerGroups .reference}
 
 Queries the list of VServer groups.
 
 ## Debug {#apiExplorer .section}
 
-We recommend that you use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=AddVServerGroupBackendServers) to call APIs, generate SDK code examples, perform debug operations, and search for APIs.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeVServerGroups) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeVServerGroups|The name of this action. Value: **DescribeVServerGroups**
+|Action|String|Yes|DescribeVServerGroups| The name of this action.
+
+ Value: **DescribeVServerGroups**
 
  |
-|LoadBalancerId|String|Yes|lb-bp1o94dp5i6earr9g6d1l|The ID of the SLB instance.
+|LoadBalancerId|String|Yes|lb-bp1o94dp5i6earr9g6d1l| The ID of the SLB instance.
 
  |
-|RegionId|String|Yes|cn-hangzhou|The region ID of the SLB instance.
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the SLB instance belongs.
 
  |
-|IncludeListener|Boolean|No|false|Optional. The associated listener information is returned. Default value: **false**
+|IncludeListener|Boolean|No|false| Optional. Indicates whether to return the associated listener information.
+
+ Default value: **false**
 
  |
-|IncludeRule|Boolean|No|false|Optional. The associated forwarding rule information is returned. Default value: **false**
+|IncludeRule|Boolean|No|false| Optional. Indicates whether to return the associated forwarding rule information.
+
+ Default value: **false**
 
  |
 
@@ -30,43 +36,43 @@ We recommend that you use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb
 
 |Parameter|Type|Example value|Description|
 |---------|----|-------------|-----------|
-|VServerGroups|N/A|N/A|A list of backend servers.
+|VServerGroups| | | A list of VServer groups.
 
  |
-|└VServerGroupId|String|rsp-0bfucwuotx|The ID of the VServer group.
+|└VServerGroupId|String|rsp-0bfucwuotx| The ID of the VServer group.
 
  |
-|└VServerGroupName|String|Group3|The name of the VServer group.
+|└VServerGroupName|String|Group3| The name of the VServer group.
 
  |
-|└AssociatedObjects|N/A|N/A|Associated information.
+|└AssociatedObjects| | | Associated information
 
  |
-|└Listeners|N/A|N/A|A list of associated listeners.
+|└Listeners| | | A list of associated listeners.
 
  |
-|└Port|Integer|80|The listening port.
+|└Port|Integer|80| The listening port.
 
  |
-|└Protocol|String|tcp|The protocol used by the listener.
+|└Protocol|String|tcp| The protocol used by the listener.
 
  |
-|└Rules|N/A|N/A|A list of forwarding rules.
+|└Rules| | | A list of forwarding rules.
 
  |
-|└Domain|String|www.example.com|The request domain name.
+|└Domain|String|www.example.com| The request domain name.
 
  |
-|└RuleId|String|123|The ID of the forwarding rule.
+|└RuleId|String|123| The ID of the forwarding rule.
 
  |
-|└RuleName|String|test|The name of the forwarding rule.
+|└RuleName|String|test| The name of the forwarding rule.
 
  |
-|└Url|String|/example|The access path.
+|└Url|String|/example| The access path.
 
  |
-|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|The ID of the request.
+|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C| The ID of the request.
 
  |
 
@@ -76,8 +82,8 @@ Request example
 
 ``` {#request_demo}
 
-/? Action=DescribeVServerGroups
-&LoadBalancerId=152a602e315-cn-hangzhou-a01
+http(s)://[Endpoint]/? Action=DescribeVServerGroups
+&LoadBalancerId=lb-bp1o94dp5i6earr9g6d1l
 &RegionId=cn-hangzhou
 &<CommonParameters>
 
@@ -88,7 +94,7 @@ Response examples
 `XML` format
 
 ``` {#xml_return_success_demo}
-<DescribeVServerGroups>
+<DescribeVServerGroupsResponse>
   <VServerGroups>
     <VServerGroup>
       <VServerGroupId>rsp-bp12bjrnykyp0</VServerGroupId>
@@ -108,7 +114,7 @@ Response examples
     </VServerGroup>
   </VServerGroups>
   <RequestId>E3F94C66-5DDD-4A6B-B37D-FD237FB31FE6</RequestId>
-</DescribeVServerGroups>
+</DescribeVServerGroupsResponse>
 
 ```
 
@@ -134,7 +140,7 @@ Response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_nb3_4c6_256 .section}
 
-[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

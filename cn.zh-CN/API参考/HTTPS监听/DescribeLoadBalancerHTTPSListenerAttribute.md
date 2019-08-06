@@ -2,9 +2,9 @@
 
 调用DescribeLoadBalancerHTTPSListenerAttribute查询HTTPS监听配置。
 
-## 调试 {#apiExplorer .section}
+## 调试 {#api_explorer .section}
 
-前往【[API Explorer](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalancerHTTPSListenerAttribute)】在线调试，API Explorer 提供在线调用 API、动态生成 SDK Example 代码和快速检索接口等能力，能显著降低使用云 API 的难度，强烈推荐使用。
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=DescribeLoadBalancerHTTPSListenerAttribute&type=RPC&version=2014-05-15)
 
 ## 请求参数 {#parameters .section}
 
@@ -27,7 +27,7 @@
 
  |
 
-## 返回参数 {#resultMapping .section}
+## 返回数据 {#resultMapping .section}
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
@@ -148,13 +148,13 @@
 |DomainExtensions| | |域名扩展列表。
 
  |
-|└Domain|String|www.example.com|域名。
+|Domain|String|www.example.com|域名。
 
  |
-|└DomainExtensionId|String|12|域名扩展ID。
+|DomainExtensionId|String|12|域名扩展ID。
 
  |
-|└ServerCertificateId|String|133444444565|与域名对应的证书ID。
+|ServerCertificateId|String|133444444565|与域名对应的证书ID。
 
  |
 |EnableHttp2|String|off|是否开启HTTP/2特性。
@@ -178,19 +178,19 @@
 |Rules| | |监听下的转发规则列表。
 
  |
-|└Domain|String|www.example.com|域名。
+|Domain|String|www.example.com|域名。
 
  |
-|└RuleId|String|23|转发规则ID。
+|RuleId|String|23|转发规则ID。
 
  |
-|└RuleName|String|example|转发规则名称。
+|RuleName|String|example|转发规则名称。
 
  |
-|└Url|String|/example|访问路径。
+|Url|String|/example|访问路径。
 
  |
-|└VServerGroupId|String|12|转发规则的目标服务器组ID。
+|VServerGroupId|String|12|转发规则的目标服务器组ID。
 
  |
 |SecurityStatus|String|on|安全状态。
@@ -261,30 +261,29 @@ http(s)://[Endpoint]/?Action=DescribeLoadBalancerHTTPSListenerAttribute
 
 ``` {#xml_return_success_demo}
 <DescribeLoadBalancerHTTPSListenerAttributeResponse>
-  <RequestId>11F52428-64ED-40F7-98C2-DBB6D0BB0AD7</RequestId>
-  <HealthCheckHttpCode>http_2xx,http_3xx</HealthCheckHttpCode>
-  <HealthCheckTimeout>5</HealthCheckTimeout>
-  <ServerCertificateId>1231579xxxxxxxx_15dbf6ff26f_1991415478_2054196746</ServerCertificateId>
-  <XForwardedFor_SLBID>off</XForwardedFor_SLBID>
-  <Gzip>on</Gzip>
-  <HealthyThreshold>3</HealthyThreshold>
-  <Scheduler>wrr</Scheduler>
-  <StickySession>off</StickySession>
-  <UnhealthyThreshold>3</UnhealthyThreshold>
-  <XForwardedFor_SLBIP>off</XForwardedFor_SLBIP>
-  <XForwardedFor_proto>off</XForwardedFor_proto>
-  <Bandwidth>-1</Bandwidth>
-  <HealthCheckURI>/</HealthCheckURI>
-  <VServerGroupId>rsp-0xiju72xwnr93</VServerGroupId>
-  <HealthCheck>on</HealthCheck>
-  <ListenerPort>443</ListenerPort>
-  <Status>running</Status>
-  <XForwardedFor>on</XForwardedFor>
-  <HealthCheckDomain/>
-  <HealthCheckInterval>2</HealthCheckInterval>
-  <BackendServerPort>443</BackendServerPort>
+	  <RequestId>11F52428-64ED-40F7-98C2-DBB6D0BB0AD7</RequestId>
+      <HealthCheckHttpCode>http_2xx,http_3xx</HealthCheckHttpCode>
+      <HealthCheckTimeout>5</HealthCheckTimeout>
+      <ServerCertificateId>1231579xxxxxxxx_15dbf6ff26f_1991415478_2054196746</ServerCertificateId>
+      <XForwardedFor_SLBID>off</XForwardedFor_SLBID>
+      <Gzip>on</Gzip>
+      <HealthyThreshold>3</HealthyThreshold>
+      <Scheduler>wrr</Scheduler>
+      <StickySession>off</StickySession>
+      <UnhealthyThreshold>3</UnhealthyThreshold>
+      <XForwardedFor_SLBIP>off</XForwardedFor_SLBIP>
+      <XForwardedFor_proto>off</XForwardedFor_proto>
+      <Bandwidth>-1</Bandwidth> 
+      <HealthCheckURI>/</HealthCheckURI>
+      <VServerGroupId>rsp-0xiju72xwnr93</VServerGroupId>
+      <HealthCheck>on</HealthCheck>
+      <ListenerPort>443</ListenerPort>
+      <Status>running</Status>
+      <XForwardedFor>on</XForwardedFor>
+      <HealthCheckDomain></HealthCheckDomain>
+      <HealthCheckInterval>2</HealthCheckInterval>
+      <BackendServerPort>443</BackendServerPort>
 </DescribeLoadBalancerHTTPSListenerAttributeResponse>
-
 ```
 
 `JSON` 格式
@@ -318,5 +317,5 @@ http(s)://[Endpoint]/?Action=DescribeLoadBalancerHTTPSListenerAttribute
 
 ## 错误码 { .section}
 
-[查看本产品错误码](https://error-center.aliyun.com/status/product/Slb)
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 

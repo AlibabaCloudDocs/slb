@@ -10,30 +10,30 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeAccessCon
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeAccessControlLists|The name of this action. Value: **DescribeAccessControlLists**
+|Action|String|Yes|DescribeAccessControlLists| The name of this action. Value: **DescribeAccessControlLists**
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the access control list belongs.
+|RegionId|String|Yes|cn-hangzhou| The ID of the region to which the access control list belongs.
 
  To query the region ID, call [DescribeRegions](~~27584~~).
 
  |
-|AclName|String|No|rule1|Optional. The name of the access control list.
+|AclName|String|No|rule1| Optional. The name of the access control list.
 
  |
-|AddressIPVersion|String|No|ipv4|Optional. The IP address type of the SLB instance associated with the access control list. Valid values:
+|AddressIPVersion|String|No|ipv4| Optional. The IP address type of the SLB instance associated with the access control list. Valid values:
 
  -   **ipv4**: The IP address type of the SLB instance is IPv4.
 -   **ipv6**: The IP address type of the SLB instance is IPv6.
 
  |
-|PageNumber|Integer|No|1|Optional. The page number of the access control list. Default value: 1
+|PageNumber|Integer|No|1| Optional. The page number of the access control list. Default value: 1
 
  |
-|PageSize|Integer|No|10|Optional. The number of rows per page for a paged query. Maximum value: 50. Default value: 10
+|PageSize|Integer|No|10| Optional. The number of rows per page for a paged query. Maximum value: 50. Default value: 10
 
  |
-|ResourceGroupId|String|No|rg-atstuj3rtoptyui|Optional. The ID of the enterprise resource group.
+|ResourceGroupId|String|No|rg-atstuj3rtoptyui| Optional. The ID of the enterprise resource group.
 
  |
 
@@ -41,19 +41,19 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeAccessCon
 
 |Parameter|Type|Example value|Description|
 |---------|----|-------------|-----------|
-|Acls| | |A list of access control lists that are queried.
+|Acls| | | A list of access control lists that are queried.
 
  |
-|└AclId|String|acl-bp1l0kk4gxce43kzet04s|The ID of an access control list.
+|└AclId|String|acl-bp1l0kk4gxce43kzet04s| The ID of an access control list.
 
  |
-|└AclName|String|rule1|The name of the access control list.
+|└AclName|String|rule1| The name of the access control list.
 
  |
-|└AddressIPVersion|String|ipv4|The IP address type of the associated SLB instance.
+|└AddressIPVersion|String|ipv4| The IP address type of the associated SLB instance.
 
  |
-|RequestId|String|B646EF-6147-4566|The ID of the request.
+|RequestId|String|B646EF-6147-4566| The ID of the request.
 
  |
 
@@ -114,7 +114,7 @@ Response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_jim_uj5_olx .section}
 
-[See common error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb?spm=a2c69.11428812.home.38.5972hYtYhYtYON)
 

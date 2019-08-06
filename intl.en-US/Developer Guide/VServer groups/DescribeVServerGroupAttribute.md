@@ -1,57 +1,62 @@
-# DescribeVServerGroupAttribute {#doc_api_834956 .reference}
+# DescribeVServerGroupAttribute {#doc_api_Slb_DescribeVServerGroupAttribute .reference}
 
-You can call the DescribeVServerGroupAttribute API to query the details of a VServer group.
+Queries the details of a VServer group.
 
 ## Debug {#apiExplorer .section}
 
-Click [here](https://api.aliyun.com/#product=Slb&api=DescribeVServerGroupAttribute) to perform a debug operation in OpenAPI Explorer and automatically generate an SDK code example.
+Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeVServerGroupAttribute) to perform debug operations and generate SDK code examples.
 
 ## Request parameters {#parameters .section}
 
-|Name|Type|Required?|Example value|Description|
-|----|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeVServerGroupAttribute|The action to perform. Valid value: **DescribeVServerGroupAttribute**
+|Parameter|Type|Required?|Example value|Description|
+|---------|----|---------|-------------|-----------|
+|Action|String|Yes|DescribeVServerGroupAttribute| The name of this action.
+
+ Value: **DescribeVServerGroupAttribute**
 
  |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs
+|RegionId|String|Yes|cn-hangzhou-d| The ID of the region to which the SLB instance belongs.
 
  |
-|VServerGroupId|String|Yes|rsp-cige6j5e7p|The ID of the VServer group
+|VServerGroupId|String|Yes|rsp-cige6j5e7p| The ID of the VServer group to be queried.
 
  |
 
 ## Response parameters {#resultMapping .section}
 
-|Name|Type|Example value|Description|
-|----|----|-------------|-----------|
-|VServerGroupId|String|rsp-cige6j5e7p|The ID of the VServer group
+|Parameter|Type|Example value|Description|
+|---------|----|-------------|-----------|
+|VServerGroupId|String|rsp-cige6j5e7p| The ID of the VServer group.
 
  |
-|VServerGroupName|String|Group1|The name of the VServer group
+|VServerGroupName|String|Group1| The name of the VServer group.
 
  |
-|BackendServers| | |A list of backend servers
+|BackendServers| | | A list of backend servers.
 
  |
-|└ServerId|String|vm-233|The ECS instance ID
+|└ServerId|String|vm-233| The ECS instance ID.
 
  |
-|└Port|Integer|90|The port used by the backend server
+|└Port|Integer|90| The port used by the backend server.
 
  |
-|└Weight|Integer|100|The weight of the backend server
+|└Weight|Integer|100| The weight of the backend server.
 
  |
-|└Description|String|A description of the VServer group|A description of the VServer group
+|└Description|String|A description of the VServer group| A description of the VServer group.
 
  |
-|└Type|String|ecs|The backend server type. Valid values:
+|└Type|String|ecs| The backend server type. Valid values:
 
  -   **ecs**: ECS instance \(default\)
 -   **eni**: Elastic Network Interface \(ENI\)
 
  |
-|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C|The ID of the request
+|LoadBalancerId|String|lb-jfakd\*\*\*| The ID of the SLB instance.
+
+ |
+|RequestId|String|9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C| The ID of the request.
 
  |
 
@@ -61,14 +66,14 @@ Request example
 
 ``` {#request_demo}
 
-/? Action=DescribeVServerGroupAttribute
+http(s)://[Endpoint]/? Action=DescribeVServerGroupAttribute
 &RegionId=cn-hangzhou
 &VServerGroupId=rsp-cige6j5e7p
 &<CommonParameters>
 
 ```
 
-Normal response examples
+Response examples
 
 `XML` format
 
@@ -117,20 +122,7 @@ Normal response examples
 }
 ```
 
-Error response example
+## Error codes {#section_smw_cok_83i .section}
 
-`JSON` format
-
-``` {#json_return_failed_demo}
-{
-	"Message":"The specified parameter is not valid.",
-	"RequestId":"0669D684-69D8-408E-A4FA-B9011E0F4E66",
-	"HostId":"slb-pop.aliyuncs.com",
-	"Code":"InvalidParameter"
-}
-```
-
-## Error codes { .section}
-
-[Click here to view the error codes.](https://error-center.aliyun.com/status/product/Slb)
+[See common error codes.](https://error-center.alibabacloud.com/status/product/Slb)
 

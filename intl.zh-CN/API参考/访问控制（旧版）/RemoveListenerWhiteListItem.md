@@ -1,71 +1,78 @@
-# RemoveListenerWhiteListItem {#slb_api_RemoveListenerWhiteListItem .reference}
+# RemoveListenerWhiteListItem {#doc_api_Slb_RemoveListenerWhiteListItem .reference}
 
-删除监听白名单中的IP地址。
+调用RemoveListenerWhiteListItem删除监听白名单中的IP。
 
-## 调试 {#section_bd1_bxz_qfb .section}
+## 调试 {#api_explorer .section}
 
-```
-点击[这里](https://api.aliyun.com/#product=Slb&api=RemoveListenerWhiteListItem)在OpenAPI Explorer中可视化调试，并自动生成SDK调用示例。
-```
+[您可以在OpenAPI Explorer中直接运行该接口，免去您计算签名的困扰。运行成功后，OpenAPI Explorer可以自动生成SDK代码示例。](https://api.aliyun.com/#product=Slb&api=RemoveListenerWhiteListItem&type=RPC&version=2014-05-15)
 
-## 请求参数 {#section_v5w_nds_cz .section}
+## 请求参数 {#parameters .section}
 
-|名称|类型|是否必须|描述|
-|:-|:-|:---|:-|
-|Action|String|是|要执行的操作，取值：RemoveListenerWhiteListItem
+|名称|类型|是否必选|示例值|描述|
+|--|--|----|---|--|
+|Action|String|是|RemoveListenerWhiteListItem|要执行的操作。
 
-|
-|RegionId|String|是|负载均衡实例的地域。您可以通过调用 DescribeRegions接口获取地域ID。
+ 取值：**RemoveListenerWhiteListItem**。
 
-|
-|LoadBalancerId|String|是|负载均衡实例的ID。|
-|ListenerPort|Integer|是|负载均衡实例前端使用的端口。取值：1-65535
+ |
+|RegionId|String|是|cn-hangzhou|负载均衡实例的地域。
 
-|
-|SourceItems|String|是|访问控制白名单，只转发来自名单中的IP地址的请求。支持输入IP地址或IP地址段（CIDR block形式），多个IP地址或地址段用逗号分隔。
+ 您可以通过调用[DescribeRegions](~~27584~~)接口查询地域ID。
 
-不允许输入0.0.0.0或0.0.0.0/0，若要关闭访问控制，请调用SetListenerAccessControlStatus接口将AccessControlStatus的值设置为close，关闭访问控制。
+ |
+|ListenerPort|Integer|是|80|监听端口。
 
-**说明：** 如果所有IP都被删除，则无法访问该监听。
+ |
+|LoadBalancerId|String|是|lb-8vb86hxixo8lvsja86jaz|负载均衡实例的ID。
 
-|
+ |
+|SourceItems|String|是|1.1.1.1|访问控制列表。支持输入IP地址或IP地址段（CIDR block形式），多个IP地址或地址段用逗号（,）分隔。
 
-## 返回参数 {#section_ssd_pds_cz .section}
+ **说明：** 如果所有IP都被删除，则无法访问该监听。
 
-|名称|类型|说明|
-|:-|:-|:-|
-|RequestId|String|请求ID。|
+ |
 
-## 示例 {#section_oxr_pds_cz .section}
+## 返回数据 {#resultMapping .section}
 
-**请求示例**
+|名称|类型|示例值|描述|
+|--|--|---|--|
+|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984|请求ID。
 
-``` {#public}
-https://slb.aliyuncs.com/?Action=RemoveListenerWhiteListItem
-&LoadBalancerId=lb-t4nj5vuz8ish9emfk1f20
+ |
+
+## 示例 {#demo .section}
+
+请求示例
+
+``` {#request_demo}
+
+http(s)://[Endpoint]/?Action=RemoveListenerWhiteListItem
 &ListenerPort=80
-&SourceItems=10.10.0.0/8
-&公共请求参数
+&LoadBalancerId=lb-8vb86hxixo8lvsja86jaz
+&SourceItems=1.1.1.1
+&<公共请求参数>
+
 ```
 
-**返回示例**
+正常返回示例
 
--   XML格式
+`XML` 格式
 
-    ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <RemoveListenerWhiteListItemResponse>
-          <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
-    </RemoveListenerWhiteListItemResponse>
-    
-    ```
+``` {#xml_return_success_demo}
+<RemoveListenerWhiteListItemResponse>
+		  <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
+</RemoveListenerWhiteListItemResponse>
+```
 
--   JSON格式
+`JSON` 格式
 
-    ```
-    {
-      "RequestId":" CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
-    }
-    ```
+``` {#json_return_success_demo}
+{
+	"RequestId":" CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
+}
+```
 
+## 错误码 { .section}
+
+访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
 
