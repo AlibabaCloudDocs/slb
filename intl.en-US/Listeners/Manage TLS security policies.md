@@ -4,7 +4,7 @@ When you add or configure an HTTPS listener for a guaranteed-performance Server 
 
 You can select a TLS security policy when you set advanced configurations of **SSL Certificates** for an HTTPS listener. For more information, see [Add an HTTPS listener](../../../../reseller.en-US/Listeners/Add an HTTPS listener.md#).
 
-![Configure the listener](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21323/156471586411859_en-US.png)
+![Configure the listener](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21323/156509653611859_en-US.png)
 
 A TLS security policy contains supported TLS protocol versions and cipher suites.
 

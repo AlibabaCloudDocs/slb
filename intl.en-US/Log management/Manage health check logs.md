@@ -20,13 +20,12 @@ To store health check logs, follow these steps:
 
 ## Step 1 Create a bucket {#section_tx2_td4_vdb .section}
 
-1.  Open the [OSS product page](https://www.alibabacloud.com/product/oss?spm=a3c0i.7911826.1160486.dproductb1.19d214b3ZMTOMm) and click **Buy Now** to activate the OSS service.
-2.  Log on to the OSS console.
-3.  Click **Create Bucket**.
+1.  Log on to the OSS console.
+2.  Click **Create Bucket**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4149/15640561302444_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4149/15650897942444_en-US.png)
 
-4.  In the Create Bucket dialog box, configure the bucket and click **OK**.
+3.  In the Create Bucket dialog box, configure the bucket and click **OK**.
 
     **Note:** Make sure that the bucket and the SLB instance belong to the same region.
 
@@ -45,11 +44,11 @@ After creating a bucket, you must authorize the role \(`SLBLogDefaultRole`\) to 
 6.  In the left-side navigation pane, click **Roles**, find the role named SLBLogDefaultRole, and then click **Authorize**.
 7.  In the Edit Role Authorization Policy dialog box, find the **AliyunOSSFullAccess** policy, click the policy, and then click **OK**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4149/15640561312449_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4149/15650897942449_en-US.png)
 
     After the authorization, click the role name of **SLBLogDefaultRole**, and then click the **Role Authorization Policies** tab to view the attached policy.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4149/15640561312450_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4149/15650897942450_en-US.png)
 
 
 ## Step 3 Configure log storage {#section_bhz_4g4_vdb .section}
@@ -59,7 +58,7 @@ After creating a bucket, you must authorize the role \(`SLBLogDefaultRole`\) to 
 3.  On the Health Check Logs page, click the **Log Storage** tab.
 4.  Find the target region and click **Configure Log Storage**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15683/15640561317333_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15683/15650897957333_en-US.png)
 
 5.  In the Configure Log Storage dialog box, select a bucket to store health check logs, and then click **OK**.
 6.  Turn on the status switch to enable log storage.
@@ -77,7 +76,7 @@ To view the health check logs generated in the past three days, follow these ste
     -   The `SLB_instance_IP:port to Added_ECS_instance_IP:port abnormal; cause:XXX` log message indicates that the backend server is abnormal. Troubleshoot according to the detailed error message.
     -   The `SLB_instance_IP:port to Added_ECS_instance_IP:port normal` log message indicates that the backend server becomes normal again.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15683/15640561317334_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15683/15650897957334_en-US.png)
 
 
 ## Download health check logs {#section_iqd_k34_vdb .section}
@@ -88,12 +87,12 @@ You can download the completed health check logs stored in OSS buckets.
 2.  On the Overview page, click the target bucket and then click **Files**.
 3.  On the Files page, click AliyunSLBHealthCheckLogs/.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4149/15640561312459_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4149/15650897952459_en-US.png)
 
 4.  Click the folder of the heath logs to download.
 5.  Click **Edit** of the target folder. Then, click **Copy File URL** in the displayed page.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4149/15640561312460_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4149/15650897952460_en-US.png)
 
 6.  Enter the copied URL in the web browser to download the logs.
 

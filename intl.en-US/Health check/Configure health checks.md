@@ -4,11 +4,11 @@ You can configure the health check function when you add a listener. Generally, 
 
 ## Configure health checks {#section_rsr_4cb_wdb .section}
 
-You can configure the health check function of a listener through the Server Load Balancer \(SLB\) console or APIs. For more information, see [Health check overview](intl.en-US/Health check/Health check overview.md#) and [Health check FAQ](../intl.en-US/FAQ/Health check FAQ.md#).
+You can configure the health check function of a listener through the Server Load Balancer \(SLB\) console or APIs. For more information, see [Health check overview](reseller.en-US/Health check/Health check overview.md#) and [Health check FAQ](../reseller.en-US/FAQ/Health check FAQ.md#).
 
 To configure the health check function, follow these steps:
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb).
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  Select the region of the target SLB instance.
 3.  Find the target SLB instance and click the instance ID.
 4.  On the **Instance Details** page, click the **Listeners** tab.
@@ -94,7 +94,7 @@ Health check failure time window = Response Timeout × Unhealthy Threshold + Hea
 
 The following figure shows the process to declare an unhealthy backend server:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4138/15645484122816_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4138/15650964202816_en-US.png)
 
 Health check success time window = Health check response time × Healthy Threshold + Health Check Interval × \(Healthy Threshold - 1\). That is, \(1 × 3\) + 2 × \(3 - 1\) = 7s.
 
@@ -102,7 +102,7 @@ Health check success time window = Health check response time × Healthy Thresho
 
 The following figure shows the process to declare a healthy backend server \(assume that it takes one second for the backend server to respond to the health check request\):
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4138/15645484122820_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4138/15650964202820_en-US.png)
 
 ## Configure a domain name in HTTP health checks {#section_yft_fhb_wdb .section}
 

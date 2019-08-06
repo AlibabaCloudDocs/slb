@@ -14,7 +14,7 @@ The certificate format must meet the following format requirements:
 
 The following is a sample certificate issued by a root CA.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4142/15645484342839_en-US.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4142/15650962122839_en-US.jpg)
 
 ## Certificates issued by an intermediate CA {#section_vyv_vnb_wdb .section}
 
@@ -55,7 +55,7 @@ openssl rsa -in old_server_key.pem -out new_server_key.pem
 
 The following is a sample RSA private key.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4142/15645484342840_en-US.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4142/15650962122840_en-US.jpg)
 
 ## EC private key {#section_mb5_a98_j83 .section}
 
