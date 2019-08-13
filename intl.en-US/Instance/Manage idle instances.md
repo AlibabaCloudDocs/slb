@@ -4,11 +4,11 @@ This topic describes how to use the Server Load Balancer \(SLB\) console to disp
 
 1.  Log on to the [Server Load Balancer console](https://slb.console.aliyun.com/slb). 
 2.  In the left-side navigation pane, choose **SLB Lab** \> **Idle SLB instances**. 
-3.  On the Idle SLB instance page, view all the Pay-As-You-Go instances that have not been used for more than seven days. You can click **![](images/38070_en-US.png)** to customize the display of **IP Address** and **Idle Cause**. 
+3.  On the Idle SLB instance page, view all the Pay-As-You-Go instances that have not been used for more than seven days. You can click **![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/119747/156571721338070_en-US.png)** to customize the display of **IP Address** and **Idle Cause**. 
 4.  To release an idle instance, click **Release** from the **Actions** column to immediately release the instance. 
 
     **Note:** Given that the data of idle instances has a one-day cache period, make sure that the instance you want to release is not in use to prevent possible exceptions.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/119747/156454836338074_en-US.png) 
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/119747/156571721338074_en-US.png) 
 
 
