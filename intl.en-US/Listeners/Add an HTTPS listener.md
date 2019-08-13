@@ -16,11 +16,11 @@ To open the listener configuration wizard, follow these steps:
 4.  Select one of the following methods to open the listener configuration wizard:
     -   On the Server Load Balancer page, find the target SLB instance and then click **Configure Listener** in the **Actions** column.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156454841510004_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156571739810004_en-US.png)
 
     -   On the Server Load Balancer page, click the ID of the target SLB instance. On the Listeners page, click **Add Listener**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15645484157399_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15657173987399_en-US.png)
 
 
 ## Step 2 Configure the HTTPS listener {#section_ly4_2pn_42b .section}
@@ -110,11 +110,11 @@ If you enable a blacklist without adding any IP addresses in the corresponding a
     |**Get Client Source IP Address**|HTTP listeners use X-Forwarded-For to obtain real IP addresses of clients.|
     |**Automatically Enable Listener After Creation**|Choose whether to start the listener after the listener is configured. The listener is started by default.|
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156454841511858_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156571739811858_en-US.png)
 
 2.  Click **Next**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156454841510035_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156571739810035_en-US.png)
 
 
 ## Step 3 Configure the SSL certificate {#section_m52_pxn_42b .section}
@@ -157,9 +157,6 @@ To configure the SSL certificate, follow these steps:
     For more information, see [Create a certificate](intl.en-US/Certificate management/Create a certificate.md#).
 
 2.  If you want to enable HTTPS mutual authentication or set a TLS security policy, click **Modify**.
-
-    ![](images/47905_en-US.png)
-
 3.  Select an uploaded CA certificate, or click **Create CA Certificate** to upload a CA certificate.
 
     You can use a self-signed CA certificate. For more information, see [Generate a CA certificate](intl.en-US/Certificate management/Generate a CA certificate.md#).
@@ -174,11 +171,11 @@ In this topic, use the default server group.
 
 1.  Select **Default Server Group** and then click **Add More**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156454841610036_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156571739910036_en-US.png)
 
 2.  Select the ECS instances to add, and then click **Next: Set Weight and Port**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15645484167499_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15657173997499_en-US.png)
 
 3.  Configure ports and weights for the added backend servers.
     -   Port
@@ -191,7 +188,7 @@ In this topic, use the default server group.
 
         **Note:** If the weight is set to 0, no requests are sent to the ECS instance.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15645484167504_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15657173997504_en-US.png)
 
 4.  Click **Next**.
 
@@ -199,7 +196,7 @@ In this topic, use the default server group.
 
 SLB checks the service availability of backend servers \(ECS instances\) by performing health checks. The health check function improves the overall availability of your services and avoids the impact of backend server failures. Click **Modify** to change health check configurations. For more information, see [Configure health checks](intl.en-US/Health check/Configure health checks.md#).
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156454841710037_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156571739910037_en-US.png)
 
 ## Step 6 Submit the configurations {#section_hwm_qnn_42b .section}
 
@@ -208,12 +205,12 @@ To confirm the listener configurations, follow these steps:
 1.  On the Submit page, check the listener configurations. You can click **Modify** to change the configurations. Click **Submit**.
 2.  On the Submit page, click **OK** after the configurations are successful.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156454841710038_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156571739910038_en-US.png)
 
 
 After the configurations are submitted, you can view the created listener on the Listeners page.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156454841710039_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156571740010039_en-US.png)
 
 ## Related operations {#section_pz4_2pn_42b .section}
 
