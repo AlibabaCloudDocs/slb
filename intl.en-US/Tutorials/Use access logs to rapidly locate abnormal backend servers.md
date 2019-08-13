@@ -2,7 +2,7 @@
 
 When client access delay occurs, you can view the dashboard in Log Service to analyze the response time of the SLB instance to rapidly locate an abnormal backend server.
 
-This tutorial introduces how to use access logs to rapidly locate an abnormal backend server. For more information, see [Configure access logs](../intl.en-US/User Guide/Log management/Configure access logs.md#).
+This tutorial introduces how to use access logs to rapidly locate an abnormal backend server. For more information, see [Configure access logs](../reseller.en-US/Log management/Configure access logs.md#).
 
 ## Configure access logs {#section_fhr_xjs_gfb .section}
 
@@ -13,12 +13,12 @@ Before you configure access logs, make sure that:
 
 To configure access logs, complete these steps:
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com).
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  In the left-side navigation pane, choose **Logs** \> **Access Logs**.
 3.  Select a region.
 4.  Click **Authorize**, and then click **Confirm Authorization Policy** to authorize SLB to write logs to Log Service.
 
-    If you are a RAM user, you must obtain permissions from the corresponding account. For more information, see [Authorize a RAM user to use access logs](../intl.en-US/User Guide/Log management/Authorize a RAM user to use access logs.md#).
+    If you are a RAM user, you must obtain permissions from the corresponding account. For more information, see [Authorize a RAM user to use access logs](../reseller.en-US/Log management/Authorize a RAM user to use access logs.md#).
 
     **Note:** This step is required only at the first time.
 
@@ -29,7 +29,7 @@ To configure access logs, complete these steps:
 
     **Note:** Make sure that the name of the LogProject is globally unique and the region of the LogProject is the same as that of the SLB instance.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15681/15586041397478_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15681/15657166997478_en-US.png)
 
 
 ## Search access logs {#section_vgk_gks_gfb .section}
@@ -41,13 +41,13 @@ To search access logs, complete these steps:
 
         On the Access Logs page, click **View Logs**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15681/15586041397479_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15681/15657166997479_en-US.png)
 
     -   From the Log Service Console:
 
         On the Logstores page, click **Search** of the target Logstore.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15681/155860413912838_en-US.png)
+        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15681/156571669912838_en-US.png)
 
 2.  Click the target log field to view detailed information.
 3.  Enter an SQL statement to query access logs.
@@ -69,13 +69,11 @@ You can locate the abnormal backend server by checking the dashboard of Log Serv
 1.  On the Log Service console, click the project link of the SLB instance.
 2.  In the left-side navigation pane, click **Search/Analytics - Query** \> **Dashboard**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15681/155860413912867_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15681/156571670012867_en-US.png)
 
 3.  Click the link of the SLB access log.
 4.  In the dashboard, view the value in the **top upstream response time** tab. You can select to display the **Average upstream response time \(s\)** in descending order to check if the response time of any backend server surpasses 1 second.
 
     If so, run the ssh command to log on to the backend server. Check if the CPU has kept running at high levels and handle the high loads.
-
-    ![](images/12870_en-US.png)
 
 
