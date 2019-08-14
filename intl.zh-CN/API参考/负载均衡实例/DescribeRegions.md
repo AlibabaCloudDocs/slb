@@ -10,15 +10,15 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|DescribeRegions|要执行的操作。
+|Action|String|是|DescribeRegions| 要执行的操作。
 
  取值：**DescribeRegions**。
 
  |
-|RegionId|String|是|cn-hangzhou|地域ID。
+|RegionId|String|是|cn-hangzhou| 地域ID。
 
  |
-|AcceptLanguage|String|否|zh-CN|支持的语言。包括以下取值：
+|AcceptLanguage|String|否|zh-CN| 支持的语言。包括以下取值：
 
  -   中文：zh-CN
 -   英文：en-US
@@ -30,19 +30,19 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|Regions| | |地域列表。
+|Regions| | | 地域列表。
 
  |
-|RegionId|String|cn-beijing|地域ID。
+|RegionId|String|cn-beijing| 地域ID。
 
  |
-|LocalName|String|华北2（北京）|地域名称。
+|LocalName|String|华北2（北京）| 地域名称。
 
  |
-|RegionEndpoint|String|slb.aliyuncs.com|Region服务的Endpoint地址。
+|RegionEndpoint|String|slb.aliyuncs.com| Region服务的Endpoint地址。
 
  |
-|RequestId|String|1651FBB6-4FBF-49FF-A9F5-DF5D696C7EC6|请求ID。
+|RequestId|String|1651FBB6-4FBF-49FF-A9F5-DF5D696C7EC6| 请求ID。
 
  |
 
@@ -124,11 +124,6 @@ http(s)://[Endpoint]/?Action=DescribeRegions
 			      <RegionId>ap-southeast-2</RegionId>
 			      <RegionEndpoint>slb.ap-southeast-2.aliyuncs.com</RegionEndpoint>
 			      <LocalName>澳大利亚（悉尼）</LocalName>
-		    </Region>
-		    <Region>
-			      <RegionId>cn-hongkong</RegionId>
-			      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
-			      <LocalName>香港</LocalName>
 		    </Region>
 		    <Region>
 			      <RegionId>us-west-1</RegionId>
@@ -232,11 +227,6 @@ http(s)://[Endpoint]/?Action=DescribeRegions
 				"LocalName":"澳大利亚（悉尼）"
 			},
 			{
-				"RegionId":"cn-hongkong",
-				"RegionEndpoint":"slb.aliyuncs.com",
-				"LocalName":"香港"
-			},
-			{
 				"RegionId":"us-west-1",
 				"RegionEndpoint":"slb.aliyuncs.com",
 				"LocalName":"美国（硅谷）"
@@ -271,7 +261,7 @@ http(s)://[Endpoint]/?Action=DescribeRegions
 }
 ```
 
-## 错误码 { .section}
+## 错误码 {#section_0q1_bf4_6g7 .section}
 
 |HttpCode|错误码|错误信息|描述|
 |--------|---|----|--|

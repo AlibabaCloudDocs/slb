@@ -10,15 +10,15 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeRegions) 
 
 |Parameter|Type|Required?|Example value|Description|
 |---------|----|---------|-------------|-----------|
-|Action|String|Yes|DescribeRegions|The name of this action.
+|Action|String|Yes|DescribeRegions| The name of this action.
 
  Value: **DescribeRegions**
 
  |
-|RegionId|String|Yes|cn-hangzhou-d|The ID of the region.
+|RegionId|String|Yes|cn-hangzhou-d| The ID of the region.
 
  |
-|AcceptLanguage|String|No|zh-CN|Optional. The supported languages. Valid values:
+|AcceptLanguage|String|No|zh-CN| Optional. The supported languages. Valid values:
 
  -   zh-CN: Chinese
 -   en-US: English
@@ -30,19 +30,19 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=DescribeRegions) 
 
 |Parameter|Type|Example value|Description|
 |---------|----|-------------|-----------|
-|Regions| | |A list of regions.
+|Regions| | | A list of regions.
 
  |
-|└RegionId|String|cn-beijing|The ID of the region.
+|└RegionId|String|cn-beijing| The ID of the region.
 
  |
-|└LocalName|String|China \(Beijing\)|The name of the region.
+|└LocalName|String|China \(Beijing\)| The name of the region.
 
  |
-|└RegionEndpoint|String|slb.aliyuncs.com|The endpoint address of the region.
+|└RegionEndpoint|String|slb.aliyuncs.com| The endpoint address of the region.
 
  |
-|RequestId|String|1651FBB6-4FBF-49FF-A9F5-DF5D696C7EC6|The ID of the request.
+|RequestId|String|1651FBB6-4FBF-49FF-A9F5-DF5D696C7EC6| The ID of the request.
 
  |
 
@@ -124,11 +124,6 @@ Response examples
       <RegionId>ap-southeast-2</RegionId>
       <RegionEndpoint>slb.ap-southeast-2.aliyuncs.com</RegionEndpoint>
       <LocalName>Australia (Sydney)</LocalName>
-    </Region>
-    <Region>
-      <RegionId>cn-hongkong</RegionId>
-      <RegionEndpoint>slb.aliyuncs.com</RegionEndpoint>
-      <LocalName>Hong Kong</LocalName>
     </Region>
     <Region>
       <RegionId>us-west-1</RegionId>
@@ -233,11 +228,6 @@ Response examples
 				"LocalName":"Australia (Sydney)"
 			},
 			{
-				"RegionId":"cn-hongkong",
-				"RegionEndpoint":"slb.aliyuncs.com",
-				"LocalName":"Hong Kong"
-			},
-			{
 				"RegionId":"us-west-1",
 				"RegionEndpoint":"slb.aliyuncs.com",
 				"LocalName":"US (Silicon Valley)"
@@ -272,10 +262,10 @@ Response examples
 }
 ```
 
-## Error codes { .section}
+## Error codes {#section_3uq_vqz_uxk .section}
 
-|HTTP status code|Error code|Error message |Description|
-|----------------|----------|--------------|-----------|
+|HTTP status code|Error code|Error message|Description|
+|----------------|----------|-------------|-----------|
 |400|InvalidParameter|Illegal parameter, query.namespace is not auth.|The query. namespace parameter is not authorized.|
 
 [See common error codes.](https://error-center.aliyun.com/status/product/Slb)
