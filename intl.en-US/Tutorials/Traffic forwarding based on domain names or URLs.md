@@ -34,24 +34,24 @@ After forwarding rules are configured, the sequence of request forwarding is as 
 -   If not, but the listener is associated with a VServer group, the requests are distributed to the VServer group configured in the listener.
 -   If none of the above conditions are met, the requests are forwarded to ECS instances in the default server group.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4135/15607374502798_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4135/15657987282798_en-US.png)
 
 ## Add a domain name-based or URL-based forwarding rule {#section_z1n_t1b_wdb .section}
 
 Before you add a forwarding rule, make sure that the following conditions are met:
 
--   [Add an HTTP listener](../intl.en-US/User Guide/Listeners/Add an HTTP listener.md#) or [Add an HTTPS listener](../intl.en-US/User Guide/Listeners/Add an HTTPS listener.md#).
--   [Create a VServer group](intl.en-US/Archives/User Guide (Old Console)/Backend servers/Create a VServer group.md#).
+-   [Add an HTTP listener](../reseller.en-US/Listeners/Add an HTTP listener.md#) or [Add an HTTPS listener](../reseller.en-US/Listeners/Add an HTTPS listener.md#).
+-   [Create a VServer group](reseller.en-US/Archives/User Guide (Old Console)/Backend servers/Create a VServer group.md#).
 
 To add a domain name-based or URL-based forwarding rule, follow these steps:
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb).
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  Select the region of the target SLB instance.
 3.  Click the ID of the target SLB instance.
 4.  Click the Listeners tab.
 5.  Find the target HTTP or HTTPS listener and then click **Add Forwarding Rules**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15607374507453_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15657987287453_en-US.png)
 
 6.  On the Add Forwarding Rules page, configure the forwarding rule according to the following information and click **Add Forwarding Rules**.
 
@@ -62,11 +62,11 @@ To add a domain name-based or URL-based forwarding rule, follow these steps:
 
     3.  **VServer Group**: Select the VServer group that you want to forward the requests to.
     4.  **Description \(optional\)**: Enter a description for the forwarding rule.
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15607374507463_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15657987287463_en-US.png)
 
 7.  To add another domain name-based or URL-based forwarding rule, click **Add Domain** or **Add Rule**.
 
-    For more information, see [Limits](../intl.en-US/Limits/Limits.md#).
+    For more information, see [Limits ](../reseller.en-US/Limits/Limits.md#).
 
 8.  Click **OK**.
 
@@ -76,14 +76,14 @@ You can change the backend servers associated with the forwarding rule.
 
 To edit a forwarding rule, follow these steps:
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb).
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  Select the region of the target SLB instance.
 3.  Click the ID of the target SLB instance.
 4.  Click the Listeners tab.
 5.  Find the target HTTP or HTTPS listener and then click **Add Forwarding Rules**.
 6.  In the **Forwarding Rules** section, find the target forwarding rule and then click **Edit**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15607374517464_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15657987287464_en-US.png)
 
 7.  Edit the forwarding rule. Customize the advanced configurations such as scheduling algorithm, session persistence, and health checks according to the following information:
 
@@ -94,7 +94,7 @@ To edit a forwarding rule, follow these steps:
     -   China \(Shanghai\)
     -   China \(Zhangjiakou\)
     -   China \(Hohhot\)
-    -   Hong Kong
+    -   China \(Hong Kong\)
     -   Singapore
     -   Japan \(Tokyo\)
     |Advanced configurations|Description|
@@ -115,7 +115,7 @@ SLB adds a cookie to the first response from the backend server \(inserts SERVER
 
     -   **Rewrite cookie**: You can set the cookie to insert to the HTTP/HTTPS response according to your needs. You must maintain the timeout period and lifecycle of the cookie on the backend server.
 
-SLB will overwrite the original cookie when it discovers that a new cookie is set. The next time the client carries the new cookie to access SLB, the listener will distribute the request to the recorded backend server. For more information, see [Session persistence](../intl.en-US/FAQ/Best practices/Configure cookie in the backend server.md#).
+SLB will overwrite the original cookie when it discovers that a new cookie is set. The next time the client carries the new cookie to access SLB, the listener will distribute the request to the recorded backend server. For more information, see [Session persistence](../reseller.en-US/FAQ/Best practices/Configure cookie in the backend server.md#).
 
  |
     |**Enable Health Check**|     -   **Health Check Port**: the port used by health checks to access backend servers.
@@ -143,7 +143,7 @@ Value range: 2 to 10. Default value: 3.
 
  |
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/156073745111504_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/156579872911504_en-US.png)
 
 8.  Click **OK**.
 
@@ -151,13 +151,13 @@ Value range: 2 to 10. Default value: 3.
 
 To delete a forwarding rule, follow these steps:
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb).
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  Select the region of the target SLB instance.
 3.  Click the ID of the target SLB instance.
 4.  Click the Listeners tab.
 5.  Find the target HTTP or HTTPS listener, and then click **Add Forwarding Rules**.
 6.  In the **Forwarding Rules** section, find the target forwarding rule and then click **Delete**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15607374517465_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15657987297465_en-US.png)
 
 
