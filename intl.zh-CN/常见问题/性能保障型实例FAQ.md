@@ -23,7 +23,7 @@
 
 把鼠标移至性能保障型实例的问号图标，可查看具体的性能指标，如下图所示。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15633280767175_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15657970827175_zh-CN.png)
 
 性能保障型实例的三个关键指标如下：
 
@@ -78,7 +78,7 @@
 
 以后每小时规格费均按照上述方式计算，如下图所示：
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4113/15633280762301_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4113/15657970822301_zh-CN.png)
 
 因此，按量付费的性能保障型实例具有自动弹性伸缩（或计费）的能力。您在购买时所选的规格，是性能的上限，比如您选择高阶型II \(slb.s3.medium\)，那么意味着，您的实例最大可以达到的规格上限就是高阶型II \(slb.s3.medium\)。
 
@@ -120,7 +120,7 @@
 
  美国东部1（弗吉尼亚）
 
- 香港
+ 中国香港
 
  |规格1：简约型I \(slb.s1.small\)|5,000|3,000|1,000|免费|
 |规格2：标准型I \(slb.s2.small\)|50,000|5,000|5,000|0.06|
@@ -137,9 +137,9 @@
 
 您可在控制台对性能保障型实例进行变配，如下图所示。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15633280767343_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15657970827343_zh-CN.png)
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15633280767344_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15657970827344_zh-CN.png)
 
 **说明：** 
 
@@ -147,7 +147,7 @@
 -   由于历史存量原因，部分实例可能存在于较老的集群。此部分实例在变配到性能保障型实例时，因为需要将实例迁移，因此可能出现10-30秒的业务中断，其他变配操作均不会影响业务。因此建议在业务低谷期进行此类变配。
 -   所有的变配操作都不影响负载均衡实例的IP地址。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15633280777345_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15657970827345_zh-CN.png)
 
 ## 6. 性能保障型实例何时收费？ {#section_gvt_kfn_vdb .section}
 
@@ -165,7 +165,7 @@
 
     生效时间：4月11日至4月20日陆续生效
 
-    生效地域：华东1（杭州）、华北3（张家口）、华北5（呼和浩特）、香港
+    生效地域：华东1（杭州）、华北3（张家口）、华北5（呼和浩特）、中国香港
 
 -   第三批：
 
