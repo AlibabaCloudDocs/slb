@@ -17,7 +17,7 @@
  取值：**AddBackendServers**。
 
  |
-|BackendServers|String|是|\[\{"ServerId":"eni-xxxxxxxxx","Weight":"100","Type":"eni","ServerIp":"192.168.11.1"\}，\{"ServerId":"eni-xxxxxxxxx","Weight":"100","Type":"eni","ServerIp":"192.168.11.2"\}\]|要添加的后端服务器列表。
+|BackendServers|String|是|\[\{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.1" \}, \{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.2" \}\]|要添加的后端服务器列表。
 
  服务器组列表需要包含以下参数：
 
