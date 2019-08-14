@@ -14,40 +14,40 @@
 
 |名称|类型|是否必选|示例值|描述|
 |--|--|----|---|--|
-|Action|String|是|CreateLoadBalancerUDPListener|要执行的操作。
+|Action|String|是|CreateLoadBalancerUDPListener| 要执行的操作。
 
  取值：**CreateLoadBalancerUDPListener**。
 
  |
-|Bandwidth|Integer|是|34|监听的带宽峰值。
+|Bandwidth|Integer|是|34| 监听的带宽峰值。
 
  取值：**-1|1-5120**。
 
  -   **-1**：对于按流量计费的公网负载均衡实例，可以将带宽峰值设置为**-1**，即不限制带宽峰值。
 
  |
-|ListenerPort|Integer|是|80|负载均衡实例前端使用的端口。
+|ListenerPort|Integer|是|80| 负载均衡实例前端使用的端口。
 
  取值：**1-65535**。
 
  |
-|LoadBalancerId|String|是|lb-bp1ygod3yctvg1y7\*\*\*\*\*\*|负载均衡实例的ID。
+|LoadBalancerId|String|是|lb-bp1ygod3yctvg1y7\*\*\*\*\*\*| 负载均衡实例的ID。
 
  |
-|RegionId|String|是|cn-hangzhou|地域ID。
+|RegionId|String|是|cn-hangzhou| 地域ID。
 
  |
-|AclId|String|否|123|监听绑定的访问策略组ID。
+|AclId|String|否|123| 监听绑定的访问策略组ID。
 
  当**AclStatus**参数的值为**on**时，该参数必选。
 
  |
-|AclStatus|String|否|off|是否开启访问控制功能。
+|AclStatus|String|否|off| 是否开启访问控制功能。
 
  取值：**on|off**（默认值）。
 
  |
-|AclType|String|否|white|访问控制类型：
+|AclType|String|否|white| 访问控制类型：
 
  -   **white**：仅转发来自所选访问控制策略组中设置的IP地址或地址段的请求，白名单适用于应用只允许特定IP访问的场景。
 
@@ -65,39 +65,39 @@
  当**AclStatus**参数的值为**on**时，该参数必选。
 
  |
-|BackendServerPort|Integer|否|80|负载均衡实例后端使用的端口，取值：**1-65535**。
+|BackendServerPort|Integer|否|80| 负载均衡实例后端使用的端口，取值：**1-65535**。
 
  如果不使用服务器组（不指定VServerGroupId），则该参数必选。
 
  |
-|Description|String|否|test|设置监听的描述信息。
+|Description|String|否|test| 设置监听的描述信息。
 
  长度限制为1-80个字符，允许包含字母、数字、“-”、“/”、“.”和“\_”等字符。支持中文描述。
 
  |
-|HealthCheckConnectPort|Integer|否|80|健康检查使用的端口。取值：**1-65535**
+|HealthCheckConnectPort|Integer|否|80| 健康检查使用的端口。取值：**1-65535**
 
  不设置此参数时，表示使用后端服务端口（**BackendServerPort**）。
 
  |
-|HealthCheckConnectTimeout|Integer|否|100|接收来自运行状况检查的响应需要等待的时间。
+|HealthCheckConnectTimeout|Integer|否|100| 接收来自运行状况检查的响应需要等待的时间。
 
  如果后端ECS在指定的时间内没有正确响应，则判定为健康检查失败。
 
  取值：**1-300**（秒）。
 
  |
-|HealthyThreshold|Integer|否|4|健康检查连续成功多少次后，将后端服务器的健康检查状态由**fail**判定为**success**。
+|HealthyThreshold|Integer|否|4| 健康检查连续成功多少次后，将后端服务器的健康检查状态由**fail**判定为**success**。
 
  取值：**2-10**。
 
  |
-|MasterSlaveServerGroupId|String|否|rsp-0bfucwu\*\*\*\*|主备服务器组ID。
+|MasterSlaveServerGroupId|String|否|rsp-0bfucwu\*\*\*\*| 主备服务器组ID。
 
  **说明：** 服务器组ID和主备服务器组ID只能选择一个。
 
  |
-|Scheduler|String|否|wrr|调度算法。取值：
+|Scheduler|String|否|wrr| 调度算法。取值：
 
  -   **wrr**（默认值）：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
 -   **wlc**：除了根据每台后端服务器设定的权重值来进行轮询，同时还考虑后端服务器的实际负载（即连接数）。当权重值相同时，当前连接数越小的后端服务器被轮询到的次数（概率）也越高。
@@ -121,7 +121,7 @@
 -   华北5（呼和浩特）
 -   英国（伦敦）
 -   新加坡B、C可用区
--   香港
+-   中国香港
 -   华北1（青岛）
 -   华北3（张家口）
 -   西南1（成都）
@@ -131,23 +131,23 @@
 -   华东2（上海）F、G可用区
 
  |
-|UnhealthyThreshold|Integer|否|4|健康检查连续失败多少次后，将后端服务器的健康检查状态由**success**判定为**fail**。
+|UnhealthyThreshold|Integer|否|4| 健康检查连续失败多少次后，将后端服务器的健康检查状态由**success**判定为**fail**。
 
  取值：**2-10**。
 
  |
-|VServerGroupId|String|否|rsp-cige6j\*\*\*\*8|服务器组ID。
+|VServerGroupId|String|否|rsp-cige6j\*\*\*\*8| 服务器组ID。
 
  |
-|healthCheckExp|String|否|ok|UDP监听健康检查的响应串，只允许包含字母、数字字符，最大长度限制为500字符。
+|healthCheckExp|String|否|ok| UDP监听健康检查的响应串，只允许包含字母、数字字符，最大长度限制为500字符。
 
  |
-|healthCheckInterval|Integer|否|3|健康检查的时间间隔。
+|healthCheckInterval|Integer|否|3| 健康检查的时间间隔。
 
  取值：**1-50**（秒）。
 
  |
-|healthCheckReq|String|否|hello|UDP监听健康检查的请求串，只允许包含字母、数字字符，最大长度限制为500字符。
+|healthCheckReq|String|否|hello| UDP监听健康检查的请求串，只允许包含字母、数字字符，最大长度限制为500字符。
 
  |
 
@@ -155,7 +155,7 @@
 
 |名称|类型|示例值|描述|
 |--|--|---|--|
-|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984|请求ID。
+|RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984| 请求ID。
 
  |
 
