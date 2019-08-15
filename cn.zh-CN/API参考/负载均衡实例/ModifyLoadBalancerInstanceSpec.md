@@ -1,6 +1,6 @@
 # ModifyLoadBalancerInstanceSpec {#doc_api_Slb_ModifyLoadBalancerInstanceSpec .reference}
 
-使用ModifyLoadBalancerInstanceSpec修改负载均衡的实例规格。
+调用ModifyLoadBalancerInstanceSpec修改负载均衡的实例规格。
 
 ## 调试 {#api_explorer .section}
 
@@ -28,7 +28,7 @@
 -   slb.s3.medium
 -   slb.s3.large
 
- 每个地域支持的规格不同。关于每种规格的说明，参见[性能保障型实例](~~27657~~)。
+ 每个地域支持的规格不同。关于每种规格的说明，参见[性能保障型实例](~~55193~~)。
 
  **说明：** 将共享型实例变更为保障型实例，SLB将有小概率可能性出现短暂的业务中断（10秒-30秒），建议您在业务低谷期进行变配，或者使用GSLB将业务调度至其他的SLB实例后，再进行变配操作。
 
