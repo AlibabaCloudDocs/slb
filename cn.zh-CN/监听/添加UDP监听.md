@@ -2,7 +2,7 @@
 
 UDP协议多用于关注实时性而相对不注重可靠性的场景，如视频聊天、金融实时行情推送等。您可以添加一个UDP监听转发来自UDP协议的请求。
 
-您已经创建负载均衡实例，详情请参见[创建负载均衡实例](../cn.zh-CN/实例/创建负载均衡实例.md#)。
+您已经创建负载均衡实例，详情请参见[创建负载均衡实例](../intl.zh-CN/实例/创建负载均衡实例.md#)。
 
 在添加UDP监听前，注意如下限制：
 
@@ -27,11 +27,11 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
 4.  选择以下一种方法，打开监听配置向导。 
     -   在实例管理页面，找到目标实例，单击**监听配置向导**。
 
-        ![监听配置向导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156579722810004_zh-CN.png)
+        ![监听配置向导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585377910004_zh-CN.png)
 
     -   在实例管理页面，单击目标实例ID。在监听页面，单击**添加监听**。
 
-        ![添加监听](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15657972287399_zh-CN.png)
+        ![添加监听](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658537797399_zh-CN.png)
 
 
 ## 步骤二 配置协议监听 {#section_k58_mb2_whz .section}
@@ -117,7 +117,7 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
 如果开启了黑名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
 
  |
-    |**选择访问控制策略组**|选择访问控制策略组，作为该监听的白名单或黑名单。 **说明：** IPv6实例只能绑定IPv6访问控制策略组，IPv4实例只能绑定IPv4访问控制策略组。详情参见[访问控制策略组](cn.zh-CN/历史文档/用户指南（旧版控制台）/访问控制/配置访问控制策略组.md#)。
+    |**选择访问控制策略组**|选择访问控制策略组，作为该监听的白名单或黑名单。 **说明：** IPv6实例只能绑定IPv6访问控制策略组，IPv4实例只能绑定IPv4访问控制策略组。详情参见[访问控制策略组](intl.zh-CN/历史文档/用户指南（旧版控制台）/访问控制/配置访问控制策略组.md#)。
 
  |
     |**开启带宽峰值**| 选择是否配置监听带宽。
@@ -136,22 +136,22 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
 
 2.  单击**下一步**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15657972287426_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658537797426_zh-CN.png)
 
 
 ## 步骤三 添加后端服务器 {#section_2p9_p8x_lc1 .section}
 
-添加处理前端请求的后端服务器。您可以使用实例配置的默认服务器组，也可以为监听配置一个虚拟服务器组或主备服务器组。详情请参见[后端服务器概述](../cn.zh-CN/后端服务器/后端服务器概述.md#)。
+添加处理前端请求的后端服务器。您可以使用实例配置的默认服务器组，也可以为监听配置一个虚拟服务器组或主备服务器组。详情请参见[后端服务器概述](../intl.zh-CN/后端服务器/后端服务器概述.md#)。
 
 本操作中，以默认后端服务器组为例：
 
 1.  选择**默认服务器组**，单击**继续添加**。 
 
-    ![添加默认服务器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156579722810030_zh-CN.png)
+    ![添加默认服务器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585377910030_zh-CN.png)
 
 2.  选择要添加的ECS实例，然后单击**下一步：配置权重和端口号**。 
 
-    ![配置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15657972287499_zh-CN.png)
+    ![配置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658537807499_zh-CN.png)
 
 3.  配置添加的后端服务器的端口和权重。 
     -   端口
@@ -164,13 +164,13 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
 
         **说明：** 权重设置为0，该服务器不会再接受新请求。
 
-        ![设置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15657972287504_zh-CN.png)
+        ![设置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658537807504_zh-CN.png)
 
 4.  单击**下一步**。
 
 ## 步骤四 配置健康检查 {#section_gum_68h_177 .section}
 
-负载均衡通过健康检查来判断后端服务器（ECS实例）的业务可用性。健康检查机制提高了前端业务整体可用性，避免了后端ECS异常对总体服务的影响。单击**修改**更改健康检查配置，详情请参见[健康检查概述](../cn.zh-CN/健康检查/健康检查概述.md#)。
+负载均衡通过健康检查来判断后端服务器（ECS实例）的业务可用性。健康检查机制提高了前端业务整体可用性，避免了后端ECS异常对总体服务的影响。单击**修改**更改健康检查配置，详情请参见[健康检查概述](../intl.zh-CN/健康检查/健康检查概述.md#)。
 
 ## 步骤五 提交配置 {#section_n00_0iz_5ti .section}
 
@@ -183,15 +183,15 @@ UDP协议多用于关注实时性而相对不注重可靠性的场景，如视�
     配置成功后，您可以在监听页面查看已创建的监听。
 
 
-[配置健康检查](../cn.zh-CN/健康检查/配置健康检查.md#)
+[配置健康检查](../intl.zh-CN/健康检查/配置健康检查.md#)
 
-[管理默认服务器组](../cn.zh-CN/后端服务器/管理默认服务器组.md#)
+[管理默认服务器组](../intl.zh-CN/后端服务器/管理默认服务器组.md#)
 
-[管理虚拟服务器组](../cn.zh-CN/后端服务器/管理虚拟服务器组.md#)
+[管理虚拟服务器组](../intl.zh-CN/后端服务器/管理虚拟服务器组.md#)
 
-[管理主备服务器组](../cn.zh-CN/后端服务器/管理主备服务器组.md#)
+[管理主备服务器组](../intl.zh-CN/后端服务器/管理主备服务器组.md#)
 
-[设置访问控制](../cn.zh-CN/访问控制/设置访问控制.md#)
+[设置访问控制](../intl.zh-CN/访问控制/设置访问控制.md#)
 
-[CreateLoadBalancerUDPListener](../cn.zh-CN/API参考/UDP监听/CreateLoadBalancerUDPListener.md#)
+[CreateLoadBalancerUDPListener](../intl.zh-CN/API参考/UDP监听/CreateLoadBalancerUDPListener.md#)
 
