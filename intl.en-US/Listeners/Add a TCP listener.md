@@ -2,7 +2,7 @@
 
 This topic describes how to add a TCP listener to a Server Load Balancer \(SLB\) instance. The TCP protocol is applicable to scenarios with high requirements on reliability and data accuracy but with tolerance for low speed, such as file transmission, sending or receiving emails, and remote logons. You can add a TCP listener to forward requests from the TCP protocol.
 
-An SLB instance is created. For more information, see [../DNSLB19102239/EN-US\_TP\_15644.md\#](../reseller.en-US/Instance/Create an SLB instance.md#).
+An SLB instance is created. For more information, see [Create an SLB instance](../reseller.en-US/Instance/Create an SLB instance.md#).
 
 ## Step 1 Open the listener configuration wizard {#section_s73_d7t_dwd .section}
 
@@ -14,11 +14,11 @@ To open the listener configuration wizard, follow these steps:
 4.  Select one of the following methods to open the listener configuration wizard: 
     -   On the Server Load Balancer page, find the target SLB instance and then click **Configure Listener** in the **Actions** column.
 
-        ![Listener configuration wizard](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585614610004_en-US.png)
+        ![Listener configuration wizard](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156588106710004_en-US.png)
 
     -   On the Server Load Balancer page, click the ID of the target SLB instance. On the Listeners tab, click **Add Listener**.
 
-        ![Add listener](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658561467399_en-US.png)
+        ![Add listener](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658810677399_en-US.png)
 
 
 ## Step 2 Configure the TCP listener {#section_osj_ofw_k21 .section}
@@ -132,11 +132,11 @@ In this example, use the default server group.
 
 1.  Select **Default Server Group** and then click **Add More**. 
 
-    ![Add default servers](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585614610030_en-US.png)
+    ![Add default servers](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156588106710030_en-US.png)
 
 2.  Select the ECS instances to add, and then click **Next: Set Weight and Port**. 
 
-    ![Configure weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658561477499_en-US.png)
+    ![Configure weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658810677499_en-US.png)
 
 3.  Configure ports and weights for the added backend servers \(ECS instances\). 
     -   Port
@@ -149,7 +149,7 @@ In this example, use the default server group.
 
         **Note:** If the weight is set to 0, no requests are sent to the backend server.
 
-        ![Set weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658561477504_en-US.png)
+        ![Set weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658810677504_en-US.png)
 
 4.  Click **Next**.
 
