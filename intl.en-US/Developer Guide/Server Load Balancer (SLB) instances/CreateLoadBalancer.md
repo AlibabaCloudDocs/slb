@@ -84,7 +84,7 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=CreateLoadBalance
 
  The available specifications vary by region.
 
- Currently, guaranteed-performance instances are supported in the following regions: China \(Qingdao\), China \(Beijing\), China \(Hangzhou\), China \(Shanghai\), China \(Shenzhen\), China \(Zhangjiakou\), China \(Hohhot\), Singapore, UK \(London\), Germany \(Frankfurt\), Australia \(Sydney\), Malaysia \(Kuala Lumpur\), UAE \(Dubai\), Indonesia \(Jakarta\), US \(Silicon Valley\), India \(Mumbai\), Japan \(Tokyo\), China \(Hong Kong\), and US \(Virginia \). For more information, see [Guaranteed-performance instance](~~27657~~).
+ Currently, guaranteed-performance instances are supported in the following regions: China \(Qingdao\), China \(Beijing\), China \(Hangzhou\), China \(Shanghai\), China \(Shenzhen\), China \(Zhangjiakou\), China \(Hohhot\), Singapore, UK \(London\), Germany \(Frankfurt\), Australia \(Sydney\), Malaysia \(Kuala Lumpur\), UAE \(Dubai\), Indonesia \(Jakarta\), US \(Silicon Valley\), India \(Mumbai\), Japan \(Tokyo\), China \(Hong Kong\), and US \(Virginia \).
 
  **Note:** If you do not specify the specification of the SLB instance to be created, a shared-performance instance is created.
 
