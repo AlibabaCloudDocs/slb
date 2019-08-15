@@ -1,33 +1,31 @@
-# Add a TCP listener {#concept_xvg_qmn_vdb .concept}
+# Add a TCP listener {#task_1563673 .task}
 
 This topic describes how to add a TCP listener to a Server Load Balancer \(SLB\) instance. The TCP protocol is applicable to scenarios with high requirements on reliability and data accuracy but with tolerance for low speed, such as file transmission, sending or receiving emails, and remote logons. You can add a TCP listener to forward requests from the TCP protocol.
 
-## Prerequisites {#section_brc_4p5_vdb .section}
+An SLB instance is created. For more information, see [../DNSLB19102239/EN-US\_TP\_15644.md\#](../reseller.en-US/Instance/Create an SLB instance.md#).
 
-[Create an SLB instance](reseller.en-US/Instance/Create an SLB instance.md#).
-
-## Step 1 Open the listener configuration wizard {#section_p32_zln_42b .section}
+## Step 1 Open the listener configuration wizard {#section_s73_d7t_dwd .section}
 
 To open the listener configuration wizard, follow these steps:
 
-1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
+1.  Log on to the [Server Load Balancer console](https://partners-intl.console.aliyun.com/#/slb). 
 2.  In the left-side navigation pane, choose **Instances** \> **Server Load Balancer**.
 3.  Select the region of the target SLB instance.
-4.  Select one of the following methods to open the listener configuration wizard:
+4.  Select one of the following methods to open the listener configuration wizard: 
     -   On the Server Load Balancer page, find the target SLB instance and then click **Configure Listener** in the **Actions** column.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156508904010004_en-US.png)
+        ![Listener configuration wizard](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585614610004_en-US.png)
 
-    -   On the Server Load Balancer page, click the ID of the target SLB instance. On the Listeners page, click **Add Listener**.
+    -   On the Server Load Balancer page, click the ID of the target SLB instance. On the Listeners tab, click **Add Listener**.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15650890407399_en-US.png)
+        ![Add listener](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658561467399_en-US.png)
 
 
-## Step 2 Configure the TCP listener {#section_mhj_lmn_42b .section}
+## Step 2 Configure the TCP listener {#section_osj_ofw_k21 .section}
 
 To configure the TCP listener, follow these steps:
 
-1.  On the Protocol and Listener page, configure the TCP listener according to the following information.
+1.  Configure the TCP listener according to the following information: 
 
     |Configuration|Description|
     |:------------|:----------|
@@ -36,7 +34,7 @@ To configure the TCP listener, follow these steps:
  |
     |**Listening Port**|The listening port used to receive requests and forward the requests to backend servers. The port number is in the range of 1 to 65535.
 
- **Note:** UDP and TCP listener port numbers can be the same in the following regions. However, you must first apply for the **privilege to use the beta function of configuring the same ports in TCP/UDP listeners** on the [Quota Management](https://slb.console.aliyun.com/slb/quota) page of the SLB console. In other cases, the listener port numbers must be unique.
+ **Note:** In the same SLB instance, the UDP or TCP listener port numbers can be the same in the following regions. However, you must first apply for the **privilege to use the beta function of configuring the same ports in TCP/UDP listeners** on the [Quota Management](https://slb.console.aliyun.com/slb/quota) page of the SLB console. In other cases, the listener port numbers must be unique.
 
     -   UAE \(Dubai\)
     -   Australia \(Sydney\)
@@ -44,13 +42,13 @@ To configure the TCP listener, follow these steps:
     -   UK \(London\)
     -   Germany \(Frankfurt\)
     -   US \(Silicon Valley\)
-    -   USA \(Virginia\)
+    -   US \(Virginia\)
     -   Indonesia \(Jakarta\)
     -   Japan \(Tokyo\)
     -   India \(Mumbai\)
     -   Singapore
     -   Malaysia \(Kuala Lumpur\)
-    -   Hong Kong
+    -   China \(Hong Kong\)
     -   China \(Shenzhen\)
     -   China \(Hohhot\)
     -   China \(Qingdao\)
@@ -59,7 +57,7 @@ To configure the TCP listener, follow these steps:
     -   China \(Shanghai\)
  |
     |**Advanced configurations**|
-    |**Scheduling Algorithm**|SLB supports four scheduling algorithms: round robin, weighted round robin \(WRR\), weighted least connections \(WLC\), and consistent hash.     -   **Weighted Round-Robin \(WRR\)**: Backend servers with higher weights receive more requests.
+    |**Scheduling Algorithm**|SLB supports four scheduling algorithms: round robin, weighted round robin \(WRR\), weighted least connections \(WLC\), and consistent hash.     -   **Weighted Round-Robin \(WRR\)**: A backend server with a higher weight receives more requests.
     -   **Round-Robin \(RR\)**: Requests are evenly and sequentially distributed to backend servers.
     -   **Weighted Least Connections \(WLC\)**: A server with a higher weight receives more requests. When the weight values of two backend servers are the same, the backend server with a smaller number of connections is more likely to be polled.
     -   **Consistent Hash \(CH\)**:
@@ -79,6 +77,16 @@ Currently, the Consistent Hash \(CH\) algorithm is only supported in the followi
         -   US \(Virginia\)
         -   UAE \(Dubai\)
         -   China \(Hohhot\)
+        -   UK \(London\)
+        -   Zone B and Zone C of Singapore
+        -   China \(Hong Kong\)
+        -   China \(Qingdao\)
+        -   China \(Zhangjiakou\)
+        -   China \(Chengdu\)
+        -   Zone H and Zone I of China \(Hangzhou\)
+        -   Zone G and Zone H of China \(Beijing\)
+        -   Zone D and Zone E of China \(Shenzhen\)
+        -   Zone F and Zone G of China \(Shanghai\)
  |
     |**Enable Session Persistence**|Select whether to enable session persistence. If you enable session persistence, all session requests from the same client are sent to the same backend server.
 
@@ -102,7 +110,7 @@ If you enable a blacklist without adding any IP addresses in the corresponding a
  |
     |**Enable Peak Bandwidth Limit**| Select whether to configure the listening bandwidth.
 
- If the SLB instance is charged based on bandwidth, you can set different peak bandwidth values for different listeners to limit the traffic passing through the listeners. The sum of the peak bandwidth values of all listeners under an SLB instance cannot exceed the bandwidth value of that SLB instance.
+ If the SLB instance is charged based on bandwidth, you can set different peak bandwidth values for different listeners to limit the traffic passing through each listener. The sum of the peak bandwidth values of all listeners under an SLB instance cannot exceed the bandwidth value of that SLB instance.
 
  By default, all listeners share the bandwidth of the SLB instance.
 
@@ -116,54 +124,57 @@ If you enable a blacklist without adding any IP addresses in the corresponding a
 
 2.  Click **Next**.
 
-## Step 3 Add backend servers {#section_vqk_zmn_42b .section}
+## Step 3 Add backend servers {#section_mjt_0fd_ngf .section}
 
-After configuring the listener, you need to add backend servers to process requests. You can use the default server group configured for the SLB instance, or configure a VServer group or an active/standby server group for the listener. For more information, see [Backend server overview](reseller.en-US/Backend servers/Backend server overview.md#).
+After configuring the listener, you need to add backend servers to process requests. You can use the default server group configured for the SLB instance, or configure a VServer group or an active/standby server group for the listener. For more information, see [Backend server overview](../reseller.en-US/Backend servers/Backend server overview.md#).
 
-In this topic, use the default server group.
+In this example, use the default server group.
 
-1.  Select **Default Server Group** and then click **Add More**.
+1.  Select **Default Server Group** and then click **Add More**. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156508904010030_en-US.png)
+    ![Add default servers](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585614610030_en-US.png)
 
-2.  Select the ECS instances to add, and then click **Next: Set Weight and Port**.
+2.  Select the ECS instances to add, and then click **Next: Set Weight and Port**. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15650890417499_en-US.png)
+    ![Configure weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658561477499_en-US.png)
 
-3.  Configure ports and weights for the added backend servers.
+3.  Configure ports and weights for the added backend servers \(ECS instances\). 
     -   Port
 
-        The port opened on the backend server \(ECS instance\) to receive requests. The port number is in the range of 1 to 65535. Ports of backend servers can be the same in an SLB instance.
+        The port opened on the backend server to receive requests. The port number is in the range of 1 to 65535. Ports of backend servers can be the same in an SLB instance.
 
     -   Weight
 
-        The weight of the backend server \(ECS instance\). An ECS instance with a higher weight receives more requests.
+        The weight of the backend server. A backend server with a higher weight receives more requests.
 
-        **Note:** If the weight is set to 0, no requests will be sent to the ECS instance.
+        **Note:** If the weight is set to 0, no requests are sent to the backend server.
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15650890417504_en-US.png)
+        ![Set weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658561477504_en-US.png)
 
 4.  Click **Next**.
 
-## Step 4 Configure health checks {#section_oj3_mnn_42b .section}
+## Step 4 Configure health checks {#section_zuw_t3j_clj .section}
 
-SLB checks the service availability of backend servers by performing health checks. The health check function improves the overall availability of your services and avoids the impact of backend server failures. Click **Modify** to change health check configurations. For more information, see [Configure health checks](reseller.en-US/Health check/Configure health checks.md#).
+SLB checks the service availability of backend servers by performing health checks. The health check function improves the overall availability of your services and avoids the impact of backend server failures. Click **Modify** to change health check configurations. For more information, see [../DNSLB19102266/EN-US\_TP\_15663.md\#](../reseller.en-US/Health check/Health check overview.md#).
 
-## Step 5 Submit the configurations {#section_hwm_qnn_42b .section}
+## Step 5 Submit the configurations {#section_rji_18h_t2h .section}
 
-To confirm the listener configurations, follow these steps:
+To submit the listener configurations, follow these steps:
 
 1.  On the Submit page, check the listener configurations. You can click **Modify** to change the configurations.
 2.  Click **Submit**.
-3.  On the Submit page, click **OK** after the configurations are successful.
+3.  On the Submit page, click **OK** after the configurations are successful. 
 
-After the configurations are successful, you can view the created listener on the **Listeners** page.
+    After the configurations are successful, you can view the created listener on the Listeners page.
 
-## Related operations {#section_or1_14n_42b .section}
 
--   [Configure health checks](reseller.en-US/Health check/Configure health checks.md#)
--   [Manage a default server group](reseller.en-US/Backend servers/Manage a default server group.md#)
--   [Manage a VServer group](reseller.en-US/Backend servers/Manage a VServer group.md#)
--   [Manage an active/standby server group](reseller.en-US/Backend servers/Manage an active__standby server group.md#)
--   [Configure access control](reseller.en-US/Access control/Configure access control.md#)
+[Configure health checks](../reseller.en-US/Health check/Configure health checks.md#)
+
+[Manage a default server group](../reseller.en-US/Backend servers/Manage a default server group.md#)
+
+[Manage a VServer group](../reseller.en-US/Backend servers/Manage a VServer group.md#)
+
+[Configure access control](../reseller.en-US/Access control/Configure access control.md#)
+
+[CreateLoadBalancerTCPListener](../reseller.en-US/Developer Guide/TCP listeners/CreateLoadBalancerTCPListener.md#)
 
