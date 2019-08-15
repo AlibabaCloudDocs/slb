@@ -1,33 +1,31 @@
-# 添加HTTPS监听 {#concept_dy4_2pn_42b .concept}
+# 添加HTTPS监听 {#task_1563673 .task}
 
 HTTP协议适用于需要加密传输的应用。您可以添加一个HTTPS监听转发来自HTTPS协议的请求。
 
-## 前提条件 {#section_tx3_vqn_42b .section}
+您已经创建负载均衡实例，详情请参见[创建负载均衡实例](../intl.zh-CN/实例/创建负载均衡实例.md#)。
 
-[创建负载均衡实例](cn.zh-CN/负载均衡实例/创建负载均衡实例.md#)。
-
-## 步骤一 打开监听配置向导 {#section_wx3_5qn_42b .section}
+## 步骤一 打开监听配置向导 {#section_zd7_xi8_xj0 .section}
 
 完成以下操作，打开监听配置向导：
 
-1.  登录[负载均衡管理控制台](https://slb.console.aliyun.com)。
+1.  登录[负载均衡管理控制台](https://slb.console.aliyun.com/slb)。 
 2.  在左侧导航栏，选择**实例** \> **实例管理**。
 3.  选择实例的地域。
-4.  选择以下一种方法，打开监听配置向导：
+4.  选择以下一种方法，打开监听配置向导。 
     -   在实例管理页面，找到目标实例，单击**监听配置向导**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156404801410004_zh-CN.png)
+        ![监听配置向导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585590110004_zh-CN.png)
 
     -   在实例管理页面，单击目标实例ID。在监听页面，单击**添加监听**。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15640480157399_zh-CN.png)
+        ![添加监听](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658559017399_zh-CN.png)
 
 
-## 步骤二 配置协议监听 {#section_ly4_2pn_42b .section}
+## 步骤二 配置协议监听 {#section_k58_mb2_whz .section}
 
 完成以下操作， 配置协议监听：
 
-1.  在协议&监听页面，根据以下信息配置HTTPS监听。
+1.  在协议&监听页面，根据以下信息配置HTTPS监听。 
 
     |监听配置|说明|
     |:---|:-|
@@ -56,7 +54,7 @@ HTTP协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 
     -   **重写Cookie**：可以根据需要指定HTTPS/HTTP响应中插入的Cookie。您需要在后端服务器上维护该Cookie的过期时间和生存时间。
 
-负载均衡服务发现用户自定义了Cookie，将会对原来的Cookie进行重写，下次客户端携带新的Cookie访问，负载均衡服务会将请求定向转发给之前记录到的后端服务器。详情参考[会话保持规则配置](../../../../cn.zh-CN/常见问题/最佳实践/配置服务器Cookie.md#)。
+负载均衡服务发现用户自定义了Cookie，将会对原来的Cookie进行重写，下次客户端携带新的Cookie访问，负载均衡服务会将请求定向转发给之前记录到的后端服务器。详情请参见[会话保持规则配置](../intl.zh-CN/常见问题/最佳实践/配置服务器Cookie.md#)。
 
  |
     |**启用HTTP2.0**|选择是否启HTTP 2.0协议。|
@@ -72,7 +70,7 @@ HTTP协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 如果开启了黑名单访问，但访问策略组中没有添加任何IP，则负载均衡监听会转发全部请求。
 
  |
-    |**选择访问控制策略组**|选择访问控制策略组，作为该监听的白名单或黑名单。 **说明：** IPv6实例只能绑定IPv6访问控制策略组，IPv4实例只能绑定IPv4访问控制策略组。详情参见[访问控制策略组](cn.zh-CN/历史文档/用户指南（旧版控制台）/访问控制/配置访问控制策略组.md#)。
+    |**选择访问控制策略组**|选择访问控制策略组，作为该监听的白名单或黑名单。 **说明：** IPv6实例只能绑定IPv6访问控制策略组，IPv4实例只能绑定IPv4访问控制策略组。详情参见[访问控制策略组](intl.zh-CN/历史文档/用户指南（旧版控制台）/访问控制/配置访问控制策略组.md#)。
 
  |
     |**开启监听带宽限速**| 选择是否配置监听带宽。
@@ -96,7 +94,7 @@ HTTP协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
  |
     |**TLS安全策略**| 仅性能保障型实例支持选择使用的TLS安全策略。
 
- TLS安全策略包含HTTPS可选的TLS协议版本和配套的加密算法套件，具体说明请参见[管理TLS安全策略](cn.zh-CN/监听/管理TLS安全策略.md#)。
+ TLS安全策略包含HTTPS可选的TLS协议版本和配套的加密算法套件，具体说明请参见[ZH-CN\_TP\_21323.md\#](intl.zh-CN/监听/管理TLS安全策略.md#)。
 
  |
     |**Gzip数据压缩**|开启该配置对特定文件类型进行压缩。 目前Gzip支持压缩的类型包括：text/xml、text/plain、text/css、application/javascript、application/x-javascript application/rss+xml、application/atom+xml、application/xml。
@@ -110,14 +108,14 @@ HTTP协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
     |**获取真实IP**|HTTP监听通过 X-Forwarded-For获取客户端真实IP。|
     |**创建完毕自动启动监听**|是否在监听配置完成后启动负载均衡监听，默认开启。|
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156404801511858_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156585590211858_zh-CN.png)
 
-2.  单击**下一步**。
+2.  单击**下一步**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156404801510035_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156585590210035_zh-CN.png)
 
 
-## 步骤三 配置SSL证书 {#section_m52_pxn_42b .section}
+## 步骤三 配置SSL证书 {#section_dk9_0ci_bod .section}
 
 添加HTTPS监听，您需要上传服务器证书或CA证书和选择TLS安全策略，如下表所示。
 
@@ -141,46 +139,38 @@ HTTP协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 
 在上传证书前，请注意：
 
--   上传的证书格式必须是PEM。详情参见[证书要求](cn.zh-CN/用户指南/证书管理/证书要求.md#)。
+-   上传的证书格式必须是PEM。详情参见[ZH-CN\_TP\_15674.md\#](intl.zh-CN/证书管理/证书要求.md#)。
 -   证书上传到负载均衡后，负载均衡即可管理证书，不需要在后端ECS上绑定证书。
 -   因为证书的上传、加载和验证都需要一些时间，所以使用HTTPS协议的实例生效也需要一些时间。一般一分钟后就会生效，最长不会超过三分钟。
--   HTTPS监听使用的ECDHE算法簇支持前向保密技术，不支持将DHE算法簇所需要的安全增强参数文件上传，即PEM证书文件中含`BEGIN DH PARAMETERS`字段的字串上传。更多详细信息，参考[证书要求](cn.zh-CN/历史文档/用户指南（旧版控制台）/证书管理/证书要求.md#)。
+-   HTTPS监听使用的ECDHE算法簇支持前向保密技术，不支持将DHE算法簇所需要的安全增强参数文件上传，即PEM证书文件中含`BEGIN DH PARAMETERS`字段的字串上传。更多详细信息，请参见[证书要求](intl.zh-CN/历史文档/用户指南（旧版控制台）/证书管理/证书要求.md#)。
 -   目前负载均衡HTTPS监听不支持SNI（Server Name Indication），您可以改用TCP监听在后端ECS上实现SNI功能。
 -   HTTPS监听的会话ticket保持时间设置为300秒。
 -   HTTPS监听实际产生的流量会比账单流量更多一些，因为会使用一些流量用于协议握手。
 -   在新建连接数很高的情况下，会占用较大的流量。
 
-完成以下操作，配置SSL证书：
+1.  选择已上传的服务器证书，或单击**新建服务器证书**上传一个服务器证书。 详情请参见[创建证书](../intl.zh-CN/证书管理/创建证书.md#)。
+2.  如果您要开启HTTPS双向认证或者设置TLS安全策略，单击**高级配置**。 
 
-1.  选择已上传的服务器证书，或单击**新建服务器证书**上传一个服务器证书。
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156585590247905_zh-CN.png)
 
-    详情参见[创建证书](cn.zh-CN/用户指南/证书管理/创建证书.md#)。
+3.  选择一个已上传的CA证书，或单击**新建CA证书**上传一个CA证书。 您可以使用自签名的CA证书，详情参见[创建证书](../intl.zh-CN/证书管理/创建证书.md#)。
+4.  选择TLS安全策略，详情参见[管理TLS安全策略](intl.zh-CN/监听/管理TLS安全策略.md#)。
 
-2.  如果您要开启HTTPS双向认证或者设置TLS安全策略，单击**高级配置**。
+## 步骤四 添加后端服务器 {#section_ib1_z58_t2l .section}
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156404801547905_zh-CN.png)
+添加处理前端请求的后端服务器。您可以使用实例配置的默认服务器组，也可以为监听配置一个虚拟服务器组或主备服务组。详情请参见[后端服务器概述](../intl.zh-CN/后端服务器/后端服务器概述.md#)。
 
-3.  选择一个已上传的CA证书，或单击**新建CA证书**上传一个CA证书。
+本操作中，以默认后端服务器组为例。
 
-    您可以使用自签名的CA证书，详情参见[生成CA证书](cn.zh-CN/用户指南/证书管理/生成CA证书.md#)。
+1.  选择**默认服务器组**，单击**继续添加**。 
 
-4.  选择TLS安全策略，详情参见[管理TLS安全策略](cn.zh-CN/监听/管理TLS安全策略.md#)。
+    ![添加默认服务器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585590210030_zh-CN.png)
 
-## 步骤四 添加后端服务器 {#section_vqk_zmn_42b .section}
+2.  选择要添加的ECS实例，然后单击**下一步：配置权重和端口号**。 
 
-添加处理前端请求的后端服务器。您可以使用实例配置的默认服务器组，也可以为监听配置一个虚拟服务器组或主备服务组。详情参见[后端服务器概述](cn.zh-CN/用户指南/后端服务器/后端服务器概述.md#)。
+    ![配置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658559037499_zh-CN.png)
 
-本操作中，以默认后端服务器组为例：
-
-1.  选择**默认服务器组**，单击**继续添加**。
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156404801610036_zh-CN.png)
-
-2.  选择要添加的ECS实例，然后单击**下一步：配置权重和端口号**。
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15640480167499_zh-CN.png)
-
-3.  配置添加的后端服务器的端口和权重。
+3.  配置添加的后端服务器的端口和权重。 
     -   端口
 
         后端服务器（ECS实例）开放用来接收请求的端口，端口范围为1-65535。同一个负载均衡实例内，后端服务器端口可以相同。
@@ -191,39 +181,38 @@ HTTP协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 
         **说明：** 权重设置为0，该服务器不会再接受新请求。
 
-        ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15640480167504_zh-CN.png)
+        ![设置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658559037504_zh-CN.png)
 
 4.  单击**下一步**。
 
-## 步骤五 配置健康检查 {#section_oj3_mnn_42b .section}
+## 步骤五 配置健康检查 {#section_cut_74n_vc5 .section}
 
-负载均衡通过健康检查来判断后端服务器（ECS实例）的业务可用性。健康检查机制提高了前端业务整体可用性，避免了后端ECS异常对总体服务的影响。单击**修改**更改健康检查配置，详情参见[配置健康检查](cn.zh-CN/用户指南/健康检查/配置健康检查.md#)。
+负载均衡通过健康检查来判断后端服务器（ECS实例）的业务可用性。健康检查机制提高了前端业务整体可用性，避免了后端ECS异常对总体服务的影响。单击**修改**更改健康检查配置，详情请参见[健康检查概述](../intl.zh-CN/健康检查/健康检查概述.md#)。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156404801610037_zh-CN.png)
+## 步骤六 提交配置 {#section_k0i_zfp_3ow .section}
 
-## 步骤六 提交配置 {#section_hwm_qnn_42b .section}
+完成以下操作，确认监听配置。
 
-完成以下操作，确认监听配置：
+1.  在配置审核页面，检查监听配置，您可以单击**修改**更改配置。
+2.  确认无误后，单击**提交**。
+3.  在配置审核页面，配置成功后，单击**确定**。 
 
-1.  在审核提交页面，检查监听配置，您可以单击**修改**更改配置。确认无误后，单击**提交**。
-2.  在配置审核页面，在配置成功后，单击**确定**。
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156404801610038_zh-CN.png)
+    配置成功后，您可以在监听页面查看已创建的监听。
 
 
-配置成功后，您可以在监听页面查看已创建的监听。
+[配置健康检查](../intl.zh-CN/健康检查/配置健康检查.md#)
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156404801710039_zh-CN.png)
+[管理默认服务器组](../intl.zh-CN/后端服务器/管理默认服务器组.md#)
 
-## 相关操作 {#section_pz4_2pn_42b .section}
+[管理虚拟服务器组](../intl.zh-CN/后端服务器/管理虚拟服务器组.md#)
 
--   [配置健康检查](cn.zh-CN/用户指南/健康检查/配置健康检查.md#)
--   [管理默认服务器组](cn.zh-CN/用户指南/后端服务器/管理默认服务器组.md#)
--   [管理虚拟服务器组](cn.zh-CN/用户指南/后端服务器/管理虚拟服务器组.md#)
--   [管理主备服务器组](cn.zh-CN/用户指南/后端服务器/管理主备服务器组.md#)
--   [生成CA证书](cn.zh-CN/用户指南/证书管理/生成CA证书.md#)
--   [创建证书](cn.zh-CN/用户指南/证书管理/创建证书.md#)
--   [设置访问控制](cn.zh-CN/用户指南/访问控制/设置访问控制.md#)
--   [基于域名/URL路径进行转发](cn.zh-CN/教程专区/基于域名__URL路径进行转发.md#)
--   [管理扩展域名](cn.zh-CN/监听/管理扩展域名.md#)
+[管理主备服务器组](../intl.zh-CN/后端服务器/管理主备服务器组.md#)
+
+[设置访问控制](../intl.zh-CN/访问控制/设置访问控制.md#)
+
+[基于域名/URL路径进行转发](../intl.zh-CN/教程专区/基于域名__URL路径进行转发.md#)
+
+[管理扩展域名](../intl.zh-CN/监听/管理扩展域名.md#)
+
+[CreateLoadBalancerHTTPSListener](../intl.zh-CN/API参考/HTTPS监听/CreateLoadBalancerHTTPSListener.md#)
 
