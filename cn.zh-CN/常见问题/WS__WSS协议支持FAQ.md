@@ -16,7 +16,7 @@ WSS（Web Socket Secure）是WebSocket的加密版本。
 
 WebSocket协议的交互过程如下图所示。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4293/15658830503247_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4293/15658838943247_zh-CN.png)
 
 ## 如何在阿里云负载均衡上启用WS/WSS支持？ {#section_azg_kwx_wdb .section}
 

@@ -16,7 +16,7 @@ In this situation, HTML5 defines the WebSocket protocol, which can help conserve
 
 The communication process of the WebSocket protocol is shown in the following figure:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4293/15658830603247_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4293/15658839043247_en-US.png)
 
 ## How can I enable WS and WSS on Server Load Balancer? {#section_azg_kwx_wdb .section}
 
