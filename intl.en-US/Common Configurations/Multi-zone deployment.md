@@ -16,7 +16,7 @@ Note the following about SLB primary/secondary zones:
 
 For more information, see [SLB high availability](../../../../reseller.en-US/Product Introduction/High availability of SLB.md#).
 
-![](images/49833_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15693/156587723249077_en-US.png)
 
 ## Primary/secondary zone list {#section_ml2_ykb_wdb .section}
 
