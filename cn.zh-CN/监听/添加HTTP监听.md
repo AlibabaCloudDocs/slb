@@ -14,11 +14,11 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 4.  选择以下一种方法，打开监听配置向导。 
     -   在实例管理页面，找到目标实例，单击**监听配置向导**。
 
-        ![监听配置向导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585576710004_zh-CN.png)
+        ![监听配置向导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156588124710004_zh-CN.png)
 
     -   在实例管理页面，单击目标实例ID。在监听页面，单击**添加监听**。
 
-        ![添加监听](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658557687399_zh-CN.png)
+        ![添加监听](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658812477399_zh-CN.png)
 
 
 ## 步骤二 配置协议监听 {#section_k58_mb2_whz .section}
@@ -109,7 +109,7 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
 2.  单击**下一步**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15658557687434_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15658812487434_zh-CN.png)
 
 
 ## 步骤三 添加后端服务器 {#section_2p9_p8x_lc1 .section}
@@ -120,11 +120,11 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
 1.  选择**默认服务器组**，单击**继续添加**。 
 
-    ![添加默认服务器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585576810030_zh-CN.png)
+    ![添加默认服务器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156588124810030_zh-CN.png)
 
 2.  选择要添加的ECS实例，然后单击**下一步：配置权重和端口号**。 
 
-    ![配置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658557687499_zh-CN.png)
+    ![配置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658812487499_zh-CN.png)
 
 3.  配置添加的后端服务器的端口和权重。 
     -   端口
@@ -137,7 +137,7 @@ HTTP协议适用于需要对数据内容进行识别的应用，如Web应用、�
 
         **说明：** 权重设置为0，该服务器不会再接受新请求。
 
-        ![设置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658557687504_zh-CN.png)
+        ![设置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658812487504_zh-CN.png)
 
 4.  单击**下一步**。
 

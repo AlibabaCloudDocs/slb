@@ -2,7 +2,7 @@
 
 This topic describes how to add an HTTP listener to a Server Load Balancer \(SLB\) instance. You can add an HTTP listener to forward requests from the HTTP protocol.
 
-An SLB instance is created. For more information, see [../DNSLB19102239/EN-US\_TP\_15644.md\#](../reseller.en-US/Instance/Create an SLB instance.md#).
+An SLB instance is created. For more information, see [Create an SLB instance](../reseller.en-US/Instance/Create an SLB instance.md#).
 
 ## Step 1 Open the listener configuration wizard {#section_zd7_xi8_xj0 .section}
 
@@ -12,13 +12,13 @@ To open the listener configuration wizard, follow these steps:
 2.  In the left-side navigation pane, choose **Instances** \> **Server Load Balancer**.
 3.  Select the region of the target SLB instance.
 4.  Select one of the following methods to open the listener configuration wizard: 
-    -   On the Server Load Balancer page, find the target SLB instance and then click **Configure Listener** in the Actions column.
+    -   On the Server Load Balancer page, find the target SLB instance and then click **Configure Listener** in the **Actions** column.
 
-        ![Listener configuration wizard](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585579410004_en-US.png)
+        ![Listener configuration wizard](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156588127210004_en-US.png)
 
     -   On the Server Load Balancer page, click the ID of the target SLB instance. On the Listeners tab, click **Add Listener**.
 
-        ![Add listener](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658557957399_en-US.png)
+        ![Add listener](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658812727399_en-US.png)
 
 
 ## Step 2 Configure the HTTP listener {#section_k58_mb2_whz .section}
@@ -109,7 +109,7 @@ If you enable a blacklist without adding any IP addresses in the corresponding a
 
 2.  Click **Next**. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15658557957434_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15658812737434_en-US.png)
 
 
 ## Step 3 Add backend servers {#section_2p9_p8x_lc1 .section}
@@ -120,11 +120,11 @@ In this example, use the default server group.
 
 1.  Select **Default Server Group** and then click **Add More**. 
 
-    ![Add default servers](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585579510030_en-US.png)
+    ![Add default servers](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156588127310030_en-US.png)
 
 2.  Select the ECS instances to add, and then click **Next: Set Weight and Port**. 
 
-    ![Configure weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658557957499_en-US.png)
+    ![Configure weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658812737499_en-US.png)
 
 3.  Configure ports and weights for the added backend servers \(ECS instances\). 
     -   Port
@@ -137,7 +137,7 @@ In this example, use the default server group.
 
         **Note:** If the weight is set to 0, no requests are sent to the backend server.
 
-        ![Set weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658557967504_en-US.png)
+        ![Set weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658812737504_en-US.png)
 
 4.  Click **Next**.
 
