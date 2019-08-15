@@ -14,11 +14,11 @@ HTTP协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 4.  选择以下一种方法，打开监听配置向导。 
     -   在实例管理页面，找到目标实例，单击**监听配置向导**。
 
-        ![监听配置向导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585601310004_zh-CN.png)
+        ![监听配置向导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156588131610004_zh-CN.png)
 
     -   在实例管理页面，单击目标实例ID。在监听页面，单击**添加监听**。
 
-        ![添加监听](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658560137399_zh-CN.png)
+        ![添加监听](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658813167399_zh-CN.png)
 
 
 ## 步骤二 配置协议监听 {#section_k58_mb2_whz .section}
@@ -108,11 +108,11 @@ HTTP协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
     |**获取真实IP**|HTTP监听通过 X-Forwarded-For获取客户端真实IP。|
     |**创建完毕自动启动监听**|是否在监听配置完成后启动负载均衡监听，默认开启。|
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156585601311858_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156588131611858_zh-CN.png)
 
 2.  单击**下一步**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156585601410035_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156588131710035_zh-CN.png)
 
 
 ## 步骤三 配置SSL证书 {#section_dk9_0ci_bod .section}
@@ -151,7 +151,7 @@ HTTP协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 1.  选择已上传的服务器证书，或单击**新建服务器证书**上传一个服务器证书。 详情请参见[创建证书](../intl.zh-CN/证书管理/创建证书.md#)。
 2.  如果您要开启HTTPS双向认证或者设置TLS安全策略，单击**高级配置**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156585601447905_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156588131747905_zh-CN.png)
 
 3.  选择一个已上传的CA证书，或单击**新建CA证书**上传一个CA证书。 您可以使用自签名的CA证书，详情参见[创建证书](../intl.zh-CN/证书管理/创建证书.md#)。
 4.  选择TLS安全策略，详情参见[管理TLS安全策略](intl.zh-CN/监听/管理TLS安全策略.md#)。
@@ -164,11 +164,11 @@ HTTP协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 
 1.  选择**默认服务器组**，单击**继续添加**。 
 
-    ![添加默认服务器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156585601410030_zh-CN.png)
+    ![添加默认服务器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156588131710030_zh-CN.png)
 
 2.  选择要添加的ECS实例，然后单击**下一步：配置权重和端口号**。 
 
-    ![配置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658560147499_zh-CN.png)
+    ![配置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658813177499_zh-CN.png)
 
 3.  配置添加的后端服务器的端口和权重。 
     -   端口
@@ -181,7 +181,7 @@ HTTP协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 
         **说明：** 权重设置为0，该服务器不会再接受新请求。
 
-        ![设置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658560157504_zh-CN.png)
+        ![设置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658813187504_zh-CN.png)
 
 4.  单击**下一步**。
 
