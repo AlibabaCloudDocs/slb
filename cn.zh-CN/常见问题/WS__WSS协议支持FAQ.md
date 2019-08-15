@@ -16,13 +16,13 @@ WSS（Web Socket Secure）是WebSocket的加密版本。
 
 WebSocket协议的交互过程如下图所示。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4293/15610844543247_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4293/15658830503247_zh-CN.png)
 
 ## 如何在阿里云负载均衡上启用WS/WSS支持？ {#section_azg_kwx_wdb .section}
 
 无需配置，当选用HTTP监听时，默认支持无加密版本WebSocket协议（WS协议）；当选择HTTPS监听时，默认支持加密版本的WebSocket协议（WSS协议）。
 
-**说明：** 需要将实例升级为性能保障型实例。详细参见[如何使用负载均衡性能保障型实例](../intl.zh-CN/常见问题/常见问题/如何使用负载均衡性能保障型实例？.md#)。
+**说明：** 需要将实例升级为性能保障型实例。详细参见[性能保障型实例FAQ](intl.zh-CN/常见问题/性能保障型实例FAQ.md#)。
 
 ## 支持的地域 {#section_yts_twx_wdb .section}
 

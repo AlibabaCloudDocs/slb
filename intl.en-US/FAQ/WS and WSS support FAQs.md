@@ -16,13 +16,13 @@ In this situation, HTML5 defines the WebSocket protocol, which can help conserve
 
 The communication process of the WebSocket protocol is shown in the following figure:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4293/15586044643247_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4293/15658830603247_en-US.png)
 
 ## How can I enable WS and WSS on Server Load Balancer? {#section_azg_kwx_wdb .section}
 
 No configuration is required. The HTTP listener supports the WS protocol and the HTTPS listener supports WSS protocol by default.
 
-**Note:** You must upgrade the instance to a guaranteed-performance instance. For more information, see [How to use guaranteed-performance instances](../../../../intl.en-US/FAQ/FAQ/How to use guaranteed-performance Server Load Balancer instances?.md#).
+**Note:** You must upgrade the instance to a guaranteed-performance instance. For more information, see [How to use guaranteed-performance instances](../../../../reseller.en-US/FAQ/FAQ/How to use guaranteed-performance Server Load Balancer instances?.md#).
 
 ## Supported regions {#section_yts_twx_wdb .section}
 
