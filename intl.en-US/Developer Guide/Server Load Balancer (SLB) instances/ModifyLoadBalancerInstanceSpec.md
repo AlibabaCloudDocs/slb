@@ -25,7 +25,7 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=ModifyLoadBalance
 -   slb.s3.medium
 -   slb.s3.large
 
-Available specifications may vary according to the region. For more information, see [Guaranteed-performance instance](~~27657~~).
+Available specifications may vary according to the region. .
 
  **Note:** When you change a shared-performance instance to a guaranteed-performance instance, a brief disconnection of service may occur for 10 to 30 seconds. We recommend that you perform this operation during off-peak traffic hours, or use GSLB to schedule the service to other SLB instances first.
 
