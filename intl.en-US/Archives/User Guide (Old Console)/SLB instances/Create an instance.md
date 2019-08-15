@@ -2,7 +2,7 @@
 
 To use Server Load Balancer, you must first create a Server Load Balancer instance.
 
-Before creating an SLB instance, make sure that you have properly prepared the environment. For more information, see [Plan and prepare](../../../../reseller.en-US/Quick Start (New Console)/Plan and prepare.md#).
+Before creating an SLB instance, make sure that you have properly prepared the environment. For more information, see [Before you begin](../../../../reseller.en-US/Quick Start (New Console)/Before you begin.md#).
 
 1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  In the left-side navigation pane, click **Server Load Balancer**. In the upper-left corner, click **Create SLB Instance**.
