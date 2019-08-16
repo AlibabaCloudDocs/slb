@@ -94,7 +94,7 @@ Health check failure time window = Response Timeout × Unhealthy Threshold + Hea
 
 The following figure shows the process to declare an unhealthy backend server:
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4138/15650964202816_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4138/15659402752816_en-US.png)
 
 Health check success time window = Health check response time × Healthy Threshold + Health Check Interval × \(Healthy Threshold - 1\). That is, \(1 × 3\) + 2 × \(3 - 1\) = 7s.
 
@@ -102,7 +102,7 @@ Health check success time window = Health check response time × Healthy Thresho
 
 The following figure shows the process to declare a healthy backend server \(assume that it takes one second for the backend server to respond to the health check request\):
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4138/15650964202820_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4138/15659402762820_en-US.png)
 
 ## Configure a domain name in HTTP health checks {#section_yft_fhb_wdb .section}
 
