@@ -26,11 +26,11 @@ To use a certificate in SSL Certificate Service, you must log on to the [SSL Cer
 
 To use a certificate from SSL Certificate Service, follow these steps:
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com).
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  In the left-side navigation pane, click **Certificates**.
 3.  Click **Create Certificate**. On the Create Certificate page, select **Select Certificate From SSL Certificate Service**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/156595043611881_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/156595063511881_en-US.png)
 
 4.  Click **Next**. On the Select Certificate From SSL Certificate Service page, select the region to deploy the certificate and then select the SSL certificate to use from the certificate list.
 
@@ -43,16 +43,16 @@ To use a certificate from SSL Certificate Service, follow these steps:
 Before you upload a third-party certificate, make sure that the following conditions are met:
 
 -   A server certificate is purchased.
--   A CA certificate and a client certificate are generated. For more information, see [Generate a CA certificate](intl.en-US/Certificate management/Generate a CA certificate.md#).
+-   A CA certificate and a client certificate are generated. For more information, see [Generate a CA certificate](reseller.en-US/Certificate management/Generate a CA certificate.md#).
 
 To upload a third-party certificate to SLB, follow these steps:
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com).
+1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 2.  In the left-side navigation pane, click **Certificates**.
 3.  Click **Create Certificate**.
 4.  On the Create Certificate page, select **Upload Third-Party Certificate**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/156595043611880_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/156595063511880_en-US.png)
 
 5.  Click **Next**. On the Upload Third-Party Certificate page, upload the certificate content.
 
@@ -75,10 +75,10 @@ To upload a third-party certificate to SLB, follow these steps:
  |
     |**Certificate Content**| Paste the certificate content into the text editor.
 
- Click **View Sample Certificate** to view the valid certificate formats. For more information, see [Certificate requirements](intl.en-US/Certificate management/Certificate requirements.md#).
+ Click **View Sample Certificate** to view the valid certificate formats. For more information, see [Certificate requirements](reseller.en-US/Certificate management/Certificate requirements.md#).
 
  |
-    |**Private Key**|Paste the private key of the server certificate into the text editor. Click **View Sample Certificate** to view the valid certificate formats. For more information, see [Certificate requirements](intl.en-US/Certificate management/Certificate requirements.md#).
+    |**Private Key**|Paste the private key of the server certificate into the text editor. Click **View Sample Certificate** to view the valid certificate formats. For more information, see [Certificate requirements](reseller.en-US/Certificate management/Certificate requirements.md#).
 
  SLB supports the following two private key formats:
 
