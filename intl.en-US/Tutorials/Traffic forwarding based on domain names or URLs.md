@@ -34,7 +34,7 @@ After forwarding rules are configured, the sequence of request forwarding is as 
 -   If not, but the listener is associated with a VServer group, the requests are distributed to the VServer group configured in the listener.
 -   If none of the above conditions are met, the requests are forwarded to ECS instances in the default server group.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4135/15657987282798_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4135/15659240672798_en-US.png)
 
 ## Add a domain name-based or URL-based forwarding rule {#section_z1n_t1b_wdb .section}
 
@@ -51,7 +51,7 @@ To add a domain name-based or URL-based forwarding rule, follow these steps:
 4.  Click the Listeners tab.
 5.  Find the target HTTP or HTTPS listener and then click **Add Forwarding Rules**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15657987287453_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15659240677453_en-US.png)
 
 6.  On the Add Forwarding Rules page, configure the forwarding rule according to the following information and click **Add Forwarding Rules**.
 
@@ -62,7 +62,7 @@ To add a domain name-based or URL-based forwarding rule, follow these steps:
 
     3.  **VServer Group**: Select the VServer group that you want to forward the requests to.
     4.  **Description \(optional\)**: Enter a description for the forwarding rule.
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15657987287463_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15659240687463_en-US.png)
 
 7.  To add another domain name-based or URL-based forwarding rule, click **Add Domain** or **Add Rule**.
 
@@ -83,7 +83,7 @@ To edit a forwarding rule, follow these steps:
 5.  Find the target HTTP or HTTPS listener and then click **Add Forwarding Rules**.
 6.  In the **Forwarding Rules** section, find the target forwarding rule and then click **Edit**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15657987287464_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15659240687464_en-US.png)
 
 7.  Edit the forwarding rule. Customize the advanced configurations such as scheduling algorithm, session persistence, and health checks according to the following information:
 
@@ -143,7 +143,7 @@ Value range: 2 to 10. Default value: 3.
 
  |
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/156579872911504_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/156592406811504_en-US.png)
 
 8.  Click **OK**.
 
@@ -158,6 +158,6 @@ To delete a forwarding rule, follow these steps:
 5.  Find the target HTTP or HTTPS listener, and then click **Add Forwarding Rules**.
 6.  In the **Forwarding Rules** section, find the target forwarding rule and then click **Delete**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15657987297465_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15660/15659240687465_en-US.png)
 
 
