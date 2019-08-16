@@ -14,7 +14,7 @@ The node servers in the cluster independently perform health checks in parallel,
 
 The IP address range used to perform the health check is 100.64.0.0/10. The backend servers cannot block this CIDR block. You do not need to additionally configure a security group rule to allow access from this CIDR block. However, if you have configured security rules such as iptables, allow access from this CIDR block \(100.64.0.0/10 is reserved by Alibaba Cloud, and other users cannot use any IP address in this CIDR block, so there is no security risk\).
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15650964642542_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15659416112542_en-US.png)
 
 ## Health check of HTTP/HTTPS listeners {#section_e1x_125_vdb .section}
 
@@ -22,7 +22,7 @@ For Layer-7 \(HTTP or HTTPS\) listeners, SLB detects the status of backend serve
 
 For HTTPS listeners, certificates are managed in SLB. Data exchange \(including health check data and service interaction data\) between SLB and backend ECS instances is not transmitted over HTTPS to improve the system performance.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15650964642543_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15659416112543_en-US.png)
 
 The health check process of a Layer-7 listener is as follows:
 
@@ -35,7 +35,7 @@ The health check process of a Layer-7 listener is as follows:
 
 For TCP listeners, SLB detects the status of backend servers by sending TCP detections, as the following figure shows.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15650964642549_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15659416122549_en-US.png)
 
 The health check process of a TCP listener is as follows:
 
@@ -57,7 +57,7 @@ Resolution:
 
 For UDP listeners, Server Load Balancer detects the status of the backend servers through UDP packet detection, as shown in the following figure.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15650964652566_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15659416122566_en-US.png)
 
 The health check process of a UDP listener is as follows:
 
@@ -86,13 +86,13 @@ The health check time window is calculated as follows:
 
 -   Health check failure time window = Response Timeout x Unhealthy Threshold + Health Check Interval X \(Unhealthy Threshold\) -1\)
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15650964652568_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15659416122568_en-US.png)
 
 -   Health check success time window = \(Response Time of a Successful Health Check X Healthy Threshold\) + Health Check Interval X \(Healthy Threshold-1\)
 
     **Note:** The success response time of a health check is the duration from the time when the health check request is sent to the time when the response is received. For TCP health check, the time is very short and almost negligible because TCP health check only detects whether the port is alive. For HTTP health check, the time depends on the performance and load of the application server and is generally within seconds.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15650964652570_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15659416122570_en-US.png)
 
 
 The health check result has the following impact on the requests forwarding:
@@ -101,5 +101,5 @@ The health check result has the following impact on the requests forwarding:
 -   If the health check of the target ECS instance succeeds, new requests will be distributed to it. The client access is normal.
 -   If a request arrives during a health check failure window, the request is still sent to the ECS instance because the ECS instance is being checked and has not been declared unhealthy. As a result, the client access fails.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15650964652571_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4137/15659416122571_en-US.png)
 
