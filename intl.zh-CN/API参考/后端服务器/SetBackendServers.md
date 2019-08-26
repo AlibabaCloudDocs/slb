@@ -15,7 +15,7 @@
  取值：**SetBackendServers**。
 
  |
-|BackendServers|String|是|\[\{"ServerId":"vm-233","Weight":"0"\},\{"ServerId":"vm-234","Weight":"0"\}\]|要添加的后端服务器列表。
+|BackendServers|String|是|\[\{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.1" \}, \{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.2" \}\]|要添加的后端服务器列表。
 
  **说明：** 后端服务器（ECS实例）必须是运行中才可以加入负载均衡实例，一次最多可调用20个后端服务器。
 
