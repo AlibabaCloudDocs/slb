@@ -2,7 +2,7 @@
 
 An SLB instance is a running entity of the Server Load Balancer service. To use the load balancing service, you must create an SLB instance first, and then add listeners and backend servers to it.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4112/15658322252275_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4112/15668729722275_en-US.png)
 
 Alibaba Cloud provides Internet SLB service and intranet SLB service. A public or a private IP address is allocated to the SLB instance according to the instance type you select.
 
@@ -12,7 +12,7 @@ An Internet SLB instance distributes client requests over the Internet to backen
 
 After you create an Internet Server Load Balancer instance, the system will allocate a public IP to the instance. You can resolve a domain name to the public IP to provide public services.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4112/15658322262276_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4112/15668729722276_en-US.png)
 
 ## Intranet SLB instances {#section_n5n_zwm_vdb .section}
 
@@ -28,6 +28,6 @@ For an intranet SLB instance, you can further select the network type:
 
     If you choose VPC network for the intranet SLB instance, the IP of the SLB instance is allocated from the CIDR of the VSwitch that the instance belongs to. SLB instances of the VPC network can only be accessed by ECS instances in the same VPC.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4112/15658322262283_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4112/15668729742283_en-US.png)
 
 
