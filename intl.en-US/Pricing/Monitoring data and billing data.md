@@ -2,7 +2,7 @@
 
 Server Load Balancer \(SLB\) provides a monitoring function that monitors such metrics as the inbound and outbound traffic and the number of connections. You can view real-time monitoring data in the console. Besides monitoring data, billing data is also collected, but it is collected for the calculation of fees to be charged. Monitoring data and billing data differ given the factors described as follows.
 
-|Factor|Monitoring Data|Billing data|
+|Factor|Monitoring data|Billing data|
 |:-----|:--------------|:-----------|
 |Calculation method| The SLB system collects monitoring data every minute, and reports the data to CloudMonitor. After every 15 minutes, CloudMonitor calculates the average value of data collected in that time period.
 
