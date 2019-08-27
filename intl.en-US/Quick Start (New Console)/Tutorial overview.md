@@ -2,7 +2,7 @@
 
 This tutorial guides you to create an Internet SLB instance to forward requests to backend ECS instances.
 
-**Note:** Before creating an SLB instance, you must plan your SLB service, such as the instance type, region, and more. For more information, see [Before you begin](reseller.en-US/Quick Start (New Console)/Before you begin.md#).
+**Note:** Before creating an SLB instance, you must plan your SLB service, such as the instance type, region, and more. For more information, see [Preparations](reseller.en-US/Quick Start (New Console)/Before you begin.md#).
 
 The tutorial includes the following tasks:
 
