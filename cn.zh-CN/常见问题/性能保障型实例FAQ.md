@@ -23,7 +23,7 @@
 
 把鼠标移至性能保障型实例的问号图标，可查看具体的性能指标，如下图所示。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15658021467175_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15670406117175_zh-CN.png)
 
 性能保障型实例的三个关键指标如下：
 
@@ -78,7 +78,7 @@
 
 以后每小时规格费均按照上述方式计算，如下图所示：
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4113/15658021462301_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4113/15670406112301_zh-CN.png)
 
 因此，按量付费的性能保障型实例具有自动弹性伸缩（或计费）的能力。您在购买时所选的规格，是性能的上限，比如您选择高阶型II \(slb.s3.medium\)，那么意味着，您的实例最大可以达到的规格上限就是高阶型II \(slb.s3.medium\)。
 
@@ -126,20 +126,20 @@
 |规格2：标准型I \(slb.s2.small\)|50,000|5,000|5,000|0.06|
 |规格3：标准型II \(slb.s2.medium\)|100,000|10,000|10,000|0.12|
 |规格4：高阶型I \(slb.s3.small\)|200,000|20,000|20,000|0.24|
-|规格5：高阶型II \(slb.s3.medium\)|500,000|50,000|30,000|0.37|
+|规格5：高阶型II \(slb.s3.large\)|500,000|50,000|30,000|0.37|
 |规格6：超强型I \(slb.s3.large\)|1,000,000|100,000|50,000|0.61|
 
 ## 4. 如何选择性能保障型实例？ {#section_ifx_kcn_vdb .section}
 
-规格费是按量（弹性）计费的，因此建议您直接选择您可以买到的最大规格，对于大多数用户而言，即高阶型I\(slb.s3.large\)，这样可以保证较好的业务灵活性（弹性），且不会让您额外多付出成本。但如果您认为您的业务量不太可能到达超强型I\(slb.s3.large），也可以设置一个合理的弹性上限，比如高阶型II\(slb.s3.medium\)。
+规格费是按量（弹性）计费的，因此建议您直接选择您可以买到的最大规格，对于大多数用户而言，即高阶型I（slb.s3.large），这样可以保证较好的业务灵活性（弹性），且不会让您额外多付出成本。但如果您认为您的业务量不太可能到达超强型I（slb.s3.large），也可以设置一个合理的弹性上限，比如高阶型II（slb.s3.medium）。
 
 ## 5. 是否可以调整性能保障型实例的规格？ {#p7 .section}
 
 您可在控制台对性能保障型实例进行变配，如下图所示。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15658021467343_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15670406117343_zh-CN.png)
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15658021467344_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15670406117344_zh-CN.png)
 
 **说明：** 
 
@@ -147,7 +147,7 @@
 -   由于历史存量原因，部分实例可能存在于较老的集群。此部分实例在变配到性能保障型实例时，因为需要将实例迁移，因此可能出现10-30秒的业务中断，其他变配操作均不会影响业务。因此建议在业务低谷期进行此类变配。
 -   所有的变配操作都不影响负载均衡实例的IP地址。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15658021467345_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15642/15670406117345_zh-CN.png)
 
 ## 6. 性能保障型实例何时收费？ {#section_gvt_kfn_vdb .section}
 
