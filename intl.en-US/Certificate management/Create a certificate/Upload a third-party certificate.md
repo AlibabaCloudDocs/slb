@@ -5,14 +5,14 @@ Before you upload a third-party certificate, you must obtain the public and priv
 Before you upload a third-party certificate, make sure that the following conditions are met:
 
 -   A server certificate is purchased.
--   A CA certificate and a client certificate are generated. For more information, see [EN-US\_TP\_15675.md\#](reseller.en-US/Certificate management/Generate a CA certificate.md#).
+-   A CA certificate and a client certificate are generated. For more information, see [Generate a CA certificate](reseller.en-US/Certificate management/Generate a CA certificate.md#).
 
 1.  Log on to the [Server Load Balancer console](https://partners-intl.console.aliyun.com/#/slb). 
 2.  In the left-side navigation pane, choose **Certificates**.
 3.  Click **Create Certificate**.
 4.  On the Create Certificate page, select **Upload Third-Party Certificate**. 
 
-    ![Create a certificate](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/156595052111880_en-US.png)
+    ![Create a certificate](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/156756347611880_en-US.png)
 
 5.  Click **Next**. On the Upload Third-Party Certificate page, upload the certificate. 
 
