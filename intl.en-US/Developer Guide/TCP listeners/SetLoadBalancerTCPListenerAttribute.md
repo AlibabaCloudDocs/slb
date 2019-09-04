@@ -59,7 +59,7 @@ If you enable a blacklist without adding any IP addresses in the list, all reque
 |Bandwidth|Integer|No|43| Optional. The peak bandwidth of the listener. Unit: Mbit/s. Valid values:**-1 | 1 to 5120**
 
  -   **-1**: You can set the peak bandwidth of an Internet SLB instance that is billed by traffic to **-1**. Then, the peak bandwidth is not restricted.
--   **1 to 5120**: You can set one peak bandwidth for each listener of an Internet SLB instance that is billed by bandwidth. However, the sum of the peak bandwidth values of all listeners cannot exceed the peak bandwidth of the SLB instance. For more information, see [Share bandwidth](~~57846~~).
+-   **1 to 5120**: You can set one peak bandwidth for each listener of an Internet SLB instance that is billed by bandwidth. However, the sum of the peak bandwidth values of all listeners cannot exceed the peak bandwidth of the SLB instance.
 
  |
 |Description|String|No|test| Optional. A description of the TCP listener.
