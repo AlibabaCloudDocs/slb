@@ -22,7 +22,7 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=CreateLoadBalance
  Valid values:**-1 | 1 to 5120**
 
  -   **-1**: The value **-1** indicates that the bandwidth of an Internet instance that is billed by traffic is not limited.
--   **1 to 510**: For an Internet instance that is billed by bandwidth, you can set one peak bandwidth for each listener. However, the sum of the peak bandwidth values of all listeners cannot surpass the peak bandwidth of the SLB instance. For more information, see [Share instance bandwidth](~~57846~~).
+-   **1 to 510**: For an Internet instance that is billed by bandwidth, you can set one peak bandwidth for each listener. However, the sum of the peak bandwidth values of all listeners cannot surpass the peak bandwidth of the SLB instance.
 
  |
 |HealthCheck|String|Yes|on| Indicates whether to enable the health check function.
