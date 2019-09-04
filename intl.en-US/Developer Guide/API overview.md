@@ -16,7 +16,6 @@ This topic lists available Server Load Balancer \(SLB\) APIs.
 |[DescribeRegions](~~27584~~)|Queries available regions.|
 |[DescribeZones](~~27585~~)|Queries the zones in a region.|
 |[ModifyLoadBalancerInstanceSpec](~~53360~~)|Modifies the specification of an SLB instance.|
-|[ModifyLoadBalancerPayType](~~59589~~)|Converts a Pay-As-You-Go SLB instance to a Subscription SLB instance.|
 
 ## UDP listeners {#section_ibq_apv_ked .section}
 
