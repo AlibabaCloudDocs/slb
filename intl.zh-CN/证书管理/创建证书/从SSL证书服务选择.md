@@ -10,7 +10,7 @@ SSL证书服务详情请参见[SSL证书服务详情](https://www.aliyun.com/pro
 2.  在左侧导航栏，单击**证书管理**。
 3.  单击**创建证书**，在创建证书页面，选择**从SSL证书服务选择**。 
 
-    ![从SSL证书服务选择](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/156595048011881_zh-CN.png)
+    ![从SSL证书服务选择](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/156756113611881_zh-CN.png)
 
 4.  单击**下一步**，在从SSL证书服务选择页面，设置证书部署地域并从证书列表中选择使用的SSL证书。 证书不支持跨地域使用，如果该证书需要在多个地域使用，选择所有需要的地域。
 5.  单击**确定**。

@@ -6,17 +6,17 @@ To use a certificate in SSL Certificates Service, you must log on to the [SSL Ce
 
 For more information about SSL Certificates Service, see [SSL Certificates Service](https://www.aliyun.com/product/cas?spm=5176.8142029.security.5.3dbd6d3ezWmWrn).
 
-1.  Log on to the [Server Load Balancer console](https://slb.console.aliyun.com/slb). 
+1.  Log on to the [Server Load Balancer console](https://partners-intl.console.aliyun.com/#/slb). 
 2.  In the left-side navigation pane, click **Certificates**.
-3.  Click **Create Certificate**. On the Create Certificate page, click **Select Certificates From SSL Certifcate Service**. 
+3.  Click **Create Certificate**. On the Create Certificate page, click **Select Certificate From SSL Certifcate Service**. 
 
-    ![Select a certificate from Alibaba Cloud SSL Certificates Service](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/156749798311881_en-US.png)
+    ![Select a certificate from Alibaba Cloud SSL Certificates Service](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/21331/156756114511881_en-US.png)
 
-4.  Click **Next**. On the Select Certificates From SSL Certifcate Service page, select the region to deploy the certificate and then select the SSL certificate to use from the certificate list. A certificate cannot be used across regions. If you need to use a certificate in multiple regions, you must select all the required regions.
+4.  Click **Next**. On the Select Certificate From SSL Certifcate Service page, select the region to deploy the certificate and then select the SSL certificate to use from the certificate list. A certificate cannot be used across regions. If you need to use a certificate in multiple regions, you must select all the required regions.
 5.  Click **OK**.
 
 **More information**  
 
 
-[UploadServerCertificate](../intl.en-US/Developer Guide/Server certificates/UploadServerCertificate.md#)
+[UploadServerCertificate](../reseller.en-US/Developer Guide/Server certificates/UploadServerCertificate.md#)
 
