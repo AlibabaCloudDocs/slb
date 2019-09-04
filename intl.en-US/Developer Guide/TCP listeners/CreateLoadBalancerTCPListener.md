@@ -20,7 +20,7 @@ Use [OpenAPI Explorer](https://api.aliyun.com/#product=Slb&api=CreateLoadBalance
 |Bandwidth|Integer|Yes|-1| The peak bandwidth of the listener. Valid values:**-1 | 1 to 5120**
 
  -   **-1**: You can set the peak bandwidth of an Internet SLB instance that is billed by traffic to **-1**. Then, the peak bandwidth is not restricted.
--   **1 to 5120**: You can set one peak bandwidth for each listener of an Internet SLB instance that is billed by bandwidth. However, the sum of the peak bandwidth values of all listeners cannot exceed the peak bandwidth of the SLB instance. For more information, see[Share instance bandwidth](~~57846~~).
+-   **1 to 5120**: You can set one peak bandwidth for each listener of an Internet SLB instance that is billed by bandwidth. However, the sum of the peak bandwidth values of all listeners cannot exceed the peak bandwidth of the SLB instance.
 
  |
 |ListenerPort|Integer|Yes|80| The frontend port used by the SLB instance.
