@@ -2,7 +2,7 @@
 
 HTTPS是加密数据传输协议，安全性高。负载均衡支持将HTTP访问重定向至HTTPS，方便您进行全站HTTPS部署。负载均衡已经在全部地域开放了HTTP重定向功能。
 
-已创建了HTTPS监听，详情参见[添加HTTPS监听](cn.zh-CN/监听/添加HTTPS监听.md#)。
+已创建了HTTPS监听，详情参见[添加HTTPS监听](../../../../intl.zh-CN/监听/添加HTTPS监听.md#)。
 
 仅负载均衡新版控制台支持监听转发功能。
 
@@ -15,7 +15,7 @@ HTTPS是加密数据传输协议，安全性高。负载均衡支持将HTTP访�
 
     此处目的监听可以是该实例下任意端口的HTTPS监听。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64564/156404803632571_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64564/156764860032571_zh-CN.png)
 
 7.  单击**下一步**。
 8.  确认后，单击**提交**。
@@ -23,6 +23,6 @@ HTTPS是加密数据传输协议，安全性高。负载均衡支持将HTTP访�
 
     转发开启后，所有来自HTTP的访问都会转发至HTTPS，并根据HTTPS的监听配置进行转发。
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64564/156404803732572_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/64564/156764860032572_zh-CN.png)
 
 
