@@ -14,11 +14,11 @@ HTTPS协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 4.  选择以下一种方法，打开监听配置向导。 
     -   在实例管理页面，找到目标实例，单击**监听配置向导**。
 
-        ![监听配置向导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156743325010004_zh-CN.png)
+        ![监听配置向导](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156764857410004_zh-CN.png)
 
     -   在实例管理页面，单击目标实例ID。在监听页面，单击**添加监听**。
 
-        ![添加监听](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15674332507399_zh-CN.png)
+        ![添加监听](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15676485747399_zh-CN.png)
 
 
 ## 步骤二 配置协议监听 {#section_k58_mb2_whz .section}
@@ -94,7 +94,7 @@ HTTPS协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
  |
     |**TLS安全策略**| 仅性能保障型实例支持选择使用的TLS安全策略。
 
- TLS安全策略包含HTTPS可选的TLS协议版本和配套的加密算法套件，具体说明请参见[ZH-CN\_TP\_21323.md\#](intl.zh-CN/监听/管理TLS安全策略.md#)。
+ TLS安全策略包含HTTPS可选的TLS协议版本和配套的加密算法套件，具体说明请参见[管理TLS安全策略](../intl.zh-CN/监听/管理TLS安全策略.md#)。
 
  |
     |**Gzip数据压缩**|开启该配置对特定文件类型进行压缩。 目前Gzip支持压缩的类型包括：text/xml、text/plain、text/css、application/javascript、application/x-javascript application/rss+xml、application/atom+xml、application/xml。
@@ -108,11 +108,11 @@ HTTPS协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
     |**获取真实IP**|HTTP监听通过 X-Forwarded-For获取客户端真实IP。|
     |**创建完毕自动启动监听**|是否在监听配置完成后启动负载均衡监听，默认开启。|
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156743325011858_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156764857411858_zh-CN.png)
 
 2.  单击**下一步**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156743325010035_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156764857410035_zh-CN.png)
 
 
 ## 步骤三 配置SSL证书 {#section_dk9_0ci_bod .section}
@@ -139,7 +139,7 @@ HTTPS协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 
 在上传证书前，请注意：
 
--   上传的证书格式必须是PEM。详情参见[ZH-CN\_TP\_15674.md\#](intl.zh-CN/证书管理/证书要求.md#)。
+-   上传的证书格式必须是PEM。
 -   证书上传到负载均衡后，负载均衡即可管理证书，不需要在后端ECS上绑定证书。
 -   因为证书的上传、加载和验证都需要一些时间，所以使用HTTPS协议的实例生效也需要一些时间。一般一分钟后就会生效，最长不会超过三分钟。
 -   HTTPS监听使用的ECDHE算法簇支持前向保密技术，不支持将DHE算法簇所需要的安全增强参数文件上传，即PEM证书文件中含`BEGIN DH PARAMETERS`字段的字串上传。更多详细信息，请参见[证书要求](intl.zh-CN/历史文档/用户指南（旧版控制台）/证书管理/证书要求.md#)。
@@ -151,7 +151,7 @@ HTTPS协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 1.  选择已上传的服务器证书，或单击**新建服务器证书**上传一个服务器证书。 详情请参见[创建证书](../intl.zh-CN/证书管理/创建证书/概述.md#)。
 2.  如果您要开启HTTPS双向认证或者设置TLS安全策略，单击**高级配置**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156743325147905_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16604/156764857447905_zh-CN.png)
 
 3.  选择一个已上传的CA证书，或单击**新建CA证书**上传一个CA证书。 您可以使用自签名的CA证书，详情参见[创建证书](../intl.zh-CN/证书管理/创建证书/概述.md#)。
 4.  选择TLS安全策略，详情参见[管理TLS安全策略](intl.zh-CN/监听/管理TLS安全策略.md#)。
@@ -164,11 +164,11 @@ HTTPS协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 
 1.  选择**默认服务器组**，单击**继续添加**。 
 
-    ![添加默认服务器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156743325110030_zh-CN.png)
+    ![添加默认服务器](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156764857510030_zh-CN.png)
 
 2.  选择要添加的ECS实例，然后单击**下一步：配置权重和端口号**。 
 
-    ![配置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15674332517499_zh-CN.png)
+    ![配置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15676485757499_zh-CN.png)
 
 3.  配置添加的后端服务器的端口和权重。 
     -   端口
@@ -181,7 +181,7 @@ HTTPS协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 
         **说明：** 权重设置为0，该服务器不会再接受新请求。
 
-        ![设置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15674332517504_zh-CN.png)
+        ![设置权重](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15676485757504_zh-CN.png)
 
 4.  单击**下一步**。
 
@@ -198,6 +198,9 @@ HTTPS协议适用于需要加密传输的应用。您可以添加一个HTTPS监�
 3.  在配置审核页面，配置成功后，单击**确定**。 
 
     配置成功后，您可以在监听页面查看已创建的监听。
+
+
+**相关文档**  
 
 
 [配置健康检查](../intl.zh-CN/健康检查/配置健康检查.md#)
