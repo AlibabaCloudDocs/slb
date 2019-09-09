@@ -21,13 +21,13 @@
 
 如下图所示，负载均衡健康检查使用的地址段是100.64.0.0/10，后端服务器务必不能屏蔽该地址段。您无需在ECS安全组中额外针对该地址段配置放行策略，但如有配置iptables等安全策略，请务必放行（100.64.0.0/10 是阿里云保留地址，其他用户无法分配到该网段内，不会存在安全风险）。
 
-更多详细信息，参考[负载均衡健康检查原理](../intl.zh-CN/历史文档/用户指南（旧版控制台）/监听/健康检查/健康检查介绍.md#)。
+更多详细信息，参考[负载均衡健康检查原理](../cn.zh-CN/历史文档/用户指南（旧版控制台）/监听/健康检查/健康检查介绍.md#)。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15595487833226_zh-CN.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15679953573226_zh-CN.png)
 
 ## 2. 推荐的健康检查配置是什么？ {#section_jhf_jqx_wdb .section}
 
-为了避免频繁的健康检查失败引起的切换对系统可用性的冲击，健康检查只有在健康检查时间窗内连续多次检查成功或失败后，才会进行状态切换。更多详细信息参见[健康检查配置](../intl.zh-CN/历史文档/用户指南（旧版控制台）/监听/健康检查/健康检查配置.md#)。
+为了避免频繁的健康检查失败引起的切换对系统可用性的冲击，健康检查只有在健康检查时间窗内连续多次检查成功或失败后，才会进行状态切换。更多详细信息参见[健康检查配置](../cn.zh-CN/历史文档/用户指南（旧版控制台）/监听/健康检查/健康检查配置.md#)。
 
 以下是TCP/HTTP/HTTPS监听建议使用的健康检查配置。
 
@@ -50,7 +50,7 @@
 
 ## 3. 是否可以关闭健康检查？ {#section_tn3_sqx_wdb .section}
 
-您只可能关闭HTTP/HTTPS监听的健康检查，不能关闭TCP/UDP监听的健康检查。具体操作，参考[关闭健康检查](../intl.zh-CN/历史文档/用户指南（旧版控制台）/监听/健康检查/关闭健康检查.md#)。
+您只可能关闭HTTP/HTTPS监听的健康检查，不能关闭TCP/UDP监听的健康检查。具体操作，参考[关闭健康检查](../cn.zh-CN/历史文档/用户指南（旧版控制台）/监听/健康检查/关闭健康检查.md#)。
 
 **说明：** 如果关闭健康检查，当后端某个ECS实例健康检查出现异常时，负载均衡还是会把请求转发到该异常的ECS实例上，造成部分业务不可访问。建议您不要关闭健康检查。
 
@@ -111,7 +111,7 @@ ECS实例内配置了两个网站，www.test.com是静态网站，app.test.com�
 
 负载均衡后端配置TCP服务端口后，后端业务日志中频繁出现类似如下网络连接异常错误信息。经进抓包分析，发现相关请求来自负载均衡服务器，同时负载均衡主动向服务器发送了RST数据包。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15595487833231_zh-CN.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15679953573231_zh-CN.jpg)
 
 问题原因：
 
@@ -152,5 +152,5 @@ Tengine/Nginx配置会发现curl没有问题，但是echo测试会匹配到默�
 -   修改主配置文件，将默认站点注释掉。
 -   在健康检查配置中添加检查域名。
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15595487833234_zh-CN.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15679953573234_zh-CN.jpg)
 
