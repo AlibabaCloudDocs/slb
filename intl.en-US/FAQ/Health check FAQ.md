@@ -23,11 +23,11 @@ The IP address range used for health checks is 100.64.0.0/10. Make sure that bac
 
 For more information, see [Health check overview](../intl.en-US/Archives/User Guide (Old Console)/Listener/Health check/Health check overview.md#).
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15595487853226_en-US.png)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15679955643226_en-US.png)
 
 ## What are the recommended configurations for health checks in SLB? {#section_jhf_jqx_wdb .section}
 
-To avoid the impact of backend server switching caused by frequent health check failures on system availability, health check failures or successes must reach a certain threshold before the health check status of a backend server is switched. For more information, see [Health check configurations](../intl.en-US/Archives/User Guide (Old Console)/Listener/Health check/Health check configurations.md#).
+To avoid the impact of backend server switching caused by frequent health check failures on system availability, health check failures or successes must reach a certain threshold before the health check status of a backend server is switched.
 
 The following are recommended health check configurations for TCP, HTTP, and HTTPS listeners.
 
@@ -50,7 +50,7 @@ The following are recommended health check configurations for UDP listeners.
 
 ## Can I disable the health check function? {#section_tn3_sqx_wdb .section}
 
-You can only disable health checks for HTTP and HTTPS listeners. Health checks for UDP and TCP listeners cannot be disabled. For more information, see [Close health checks](../intl.en-US/Archives/User Guide (Old Console)/Listener/Health check/Close health check.md#).
+You can only disable health checks for HTTP and HTTPS listeners. Health checks for UDP and TCP listeners cannot be disabled.
 
 **Note:** If the health check function is disabled, requests may be distributed to unhealthy ECS instances, which can lead to service interruptions. Therefore, we recommend that you enable health checks.
 
@@ -75,7 +75,7 @@ HEAD request method.
 
 If you disable the HEAD request method for backend ECS instances, health checks on the backend ECS instances will fail. We recommend that you access your own IP address on the ECS instance by using the HEAD method for testing:
 
-```
+``` {#codeblock_ebg_qer_fp9}
 curl -v -0 -I -H "Host:" -X HEAD http://IP:port
 ```
 
@@ -111,7 +111,7 @@ Symptoms:
 
 After configuring the backend TCP port in an SLB listener, a network connection exception is frequently shown in the backend service logs. The requests are sent from the SLB instance and the SLB instance also sends RST packets to the backend server at the same time.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15595487853231_en-US.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15679955643231_en-US.jpg)
 
 Cause:
 
@@ -137,7 +137,7 @@ Symptoms:
 
 The HTTP health check always fails, but the status code obtained by performing the `curl -l` test is normal as follows:
 
-```
+``` {#codeblock_kgy_aas_0df}
 echo -e ‘HEAD /test.html HTTP/1.0\r\n\r\n’ | nc -t 192.168.0.1 80
 ```
 
@@ -152,5 +152,5 @@ Solution:
 -   Modify the main configuration file and annotate the default site.
 -   Add the domain name used for health checks in the health check configurations.
 
-![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15595487853234_en-US.jpg)
+![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4288/15679955643234_en-US.jpg)
 
