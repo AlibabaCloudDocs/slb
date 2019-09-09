@@ -10,7 +10,7 @@
 
 4.  单击**更多** \> **绑定EIP**。 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16155/15676486647389_zh-CN.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16155/15679990387389_zh-CN.png)
 
 5.  选择一个EIP，然后单击**确认**。
 
