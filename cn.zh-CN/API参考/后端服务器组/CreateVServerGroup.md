@@ -21,7 +21,7 @@
 |RegionId|String|是|cn-hangzhou|负载均衡地域ID。
 
  |
-|BackendServers|String|否|\[\{'ServerId':'vm-233','Port':'80','Weight':'100'\},\{'ServerId':'vm-232','Port':'90','Weight':'100'\},\{'ServerId':'vm-231','Port':'70','Weight':'100'\}\]|需要添加的后端服务器列表。
+|BackendServers|String|否|\[\{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.1" \}, \{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.2" \}\]|需要添加的后端服务器列表。
 
  取值：是一个Json string，其结构是一个JsonList。一次请求中，List中的元素个数最多20个。
 
@@ -137,5 +137,5 @@ http(s)://[Endpoint]/?Action=CreateVServerGroup
 
 ## 错误码 { .section}
 
-访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
+访问[错误中心](https://error-center.aliyun.com/status/product/Slb)查看更多错误码。
 
