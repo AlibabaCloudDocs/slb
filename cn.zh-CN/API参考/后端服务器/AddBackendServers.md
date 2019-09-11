@@ -139,5 +139,5 @@ http(s)://[Endpoint]/?Action=AddBackendServers
 |--------|---|----|--|
 |400|InvalidParameter|The specified load balancer does not support the network type of the ECS instance.|负载均衡实例不支持此种网络类型的ECS实例，请您换一种网络类型的ECS后再重试。|
 
-访问[错误中心](https://error-center.alibabacloud.com/status/product/Slb)查看更多错误码。
+访问[错误中心](https://error-center.aliyun.com/status/product/Slb)查看更多错误码。
 
