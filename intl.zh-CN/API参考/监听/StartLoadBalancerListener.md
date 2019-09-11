@@ -34,6 +34,9 @@
  您可以通过调用[DescribeRegions](~~27584~~)接口查询地域ID。
 
  |
+|ListenerProtocol|String|否|https|负载均衡实例前端使用的协议。
+
+ |
 
 ## 返回数据 {#resultMapping .section}
 
