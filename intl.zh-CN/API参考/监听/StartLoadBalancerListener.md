@@ -36,6 +36,8 @@
  |
 |ListenerProtocol|String|否|https|负载均衡实例前端使用的协议。
 
+ **说明：** 相同端口存在不同协议监听时，此字段必填。
+
  |
 
 ## 返回数据 {#resultMapping .section}
