@@ -10,14 +10,14 @@ Compared with HTTP/1.X, HTTP/2 has the following advantages:
 -   Binary framing and header compression: Improves the efficiency of data transmission in the network.
 -   Server push: The server actively sends data to the client to reduce the number of requests, which improves efficiency.
 -   Additionally, features such as flow control, active request resetting, and request priority greatly improve the performance of web services, as shown in the following figure.
--   ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4294/15586048113266_en-US.png)
+-   ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4294/15687116443266_en-US.png)
 
 
 ## How to enable HTTP/2 on Server Load Balancer of Alibaba Cloud? {#section_mnn_31y_wdb .section}
 
 No configuration is required. HTTP/2 is supported by HTTPS listeners by default.
 
-**Note:** You must upgrade the instance to a guaranteed-performance instance. For more information, see [How to use guaranteed-performance instances](../../../../intl.en-US/FAQ/FAQ/How to use guaranteed-performance Server Load Balancer instances?.md#).
+**Note:** You must upgrade the instance to a guaranteed-performance instance. For more information, see [Guaranteed-performance instance FAQ](intl.en-US/FAQ/Guaranteed-performance instance FAQ.md#).
 
 The Server Load Balancer HTTPS listener detects the ALPN field in the handshake message ClientHello sent from the client to negotiate the protocol version. If the ALPN field is not included in the ClientHello message, HTTP/1.x is used to handle the request. If the ALPN field is included, HTTP/2 is used.
 
