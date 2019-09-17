@@ -35,6 +35,11 @@
  您可以从[地域和可用区](~~40654~~)列表或通过调用[DescribeRegions](~~25609~~)接口查询地域ID。
 
  |
+|ListenerProtocol|String|否|https|负载均衡实例前端使用的协议。
+
+ **说明：** 相同端口存在不同协议监听时，此字段必填。
+
+ |
 
 ## 返回数据 {#resultMapping .section}
 
