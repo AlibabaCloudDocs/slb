@@ -15,12 +15,12 @@
  取值：**AddVServerGroupBackendServers**。
 
  |
-|BackendServers|String|是|\[\{'ServerId':'vm-233','Port':'80','Weight':'100'\},\{'ServerId':'vm-232','Port':'90','Weight':'100'\},\{'ServerId':'vm-231','Port':'70','Weight':'100'\}\]|服务器组列表。单次调用最多可添加20个后端服务器。
+|BackendServers|String|是|\[\{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.1" \}, \{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.2" \}\]|服务器组列表。单次调用最多可添加20个后端服务器。
 
  服务器组列表需要包含以下参数：
 
  -   **ServerId**：ECS实例ID。
--   **Port**：后端服务器使用的端口。取值范围：**1~65535**。
+-   **Port**：必选参数，表示后端服务器使用的端口。取值范围：**1~65535**。
 -   **Weight**：后端服务器的权重，取值：0~100。默认值为100。如果值为0，则不会将请求转发给该后端服务器。
 -   **Type**：后端服务器类型，取值：
     -   **ecs**: ECS实例（默认）
@@ -42,6 +42,9 @@
 
  |
 |BackendServers| | |后端服务器列表。
+
+ |
+|BackendServer| | |后端服务器列表。
 
  |
 |ServerId|String|vm-231|ECS实例ID或者ENI的实例ID。
