@@ -14,11 +14,11 @@ To open the listener configuration wizard, follow these steps:
 4.  Select one of the following methods to open the listener configuration wizard: 
     -   On the Server Load Balancer page, find the target SLB instance and then click **Configure Listener** in the **Actions** column.
 
-        ![Listener configuration wizard](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156588127210004_en-US.png)
+        ![Listener configuration wizard](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156870736510004_en-US.png)
 
     -   On the Server Load Balancer page, click the ID of the target SLB instance. On the Listeners tab, click **Add Listener**.
 
-        ![Add listener](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15658812727399_en-US.png)
+        ![Add listener](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16161/15687073657399_en-US.png)
 
 
 ## Step 2 Configure the HTTP listener {#section_k58_mb2_whz .section}
@@ -109,7 +109,7 @@ If you enable a blacklist without adding any IP addresses in the corresponding a
 
 2.  Click **Next**. 
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15658812737434_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15654/15687073657434_en-US.png)
 
 
 ## Step 3 Add backend servers {#section_2p9_p8x_lc1 .section}
@@ -120,11 +120,11 @@ In this example, use the default server group.
 
 1.  Select **Default Server Group** and then click **Add More**. 
 
-    ![Add default servers](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156588127310030_en-US.png)
+    ![Add default servers](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/156870736510030_en-US.png)
 
 2.  Select the ECS instances to add, and then click **Next: Set Weight and Port**. 
 
-    ![Configure weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658812737499_en-US.png)
+    ![Configure weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15687073657499_en-US.png)
 
 3.  Configure ports and weights for the added backend servers \(ECS instances\). 
     -   Port
@@ -137,13 +137,13 @@ In this example, use the default server group.
 
         **Note:** If the weight is set to 0, no requests are sent to the backend server.
 
-        ![Set weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15658812737504_en-US.png)
+        ![Set weights](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/16139/15687073667504_en-US.png)
 
 4.  Click **Next**.
 
 ## Step 4 Configure health checks {#section_gum_68h_177 .section}
 
-SLB checks the service availability of backend servers by performing health checks. The health check function improves the overall availability of your services and avoids the impact of backend server failures. Click **Modify** to change health check configurations. For more information, see [../DNSLB19102266/EN-US\_TP\_15663.md\#](../reseller.en-US/Health check/Health check overview.md#).
+SLB checks the service availability of backend servers by performing health checks. The health check function improves the overall availability of your services and avoids the impact of backend server failures. Click **Modify** to change health check configurations. For more information, see [Health check overview](../reseller.en-US/Health check/Health check overview.md#).
 
 ## Step 5 Submit the configurations {#section_n00_0iz_5ti .section}
 
@@ -153,22 +153,22 @@ To submit the listener configurations, follow these steps:
 2.  Click **Submit**.
 3.  On the Submit page, click **OK** after the configurations are successful. 
 
-    After the configurations are successful, you can view the created listener on the Listeners page.
+    After the configurations are successful, you can view the created listener on the **Listeners** page.
 
 
 [Configure health checks](../reseller.en-US/Health check/Configure health checks.md#)
 
-[Manage a default server group](../reseller.en-US/Backend servers/Manage a default server group.md#)
+[Manage a default server group](../reseller.en-US//Manage a default server group.md#)
 
-[Manage a VServer group](../reseller.en-US/Backend servers/Manage a VServer group.md#)
+[Manage a VServer group](../reseller.en-US//Manage a VServer group.md#)
 
-[Manage an active/standby server group](../reseller.en-US/Backend servers/Manage an active__standby server group.md#)
+[Manage an active/standby server group](../reseller.en-US//Manage an active__standby server group.md#)
 
-[Configure access control](../reseller.en-US/Access control/Configure access control.md#)
+[Configure access control](../reseller.en-US//Configure access control.md#)
 
 [Traffic forwarding based on domain names or URLs](../reseller.en-US/Tutorials/Traffic forwarding based on domain names or URLs.md#)
 
-[Manage a domain name extension](../reseller.en-US/Listeners/Manage a domain name extension.md#)
+[Manage a domain name extension](../reseller.en-US/Listeners/Domain name extensions/Manage a domain name extension.md#)
 
 [CreateLoadBalancerHTTPListener](../reseller.en-US/Developer Guide/HTTP listeners/CreateLoadBalancerHTTPListener.md#)
 
