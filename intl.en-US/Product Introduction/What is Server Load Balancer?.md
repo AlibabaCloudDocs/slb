@@ -24,7 +24,7 @@ SLB consists of the following components:
 
     Backend servers are the ECS instances added to an SLB instance to process the distributed requests. You can add ECS instances to the default server group, a VServer group, or an active/standby server group for better management.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4091/1555642098936_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/4091/1568714082936_en-US.png)
 
 
 ## Benefits {#section_ws5_vq4_tdb .section}
