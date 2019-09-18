@@ -15,7 +15,7 @@
  取值：**AddVServerGroupBackendServers**。
 
  |
-|BackendServers|String|是|\[\{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.1" \}, \{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.2" \}\]|服务器组列表。单次调用最多可添加20个后端服务器。
+|BackendServers|String|是|\[\{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.1", "Port":"80" \}, \{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.2", "Port":"80" \}\]|服务器组列表。单次调用最多可添加20个后端服务器。
 
  服务器组列表需要包含以下参数：
 
@@ -76,7 +76,7 @@
 ``` {#request_demo}
 
 http(s)://[Endpoint]/?Action=AddVServerGroupBackendServers
-&BackendServers=[{'ServerId':'vm-233','Port':'80','Weight':'100'},{'ServerId':'vm-232','Port':'90','Weight':'100'},{'ServerId':'vm-231','Port':'70','Weight':'100'}]
+&BackendServers=[{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.1", "Port":"80" }, { "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.11.2", "Port":"80" }]
 &RegionId=cn-hangzhou
 &VServerGroupId=rsp-cige6j5e7p
 &<公共请求参数>
