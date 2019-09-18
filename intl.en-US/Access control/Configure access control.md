@@ -10,18 +10,18 @@ This topic describes how to configure access control after a listener is created
 
 Before you enable access control, make sure:
 
--   An access control list is created. For more information, see [Configure an access control list](reseller.en-US/Archives/User Guide (Old Console)/Access control/Configure an access control list.md#).
+-   An access control list is created. For more information, see [Configure an access control list](intl.en-US/Archives/User Guide (Old Console)/Access control/Configure an access control list.md#).
 -   A listener is created.
 
 To enable access control, follow these steps:
 
-1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
+1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb).
 2.  Select the region of the target SLB instance.
 3.  Locate the target SLB instance and click the instance ID.
 4.  On the Instance Details page, click the **Listeners** tab.
 5.  Locate the target listener, and then choose **More** \> **Set Access Control**.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15686/15640565047481_en-US.png)
+    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/15686/15687967757481_en-US.png)
 
 6.  On the Access Control Settings page, enable access control, select an access control method and an access control list, and click **OK**.
     -   **Whitelist**: Only requests from IP addresses or CIDR blocks in the selected access control list are forwarded. It applies to scenarios where the application only allows access from some specific IP addresses.
@@ -37,7 +37,7 @@ To enable access control, follow these steps:
 
 To disable access control, follow these steps:
 
-1.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
+1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb).
 2.  Select the region of the target SLB instance.
 3.  Locate the target SLB instance and click the instance ID.
 4.  On the Instance Details page, click the Listeners tab.
