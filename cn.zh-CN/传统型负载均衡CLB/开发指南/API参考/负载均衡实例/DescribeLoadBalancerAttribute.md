@@ -71,13 +71,13 @@
 |ListenerPort|Integer|443|负载均衡实例前端使用的端口。 |
 |ListenerProtocal|String|http|负载均衡实例前端使用的协议。 |
 |LoadBalancerSpec|String|slb.s2.small|负载均衡实例的的性能规格。 |
-|ModificationProtectionReason|String|托管实例|修改保护原因。长度为2~128个英文或中文字符，必须以字母或中文开头，可包含数字、英文句点（.）、下划线（\_）和短划线（-）。
+|ModificationProtectionReason|String|托管实例|设置修改保护状态的原因，长度为1~80个字符，必须以字母或中文开头，支持数字、英文句点（.）、下划线（\_）和短划线（-）。
 
- **说明：** 仅在`ModificationProtectionStatus`为**ConsolePro**t时有效且合法。 |
+ **说明：** 仅在`ModificationProtectionStatus`为**ConsoleProtection**时有效。 |
 |ModificationProtectionStatus|String|ConsoleProtection|负载均衡修改保护状态：
 
- -   **NonProtection**：不保护，表示不允许传入ModificationProtectionReason。如果配置了ModificationProtectionReason，则清空其配置信息。
--   **ConsoleProtection**：控制台修改保护，此时允许传入ModificationProtectionReason。 |
+ -   **NonProtection**：不限制修改保护，设置后会清空之前设置的`ModificationProtectionReason`。
+-   **ConsoleProtection**：实例控制台修改保护状态。 |
 |PayType|String|PrePay|负载均衡实例付费类型，取值**PayOnDemand**或**PrePay**。 |
 |RenewalCycUnit|String|Month|自动续费周期，取值：**Year**或**Month**（默认值）。
 
