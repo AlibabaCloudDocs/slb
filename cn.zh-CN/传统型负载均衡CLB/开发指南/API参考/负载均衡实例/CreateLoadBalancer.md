@@ -93,11 +93,11 @@
 |DeleteProtection|String|否|on|是否开启实例删除保护。 |
 |ModificationProtectionStatus|String|否|ConsoleProtection|负载均衡修改保护状态：
 
- -   **NonProtection**：不保护，表示不允许传入ModificationProtectionReason。如果配置了ModificationProtectionReason，则清空其配置信息。
--   **ConsoleProtection**：控制台修改保护，此时允许传入ModificationProtectionReason。 |
-|ModificationProtectionReason|String|否|托管实例|修改保护原因。长度为2~128个英文或中文字符，必须以字母或中文开头，可包含数字、英文句号（.）、下划线（\_）和短划线（-）。
+ -   **NonProtection**：不限制修改保护，设置后会清空之前设置的`ModificationProtectionReason`。
+-   **ConsoleProtection**：实例控制台修改保护状态。 |
+|ModificationProtectionReason|String|否|托管实例|设置修改保护状态的原因，长度为1~80个字符，必须以字母或中文开头，支持数字、英文句点（.）、下划线（\_）和短划线（-）。
 
- **说明：** 仅在`ModificationProtectionStatus`为**ConsoleProtection**时有效且合法。 |
+ **说明：** 仅在`ModificationProtectionStatus`为**ConsoleProtection**时有效。 |
 
 ## 返回数据
 
