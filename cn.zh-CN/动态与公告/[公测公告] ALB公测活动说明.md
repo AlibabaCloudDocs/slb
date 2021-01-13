@@ -22,7 +22,7 @@
 
 ![ALB交流群二维码](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/3773818061/p201710.png)
 
-如果您有应用型负载均衡需求，您可以提交[公测试用申请](https://page.aliyun.com/form/act2085862391/index.htm?)参与公测试用活动。
+如果您有应用型负载均衡需求，您可以[立即购买](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fcommon-buy.aliyun.com%2F%3Fspm%3D5176.7921785.J_5253785160.2.70a6222990D7tU%26commodityCode%3Dslb_ealb_public_cn)应用型负载均衡参与公测试用活动。
 
 ## 公测收费说明
 
