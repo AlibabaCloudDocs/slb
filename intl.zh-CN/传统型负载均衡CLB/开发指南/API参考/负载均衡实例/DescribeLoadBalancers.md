@@ -87,7 +87,7 @@
 -   **locked**: 实例已经被锁定。 |
 |Address|String|100.\*\*.\*\*.28|负载均衡实例服务地址。 |
 |RegionId|String|cn-hangzhou|负载均衡实例的地域ID。 |
-|RegionIdAlias|String|cn-hangzhou|负载均衡实例的地域名称。 |
+|RegionIdAlias|String|hangzhou|负载均衡实例的地域名称。 |
 |AddressType|String|intranet|负载均衡实例的网络类型。 |
 |VSwitchId|String|vsw-255ecr\*\*\*\*\*\*|私网负载均衡实例的交换机ID。 |
 |VpcId|String|vpc-25dvzy9f8\*\*\*\*\*\*|私网负载均衡实例的专有网络ID。 |
@@ -108,13 +108,13 @@
 -   **paybytraffic**：按流量计费（默认值）。
 
 **说明：** 当PayType参数的值为**PrePay**时，只支持按带宽计费。 |
-|ModificationProtectionReason|String|托管实例|修改保护原因。长度为2~128个英文或中文字符，必须以字母或中文开头，可包含数字、英文句号（.）、下划线（\_）和短划线（-）。
+|ModificationProtectionReason|String|托管实例|设置修改保护状态的原因，长度为1~80个字符，必须以字母或中文开头，支持数字、英文句点（.）、下划线（\_）和短划线（-）。
 
- **说明：** 仅在`ModificationProtectionStatus`为**ConsoleProtection**时有效且合法。 |
+ **说明：** 仅在`ModificationProtectionStatus`为**ConsoleProtection**时有效。 |
 |ModificationProtectionStatus|String|ConsoleProtection|负载均衡修改保护状态：
 
- -   **NonProtection**：不保护，表示不允许传入ModificationProtectionReason。如果配置了ModificationProtectionReason，则清空其配置信息。
--   **ConsoleProtection**：控制台修改保护，此时允许传入ModificationProtectionReason。 |
+ -   **NonProtection**：不限制修改保护，设置后会清空之前设置的`ModificationProtectionReason`。
+-   **ConsoleProtection**：实例控制台修改保护状态。 |
 |PayType|String|PrePay|负载均衡实例付费类型，取值**PayOnDemand**或者**PrePay**。 |
 |ResourceGroupId|String|rg-atstuj3r\*\*\*\*\*\*|企业资源组ID。 |
 |PageNumber|Integer|1|实例列表页码。 |
@@ -145,7 +145,7 @@ http(s)://[Endpoint]/?Action=DescribeLoadBalancers
 		    <LoadBalancer>
 			      <CreateTimeStamp>1541679713000</CreateTimeStamp>
 			      <LoadBalancerName>lb-bp1o94dp5i6ea*******</LoadBalancerName>
-			      <RegionIdAlias>cn-hangzhou</RegionIdAlias>
+			      <RegionIdAlias>hangzhou</RegionIdAlias>
 			      <ResourceGroupId>rg-acfmxaz*******y</ResourceGroupId>
 			      <AddressIPVersion>ipv4</AddressIPVersion>
 			      <LoadBalancerId>lb-bp1b6c********fuca5</LoadBalancerId>
@@ -179,7 +179,7 @@ http(s)://[Endpoint]/?Action=DescribeLoadBalancers
             {
                 "CreateTimeStamp": 1541679713000, 
                 "LoadBalancerName": "lb-bp1o94dp5i6ea*******", 
-                "RegionIdAlias": "cn-hangzhou", 
+                "RegionIdAlias": "hangzhou", 
                 "ResourceGroupId": "rg-acfmxazb4p****", 
                 "AddressIPVersion": "ipv4", 
                 "LoadBalancerId": "lb-bp1b6c719d******exfuca5", 
