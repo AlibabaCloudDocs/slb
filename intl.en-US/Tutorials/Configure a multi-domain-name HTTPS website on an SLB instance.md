@@ -1,81 +1,78 @@
-# Configure a multi-domain-name HTTPS website on an SLB instance {#concept_rks_s4t_q2b .concept}
+# Configure a multi-domain-name HTTPS website on an SLB instance
 
-This tutorial introduces how to configure a domain name extension.
+This tutorial describes how to add domain name extensions.
 
-## Scenario {#section_eqs_54t_q2b .section}
+## Scenario
 
-This tutorial uses a guaranteed-performance SLB instance \(SLB1\) in the China \(Hangzhou\) region as an example. An HTTPS listener with one-way authentication is added to the SLB instance. You want to forward requests from the domain name \*.example1.com to the VServer group test1 and forward requests from the domain name www.example2.com to the VServer group test2.
+This tutorial uses a guaranteed-performance SLB instance \(SLB1\) in the China \(Hangzhou\) region as an example. An HTTPS listener is added to the SLB instance. One-way authentication is enabled for the listener. You want to forward requests from the domain name \*.example1.com to the VServer group test1 and forward requests from the domain name www.example2.com to the VServer group test2.
 
 To achieve this, follow these steps:
 
 1.  Add an HTTPS listener.
 2.  Configure forwarding rules.
-3.  Add a domain name extension.
+3.  Add domain name extensions.
 
-## Prerequisites {#section_krq_z4t_q2b .section}
+## Prerequisites
 
--   Create a guaranteed-performance SLB instance \(SLB1\) in China \(Hangzhou\). For more information, see [Create an SLB instance](../../../../reseller.en-US/User Guide/Server Load Balancer instance/Create an SLB instance.md#).
--   Upload the certificate required in this tutorial. For more information, see [Create a certificate](../../../../reseller.en-US/User Guide/证书管理/Create a certificate.md#).
+-   Create a guaranteed-performance SLB instance \(SLB1\) in China \(Hangzhou\). For more information, see [Create an SLB instance](/intl.en-US/Classic Load Balancer/User Guide/Instance/Create an SLB instance.md).
+-   Upload the certificates required in this tutorial. For more information, see [Certificate overview](/intl.en-US/Classic Load Balancer/User Guide/Certificate management/Create a certificate/Certificate overview.md).
 
-    -   By default, the listener uses the certificate named as default.
+    -   By default, the listener uses the certificate named default.
     -   Upload a certificate \(example1\) for domain name \* .example1.com to use.
     -   Upload a certificate \(example2\) for domain name www.example2.com to use.
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17020/155905383545105_en-US.png)
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9191019951/p45105.png)
 
 
-## Step 1 Add an HTTPS listener {#section_s3n_qpt_q2b .section}
+## Step 1: Add an HTTPS listener
 
 To add an HTTPS listener, follow these steps:
 
-1.  In the left-side navigation pane, click **Instances** \> **Server Load Balancer**.
-2.  On the Server Load Balancer page, locate the target instance SLB1 and click **Configure Listener** in the **Actions** column.
+1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb).
+2.  In the left-side navigation pane, click **Instances** \> **Server Load Balancer**.
+3.  On the Server Load Balancer page, find the target instance SLB1 and click **Configure Listener** in the **Actions** column.
 
     If it is the first time you configure the listener, you can also click **Configure** in the **Port/Health Check/Backend Server** column.
 
-3.  Configure the listener.
+4.  Configure the listener.
 
-    The configurations used in this tutorial are as follows. For more information, see [Add an HTTPS listener](../../../../reseller.en-US/User Guide/Listeners/Add an HTTPS listener.md#).
+    The configurations used in this tutorial are as follows. For more information, see [Add an HTTPS listener](/intl.en-US/Classic Load Balancer/User Guide/Listeners/Add an HTTPS listener.md).
 
-    -   Mutual Authentication: Disable.
-    -   SSL Certificate: Select the uploaded server certificate.
-    -   Backend Servers: Create VServer groups test1 and test2.
+    -   Mutual authentication: Disable.
+    -   SSL certificate: Select the uploaded server certificate that is named default.
+    -   Backend servers: Create VServer groups test1 and test2.
 
-## Step 2 Configure forwarding rules {#section_dxm_2qt_q2b .section}
+## Step 2: Configure forwarding rules
 
 To configure forwarding rules, follow these steps:
 
 1.  Click the ID of the instance SLB1.
-2.  On the Listeners tab, find the created HTTPS listener and click **Add Forwarding Rules**.
-3.  On the Add Forwarding Rules page, configure forwarding rules. For more information, see [Add domain-name based or URL-based forwarding rules](../../../../reseller.en-US/Tutorials/Traffic forwarding based on domain name or URL.md#).
+2.  On the Listeners tab, find the created HTTPS listener and click **Set Forwarding Rule**.
+3.  On the Add Forwarding Rules page, configure forwarding rules. For more information, see [Forward requests based on domain names or URLs](/intl.en-US/Tutorials/Forward requests based on domain names or URLs.md).
 
-    In this tutorial, three domain name-based forwarding rules are configured and URLs are left empty.
+    In this tutorial, domain name-based forwarding rules are configured and URLs are left empty.
 
-    -   Set a rule name, and then enter \* .example1.com in the **Domain Name** column, select the VServer group test1 and click **Add Forwarding Rules**.
-    -   Set a rule name, and then enter www.example2.com in the **Domain Name** column, select the VServer group test2 and click **OK**.
-    **Note:** The domain names configured in the forwarding rules must be the same as the domain names added in the certificate and [Step 3. Add a domain name extension](../../../../reseller.en-US/Tutorials/Configure a multi-domain-name HTTPS website on an SLB instance.md#section_bk4_ypt_q2b).
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17020/155905383511911_en-US.png)
+    -   Set a rule name. Enter \* .example1.com in the **Domain Name** column, select the VServer group test1, and then click **Add Forwarding Rules**.
+    -   Set a rule name. Enter www.example2.com in the **Domain Name** column, select the VServer group test2, and then click **Add Forwarding Rules**.
+    **Note:** The domain names configured in the forwarding rules must be the same as the domain names added in the certificate and [Step 3: Add domain name extensions](/intl.en-US/Tutorials/Configure a multi-domain-name HTTPS website on an SLB instance.md).
 
 
-## Step 3 Add a domain name extension {#section_bk4_ypt_q2b .section}
+## Step 3: Add domain name extensions
 
 To add a domain name extension, follow these steps:
 
 1.  Click the ID of the instance SLB1.
-2.  On the Listeners tab, find the created HTTPS listener, choose **More** \> **Additional Domains**.
-
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17020/155905383510044_en-US.png)
-
-3.  On the Additional Domains page, click **Add Additional Domain** to add a domain name extension.
-
-    -   Enter a domain name. The domain name can only contain letters, numbers, hyphens \(-\), or periods \(.\).
+2.  On the Listeners tab, find the created HTTPS listener, choose **More** \> **Manage Additional Certificate**.
+3.  On the Manage Additional Certificate page, click **Add Additional Certificate** to add a domain name extension.
+    -   Enter a domain name. The domain name can only contain letters, digits, hyphens \(-\), or periods \(.\).
 
         Domain name-based forwarding rules support exact match and wildcard match.
 
         -   Exact domain name: www.aliyun.com
         -   Wildcard domain name \(generic domain name\): \*.aliyun.com, \*.market.aliyun.com
 
-            When a request matches multiple forwarding rules, exact match takes precedence over small-scale wildcard match and small-scale wildcard match takes precedence over large-scale wildcard match, as shown in the following table.
+            When a request matches multiple forwarding rules, exact match takes precedence over small-scale wildcard match and small-scale wildcard match takes precedence over large-scale wildcard match. The following table shows an example.
+
+            **Note:** In the following table, ✓ means support, and × means nonsupport.
 
             |Type|Request URL|Domain name based forwarding rule|
 |www.aliyun.com|\*.aliyun.com|\*.market.aliyun.com|
@@ -89,8 +86,7 @@ To add a domain name extension, follow these steps:
 
         **Note:** The domain name in the certificate must be the same as the added domain name extension.
 
-    ![](http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/17020/155905383511910_en-US.png)
-
+4.  Click **OK**.
 
 **Note:** After the configuration is complete, if there is a problem, restart the browser to avoid the impact of the cache on the results.
 
