@@ -1,25 +1,25 @@
 # Overview
 
-This topic describes how to create an Internet SLB instance and forward client requests to two ECS instances that act as backend servers.
+This quick start tutotial describes how to create a public-facing Server Load Balancer \(SLB\) instance and how to forward requests to two backend servers.
 
-**Note:** Before you create an SLB instance, you must plan its configurations such as the instance type, region, and billing method. For more information, see [Before you begin](/intl.en-US/Classic Load Balancer/Quick Start (New Console)/Before you begin.md)For more information, see Before you begin.
+**Note:** Before creating an SLB instance, you must determine the region, type, and billing method of the SLB instance. For more information, see [Before you begin](/intl.en-US/Classic Load Balancer/Quick Start (New Console)/Before you begin.md).
 
-Perform the following operations:
+This tutotial includes the following content:
 
-1.  [Create an SLB instance](/intl.en-US/Classic Load Balancer/Quick Start (New Console)/Create an SLB instance.md).
+1.  [Create an SLB instance]()
 
-    Create an SLB instance. An SLB instance is an entity running the SLB service.
+    Create an SLB instance. An SLB instance is a running entity of the SLB service.
 
-2.  [Add listeners and backend servers](/intl.en-US/Classic Load Balancer/Quick Start (New Console)/Configure an SLB instance.md).
+2.  [Add listeners and backend servers.](/intl.en-US/Classic Load Balancer/Quick Start (New Console)/Configure an SLB instance.md)
 
-    After you create an SLB instance, you must add listeners and backend servers.
+    Configure listening rules and backend servers for the SLB instance.
 
-3.  \(Optional\) [Resolve a domain name](/intl.en-US/Classic Load Balancer/Quick Start (New Console)/Resolve a domain name.md).
+3.  [Resolve a domain name](/intl.en-US/Classic Load Balancer/Quick Start (New Console)/Resolve a domain name.md) \(Optional\)
 
-    Use Alibaba Cloud DNS to resolve a domain name to the IP address of the SLB instance. Then, the SLB instance can provide external services.
+    Use Alibaba Cloud DNS to resolve a domain name to the IP address of the SLB instance. After that, the SLB instance can provide external services.
 
-4.  [Release an SLB instance](/intl.en-US/Classic Load Balancer/Quick Start (New Console)/Release an SLB instance.md).
+4.  [Release an SLB instance](/intl.en-US/Classic Load Balancer/Quick Start (New Console)/Release an SLB instance.md)
 
-    If an SLB instance is no longer needed, delete the instance to avoid extra fees.
+    If you no longer need the SLB instance, delete it to avoid extra fees.
 
 
