@@ -2,177 +2,176 @@
 
 Creates a TCP listener.
 
-**Note:** A newly created listener is in the stopped state. After the listener is created, you must call [StartLoadBalancerListener](~~27597~~) to enable the listener to forward traffic.
+**Note:** Newly created listeners are in the Stopped state. After a listener is created, you must call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic.
 
-## Debug
+## Debugging
 
-[Use OpenAPI Explorer to perform debug operations and generate SDK code examples.](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancerTCPListener&type=RPC&version=2014-05-15)
+[OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb&api=CreateLoadBalancerTCPListener&type=RPC&version=2014-05-15)
 
 ## Request parameters
 
-|Parameter|Type|Required?|Example value|Description|
-|---------|----|---------|-------------|-----------|
-|Action|String|Yes|CreateLoadBalancerTCPListener|The name of this action.
+|Parameter|Type|Required|Example|Description|
+|---------|----|--------|-------|-----------|
+|Action|String|Yes|CreateLoadBalancerTCPListener|The operation that you want to perform.
 
- Value: **CreateLoadBalancerTCPListener** |
-|Bandwidth|Integer|Yes|-1|The peak bandwidth of the listener. Valid values: **-1 \| 1 to 5120**
+ Set the value to **CreateLoadBalancerTCPListener**. |
+|Bandwidth|Integer|Yes|-1|The maximum bandwidth of the listener. Valid values: **1 to 5120 and -1**. Unit: Mbit/s.
 
- -   **-1**: If you set the peak bandwidth of a pay-by-data-transfer Internet Server Load Balancer \(SLB\) instance to **-1**, the peak bandwidth is not limited.
--   **1-5120**: Unit: Mbps. You can set one peak bandwidth for each listener of a pay-by-bandwidth Internet SLB instance. However, the sum of the peak bandwidth values of all listeners cannot exceed the peak bandwidth of the SLB instance. For more information, see [Share instance bandwidth](~~57846~~). |
-|ListenerPort|Integer|Yes|80|The frontend port used by the SLB instance.
+ -   **-1**: For a pay-by-data-transfer public-facing Server Load Balancer \(SLB\) instance, you can set the maximum bandwidth to **-1**. This indicates that the maximum bandwidth is not limited.
+-   **1 to 5120**: For a pay-by-bandwidth public-facing SLB instance, you can specify the maximum bandwidth of each listener. The sum of maximum bandwidth values of all listeners cannot exceed the maximum bandwidth of the SLB instance. |
+|ListenerPort|Integer|Yes|80|The frontend port that is used by the SLB instance.
 
- Value range: **1 to 65535** |
+ Valid values: **1 to 65535**. |
 |LoadBalancerId|String|Yes|lb-bp1b6c719dfa08ex\*\*\*\*\*\*|The ID of the SLB instance. |
-|RegionId|String|Yes|cn-hangzhou|The ID of the region to which the SLB instance belongs.
+|RegionId|String|Yes|cn-hangzhou|The region where the SLB instance is created.
 
- To query the region ID, refer to the list of [regions and zones](~~40654~~) or call [DescribeRegions](~~25609~~). |
-|AclId|String|No|1323|The ID of the access control list associated with the listener.
+ You can query the region ID from the [Regions and zones](~~40654~~) list or by calling the [DescribeRegions](~~25609~~) operation. |
+|BackendServerPort|Integer|No|80|The backend port that is used by the SLB instance.
 
- If the value of the **AclStatus** parameter is **on**, this parameter is required. |
-|AclStatus|String|No|off|Indicates whether to enable access control.
+ Valid values: **1 to 65535**.
 
- Valid values: **on \| off**. Default value: off |
-|AclType|String|No|black|The access control type. Valid values:
+ If the VServerGroupId parameter is not set, this parameter is required. |
+|Scheduler|String|No|wrr|The scheduling algorithm. Valid values:
 
- -   **white**: Indicates a whitelist. Only requests from the IP addresses or CIDR blocks in the selected access control list are forwarded. The use of a whitelist applies to scenarios where an application allows access only from specific IP addresses.
+ -   **wrr**: Backend servers that have higher weights receive more requests than those that have lower weights.
+-   **wlc**: Requests are distributed based on the combination of the weights and connections to backend servers. If two backend servers have the same weight, the backend server that has fewer connections receives more requests.
+-   **rr**: Requests are distributed to backend servers in sequence.
+-   **sch**: specifies consistent hashing that is based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
+-   **tch**: specifies consistent hashing that is based on four factors: source IP address, destination IP address, source port number, and destination port number. Requests that contain the same preceding information are distributed to the same backend server.
 
-Enabling a whitelist poses some risks to your services.
+ **Note:** Only guaranteed-performance SLB instances support sch and tch.
 
-After a whitelist is configured, only the IP addresses in the list can access the listener.
-
-If you enable a whitelist without adding any IP addresses in the corresponding access control list, all requests are forwarded.
-
--   **black**: Indicates a blacklist. Requests from the IP addresses or CIDR blocks in the selected access control list are not forwarded \(that is, they are blocked\). The use of a blacklist applies to scenarios where an application denies access only from specific IP addresses.
-
-If you enable a blacklist without adding any IP addresses in the corresponding access control list, all requests are forwarded.
-
-
- If the value of the **AclStatus** parameter is **on**, this parameter is required. |
-|BackendServerPort|Integer|No|80|The backend port used by the SLB instance.
-
- Value range: **1 to 65535**
-
- If the VServerGroupId parameter is not specified, this parameter is required. |
-|Description|String|No|Create a listener.|The description of the listener to be created.
-
- The description must be 1 to 80 characters in length and can contain letters, numbers, hyphens \(-\), forward slashes \(/\), periods \(.\), and underscores \(\_\). Chinese characters are supported. |
-|EstablishedTimeout|Integer|No|500|The timeout value of the TCP connection.
-
- Value range: **10 to 900**. Unit: seconds |
-|HealthCheckConnectPort|Integer|No|80|The port used for health checks. Value range: **1 to 65535**
-
- If you do not set this parameter, the backend service port \(BackendServerPort\) is used.
-
- **Note:** This parameter is valid only when the value of the **HealthCheck** parameter is **on**. |
-|HealthCheckConnectTimeout|Integer|No|100|The maximum timeout value for each health check response.
-
- Value range: **1 to 300**. Unit: seconds.
-
- Default value: 5 |
-|HealthCheckDomain|String|No|$\_ip|The domain name used for health checks. Valid values:
-
- -   **$\_ip**: the private IP address of the backend server. If the IP address is specified or this parameter is not specified, SLB uses the private IP address of the backend server as the domain name for health checks.
--   **domain**: The domain name must be 1 to 80 characters in length, and can only contain letters, numbers, periods \(.\), and hyphens \(-\). |
-|HealthCheckHttpCode|String|No|http\_2xx,http\_3xx|The HTTP status code indicating that the health check succeeds. Separate multiple HTTP status codes by commas \(,\).
-
- Valid values: **http\_2xx \| http\_3xx \| http\_4xx \| http\_5xx**. Default value: http\_2xx |
-|HealthCheckType|String|No|tcp|The health check type.
-
- Valid values: **tcp \| http**. Default value: tcp |
-|HealthCheckURI|String|No|/test/index.html|The URI used for health checks. The URI must be 1 to 80 characters in length and can only contain letters, numbers, hyphens \(-\), forward slashes \(/\), periods \(.\), percent signs \(%\), question marks \(?\), number signs \(\#\), and ampersands \(&\). It must start with a forward slash \(/\), but cannot only contain a forward slash \(/\).
-
- You can set this parameter when the TCP listener requires HTTP health checks. If you do not set this parameter, TCP health checks are performed. |
-|HealthyThreshold|Integer|No|4|The number of consecutive successful health checks that must occur before a backend server is declared as healthy \(from **failure** to **success**\).
-
- Value range: **2 to 10** |
-|MasterSlaveServerGroupId|String|No|rsp-0bfucw\*\*\*\*\*|The ID of the active/standby server group.
-
- **Note:** You must specify either the VServerGroupId or MasterSlaveServerGroupId parameter. |
-|PersistenceTimeout|Integer|No|0|The timeout value of the session persistence.
-
- Value range: **0 to 3600**. Unit: seconds
-
- Default value: **0**, which indicates that session persistence is disabled. |
-|Scheduler|String|No|wrr|The algorithm used for distributing traffic. Valid values:
-
- -   **wrr** \(default\): A backend server with a higher weight receives more requests.
--   **wlc**: A server with a higher weight receives more requests. When the weight values of two backend servers are the same, the server with a smaller number of connections is more likely to be polled.
--   **rr**: Requests are evenly and sequentially distributed to backend servers.
--   **sch**: the consistent hash algorithm based on source IP addresses. Requests from the same source IP address are scheduled to the same backend server.
--   **tch**: the consistent hash algorithm based on four factors: source IP address + destination IP address + source port + destination port. The same streams are scheduled to the same backend server.
-
- Currently, the Consistent Hash \(CH\) algorithm is only supported in the following regions:
+ The CH algorithm is supported in the following regions:
 
  -   Japan \(Tokyo\)
+-   India \(Mumbai\)
+-   Singapore \(Singapore\): zones \(B + C\)
 -   Australia \(Sydney\)
 -   Malaysia \(Kuala Lumpur\)
 -   Indonesia \(Jakarta\)
 -   Germany \(Frankfurt\)
+-   UK \(London\)
+-   UAE \(Dubai\)
 -   US \(Silicon Valley\)
 -   US \(Virginia\)
--   UAE \(Dubai\)
+-   China \(Hong Kong\): zones \(B + C\)
+-   China \(Beijing\): zones \(C + D + E + F + G + H\)
+-   China \(Chengdu\): zone A
+-   China \(Hangzhou\): zones \(B + C + E + F + I + H\)
 -   China \(Hohhot\)
--   UK \(London\)
--   Zone B and Zone C of Singapore
--   China \(Hong Kong\)
--   China \(Qingdao\)
--   China \(Zhangjiakou\)
--   China \(Chengdu\)
--   Zone H and Zone I of China \(Hangzhou\)
--   Zone G and Zone H of China \(Beijing\)
--   Zone D and Zone E of China \(Shenzhen\)
--   Zone F and Zone G of China \(Shanghai\) |
-|UnhealthyThreshold|Integer|No|4|The number of consecutive failed health checks that must occur before a backend server is declared as unhealthy \(from **success** to **failure**\).
+-   China \(Qingdao\): zones \(B + C\)
+-   China \(Shanghai\): zones \(B + D + E + F + G + H + J\)
+-   China \(Shenzhen\): zones \(B + C + D\)
+-   China \(Zhangjiakou\): zones \(A + B\) |
+|PersistenceTimeout|Integer|No|0|The timeout period of session persistence.
 
- Value range: **2 to 10** |
+ Valid values: **0 to 3600**. Unit: seconds.
+
+ Default value: **0**. By default, session persistence is disabled. |
+|EstablishedTimeout|Integer|No|500|The timeout period of connections. Unit: seconds.
+
+ Valid values: **10 to 900**. Unit: seconds. |
+|HealthyThreshold|Integer|No|4|The number of consecutive successful health checks that must occur before an unhealthy backend server is declared healthy. In this case, the health check state is changed from **fail** to **success**.
+
+ Valid values: **2 to 10**. |
+|UnhealthyThreshold|Integer|No|4|The number of consecutive failed health checks that must occur before a healthy backend server is declared unhealthy. In this case, the health check state is changed from **success** to **fail**.
+
+ Valid values: **2 to 10**. |
+|HealthCheckConnectTimeout|Integer|No|100|The maximum amount of time to wait for a health check response.
+
+ Valid values: **1 to 300**. Unit: seconds.
+
+ Default value: **5**. |
+|HealthCheckConnectPort|Integer|No|80|The port that is used for health checks.
+
+ Valid values: **1 to 65535**.
+
+ If this parameter is not set, the port specified by BackendServerPort is used for health checks. |
+|healthCheckInterval|Integer|No|3|The interval between two consecutive health checks. Unit: seconds.
+
+ Valid values: **1 to 50**. |
+|HealthCheckDomain|String|No|172.10.\*\*. \*\*|The domain name that is used for health checks. Valid values:
+
+ -   **$\_ip**: The private IP address of the backend server. If the $\_ip parameter is set or the HealthCheckDomain parameter is not set, SLB uses the private IP addresses of backend servers as the domain names for health check.
+-   **domain**: The domain name must be 1 to 80 characters in length. It can contain only letters, digits, periods \(.\), and hyphens \(-\). |
+|HealthCheckURI|String|No|/test/index.html|The URI that are used for health checks. The value must be 1 to 80 characters in length and can contain letters, digits, hyphens \(-\), forward slashes \(/\), periods \(.\), percent signs \(%\), number signs \(\#\), and ampersands \(&\). The URL must start with a forward slash \(/\) and cannot contain only a forward slash \(/\).
+
+ You can set this parameter when the TCP listener requires HTTP health checks. If you do not set this parameter, TCP health checks are performed. |
+|HealthCheckHttpCode|String|No|http\_2xx,http\_3xx|The HTTP status code that specifies a successful health check. Separate multiple HTTP status codes with commas \(,\).
+
+ Valid values: **http\_2xx, http\_3xx, http\_4xx, and http\_5xx**. Default value: http\_2xx. |
+|HealthCheckType|String|No|tcp|The type of health check
+
+ Valid values: **tcp and http**. Default value: tcp. |
 |VServerGroupId|String|No|rsp-cige6j\*\*\*\*\*|The ID of the VServer group. |
-|healthCheckInterval|Integer|No|3|The interval between two consecutive health checks. Unit: seconds
+|MasterSlaveServerGroupId|String|No|rsp-0bfucw\*\*\*\*\*|The ID of the primary/secondary server group.
 
- Value range: **1 to 50**. Unit: seconds. |
+ **Note:** You cannot specify the VServer group ID and primary/secondary server group ID at the same time. |
+|AclId|String|No|1323|The ID of the Access Control List \(ACL\) to which the listener is bound.
+
+ This parameter is required when the **AclStatus** parameter is set to **on**. |
+|AclType|String|No|black|The type of ACL. Valid values: white and black.
+
+ -   **white**: specifies the ACL as a whitelist. Only requests from the IP addresses or CIDR blocks in the ACL are forwarded. Whitelists apply to scenarios that require you to allow only specific IP addresses to access an application.
+
+Risks may arise if you specify an ACL as a whitelist.
+
+The whitelist allows only network traffic from the IP addresses in the specified ACL to access the SLB listener.
+
+If a whitelist is enabled without any IP addresses specified, the SLB listener does not forward any requests.
+
+-   **black**: specifies the ACL as a blacklist. All requests from the IP addresses or CIDR blocks in the ACL are rejected. Blacklists apply to scenarios that require you to block access from specific IP addresses to an application.
+
+If the blacklist is enabled but the corresponding ACL does not contain any IP addresses, the SLB listener forwards all requests.
+
+
+ This parameter is required when the **AclStatus** parameter is set to **on**. |
+|AclStatus|String|No|off|Specifies whether to enable the access control feature.
+
+ Valid values: **on and off**. |
+|Description|String|No|Creates a listener.|The description of the listener.
+
+ It must be 1 to 80 characters in length and can contain letters, digits, hyphens \(-\), forward slashes \(/\), periods \(.\), and underscores \(\_\). Chinese characters are supported. |
 
 ## Response parameters
 
-|Parameter|Type|Example value|Description|
-|---------|----|-------------|-----------|
+|Parameter|Type|Example|Description|
+|---------|----|-------|-----------|
 |RequestId|String|CEF72CEB-54B6-4AE8-B225-F876FF7BA984|The ID of the request. |
 
 ## Examples
 
-Request example
+Sample request
 
 ```
-
 http(s)://[Endpoint]/? Action=CreateLoadBalancerTCPListener
 &Bandwidth=-1
 &ListenerPort=80
 &LoadBalancerId=lb-bp1b6c719dfa08ex******
-&<CommonParameters>
-
+&<Common request parameters>
 ```
 
-Response example
+Sample success responses
 
 `XML` format
 
 ```
 <CreateLoadBalancerTCPListenerResponse>
-			  <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
-		</CreateLoadBalancerTCPListenerResponse>
+     <RequestId>CEF72CEB-54B6-4AE8-B225-F876FF7BA984</RequestId>
+</CreateLoadBalancerTCPListenerResponse>
 ```
 
 `JSON` format
 
 ```
-{
-	"RequestId":" CEF72CEB-54B6-4AE8-B225-F876FF7BA984"
-}
+{"RequestId":" CEF72CEB-54B6-4AE8-B225-F876FF7BA984"}
 ```
 
-## Errors
+## Error codes
 
-|HTTP status code|Error code|Error message|Description|
-|----------------|----------|-------------|-----------|
-|400|Abs.VServerGroupIdAndMasterSlaveServerGroupId.MissMatch|The parameters VServerGroupId or MasterSlaveServerGroupId miss match.|VServerGroupId and MasterSlaveServerGroupId do not match.|
+|HttpCode|Error code|Error message|Description|
+|--------|----------|-------------|-----------|
+|400|Abs.VServerGroupIdAndMasterSlaveServerGroupId.MissMatch|The parameters VServerGroupId or MasterSlaveServerGroupId miss match.|The error message returned because the VServerGroupId parameter or the MasterSlaveServerGroupId parameter do not match.|
 
 For a list of error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Slb).
 
