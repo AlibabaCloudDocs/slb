@@ -1,20 +1,20 @@
 # Architecture
 
-This topic describes the SLB architecture. SLB instances are deployed in clusters to synchronize sessions and protect backend servers from SPOFs, improving redundancy and ensuring service stability. SLB supports Layer-4 load balancing of Transmission Control Protocol \(TCP\) and User Datagram Protocol \(UDP\) traffic, and Layer-7 load balancing of HTTP and HTTPS traffic.
+This topic describes the CLB architecture. CLB instances are deployed in clusters to synchronize sessions and protect backend servers from SPOFs, improving redundancy and ensuring service stability. CLB supports Layer-4 load balancing of Transmission Control Protocol \(TCP\) and User Datagram Protocol \(UDP\) traffic, and Layer-7 load balancing of HTTP and HTTPS traffic.
 
-SLB forwards client requests to backend servers by using SLB clusters and receives responses from backend servers over internal networks.
+CLB forwards client requests to backend servers by using CLB clusters and receives responses from backend servers over internal networks.
 
-## SLB design
+## CLB design
 
-SLB provides Layer-4 and Layer-7 load balancing.
+CLB provides Layer-4 and Layer-7 load balancing.
 
--   Layer-4 SLB combines the open-source Linux Virtual Server \(LVS\) with Keepalived to balance loads, and implements customized optimizations to meet cloud computing requirements.
--   Layer-7 SLB uses Tengine to balance loads. Tengine is a web server project launched by Taobao. Based on NGINX, Tengine has a wide range of advanced features optimized for high-traffic websites.
+-   Layer-4 CLB combines the open-source Linux Virtual Server \(LVS\) with Keepalived to balance loads, and implements customized optimizations to meet cloud computing requirements.
+-   Layer-7 CLB uses Tengine to balance loads. Tengine is a web server project launched by Taobao. Based on NGINX, Tengine has a wide range of advanced features optimized for high-traffic websites.
 
     ![Tengine](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/3386229951/p938.png)
 
 
-Layer-4 SLB runs in a cluster of LVS machines, as shown in the following figure. This cluster deployment model strengthens the availability, stability, and scalability of the load balancing service in abnormal cases.
+Layer-4 CLB runs in a cluster of LVS machines, as shown in the following figure. This cluster deployment model strengthens the availability, stability, and scalability of the load balancing service in abnormal cases.
 
 ![LVS](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/3386229951/p939.png)
 
