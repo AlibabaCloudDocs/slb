@@ -10,8 +10,7 @@ IPv6 is short for Internet Protocol Version 6. IPv6 is the new generation of IP 
     -   China \(Hangzhou\): Zone E and Zone F
     -   China \(Beijing\): Zone F and Zone G
     -   China \(Shanghai\): Zone D and Zone E
-    -   China \(Shenzhen\): Zone D and Zone E
-    -   China \(Zhangjiakou\): Zone A and Zone B
+    -   China \(Shenzhen\): Zone D, Zone C and Zone E
     -   China \(Hong Kong\): Zone B and Zone C
 -   Guaranteed-performance IPv6 instances are supported in the following zones: China East 1 Finance Zone H and Zone I, China East 2 Finance Zone F and Zone G, and China South 1 Finance Zone E.
 -   The IPv6 network environment is currently being developed. If you cannot access the lines, you can submit a ticket for technical support. SLA is not guaranteed in the public preview period.
@@ -46,14 +45,6 @@ Features of IPv6 instances:
 
     For other parameters, use standard instance settings. For more information, see [Create an SLB instance](/intl.en-US/Classic Load Balancer/User Guide/Instance/Create an SLB instance.md).
 
-    **Note:** Currently, IPv6 instances are supported in the following zones, and the instances must be guaranteed-performance instances.
-
-    -   China \(Hangzhou\): Zone E and Zone F
-    -   China \(Beijing\): Zone F and Zone G
-    -   China \(Shanghai\): Zone D and Zone E
-    -   China \(Shenzhen\): Zone D and Zone E
-    -   China \(Zhangjiakou\): Zone A and Zone B
-    -   China \(Hong Kong\): Zone B and Zone C
     ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/4623498951/p7308.png)
 
 5.  Go back to the Instances page to view the created IPv6 instance.
