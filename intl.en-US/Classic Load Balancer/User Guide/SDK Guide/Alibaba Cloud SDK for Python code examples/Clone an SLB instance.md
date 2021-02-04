@@ -30,7 +30,7 @@ In this topic, the following steps are performed to clone an SLB instance:
 7.  Query information about the cloned SLB instance.
 8.  Delete the cloned SLB instance.
 
-1.  In the directory to which the SDK is downloaded, open the folder $aliyun-openapi-python-sdk-examples\\sdk\_examples\\examples\\slb.
+1.  In the directory to which the SDK is downloaded, open the folder aliyun-openapi-python-sdk-examples\\sdk\_examples\\examples\\slb.
 
 2.  Open the configration\_clone.py file in the editor. Set the ACS\_CLIENT parameter to configure user identity verification and set other parameters based on your actual needs. Then, save the file and exit.
 
@@ -38,12 +38,10 @@ In this topic, the following steps are performed to clone an SLB instance:
 
     ```
     #encoding=utf-8
-    """
-    Create an SLB instance -> Create a TCP listener -> Query details about the SLB instance -> Clone an SLB instance -> Delete the SLB instance
-    """
+    
     import sys
     import json
-    import uuid
+    
     
     #Import AcsClient to verify the identity of the API caller.
     from aliyunsdkcore.client import AcsClient
