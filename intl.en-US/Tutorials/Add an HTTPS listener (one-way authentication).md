@@ -49,7 +49,7 @@ Before you configure the HTTPS listener, you must buy a server certificate and u
 
 9.  Click **Next**. In the Backend Servers step, click Default Server Group and then click **Add More**. Add ECS instances and set the port to 80.
 
-10. Use the default values for other parameters and click **Next** to go to the **Confirm** step. Click Submit to complete SLB instance configurations.
+10. Use the default values for other parameters and click **Next** to go to the **Submit** step. Click Submit to complete SLB instance configurations.
 
 
 ## Step 3: Test the SLB service
