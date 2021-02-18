@@ -39,7 +39,7 @@ This topic describes how to add an additional certificate to a listener of an SL
 
         An additional certificate takes effect only when it is configured with a forwarding rule and the domain name specified in the rule is the same as that in the additional certificate.
 
-6.  Configure forwarding rules.
+6.  Perform the following steps, configure forwarding rules.
 
     1.  Click **Configure Rule** in the **Information** dialog box, or go to the **Listener** tab of the instance.
 
