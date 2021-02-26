@@ -1,157 +1,120 @@
-# 基于域名或URL路径进行转发
+# 获取客户端真实IP
 
-负载均衡支持配置基于域名或URL路径的转发策略。您可以将来自不同域名或URL路径的请求转发给不同的后端服务器组，合理分配服务器资源。
+您可以通过设置负载均衡的7层监听服务获取客户端真实IP地址。
 
-**说明：** 只有七层监听（HTTPS/HTTP协议）支持配置转发策略。
+七层负载均衡（HTTP/HTTPS协议）服务需要对应用服务器进行配置，然后使用`X-Forwarded-For`的方式获取客户端的真实IP地址。真实的客户端IP存放在HTTP头部的X-Forwarded-For字段，格式如下：
 
-## 域名或URL路径转发
+```
+X-Forwarded-For: 用户真实IP, 代理服务器1-IP， 代理服务器2-IP，...
+```
 
-七层负载均衡服务支持配置域名或者URL路径转发策略，将来自不同域名或者URL路径的请求转发给不同的ECS处理。
+当使用此方式获取客户端真实IP时，获取的第一个地址就是客户端真实IP。
 
-URL路径转发支持字符串匹配，按照前缀最长匹配原则。例如您配置了/abc和/abcd两个规则，当您访问/abcde时，系统优先匹配/abcd规则。
+**说明：** 负载均衡的HTTPS监听是在负载均衡服务上的加密控制，后端仍旧使用HTTP协议，因此，在Web应用服务器上配置HTTPS和HTTP监听没有区别。
 
-域名转发策略支持精确匹配和通配符匹配两种模式：
+## 配置IIS7/IIS8服务器
 
--   精确域名：www.aliyun.com
--   通配符域名（泛域名）：\*.aliyun.com、\*.market.aliyun.com
+1.  [下载](https://img.alicdn.com/tfscom/TB1R64PLVXXXXaaXVXXXXXXXXXX.rar?spm=a2c4g.11186623.2.5.z475ev&file=TB1R64PLVXXXXaaXVXXXXXXXXXX.rar)并解压 F5XForwardedFor文件。
 
-    当前端请求同时匹配多条域名策略时，策略的匹配优先级为：精确匹配高于小范围通配符匹配， 小范围通配符匹配高于大范围通配符匹配，如下表所示。
+2.  根据自己的服务器操作系统版本将x86\\Release或x64\\Release目录下的F5XFFHttpModule.dll和F5XFFHttpModule.ini拷贝到某个目录，例如C:\\F5XForwardedFor\\。确保IIS进程对该目录有读取权限。
 
-    |模式|请求测试URL|配置的转发域名策略|
-|www.aliyun.com|\*.aliyun.com|\*.market.aliyun.com|
-    |:-|:------|:--------|
-    |:-------------|:------------|:-------------------|
-    |精确匹配|www.aliyun.com|✓|×|×|
-    |泛域名匹配|market.aliyun.com|×|✓|×|
-    |泛域名匹配|info.market.aliyun.com|×|×|✓|
+3.  打开**IIS管理器**，双击**模块**功能。
 
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2714029951/p3132.png)
 
-您可以在一个监听下添加多条转发策略，每条转发策略关联不同的虚拟服务器组（一个虚拟服务器组由一组ECS实例组成）。例如您可以将所有读请求转发到一组后端服务器上而将写请求转发到另一组后端服务器上，这样可以更灵活地适配业务需求，合理分配资源。
+4.  单击**配置本机模块**，然后在弹出的对话框中，单击**注册**。
 
-如下图所示，在配置了转发策略后，负载均衡系统将按照以下两种方式匹配策略，转发前端请求：
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2714029951/p3133.png)
 
--   方式一：前端请求中存在域名，则根据域名匹配转发策略。
-    -   存在匹配该域名的转发策略，则继续匹配URL路径部分。
+5.  添加下载的.dll文件。
 
-        若URL路径部分也能匹配，则将请求转发到对应的虚拟服务器组；若URL路径部分未能命中该域名下的任何规则，则将请求转发给域名根路径转发策略（转发策略中只配置了域名，没有配置URL路径）。
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2714029951/p3135.png)
 
-        当用户没有为该域名配置根路径转发策略时，将向客户端返回404错误。
+6.  为添加的两个文件授权允许运行ISAPI和CGI扩展。
 
-    -   不存在匹配该域名的转发策略，则按照方式二匹配转发策略。
--   方式二：前端请求中不存在域名或者转发策略中不存在与之相匹配的域名，则直接匹配无域名转发策略（转发策略中只配置了URL，没有配置域名）。
+    **说明：** 确保您已经安装了ISAPI和CGI应用程序。
 
-    成功匹配到转发策略时，将请求转发到对应的虚拟服务器组；未能匹配到任何转发策略时，将请求转发到负载均衡实例默认服务器组。
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2714029951/p3136.png)
+
+7.  重启IIS服务器，等待配置生效。
 
 
-![匹配策略](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9614029951/p102740.png)
+## 配置Apache服务器
 
-## 添加域名或URL路径转发策略
+1.  执行如下命令，安装Apache的一个第三方模块mod\_rpaf。
 
-在配置域名或URL路径转发策略前，确保您已经：
+    ```
+     wget https://github.com/gnif/mod_rpaf/archive/v0.6.0.tar.gz
+     tar zxvf mod_rpaf-0.6.tar.gz
+     cd mod_rpaf-0.6
+     /alidata/server/httpd/bin/apxs -i -c -n mod_rpaf-2.0.so mod_rpaf-2.0.c
+    ```
 
--   [添加HTTP监听]()或[添加HTTPS监听]()。
--   [创建虚拟服务器组]()
+2.  修改Apache的配置文件/alidata/server/httpd/conf/httpd.conf，在最末尾添加以下配置信息。
 
-完成以下步骤，配置基于域名或URL路径的转发策略：
+    ```
+     LoadModule rpaf_module modules/mod_rpaf-2.0.so
+     RPAFenable On
+     RPAFsethostname On
+     RPAFproxy_ips  <IP_address>
+     RPAFheader X-Forwarded-For
+    ```
 
-1.  登录[负载均衡管理控制台](https://slb.console.aliyun.com/slb)。
-2.  选择地域，查看该地域的所有负载均衡实例。
-3.  单击负载均衡实例的ID。
-4.  单击监听页签。
-5.  单击目标七层监听操作列下的**配置转发策略**。
-6.  在转发策略页面，根据以下信息配置转发策略：
+    **说明：** 如果您要获取代理服务器的地址，可以将代理服务器的网段添加到`RPAFproxy_ips <IP_address>`，如负载均衡的IP地址段100.64.0.0/10（100.64.0.0/10 是阿里云保留地址，其他用户无法分配到该网段内，不会存在安全风险）和高防IP地址段。多个IP地址段用逗号分隔。
 
-    ![转发策略](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9614029951/p139582.png)
+3.  添加完成后重启Apache。
 
-    1.  **域名**：输入要转发的请求域名。域名只能使用字母、数字、短横线（-）和英文句点（.）。
-    2.  **URL**：输入请求路径。路径必须以正斜线（/）开头，只能包含字母、数字、短横线（-）、英文句点（.）、正斜线（/）、百分号（%）、问号（?）、井号（\#）和and（&）。
-
-        **说明：**
-
-        -   如果请求的URL路径中包含特殊字符，您需要使用URL特殊字符转义编码。例如，如果配置的转发策略使用包含特殊字符“/\#/”的URL路径，那么在访问对应的服务时，需要使用特殊字符井号（\#）的转义编码“%23”，即请求的URL路径中必须是“/%23/”，这样才能按设定的转发规则转发请求。
-    3.  **虚拟服务器组**：选择关联的虚拟服务器组。
-    4.  **备注**：输入描述。
-    5.  单击**添加转发策略**。
-7.  单击**添加域名**或**添加规则**再添加一个域名或URL策略。
-
-    一个HTTP或HTTPS监听最多可添加转发策略个数请参见[使用限制]()。
+    ```
+    /alidata/server/httpd/bin/apachectl restart
+    ```
 
 
-## 编辑转发策略
+## 配置Nginx服务器
 
-您可以修改转发策略关联的后端服务器。
+1.  执行如下命令，安装http\_realip\_module。
 
-完成以下操作，编辑转发策略：
+    ```
+     wget http://nginx.org/download/nginx-1.0.12.tar.gz
+     tar zxvf nginx-1.0.12.tar.gz
+     cd nginx-1.0.12
+     ./configure --user=www --group=www --prefix=/alidata/server/nginx --with-http_stub_status_module --without-http-cache --with-http_ssl_module --with-http_realip_module
+     make
+     make install
+     kill -USR2 `cat /alidata/server/nginx/logs/nginx.pid`
+     kill -QUIT `cat /alidata/server/nginx/logs/ nginx.pid.oldbin`
+    ```
 
-1.  登录[负载均衡管理控制台](https://slb.console.aliyun.com/slb)。
-2.  选择地域，查看该地域的所有负载均衡实例。
-3.  单击负载均衡实例的ID。
-4.  单击监听页签。
-5.  单击目标七层监听操作列下的**配置转发策略**。
-6.  在转发策略页面的**转发策略列表**区域，单击目标转发策略的**编辑**选项。
-7.  根据以下信息自定义转发策略的调度算法、会话保持和健康检查等配置。
+2.  执行如下命令，打开nginx.conf文件。
 
-    **说明：** 当前仅支持在以下地域自定义已有转发策略的高级配置：
+    ```
+    vi /alidata/server/nginx/conf/nginx.conf
+    ```
 
-    -   华北2（北京）
-    -   华东1（杭州）
-    -   华东2（上海）
-    -   华北3（张家口）
-    -   华北5（呼和浩特）
-    -   中国香港
-    -   新加坡
-    -   日本
-    |高级配置|说明|
-    |----|--|
-    |**调度算法**|负载均衡支持轮询、加权轮询（WRR）、加权最小连接数（WLC）三种调度算法。     -   **加权轮询**：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
-    -   **轮询**：按照访问顺序依次将外部请求依序分发到后端服务器。
-    -   **加权最小连接数**：除了根据每台后端服务器设定的权重值来进行轮询，同时还考虑后端服务器的实际负载（即连接数）。当权重值相同时，当前连接数越小的后端服务器被轮询到的次数（概率）也越高。 |
-    |**开启会话保持**|选择是否开启会话保持。
+3.  在以下配置信息后添加新的配置字段和信息。
 
-开启会话保持功能后，负载均衡会把来自同一客户端的访问请求分发到同一台后端服务器上进行处理。
+    ```
+     fastcgi connect_timeout 300;
+     fastcgi send_timeout 300;
+     fastcgi read_timeout 300;
+     fastcgi buffer_size 64k;
+     fastcgi buffers 4 64k;
+     fastcgi busy_buffers_size 128k;
+     fastcgi temp_file_write_size 128k;
+    ```
 
-HTTP协议会话保持基于Cookie。负载均衡提供了两种Cookie处理方式：
+    需要添加的配置字段和信息为：
 
-    -   **植入Cookie**：您只需要指定Cookie的过期时间。
+    ```
+     set_real_ip_from IP_address;
+     real_ip_header X-Forwarded-For;
+    ```
 
-客户端第一次访问时，负载均衡会在返回请求中植入Cookie（即在HTTP/HTTPS响应报文中插入SERVERID），下次客户端携带此Cookie访问，负载均衡服务会将请求定向转发给之前记录到的后端服务器上。
+    **说明：** 如果您要获取代理服务器的地址，可以将代理服务器的网段添加到`set_real_ip_from <IP_address>`，如负载均衡的IP地址段100.64.0.0/10（100.64.0.0/10 是阿里云保留地址，其他用户无法分配到该网段内，不会存在安全风险）和高防IP地址段。多个IP地址段用逗号分隔。
 
-    -   **重写Cookie**：可以根据需要指定HTTPS/HTTP响应中插入的Cookie。您需要在后端服务器上维护该Cookie的过期时间和生存时间。
+4.  执行如下命令，重启Nginx。
 
-负载均衡服务发现用户自定义了Cookie，将会对原来的Cookie进行重写，下次客户端携带新的Cookie访问，负载均衡服务会将请求定向转发给之前记录到的后端服务器。详情参考[会话保持规则配置](/intl.zh-CN/常见问题/配置服务器Cookie.md)。 |
-    |**开启健康检查**|    -   **健康检查端口**：健康检查服务访问后端时的探测端口。
+    ```
+    /alidata/server/nginx/sbin/nginx -s reload
+    ```
 
-默认值为配置监听时指定的后端端口。
-
-    -   **健康检查路径**：用于健康检查页面文件的URI，建议对静态页面进行检查。
-    -   **健康检查域名（可选）**：默认使用各后端服务器的内网IP为域名。
-    -   **正常状态码**：选择健康检查正常的HTTP状态码。
-
-默认值为http\_2xx和http\_3xx。
-
-    -   **健康检查响应超时时间**：接收来自运行状况检查的响应需要等待的时间。如果后端ECS在指定的时间内没有正确响应，则判定为健康检查失败。
-    -   **健康检查间隔时间**：进行健康检查的时间间隔。
-
-默认为2秒。
-
-    -   **健康不检查健康阈值**：同一LVS节点服务器针对同一ECS服务器，从成功到失败的连续健康检查失败次数。
-
-可选值2-10，默认为3次。
-
-    -   **健康检查健康阈值**：同一LVS节点服务器针对同一ECS服务器，从失败到成功的连续健康检查成功次数。
-
-可选值2-10，默认为3次。 |
-
-8.  单击**确定**。
-
-## 删除转发策略
-
-完成以下操作，删除转发策略：
-
-1.  登录[负载均衡管理控制台](https://slb.console.aliyun.com/slb)。
-2.  选择地域，查看该地域的所有负载均衡实例。
-3.  单击负载均衡实例的ID。
-4.  单击监听页签。
-5.  单击目标七层监听操作列下的**配置转发策略**。
-6.  在转发策略页面的**转发策略列表**区域，单击目标转发策略的**删除**选项。
 
