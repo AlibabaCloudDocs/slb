@@ -1,23 +1,21 @@
-# 查看流量使用情况
+# View traffic usage
 
-用户需要查看某一时间段内云账号下负载均衡实例流量使用情况。
+This topic describes how to view the traffic usage of a Server Load Balancer \(SLB\) instance. You can view the traffic usage of an SLB instance in a certain period through the SLB console.
 
-1.  登录[负载均衡管理控制台](https://slb.console.aliyun.com/slb)。
+1.  Log on to the [Server Load Balancer console](https://slb.console.aliyun.com/slb).
 
-2.  登录[负载均衡管理控制台](https://partners-intl.console.aliyun.com/#/slb)。
+2.  In the upper-right corner of the top navigation bar, choose **Billing Management** \> **Billing Management**.
 
-3.  在菜单栏右上角选择 **费用** \> **进入费用中心**。
+3.  In the left-side navigation pane, select Usage Records.
 
-4.  在费用中心页面，选择 **消费记录** \> **使用记录**。
+4.  On the Usage Records page, select **Server Load Balancer \(SLB\)** from the Product Name drop-down list, set a period and measurement cycle, and enter the verification code.
 
-5.  在使用记录页面，选择**负载均衡**产品，配置需要查看的负载均衡流量使用情况的使用期间和计量粒度。
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5291019951/p14268.png)
 
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5714029951/p14268.png)
+5.  Click **Export CSV** to generate a traffic usage table in the .CSV format.
 
-6.  单击**导出CSV**，在本地生成 .CSV格式的流量使用表格。
+    The table includes the following information. You can view the traffic usage by instance, region, and endpoint.
 
-    该表格包含以下信息，可根据实例、地域或者服务地址等查看具体流量使用情况。
-
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6714029951/p14269.png)
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/5291019951/p14269.png)
 
 
