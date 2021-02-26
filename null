@@ -1,35 +1,35 @@
-# 通过OpenAPI Explorer创建VPC类型实例时指定IP
+# Specify an IP address for an SLB instance by using OpenAPI Explorer
 
-使用OpenAPI explorer创建VPC类型负载均衡实例时，支持在负载均衡实例所属交换机支持的网段中，指定其中一个地址作为负载均衡实例的私网IP地址。
+This topic describes how to specify an internal IP address when you create a Server Load Balancer \(SLB\) instance by using OpenAPI Explorer. You can specify the IP address used by the CIDR block of the VSwitch to which the SLB instance to be created belongs as the internal IP address of the SLB instance.
 
-1.  登录[OpenAPI Explorer控制台](https://api.aliyun.com/)。
+1.  Log on to the [OpenAPI Explorer console](https://api.aliyun.com/).
 
-2.  搜索负载均衡产品的CreateLoadBalancer接口。
+2.  Search for the CreateLoadBalancer API operation.
 
-3.  设置创建负载均衡实例的参数。
+3.  Configure the parameters.
 
-    此处设置部分参数作为示例，详细参数说明请参见[创建负载均衡实例]()：
+    Only some parameters are listed here. For more information, see [Create an SLB instance]().
 
-    -   RegionId：表示负载均衡实例的地域，此处设置为cn-hangzhou。
-    -   VpcId：表示负载均衡实例所属VPC的ID。
+    -   RegionId: the region ID of the SLB instance. For this example, it is cn-hangzhou.
+    -   VpcId: the ID of the VPC to which the SLB instance belongs.
 
-        此处可登录专有网络VPC控制台，选择华东1（杭州）区域，查看VPC的ID。
+        You can log on to the Virtual Private Cloud console and select China \(Hangzhou\) to view the VPC ID.
 
-    -   VSwitchId：表示负载均衡所属交换机的ID，如果需要指定负载均衡IP地址，该参数必须要设置。
+    -   VSwitchId: the ID of the VSwitch to which the SLB instance belongs. This parameter is required when you specify an SLB IP address.
 
-        此处可在专有网络VPC控制台，单击负载均衡实例所属VPC的ID，在网络资源页面下，单击交换机的个数，查看交换机的ID。
+        You can log on to the Virtual Private Cloud console and click the ID of the VPC to which the SLB instance belongs. Click the number of VSwitches on the Resources tab to view the ID of the VSwitch.
 
-        单击交换机ID，查看交换机的目标网段，如192.168.0.0/24。
+        Click the ID of the VSwitch to view the CIDR block of the VSwitch. Example: 192.168.0.0/24.
 
-    -   Address：指定负载均衡实例的私网IP地址，该地址必须包含在交换机的目标网段下，例如192.168.0.3。
-4.  单击**发起调用**。
+    -   Address: the internal IP address of the SLB instance. This IP address must belong to the CIDR block of the VSwitch. For this example, it is 192.168.0.3.
+4.  Click **Submit Request**.
 
-    返回结果如下：
+    The following response parameters are returned:
 
-    -   XML格式
+    -   XML format
 
         ```
-        <?xml version="1.0" encoding="UTF-8" ?>
+        <? xml version="1.0" encoding="UTF-8" ? >
             <NetworkType>vpc</NetworkType>
             <LoadBalancerName>auto_named_slb</LoadBalancerName>
             <Address>192.168.0.3</Address>
@@ -41,7 +41,7 @@
             <VpcId>vpc-bp18sth14qii3pn*****</VpcId>
         ```
 
-    -   JSON格式
+    -   JSON format
 
         ```
         {
@@ -57,6 +57,6 @@
         }
         ```
 
-5.  登录[负载均衡管理控制台](https://slb.console.aliyun.com/slb/cn-hangzhou/slbs)，选择华东1（杭州）区域，查看IP为192.168.0.3的负载均衡实例是否创建成功。
+5.  Log on to the [Server Load Balancer console](https://slb.console.aliyun.com/slb/cn-hangzhou/slbs) and select the China \(Hangzhou\) region. Check whether the SLB instance to which the 192.168.0.3 IP address is assigned is created.
 
 
