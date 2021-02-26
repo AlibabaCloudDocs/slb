@@ -1,120 +1,110 @@
-# 获取客户端真实IP
+# Forward requests from the same domain name but different URLs
 
-您可以通过设置负载均衡的7层监听服务获取客户端真实IP地址。
+SLB supports Domain name- and URL-based forwarding rules. You can forward requests from the same domain name but different URLs to separate backend servers. This allows you to optimize load balancing among your server resources.
 
-七层负载均衡（HTTP/HTTPS协议）服务需要对应用服务器进行配置，然后使用`X-Forwarded-For`的方式获取客户端的真实IP地址。真实的客户端IP存放在HTTP头部的X-Forwarded-For字段，格式如下：
+**Note:** You can configure forwarding rules only for Layer-7 listeners that use HTTPS or HTTP.
 
-```
-X-Forwarded-For: 用户真实IP, 代理服务器1-IP， 代理服务器2-IP，...
-```
+Four ECSs deployed with NGINX servers are used to demonstrate how to configure forwarding rules specified by domain name and URL. The following table lists the forwarding requirements.
 
-当使用此方式获取客户端真实IP时，获取的第一个地址就是客户端真实IP。
+|Frontend request|Forwarded to|
+|:---------------|:-----------|
+|www.aaa.com/tom|Backend servers SLB\_tom1 and SBL\_tom2, which belong to the TOM VServer group|
+|www.aaa.com/jerry|The backend servers SLB\_jerry1 and SBL\_jerry2 belong to the VServer group JERRY|
 
-**说明：** 负载均衡的HTTPS监听是在负载均衡服务上的加密控制，后端仍旧使用HTTP协议，因此，在Web应用服务器上配置HTTPS和HTTP监听没有区别。
+## Domain name- and URL-based forwarding rules
 
-## 配置IIS7/IIS8服务器
+You can configure domain name-based or URL-based forwarding rules for an SLB instance that has Layer-7 listeners to distribute requests from different domain names or URLs to different ECS instances.
 
-1.  [下载](https://img.alicdn.com/tfscom/TB1R64PLVXXXXaaXVXXXXXXXXXX.rar?spm=a2c4g.11186623.2.5.z475ev&file=TB1R64PLVXXXXaaXVXXXXXXXXXX.rar)并解压 F5XForwardedFor文件。
+URL-based forwarding rules support string matching and the rule with the longest matched prefix is applied. For example, if the two forwarding rules /abc and /abcd are created and a request with the prefix of /abcde is received, the rule /abcd is applied.
 
-2.  根据自己的服务器操作系统版本将x86\\Release或x64\\Release目录下的F5XFFHttpModule.dll和F5XFFHttpModule.ini拷贝到某个目录，例如C:\\F5XForwardedFor\\。确保IIS进程对该目录有读取权限。
+Domain name-based forwarding rules include exact matching and wildcard matching.
 
-3.  打开**IIS管理器**，双击**模块**功能。
+-   Exact domain name: www.aliyun.com
+-   Wildcard domain name: \*.aliyun.com and \*.market.aliyun.com
 
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2714029951/p3132.png)
+    When a request matches multiple forwarding rules, exact matching prevails over wildcard matching, and exact wildcard matching prevails over less exact wildcard matching. The following table shows the priority of Domain name-based forwarding rules.
 
-4.  单击**配置本机模块**，然后在弹出的对话框中，单击**注册**。
-
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2714029951/p3133.png)
-
-5.  添加下载的.dll文件。
-
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2714029951/p3135.png)
-
-6.  为添加的两个文件授权允许运行ISAPI和CGI扩展。
-
-    **说明：** 确保您已经安装了ISAPI和CGI应用程序。
-
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/2714029951/p3136.png)
-
-7.  重启IIS服务器，等待配置生效。
+    |Type|Request URL|Domain name-based forwarding rule|
+|www.aliyun.com|\*.aliyun.com|\*.market.aliyun.com|
+    |:---|:----------|:--------------------------------|
+    |:-------------|:------------|:-------------------|
+    |Exact matching|www.aliyun.com|✓|×|×|
+    |Exact wildcard matching|market.aliyun.com|×|✓|×|
+    |Less exact wildcard matching|info.market.aliyun.com|×|×|✓|
 
 
-## 配置Apache服务器
+You can add multiple forwarding rules to a listener. Each forwarding rule is associated with a VServer group. A VServer group consists of multiple ECS instances. For example, you can configure a listener to forward read requests to one VServer group and write requests to another VServer group. This allows you to optimize load balancing among your server resources.
 
-1.  执行如下命令，安装Apache的一个第三方模块mod\_rpaf。
+After you configure forwarding rules, SLB applies the rules to distribute traffic based on the following models:
 
-    ```
-     wget https://github.com/gnif/mod_rpaf/archive/v0.6.0.tar.gz
-     tar zxvf mod_rpaf-0.6.tar.gz
-     cd mod_rpaf-0.6
-     /alidata/server/httpd/bin/apxs -i -c -n mod_rpaf-2.0.so mod_rpaf-2.0.c
-    ```
+-   Requests that contain domain names are forwarded based on domain name-based forwarding rules.
+    -   Model 1: If a forwarding rule matches the domain name, the system continues to match the URL.
 
-2.  修改Apache的配置文件/alidata/server/httpd/conf/httpd.conf，在最末尾添加以下配置信息。
+        If the URL is matched, requests are forwarded to the specified VServer group. If no forwarding rule matches the URL, the requests are forwarded based only on root domain-based forwarding rules that contain only domain names.
 
-    ```
-     LoadModule rpaf_module modules/mod_rpaf-2.0.so
-     RPAFenable On
-     RPAFsethostname On
-     RPAFproxy_ips  <IP_address>
-     RPAFheader X-Forwarded-For
-    ```
+        If you do not add root domain-based forwarding rules, the error message 404 is returned to the client.
 
-    **说明：** 如果您要获取代理服务器的地址，可以将代理服务器的网段添加到`RPAFproxy_ips <IP_address>`，如负载均衡的IP地址段100.64.0.0/10（100.64.0.0/10 是阿里云保留地址，其他用户无法分配到该网段内，不会存在安全风险）和高防IP地址段。多个IP地址段用逗号分隔。
+    -   If no forwarding rule matches the domain name, requests are forwarded in Model 2.
+-   Model 2: If the requests do not contain domain names or no forwarding rule matches the domain name, requests are forwarded based on URL-based forwarding rules that contain only URLs.
 
-3.  添加完成后重启Apache。
-
-    ```
-    /alidata/server/httpd/bin/apachectl restart
-    ```
+    If a forwarding rule is matched, requests are forwarded to the VServer group. If no forwarding rule is matched, requests are forwarded to the default VServer group.
 
 
-## 配置Nginx服务器
+![Forwarding rules](../images/p102737.png)
 
-1.  执行如下命令，安装http\_realip\_module。
+## Add URL-based forwarding rules
 
-    ```
-     wget http://nginx.org/download/nginx-1.0.12.tar.gz
-     tar zxvf nginx-1.0.12.tar.gz
-     cd nginx-1.0.12
-     ./configure --user=www --group=www --prefix=/alidata/server/nginx --with-http_stub_status_module --without-http-cache --with-http_ssl_module --with-http_realip_module
-     make
-     make install
-     kill -USR2 `cat /alidata/server/nginx/logs/nginx.pid`
-     kill -QUIT `cat /alidata/server/nginx/logs/ nginx.pid.oldbin`
-    ```
+Before you add URL-based forwarding rules to a listener, make sure that the following requirements are met:
 
-2.  执行如下命令，打开nginx.conf文件。
+1.  An Internet SLB instance is created. For more information, see [Create an SLB instance]().
+2.  A Layer-7 listener is created. The scheduling algorithm is Round-Robin. For more information, see [Add an HTTP listener]() or [Add an HTTPS listener]().
+3.  Two VServer groups TOM and JERRY are created. For more information, see [Create a vServer group]().
+    -   Servers SLB\_tom1 and SBL\_tom2 are added to the VServer group TOM. The port is set to 80 and the default weight value 100 is used.
+    -   Servers SLB\_jerry1 and SLB\_jerry2 are added to the VServer group JERRY. The port is set to 80 and the default weight value 100 is used.
 
-    ```
-    vi /alidata/server/nginx/conf/nginx.conf
-    ```
+Perform the following operations:
 
-3.  在以下配置信息后添加新的配置字段和信息。
+1.  Log on to the [Server Load Balancer console](https://slb.console.aliyun.com/slb/).
 
-    ```
-     fastcgi connect_timeout 300;
-     fastcgi send_timeout 300;
-     fastcgi read_timeout 300;
-     fastcgi buffer_size 64k;
-     fastcgi buffers 4 64k;
-     fastcgi busy_buffers_size 128k;
-     fastcgi temp_file_write_size 128k;
-    ```
+2.  In the top navigation bar, select the region where the SLB instance is deployed.
 
-    需要添加的配置字段和信息为：
+3.  On the Instances page, click the ID of the SLB instance.
 
-    ```
-     set_real_ip_from IP_address;
-     real_ip_header X-Forwarded-For;
-    ```
+4.  On the Listener tab, find the Layer-7 listener and click **Set Forwarding Rule** in the **Actions** column.
 
-    **说明：** 如果您要获取代理服务器的地址，可以将代理服务器的网段添加到`set_real_ip_from <IP_address>`，如负载均衡的IP地址段100.64.0.0/10（100.64.0.0/10 是阿里云保留地址，其他用户无法分配到该网段内，不会存在安全风险）和高防IP地址段。多个IP地址段用逗号分隔。
+5.  Configure two forwarding rules: forward requests from the www.aaa.com/tom to the TOM VServer group and requests from the www.aaa.com/jerry to the JERRY VServer group.
 
-4.  执行如下命令，重启Nginx。
+    ![Configure forwarding rules](../images/p86443.png)
 
-    ```
-    /alidata/server/nginx/sbin/nginx -s reload
-    ```
+    Configure the following parameters:
+
+    -   **Domain Name**: Enter the domain name to which requests are forwarded. The domain name can only contain letters, digits, hyphens \(-\), and periods \(.\).
+    -   **URL**: Enter the URL to which requests are forwarded. The path must start with a forward slash \(/\), and can only contain letters, numbers, and special characters. Special characters include
+
+        -. /%? \#&
+
+        **Note:** If you only want to configure a URL-based forwarding rule, leave Domain Name empty.
+
+    -   **VServer Group**: Select the VServer Group to be associated with the forwarding rule.
+    -   **Description**: Enter a description.
+    **Note:** For more information about the maximum number of forwarding rules that can be specified for an HTTP or HTTPS listener, see [Limits]().
+
+6.  Click **Add Forwarding Rules**.
+
+7.  Click **OK**.
+
+8.  Test whether the forwarding rules are configured.
+
+    -   Enter www.aaa.com/jerry in the browser and the following result is returned.
+
+        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/4172/15382791923185_en-US.png)
+
+    -   Enter www.aaa.com/tom in the browser and the following result is returned.
+
+        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/4172/15382791923186_en-US.png)
+
+    -   Enter www.aaa.com in the browser and the following result is returned.
+
+        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/4172/15382791923187_en-US.png)
 
 
