@@ -1,261 +1,157 @@
-# 使用SLB部署HTTPS业务（双向认证）
+# 基于域名或URL路径进行转发
 
-要配置HTTPS双向认证的监听，您需要在配置监听时上传服务器证书和CA证书。
+负载均衡支持配置基于域名或URL路径的转发策略。您可以将来自不同域名或URL路径的请求转发给不同的后端服务器组，合理分配服务器资源。
 
-本指南中使用自签名的CA证书为客户端证书签名，完成以下操作配置HTTPS监听（双向认证）：
+**说明：** 只有七层监听（HTTPS/HTTP协议）支持配置转发策略。
 
-1.  [准备服务器证书](#section_klf_y5z_vdb)
-2.  [使用OpenSSL生成CA证书](#section_cqz_pvz_vdb)
-3.  [生成客户端证书](#section_jbr_hyz_vdb)
-4.  [上传服务器证书和CA证书](#section_mdg_411_wdb)
-5.  [安装客户端证书](#section_cts_cd1_wdb)
-6.  [配置负载均衡双向认证监听](#section_p5w_zd1_wdb)
-7.  [测试负载均衡服务](#section_q3q_r21_wdb)
+## 域名或URL路径转发
 
-## 步骤一：准备服务器证书
+七层负载均衡服务支持配置域名或者URL路径转发策略，将来自不同域名或者URL路径的请求转发给不同的ECS处理。
 
-服务器证书用于用户浏览器检查服务器发送的证书是否是由自己信赖的中心签发的，服务器证书可以到阿里云云盾[证书服务](https://www.aliyun.com/product/cas?spm=a2c4g.11186623.2.11.nw2Pcs)购买，也可以到其他服务商处购买。
+URL路径转发支持字符串匹配，按照前缀最长匹配原则。例如您配置了/abc和/abcd两个规则，当您访问/abcde时，系统优先匹配/abcd规则。
 
-## 步骤二：使用OpenSSL生成CA证书
+域名转发策略支持精确匹配和通配符匹配两种模式：
 
-1.  运行以下命令在/root目录下新建一个ca文件夹，并在ca文件夹下创建四个子文件夹。
+-   精确域名：www.aliyun.com
+-   通配符域名（泛域名）：\*.aliyun.com、\*.market.aliyun.com
 
-    ```
-    sudo mkdir ca
-     cd ca
-     sudo mkdir newcerts private conf server
-    ```
+    当前端请求同时匹配多条域名策略时，策略的匹配优先级为：精确匹配高于小范围通配符匹配， 小范围通配符匹配高于大范围通配符匹配，如下表所示。
 
-    其中：
-
-    -   newcerts目录：用于存放CA签署过的数字证书（证书备份目录）。
-    -   private目录：用于存放CA的私钥。
-    -   conf目录：用于存放一些简化参数用的配置文件。
-    -   server目录：存放服务器证书文件。
-2.  在conf目录下新建一个包含如下信息的openssl.conf文件。
-
-    ```
-    [ ca ]
-     default_ca = foo
-     [ foo ] 
-     dir = /root/ca
-     database = /root/ca/index.txt
-     new_certs_dir = /root/ca/newcerts
-     certificate = /root/ca/private/ca.crt
-     serial = /root/ca/serial
-     private_key = /root/ca/private/ca.key
-     RANDFILE = /root/ca/private/.rand
-     default_days = 365
-     default_crl_days= 30
-     default_md = md5
-     unique_subject = no
-     policy = policy_any
-     [ policy_any ]
-     countryName = match
-     stateOrProvinceName = match
-     organizationName = match
-     organizationalUnitName = match
-     localityName = optional
-     commonName      = supplied
-     emailAddress    = optional
-    ```
-
-3.  运行以下命令生成私钥key文件。
-
-    ```
-      cd /root/ca
-       sudo openssl genrsa -out private/ca.key
-    ```
-
-    运行结果如下图所示。
-
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6614029951/p2750.png)
-
-4.  运行以下命令并按命令后的示例提供需要输入的信息，然后回车，生成证书请求csr文件。
-
-    ```
-      sudo openssl req -new -key private/ca.key -out private/ca.csr
-    ```
-
-    **说明：** Common Name请输入您的负载均衡服务的域名。
-
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6614029951/p2753.png)
-
-5.  运行以下命令生成凭证crt文件。
-
-    ```
-      sudo openssl x509 -req -days 365 -in private/ca.csr -signkey private/ca.key -out private/ca.crt
-    ```
-
-6.  运行以下命令为CA的key设置起始序列号，可以是任意四个字符。
-
-    ```
-      sudo echo FACE > serial
-    ```
-
-7.  运行以下命令创建CA键库。
-
-    ```
-      sudo touch index.txt
-    ```
-
-8.  运行以下命令为移除客户端证书创建一个证书撤销列表。
-
-    ```
-      sudo openssl ca -gencrl -out /root/ca/private/ca.crl -crldays 7 -config "/root/ca/conf/openssl.conf"
-    ```
-
-    输出为：
-
-    ```
-    Using configuration from /root/ca/conf/openssl.conf
-    ```
+    |模式|请求测试URL|配置的转发域名策略|
+|www.aliyun.com|\*.aliyun.com|\*.market.aliyun.com|
+    |:-|:------|:--------|
+    |:-------------|:------------|:-------------------|
+    |精确匹配|www.aliyun.com|✓|×|×|
+    |泛域名匹配|market.aliyun.com|×|✓|×|
+    |泛域名匹配|info.market.aliyun.com|×|×|✓|
 
 
-## 步骤三：生成客户端证书
+您可以在一个监听下添加多条转发策略，每条转发策略关联不同的虚拟服务器组（一个虚拟服务器组由一组ECS实例组成）。例如您可以将所有读请求转发到一组后端服务器上而将写请求转发到另一组后端服务器上，这样可以更灵活地适配业务需求，合理分配资源。
 
-1.  运行以下命令在ca目录内创建一个存放客户端key的目录users。
+如下图所示，在配置了转发策略后，负载均衡系统将按照以下两种方式匹配策略，转发前端请求：
 
-    ```
-      sudo mkdir users
-    ```
+-   方式一：前端请求中存在域名，则根据域名匹配转发策略。
+    -   存在匹配该域名的转发策略，则继续匹配URL路径部分。
 
-2.  运行以下命令为客户端创建一个key：
+        若URL路径部分也能匹配，则将请求转发到对应的虚拟服务器组；若URL路径部分未能命中该域名下的任何规则，则将请求转发给域名根路径转发策略（转发策略中只配置了域名，没有配置URL路径）。
 
-    ```
-      sudo openssl genrsa -des3 -out /root/ca/users/client.key 1024
-    ```
+        当用户没有为该域名配置根路径转发策略时，将向客户端返回404错误。
 
-    **说明：** 创建key时要求输入pass phrase，这是当前key的口令，以防止本密钥泄漏后被人盗用。两次输入同一个密码。
+    -   不存在匹配该域名的转发策略，则按照方式二匹配转发策略。
+-   方式二：前端请求中不存在域名或者转发策略中不存在与之相匹配的域名，则直接匹配无域名转发策略（转发策略中只配置了URL，没有配置域名）。
 
-3.  运行以下命令为客户端key创建一个证书签名请求csr文件。
-
-    ```
-      sudo openssl req -new -key /root/ca/users/client.key -out /root/ca/users/client.csr
-    ```
-
-    输入该命令后，根据提示输入上一步输入的pass phrase，然后根据提示，提供对应的信息。
-
-    **说明：** `A challenge password`是客户端证书口令（请注意将它和`client.key`的口令区分开，本教程设置密码为test），可以与服务器端证书或者根证书口令一致。
-
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6614029951/p2757.png)
-
-4.  运行以下命令使用步骤二中的CA Key为刚才的客户端key签名。
-
-    ```
-      sudo openssl ca -in /root/ca/users/client.csr -cert /root/ca/private/ca.crt -keyfile /root/ca/private/ca.key -out /root/ca/users/client.crt -config "/root/ca/conf/openssl.conf"
-    ```
-
-    当出现确认是否签名的提示时，两次都输入y。
-
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6614029951/p2758.png)
-
-5.  运行以下命令将证书转换为大多数浏览器都能识别的PKCS12文件。
-
-    ```
-      sudo openssl pkcs12 -export -clcerts -in /root/ca/users/client.crt -inkey /root/ca/users/client.key -out /root/ca/users/client.p12
-    ```
-
-    按照提示输入客户端client.key的pass phrase。
-
-    再输入用于导出证书的密码。这个是客户端证书的保护密码，在安装客户端证书时需要输入这个密码。
-
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6614029951/p2759.png)
-
-6.  运行以下命令查看生成的客户端证书。
-
-    ```
-    cd users
-     ls
-    ```
-
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6614029951/p2760.png)
+    成功匹配到转发策略时，将请求转发到对应的虚拟服务器组；未能匹配到任何转发策略时，将请求转发到负载均衡实例默认服务器组。
 
 
-## 步骤四：上传服务器证书和CA证书
+![匹配策略](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9614029951/p102740.png)
+
+## 添加域名或URL路径转发策略
+
+在配置域名或URL路径转发策略前，确保您已经：
+
+-   [添加HTTP监听]()或[添加HTTPS监听]()。
+-   [创建虚拟服务器组]()
+
+完成以下步骤，配置基于域名或URL路径的转发策略：
 
 1.  登录[负载均衡管理控制台](https://slb.console.aliyun.com/slb)。
-2.  在实例管理页面，单击**创建负载均衡**。
-3.  配置负载均衡实例，单击**立即购买**完成支付。
+2.  选择地域，查看该地域的所有负载均衡实例。
+3.  单击负载均衡实例的ID。
+4.  单击监听页签。
+5.  单击目标七层监听操作列下的**配置转发策略**。
+6.  在转发策略页面，根据以下信息配置转发策略：
 
-    本操作中网络类型选择**公网**，地域选择**华东1（杭州）**，详细配置信息请参见[创建负载均衡实例]()。
+    ![转发策略](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/9614029951/p139582.png)
 
-4.  创建成功后，在实例管理页面，将鼠标移至实例名称区域，单击出现的铅笔图标，修改负载均衡实例名称。
-5.  在选左侧导航栏，单击证书管理页签。
-6.  单击**创建证书**。
-7.  在创建证书页面，完成如下配置后，单击**确定**。
-    -   **证书部署地域**：本教程中选择**华东1**。
+    1.  **域名**：输入要转发的请求域名。域名只能使用字母、数字、短横线（-）和英文句点（.）。
+    2.  **URL**：输入请求路径。路径必须以正斜线（/）开头，只能包含字母、数字、短横线（-）、英文句点（.）、正斜线（/）、百分号（%）、问号（?）、井号（\#）和and（&）。
 
-        **说明：** 证书的地域和负载均衡实例的地域要相同。
+        **说明：**
 
-    -   **证书类型**：选择**服务器证书**。
-    -   **证书内容和私钥**：复制您的服务器证书内容和私钥。
+        -   如果请求的URL路径中包含特殊字符，您需要使用URL特殊字符转义编码。例如，如果配置的转发策略使用包含特殊字符“/\#/”的URL路径，那么在访问对应的服务时，需要使用特殊字符井号（\#）的转义编码“%23”，即请求的URL路径中必须是“/%23/”，这样才能按设定的转发规则转发请求。
+    3.  **虚拟服务器组**：选择关联的虚拟服务器组。
+    4.  **备注**：输入描述。
+    5.  单击**添加转发策略**。
+7.  单击**添加域名**或**添加规则**再添加一个域名或URL策略。
 
-        **说明：** 在复制内容前，您可以单击**导入样式**，查看正确的证书和私钥格式。更多详细信息请参见[证书要求]()。
-
-8.  在负载均衡左侧导航栏，单击**证书管理**，然后单击**创建证书**，上传CA证书。
-9.  在创建证书页面，完成如下配置后，单击**确定**。
-    -   **证书部署地域**：本教程中选择**华东1（杭州）**。
-
-        **说明：** 证书的地域和负载均衡实例的地域要相同。
-
-    -   **证书类型**：选择**CA证书**。
-    -   **证书内容**：复制您的CA证书内容。
-
-        **说明：** 在复制内容前，您可以单击**导入样式**，查看正确的证书和私钥格式。更多详细信息请参见[证书要求]()。
+    一个HTTP或HTTPS监听最多可添加转发策略个数请参见[使用限制]()。
 
 
-## 步骤五：安装客户端证书
+## 编辑转发策略
 
-将生成的客户端证书安装到客户端。本教程以Windows客户端，IE浏览器为例。
+您可以修改转发策略关联的后端服务器。
 
-1.  打开Git Bash命令行窗口，运行以下命令导出步骤三中生成的客户端证书。
-
-    ```
-    scp root@IPaddress:/root/ca/users/client.p12 ./
-    ```
-
-    **说明：** IPaddress是生成客户端证书的服务器的IP地址。
-
-2.  在IE浏览器中导入下载的客户端证书。
-    1.  打开IE浏览器，单击**设置** \> **Internet选项**。
-    2.  单击内容页签，然后单击**证书**，导入下载的客户端证书。在导入证书时需要输入在步骤三时生成PKCS12文件的密码。
-
-        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6614029951/p2781.png)
-
-
-## 步骤六：配置HTTPS双向认证监听
+完成以下操作，编辑转发策略：
 
 1.  登录[负载均衡管理控制台](https://slb.console.aliyun.com/slb)。
-2.  选择**华东1（杭州）**地域，单击已创建的负载均衡实例ID链接，或者单击**监听配置向导**。
-3.  选择监听页签，单击**添加监听**。
-4.  在协议&监听页签下，配置监听。
+2.  选择地域，查看该地域的所有负载均衡实例。
+3.  单击负载均衡实例的ID。
+4.  单击监听页签。
+5.  单击目标七层监听操作列下的**配置转发策略**。
+6.  在转发策略页面的**转发策略列表**区域，单击目标转发策略的**编辑**选项。
+7.  根据以下信息自定义转发策略的调度算法、会话保持和健康检查等配置。
 
-    -   **选择负载均衡协议**：HTTPS
-    -   **监听端口**：443
-    -   **调度算法**：轮询（RR）
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5772129951/p10035.png)
+    **说明：** 当前仅支持在以下地域自定义已有转发策略的高级配置：
 
-5.  单击**下一步**，在SSL证书页签下，配置SSL证书信息，启用双向认证。
-    -   **服务器证书**：选择已上传的服务器证书。
-    -   **CA证书**： 选择已上传的CA证书。
-6.  单击**下一步**，选择默认服务器组页签，单击**添加**，添加ECS服务器，并将后端协议端口设置为80。
-7.  单击**下一步**，开启健康检查。
-8.  单击**下一步**，查看监听配置信息。
-9.  单击**提交**，提交审核。
-10. 单击**确定**。
+    -   华北2（北京）
+    -   华东1（杭州）
+    -   华东2（上海）
+    -   华北3（张家口）
+    -   华北5（呼和浩特）
+    -   中国香港
+    -   新加坡
+    -   日本
+    |高级配置|说明|
+    |----|--|
+    |**调度算法**|负载均衡支持轮询、加权轮询（WRR）、加权最小连接数（WLC）三种调度算法。     -   **加权轮询**：权重值越高的后端服务器，被轮询到的次数（概率）也越高。
+    -   **轮询**：按照访问顺序依次将外部请求依序分发到后端服务器。
+    -   **加权最小连接数**：除了根据每台后端服务器设定的权重值来进行轮询，同时还考虑后端服务器的实际负载（即连接数）。当权重值相同时，当前连接数越小的后端服务器被轮询到的次数（概率）也越高。 |
+    |**开启会话保持**|选择是否开启会话保持。
 
-## 步骤七：测试HTTPS双向认证
+开启会话保持功能后，负载均衡会把来自同一客户端的访问请求分发到同一台后端服务器上进行处理。
 
-1.  在实例管理页面，查看健康检查状态。当状态为**正常**时，表示后端服务器可以正常接收处理负载均衡监听转发的请求。
-2.  在浏览器中，输入负载均衡的公网服务地址，当提示是否信任客户端证书时，选择信任。
+HTTP协议会话保持基于Cookie。负载均衡提供了两种Cookie处理方式：
 
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6614029951/p2786.png)
+    -   **植入Cookie**：您只需要指定Cookie的过期时间。
 
-3.  刷新浏览器，您可以观察到请求在两台ECS服务器之间转换。
+客户端第一次访问时，负载均衡会在返回请求中植入Cookie（即在HTTP/HTTPS响应报文中插入SERVERID），下次客户端携带此Cookie访问，负载均衡服务会将请求定向转发给之前记录到的后端服务器上。
 
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6614029951/p13780.png)
+    -   **重写Cookie**：可以根据需要指定HTTPS/HTTP响应中插入的Cookie。您需要在后端服务器上维护该Cookie的过期时间和生存时间。
 
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/6614029951/p13781.png)
+负载均衡服务发现用户自定义了Cookie，将会对原来的Cookie进行重写，下次客户端携带新的Cookie访问，负载均衡服务会将请求定向转发给之前记录到的后端服务器。详情参考[会话保持规则配置](/intl.zh-CN/常见问题/配置服务器Cookie.md)。 |
+    |**开启健康检查**|    -   **健康检查端口**：健康检查服务访问后端时的探测端口。
 
+默认值为配置监听时指定的后端端口。
+
+    -   **健康检查路径**：用于健康检查页面文件的URI，建议对静态页面进行检查。
+    -   **健康检查域名（可选）**：默认使用各后端服务器的内网IP为域名。
+    -   **正常状态码**：选择健康检查正常的HTTP状态码。
+
+默认值为http\_2xx和http\_3xx。
+
+    -   **健康检查响应超时时间**：接收来自运行状况检查的响应需要等待的时间。如果后端ECS在指定的时间内没有正确响应，则判定为健康检查失败。
+    -   **健康检查间隔时间**：进行健康检查的时间间隔。
+
+默认为2秒。
+
+    -   **健康不检查健康阈值**：同一LVS节点服务器针对同一ECS服务器，从成功到失败的连续健康检查失败次数。
+
+可选值2-10，默认为3次。
+
+    -   **健康检查健康阈值**：同一LVS节点服务器针对同一ECS服务器，从失败到成功的连续健康检查成功次数。
+
+可选值2-10，默认为3次。 |
+
+8.  单击**确定**。
+
+## 删除转发策略
+
+完成以下操作，删除转发策略：
+
+1.  登录[负载均衡管理控制台](https://slb.console.aliyun.com/slb)。
+2.  选择地域，查看该地域的所有负载均衡实例。
+3.  单击负载均衡实例的ID。
+4.  单击监听页签。
+5.  单击目标七层监听操作列下的**配置转发策略**。
+6.  在转发策略页面的**转发策略列表**区域，单击目标转发策略的**删除**选项。
 
