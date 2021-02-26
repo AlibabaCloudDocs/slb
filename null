@@ -1,70 +1,62 @@
-# Use access logs to find unhealthy backend servers
+# 通过OpenAPI Explorer创建VPC类型实例时指定IP
 
-When the response is delayed, you can view the response time of the SLB instance in the dashboard provided by Log Service. Then you can find unhealthy backend servers.
+使用OpenAPI explorer创建VPC类型负载均衡实例时，支持在负载均衡实例所属交换机支持的网段中，指定其中一个地址作为负载均衡实例的私网IP地址。
 
-This topic describes how to use access logs to rapidly find unhealthy backend servers. For more information, see [Configure access logging]().
+1.  登录[OpenAPI Explorer控制台](https://api.aliyun.com/)。
 
-## Step 1: Configure SLB access logs
+2.  搜索负载均衡产品的CreateLoadBalancer接口。
 
-Before you configure LB access logs, make sure that:
+3.  设置创建负载均衡实例的参数。
 
-1.  A Layer-7 listener is added.
-2.  Log Service is activated.
+    此处设置部分参数作为示例，详细参数说明请参见[创建负载均衡实例]()：
 
-Perform the following operations:
+    -   RegionId：表示负载均衡实例的地域，此处设置为cn-hangzhou。
+    -   VpcId：表示负载均衡实例所属VPC的ID。
 
-1.  Log on to the [Server Load Balancer console](https://slb.console.aliyun.com).
-2.  In the left-side navigation pane, choose **Logs** \> **Access Logs**.
-3.  Select the region for the SLB instance.
-4.  Click **Authorize**, and then click **Confirm Authorization Policy** to allow SLB to write logs to Log Service.
+        此处可登录专有网络VPC控制台，选择华东1（杭州）区域，查看VPC的ID。
 
-    If you log on to the console as a RAM user, you must first use your Alibaba Cloud account to authorize the RAM user. For more information, see [Authorize a RAM user to use access logs]().
+    -   VSwitchId：表示负载均衡所属交换机的ID，如果需要指定负载均衡IP地址，该参数必须要设置。
 
-    **Note:** If you have authorized SLB, skip this step.
+        此处可在专有网络VPC控制台，单击负载均衡实例所属VPC的ID，在网络资源页面下，单击交换机的个数，查看交换机的ID。
 
-5.  On the Access Logs page, find the SLB instance and click **Configure Logging** in the Actions column.
-6.  Configure Project and Logstore and then click **OK**.
+        单击交换机ID，查看交换机的目标网段，如192.168.0.0/24。
 
-    **Note:** Make sure that the name of the Project is globally unique and the region of the Project is the same as that of the SLB instance.
+    -   Address：指定负载均衡实例的私网IP地址，该地址必须包含在交换机的目标网段下，例如192.168.0.3。
+4.  单击**发起调用**。
 
+    返回结果如下：
 
-## Step 2: View access logs
+    -   XML格式
 
-Perform the following operations:
+        ```
+        <?xml version="1.0" encoding="UTF-8" ?>
+            <NetworkType>vpc</NetworkType>
+            <LoadBalancerName>auto_named_slb</LoadBalancerName>
+            <Address>192.168.0.3</Address>
+            <ResourceGroupId>rg-acfmxazb4ph*****</ResourceGroupId>
+            <RequestId>09197EEB-7013-4F56-A5CE-A756FFE5B75D</RequestId>
+            <AddressIPVersion>ipv4</AddressIPVersion>
+            <LoadBalancerId>lb-bp1h66tp5uat84kh******</LoadBalancerId>
+            <VSwitchId>vsw-bp14cagpfysr29fe*****</VSwitchId>
+            <VpcId>vpc-bp18sth14qii3pn*****</VpcId>
+        ```
 
-1.  Go to the log search page. You can go to the search page from the SLB or Log Service console.
-    -   From the SLB console
+    -   JSON格式
 
-        On the Access Logs page, click **View Logs**.
+        ```
+        {
+            "NetworkType": "vpc", 
+            "LoadBalancerName": "auto_named_slb", 
+            "Address": "192.168.0.3", 
+            "ResourceGroupId": "rg-acfmxazb4******", 
+            "RequestId": "09197EEB-7013-4F56-A5CE-A756FFE5B75D", 
+            "AddressIPVersion": "ipv4", 
+            "LoadBalancerId": "lb-bp1h66tp5uat84******", 
+            "VSwitchId": "vsw-bp14cagpfysr29*******", 
+            "VpcId": "vpc-bp18sth14qii3*********"
+        }
+        ```
 
-        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/3291019951/p7479.png)
-
-    -   From the Log Service console
-
-        On the Logstores page, click **Search** of the Logstore.
-
-2.  Click the log field to view detailed information.
-3.  Enter an SQL statement to query specific access logs.
-
-    For example, you can enter the following SQL statement to query the Top20 clients, which is used to analyze the request source and assist business decision-making.
-
-    ```
-    * | select ip_to_province(client_ip) as client_ip_province, count(*) as pv group by
-          client_ip_province order by pv desc limit 50
-    ```
-
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/3291019951/p2494.png)
-
-
-## Step 3: Find unhealthy backend servers
-
-You can find unhealthy backend servers by checking the dashboard of Log Service.
-
-1.  Log on to the [Log Service](https://sls.console.aliyun.com) console and click the project link of the SLB instance.
-2.  In the left-side navigation pane, click ![Dashboard](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9636821161/p229906.png).
-3.  Click the link of the SLB access logs.
-4.  In the dashboard, view the value in the **top upstream response time** tab. You can choose to display the **Average upstream response time \(s\)** in descending order to check if the response time of a backend server is more than one second.
-
-    If the response time is within one second, run the ssh command to log on to the backend server. Check if the CPU utilization is high and handle the issue if yes.
+5.  登录[负载均衡管理控制台](https://slb.console.aliyun.com/slb/cn-hangzhou/slbs)，选择华东1（杭州）区域，查看IP为192.168.0.3的负载均衡实例是否创建成功。
 
 
