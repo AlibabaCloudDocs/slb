@@ -1,110 +1,92 @@
-# Forward requests from the same domain name but different URLs
+# Configure a multi-domain-name HTTPS website on an SLB instance
 
-SLB supports Domain name- and URL-based forwarding rules. You can forward requests from the same domain name but different URLs to separate backend servers. This allows you to optimize load balancing among your server resources.
+This tutorial describes how to add domain name extensions.
 
-**Note:** You can configure forwarding rules only for Layer-7 listeners that use HTTPS or HTTP.
+## Scenario
 
-Four ECSs deployed with NGINX servers are used to demonstrate how to configure forwarding rules specified by domain name and URL. The following table lists the forwarding requirements.
+This tutorial uses a guaranteed-performance SLB instance \(SLB1\) in the China \(Hangzhou\) region as an example. An HTTPS listener is added to the SLB instance. One-way authentication is enabled for the listener. You want to forward requests from the domain name \*.example1.com to the VServer group test1 and forward requests from the domain name www.example2.com to the VServer group test2.
 
-|Frontend request|Forwarded to|
-|:---------------|:-----------|
-|www.aaa.com/tom|Backend servers SLB\_tom1 and SBL\_tom2, which belong to the TOM VServer group|
-|www.aaa.com/jerry|The backend servers SLB\_jerry1 and SBL\_jerry2 belong to the VServer group JERRY|
+To achieve this, follow these steps:
 
-## Domain name- and URL-based forwarding rules
+1.  Add an HTTPS listener.
+2.  Configure forwarding rules.
+3.  Add domain name extensions.
 
-You can configure domain name-based or URL-based forwarding rules for an SLB instance that has Layer-7 listeners to distribute requests from different domain names or URLs to different ECS instances.
+## Prerequisites
 
-URL-based forwarding rules support string matching and the rule with the longest matched prefix is applied. For example, if the two forwarding rules /abc and /abcd are created and a request with the prefix of /abcde is received, the rule /abcd is applied.
+-   Create a guaranteed-performance SLB instance \(SLB1\) in China \(Hangzhou\). For more information, see [Create an SLB instance]().
+-   Upload the certificates required in this tutorial. For more information, see [Certificate overview]().
 
-Domain name-based forwarding rules include exact matching and wildcard matching.
+    -   By default, the listener uses the certificate named default.
+    -   Upload a certificate \(example1\) for domain name \* .example1.com to use.
+    -   Upload a certificate \(example2\) for domain name www.example2.com to use.
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9191019951/p45105.png)
 
--   Exact domain name: www.aliyun.com
--   Wildcard domain name: \*.aliyun.com and \*.market.aliyun.com
 
-    When a request matches multiple forwarding rules, exact matching prevails over wildcard matching, and exact wildcard matching prevails over less exact wildcard matching. The following table shows the priority of Domain name-based forwarding rules.
+## Step 1: Add an HTTPS listener
 
-    |Type|Request URL|Domain name-based forwarding rule|
+To add an HTTPS listener, follow these steps:
+
+1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb).
+2.  In the left-side navigation pane, click **Instances** \> **Server Load Balancer**.
+3.  On the Server Load Balancer page, find the target instance SLB1 and click **Configure Listener** in the **Actions** column.
+
+    If it is the first time you configure the listener, you can also click **Configure** in the **Port/Health Check/Backend Server** column.
+
+4.  Configure the listener.
+
+    The configurations used in this tutorial are as follows. For more information, see [Add an HTTPS listener]().
+
+    -   Mutual authentication: Disable.
+    -   SSL certificate: Select the uploaded server certificate that is named default.
+    -   Backend servers: Create VServer groups test1 and test2.
+
+## Step 2: Configure forwarding rules
+
+To configure forwarding rules, follow these steps:
+
+1.  Click the ID of the instance SLB1.
+2.  On the Listeners tab, find the created HTTPS listener and click **Set Forwarding Rule**.
+3.  On the Add Forwarding Rules page, configure forwarding rules. For more information, see [Forward requests based on domain names or URLs]().
+
+    In this tutorial, domain name-based forwarding rules are configured and URLs are left empty.
+
+    -   Set a rule name. Enter \* .example1.com in the **Domain Name** column, select the VServer group test1, and then click **Add Forwarding Rules**.
+    -   Set a rule name. Enter www.example2.com in the **Domain Name** column, select the VServer group test2, and then click **Add Forwarding Rules**.
+    **Note:** The domain names configured in the forwarding rules must be the same as the domain names added in the certificate and [Step 3: Add domain name extensions]().
+
+
+## Step 3: Add domain name extensions
+
+To add a domain name extension, follow these steps:
+
+1.  Click the ID of the instance SLB1.
+2.  On the Listeners tab, find the created HTTPS listener, choose **More** \> **Manage Additional Certificate**.
+3.  On the Manage Additional Certificate page, click **Add Additional Certificate** to add a domain name extension.
+    -   Enter a domain name. The domain name can only contain letters, digits, hyphens \(-\), or periods \(.\).
+
+        Domain name-based forwarding rules support exact match and wildcard match.
+
+        -   Exact domain name: www.aliyun.com
+        -   Wildcard domain name \(generic domain name\): \*.aliyun.com, \*.market.aliyun.com
+
+            When a request matches multiple forwarding rules, exact match takes precedence over small-scale wildcard match and small-scale wildcard match takes precedence over large-scale wildcard match. The following table shows an example.
+
+            **Note:** In the following table, ✓ means support, and × means nonsupport.
+
+            |Type|Request URL|Domain name based forwarding rule|
 |www.aliyun.com|\*.aliyun.com|\*.market.aliyun.com|
-    |:---|:----------|:--------------------------------|
-    |:-------------|:------------|:-------------------|
-    |Exact matching|www.aliyun.com|✓|×|×|
-    |Exact wildcard matching|market.aliyun.com|×|✓|×|
-    |Less exact wildcard matching|info.market.aliyun.com|×|×|✓|
+            |:---|:----------|:--------------------------------|
+            |:-------------|:------------|:-------------------|
+            |Exact match|www.aliyun.com|✓|×|×|
+            |Wildcard match|market.aliyun.com|×|✓|×|
+            |Wildcard match|info.market.aliyun.com|×|×|✓|
 
+    -   Select the certificate associated with the domain name.
 
-You can add multiple forwarding rules to a listener. Each forwarding rule is associated with a VServer group. A VServer group consists of multiple ECS instances. For example, you can configure a listener to forward read requests to one VServer group and write requests to another VServer group. This allows you to optimize load balancing among your server resources.
+        **Note:** The domain name in the certificate must be the same as the added domain name extension.
 
-After you configure forwarding rules, SLB applies the rules to distribute traffic based on the following models:
+4.  Click **OK**.
 
--   Requests that contain domain names are forwarded based on domain name-based forwarding rules.
-    -   Model 1: If a forwarding rule matches the domain name, the system continues to match the URL.
-
-        If the URL is matched, requests are forwarded to the specified VServer group. If no forwarding rule matches the URL, the requests are forwarded based only on root domain-based forwarding rules that contain only domain names.
-
-        If you do not add root domain-based forwarding rules, the error message 404 is returned to the client.
-
-    -   If no forwarding rule matches the domain name, requests are forwarded in Model 2.
--   Model 2: If the requests do not contain domain names or no forwarding rule matches the domain name, requests are forwarded based on URL-based forwarding rules that contain only URLs.
-
-    If a forwarding rule is matched, requests are forwarded to the VServer group. If no forwarding rule is matched, requests are forwarded to the default VServer group.
-
-
-![Forwarding rules](../images/p102737.png)
-
-## Add URL-based forwarding rules
-
-Before you add URL-based forwarding rules to a listener, make sure that the following requirements are met:
-
-1.  An Internet SLB instance is created. For more information, see [Create an SLB instance]().
-2.  A Layer-7 listener is created. The scheduling algorithm is Round-Robin. For more information, see [Add an HTTP listener]() or [Add an HTTPS listener]().
-3.  Two VServer groups TOM and JERRY are created. For more information, see [Create a vServer group]().
-    -   Servers SLB\_tom1 and SBL\_tom2 are added to the VServer group TOM. The port is set to 80 and the default weight value 100 is used.
-    -   Servers SLB\_jerry1 and SLB\_jerry2 are added to the VServer group JERRY. The port is set to 80 and the default weight value 100 is used.
-
-Perform the following operations:
-
-1.  Log on to the [Server Load Balancer console](https://slb.console.aliyun.com/slb/).
-
-2.  In the top navigation bar, select the region where the SLB instance is deployed.
-
-3.  On the Instances page, click the ID of the SLB instance.
-
-4.  On the Listener tab, find the Layer-7 listener and click **Set Forwarding Rule** in the **Actions** column.
-
-5.  Configure two forwarding rules: forward requests from the www.aaa.com/tom to the TOM VServer group and requests from the www.aaa.com/jerry to the JERRY VServer group.
-
-    ![Configure forwarding rules](../images/p86443.png)
-
-    Configure the following parameters:
-
-    -   **Domain Name**: Enter the domain name to which requests are forwarded. The domain name can only contain letters, digits, hyphens \(-\), and periods \(.\).
-    -   **URL**: Enter the URL to which requests are forwarded. The path must start with a forward slash \(/\), and can only contain letters, numbers, and special characters. Special characters include
-
-        -. /%? \#&
-
-        **Note:** If you only want to configure a URL-based forwarding rule, leave Domain Name empty.
-
-    -   **VServer Group**: Select the VServer Group to be associated with the forwarding rule.
-    -   **Description**: Enter a description.
-    **Note:** For more information about the maximum number of forwarding rules that can be specified for an HTTP or HTTPS listener, see [Limits]().
-
-6.  Click **Add Forwarding Rules**.
-
-7.  Click **OK**.
-
-8.  Test whether the forwarding rules are configured.
-
-    -   Enter www.aaa.com/jerry in the browser and the following result is returned.
-
-        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/4172/15382791923185_en-US.png)
-
-    -   Enter www.aaa.com/tom in the browser and the following result is returned.
-
-        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/4172/15382791923186_en-US.png)
-
-    -   Enter www.aaa.com in the browser and the following result is returned.
-
-        ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/4172/15382791923187_en-US.png)
-
+**Note:** After the configuration is complete, if there is a problem, restart the browser to avoid the impact of the cache on the results.
 
