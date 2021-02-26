@@ -1,92 +1,125 @@
-# Configure a multi-domain-name HTTPS website on an SLB instance
+# How do I obtain real IP addresses of clients?
 
-This tutorial describes how to add domain name extensions.
+Server Load Balancer \(SLB\) supports obtaining real client IP addresses.
 
-## Scenario
+## Overview
 
-This tutorial uses a guaranteed-performance SLB instance \(SLB1\) in the China \(Hangzhou\) region as an example. An HTTPS listener is added to the SLB instance. One-way authentication is enabled for the listener. You want to forward requests from the domain name \*.example1.com to the VServer group test1 and forward requests from the domain name www.example2.com to the VServer group test2.
+Support for obtaining real IP addresses in SLB is enabled by default.
 
-To achieve this, follow these steps:
+-   For layer-4 SLB service \(TCP protocol\), listeners distribute client requests to backend ECS servers without modifying the request headers. Therefore, you can obtain real client IP addresses directly.
+-   For layer-7 SLB service \(HTTP and HTTPS protocols\), you need to configure application servers, and then use the `X-Forwarded-For` header to obtain real IP addresses of clients.
 
-1.  Add an HTTPS listener.
-2.  Configure forwarding rules.
-3.  Add domain name extensions.
+    Real client IP addresses are put in the X-Forwarded-For fields of HTTP headers in the following format:
 
-## Prerequisites
+    ```
+    X-Forwarded-For: the real IP address of the user, the proxy server 1-IP, the proxy server 2-IP, ...
+    ```
 
--   Create a guaranteed-performance SLB instance \(SLB1\) in China \(Hangzhou\). For more information, see [Create an SLB instance]().
--   Upload the certificates required in this tutorial. For more information, see [Certificate overview]().
+    When you use the X-Forwarded-For header to obtain the real IP address of a client, the first IP address obtained is the real IP address.
 
-    -   By default, the listener uses the certificate named default.
-    -   Upload a certificate \(example1\) for domain name \* .example1.com to use.
-    -   Upload a certificate \(example2\) for domain name www.example2.com to use.
-    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/9191019951/p45105.png)
+    **Note:** For the HTTPS SLB service, SSL certificates are configured in frontend listeners, and the backend still uses the HTTP protocol. Therefore, the configurations on application servers for obtaining real client IP addresses are the same for HTTP and HTTPS protocols.
 
 
-## Step 1: Add an HTTPS listener
+## Configure IIS7/IIS8
 
-To add an HTTPS listener, follow these steps:
+1.  [Download](https://img.alicdn.com/tfscom/TB1R64PLVXXXXaaXVXXXXXXXXXX.rar?spm=a2c4g.11186623.2.5.z475ev&file=TB1R64PLVXXXXaaXVXXXXXXXXXX.rar) and extract F5XForwardedFor.
+2.  Copy the F5XFFHttpModule.dll and F5XFFHttpModule.ini files from the x86\\Release or x64\\Release directory \(depending on the operating system version\) of your server to a directory, such as C:\\F5XForwardedFor\\. Make sure that the IIS process has write access to this directory.
+3.  Open **IIS Manager** and double-click the **Modules** function.
 
-1.  Log on to the [SLB console](https://slb.console.aliyun.com/slb).
-2.  In the left-side navigation pane, click **Instances** \> **Server Load Balancer**.
-3.  On the Server Load Balancer page, find the target instance SLB1 and click **Configure Listener** in the **Actions** column.
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1291019951/p3132.png)
 
-    If it is the first time you configure the listener, you can also click **Configure** in the **Port/Health Check/Backend Server** column.
+4.  Click **Configure Native Modules**, and then click **Register** in the displayed dialog box.
 
-4.  Configure the listener.
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1291019951/p3133.png)
 
-    The configurations used in this tutorial are as follows. For more information, see [Add an HTTPS listener]().
+5.  Add the downloaded .dll file.
 
-    -   Mutual authentication: Disable.
-    -   SSL certificate: Select the uploaded server certificate that is named default.
-    -   Backend servers: Create VServer groups test1 and test2.
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2291019951/p3135.png)
 
-## Step 2: Configure forwarding rules
+6.  Add the ISAPI and CGI restrictions for the added files and set the restrictions to Allowed.
 
-To configure forwarding rules, follow these steps:
+    **Note:** Make sure that you have installed the ISAPI and CGI applications.
 
-1.  Click the ID of the instance SLB1.
-2.  On the Listeners tab, find the created HTTPS listener and click **Set Forwarding Rule**.
-3.  On the Add Forwarding Rules page, configure forwarding rules. For more information, see [Forward requests based on domain names or URLs]().
+    ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/2291019951/p3136.png)
 
-    In this tutorial, domain name-based forwarding rules are configured and URLs are left empty.
+7.  Restart IIS Manager.
 
-    -   Set a rule name. Enter \* .example1.com in the **Domain Name** column, select the VServer group test1, and then click **Add Forwarding Rules**.
-    -   Set a rule name. Enter www.example2.com in the **Domain Name** column, select the VServer group test2, and then click **Add Forwarding Rules**.
-    **Note:** The domain names configured in the forwarding rules must be the same as the domain names added in the certificate and [Step 3: Add domain name extensions]().
+## Configure Apache
+
+1.  Run the following command to install the mod\_rpaf module:
+
+    ```
+     wget https://github.com/gnif/mod_rpaf/archive/v0.6.0.tar.gz
+     tar zxvf mod_rpaf-0.6.tar.gz
+     cd mod_rpaf-0.6
+     /alidata/server/httpd/bin/apxs -i -c -n mod_rpaf-2.0.so mod_rpaf-2.0.c
+    ```
+
+2.  Open the /alidata/server/httpd/conf/httpd.conf file and add the following information at the end of the content:
+
+    ```
+     LoadModule rpaf_module modules/mod_rpaf-2.0.so
+     RPAFenable On
+     RPAFsethostname On
+     RPAFproxy_ips  <IP_address>
+     RPAFheader X-Forwarded-For
+    ```
+
+    **Note:** To obtain the IP address of the proxy server, add the CIDR block of the proxy server to `RPAFproxy_ips <IP_address>`, such as the IP address range of SLB 100.64.0.0/10 \(100.64.0.0/10 is reserved by Alibaba Cloud. No other users can use the IP addresses in this CIDR block and therefore no security risks exist.\) and the address range of Anti-DDoS Pro. Separate multiple CIDR blocks by using commas \(,\).
+
+3.  Restart Apache.
+
+    ```
+    /alidata/server/httpd/bin/apachectl restart
+    ```
 
 
-## Step 3: Add domain name extensions
+## Configure Nginx
 
-To add a domain name extension, follow these steps:
+1.  Run the following command to install http\_realip\_module.
 
-1.  Click the ID of the instance SLB1.
-2.  On the Listeners tab, find the created HTTPS listener, choose **More** \> **Manage Additional Certificate**.
-3.  On the Manage Additional Certificate page, click **Add Additional Certificate** to add a domain name extension.
-    -   Enter a domain name. The domain name can only contain letters, digits, hyphens \(-\), or periods \(.\).
+    ```
+     wget http://nginx.org/download/nginx-1.0.12.tar.gz
+     tar zxvf nginx-1.0.12.tar.gz
+     cd nginx-1.0.12
+     ./configure --user=www --group=www --prefix=/alidata/server/nginx --with-http_stub_status_module --without-http-cache --with-http_ssl_module --with-http_realip_module
+     make
+     make install
+     kill -USR2 `cat /alidata/server/nginx/logs/nginx.pid`
+     kill -QUIT `cat /alidata/server/nginx/logs/ nginx.pid.oldbin`
+    ```
 
-        Domain name-based forwarding rules support exact match and wildcard match.
+2.  Open the nginx.conf file.
 
-        -   Exact domain name: www.aliyun.com
-        -   Wildcard domain name \(generic domain name\): \*.aliyun.com, \*.market.aliyun.com
+    ```
+    vi /alidata/server/nginx/conf/nginx.conf
+    ```
 
-            When a request matches multiple forwarding rules, exact match takes precedence over small-scale wildcard match and small-scale wildcard match takes precedence over large-scale wildcard match. The following table shows an example.
+3.  Add new configuration fields and information at the end of the following configuration information:
 
-            **Note:** In the following table, ✓ means support, and × means nonsupport.
+    ```
+     fastcgi connect_timeout 300;
+     fastcgi send_timeout 300;
+     fastcgi read_timeout 300;
+     fastcgi buffer_size 64k;
+     fastcgi buffers 4 64k;
+     fastcgi busy_buffers_size 128k;
+     fastcgi temp_file_write_size 128k;
+    ```
 
-            |Type|Request URL|Domain name based forwarding rule|
-|www.aliyun.com|\*.aliyun.com|\*.market.aliyun.com|
-            |:---|:----------|:--------------------------------|
-            |:-------------|:------------|:-------------------|
-            |Exact match|www.aliyun.com|✓|×|×|
-            |Wildcard match|market.aliyun.com|×|✓|×|
-            |Wildcard match|info.market.aliyun.com|×|×|✓|
+    The configuration fields and information that need to be added are:
 
-    -   Select the certificate associated with the domain name.
+    ```
+     set_real_ip_from IP_address
+     real_ip_header X-Forwarded-For;
+    ```
 
-        **Note:** The domain name in the certificate must be the same as the added domain name extension.
+    **Note:** To obtain the IP address of the proxy server, add the CIDR block of the proxy server to `set_real_ip_from <IP_address>`, such as the IP address range of SLB 100.64.0.0/10 \(100.64.0.0/10 is reserved by Alibaba Cloud. No other users can use the IP addresses in this CIDR block and therefore no security risks exist.\) and the address arrange of Anti-DDos Pro. Separate multiple CIDR blocks by using commas \(,\).
 
-4.  Click **OK**.
+4.  Restart Nginx.
 
-**Note:** After the configuration is complete, if there is a problem, restart the browser to avoid the impact of the cache on the results.
+    ```
+    /alidata/server/nginx/sbin/nginx -s reload
+    ```
+
 
