@@ -18,9 +18,7 @@
  取值：**1**~**65535**。 |
 |LoadBalancerId|String|是|lb-bp1rtfnodmywb43ecu4sf-c\*\*\*\*|负载均衡实例的ID。 |
 |RegionId|String|是|cn-hangzhou|负载均衡实例的地域ID。 |
-|Bandwidth|Integer|否|-1|监听的带宽峰值。
-
- 取值：**-1**或**1**~**5120**。
+|Bandwidth|Integer|否|-1|监听的带宽峰值。取值：
 
  -   **-1**：对于按流量计费的公网负载均衡实例，可以将带宽峰值设置为**-1**，即不限制带宽峰值。
 -   **1**~**5120**（Mbps）： 对于按带宽计费的公网负载均衡实例，可以设置每个监听的带宽峰值，但所有监听的带宽峰值之和不能超过实例的带宽峰值。详情参见[共享实例带宽](~~85930~~)。 |
@@ -45,7 +43,7 @@
  取值：**2**~**10**。 |
 |HealthCheckConnectTimeout|Integer|否|100|接收来自运行状况检查的响应需要等待的时间。如果后端ECS在指定的时间内没有正确响应，则判定为健康检查失败。
 
- 取值：**1**~**300**（秒）。
+ 取值：**1**~**300**秒。
 
  **说明：** 如果**HealthCheckConnectTimeout**的值小于**HealthCheckInterval**的值，则**HealthCheckConnectTimeout**无效，超时时间为**HealthCheckInterval**的值。 |
 |HealthCheckConnectPort|Integer|否|80|健康检查使用的端口。
@@ -53,9 +51,9 @@
  取值：**1**~**65535**。 |
 |HealthCheckInterval|Integer|否|5|健康检查的时间间隔。
 
- 取值：**1**~**50**（秒）。 |
-|healthCheckReq|String|否|hello|UDP监听健康检查的请求串，只允许包含字母、数字字符，最大长度限制为64字符。 |
-|healthCheckExp|String|否|ok|UDP监听健康检查的响应串，只允许包含字母、数字字符，最大长度限制为64字符。 |
+ 取值：**1**~**50**秒。 |
+|healthCheckReq|String|否|hello|UDP监听健康检查的请求串，只允许包含字母、数字，最大长度限制为64个字符。 |
+|healthCheckExp|String|否|ok|UDP监听健康检查的响应串，只允许包含字母、数字，最大长度限制为64个字符。 |
 |VServerGroup|String|否|on|是否使用虚拟服务器组。
 
  取值：**on**或**off**。
