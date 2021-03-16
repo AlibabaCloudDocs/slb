@@ -4,11 +4,15 @@ You can use Cloud Monitor to view the monitoring data of a Server Load Balancer 
 
 1.  Log on to the [SLB console](https://slb.console.aliyun.com).
 
-2.  On the Instances page, select the region in which the SLB instance that you want to view resides.
+2.  Log on to the [SLB console](https://partners-intl.aliyun.com/login-required#/slb).
 
-3.  Find the SLB instance and click the monitoring icon ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1113359951/p7338.png).
+3.  [Log on to the SLB console]().
 
-4.  Select the monitoring metrics that you want to view.
+4.  On the Instances page, select the region in which the SLB instance that you want to view resides.
+
+5.  Find the SLB instance and click the monitoring icon ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1113359951/p7338.png).
+
+6.  Select the monitoring metrics that you want to view.
 
     ![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/en-US/1113359951/p7337.png)
 
@@ -16,7 +20,7 @@ You can use Cloud Monitor to view the monitoring data of a Server Load Balancer 
 
     |Monitoring metric|Description|
     |:----------------|:----------|
-    |**Traffic**|    -   Inbound Traffic: the amount of traffic consumed to access an SLB instance from the Internet.
+    |**Traffic**|    -   Inbound Traffic: the amount of traffic consumed to access an SLB instance.
     -   Outbound Traffic: the amount of traffic consumed by an SLB instance to access the Internet. |
     |**Packets**|    -   Inbound Packets: the number of request packets received per second.
     -   Outbound Packets: the number of response packets sent per second. |
